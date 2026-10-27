@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Service page</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div ref="{{setRoot}}" style="container-type: inline-size; background: #FFFFFF; color: #0F2433; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6">
+
+  <div style="position: sticky; top: 0; z-index: 50">
+    <dc-import name="Header" mobile="{{m}}" open="none" brand="{{brand}}" hint-size="100%,128px"></dc-import>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section style="background: #F4F7F8; border-bottom: 1px solid #D6E0E4">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(20px, 2.4cqi, 28px) clamp(20px, 4cqi, 48px) clamp(48px, 7cqi, 96px)">
+      <nav aria-label="Breadcrumb" style="font-size: 13px; color: #4A5C67; margin-bottom: clamp(24px, 4cqi, 48px)"><a href="Home.dc.html" style="color: #4A5C67">Home</a><span style="margin: 0 8px">/</span><a href="Services.dc.html" style="color: #4A5C67">Services</a><span style="margin: 0 8px">/</span><span aria-current="page" style="color: #0F2433; font-weight: 500">{{name}}</span></nav>
+      <div style="display: flex; flex-wrap: wrap; gap: 40px 64px; align-items: center">
+        <div style="flex: 1 1 480px; min-width: 0">
+          <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: {{brand}}">{{eyebrow}}</div>
+          <h1 style="margin: 16px 0 20px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(40px, 5.2cqi, 72px); line-height: 1.04; letter-spacing: -0.02em">{{h1}}</h1>
+          <p style="margin: 0 0 24px; font-size: clamp(17px, 1.4cqi, 19px); color: #26394A; max-width: 540px">{{lede}}</p>
+          <ul style="list-style: none; margin: 0 0 32px; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 16px">
+            <sc-for list="{{bullets}}" as="t" hint-placeholder-count="3">
+              <li style="display: flex; gap: 10px; align-items: center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{brand}}" stroke-width="2" aria-hidden="true" style="flex: none"><path d="M20 6L9 17l-5-5"></path></svg>{{t}}</li>
+            </sc-for>
+          </ul>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px">
+            <a href="#estimate" style="display: inline-flex; align-items: center; gap: 10px; height: 56px; padding: 0 28px; background: {{brand}}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Get Free Estimate <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+            <a href="tel:+15086852770" style="display: inline-flex; align-items: center; gap: 10px; height: 56px; padding: 0 24px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">(508) 685-2770</a>
+          </div>
+        </div>
+        <div style="flex: 1 1 460px; min-width: 0; position: relative">
+          <img src="{{hero}}" alt="{{heroAlt}}" style="display: block; width: 100%; aspect-ratio: 5 / 4; object-fit: cover; object-position: 50% 45%">
+          <div style="position: absolute; left: 16px; bottom: 16px; padding: 14px 18px; background: rgba(255,255,255,0.86); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.7); display: flex; gap: 14px; align-items: center">
+            <span style="font-family: 'Newsreader', Georgia, serif; font-size: 34px; line-height: 1">1K+</span>
+            <span style="font-size: 13px; color: #4A5C67; line-height: 1.4">projects across<br>Cape Cod &amp; RI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INTRO ===== -->
+  <section>
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 9cqi, 120px) clamp(20px, 4cqi, 48px); display: flex; flex-wrap: wrap; gap: 40px 80px; align-items: flex-start">
+      <div style="flex: 1.4 1 520px; min-width: 0">
+        <h2 style="margin: 0 0 24px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.6cqi, 48px); line-height: 1.15; letter-spacing: -0.01em">{{introH}}</h2>
+        <p style="margin: 0 0 16px; font-size: 18px; color: #26394A">{{introP1}}</p>
+        <p style="margin: 0; color: #4A5C67">{{introP2}}</p>
+      </div>
+      <aside style="flex: 1 1 340px; min-width: 0; border: 1px solid #D6E0E4; padding: 28px">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #4A5C67; margin-bottom: 8px">At a glance</div>
+        <dl style="margin: 0">
+          <sc-for list="{{glance}}" as="g" hint-placeholder-count="4">
+            <div style="display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: {{g.bb}}"><dt style="color: #4A5C67">{{g.k}}</dt><dd style="margin: 0; font-weight: 600; text-align: right">{{g.v}}</dd></div>
+          </sc-for>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===== BENEFITS ===== -->
+  <section style="background: #E4EEF0">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 8cqi, 104px) clamp(20px, 4cqi, 48px)">
+      <h2 style="margin: 0 0 clamp(32px, 4cqi, 48px); font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.6cqi, 48px); line-height: 1.15; letter-spacing: -0.01em">{{benefitsH}}</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: clamp(24px, 3cqi, 40px)">
+        <sc-for list="{{benefits}}" as="b" hint-placeholder-count="4">
+          <div style="display: flex; flex-direction: column; gap: 12px; border-top: 1px solid #0F2433; padding-top: 20px">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="{{brand}}" stroke-width="1.4" aria-hidden="true"><path d="{{b.d}}"></path></svg>
+            <div style="font-size: 18px; font-weight: 600; line-height: 1.3">{{b.title}}</div>
+            <div style="font-size: 15px; color: #4A5C67; line-height: 1.55">{{b.text}}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STYLES & OPTIONS ===== -->
+  <section>
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 9cqi, 120px) clamp(20px, 4cqi, 48px)">
+      <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: {{brand}}">Styles &amp; options</div>
+      <h2 style="margin: 14px 0 clamp(32px, 4cqi, 48px); font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.6cqi, 48px); line-height: 1.15; letter-spacing: -0.01em">{{optionsH}}</h2>
+
+      <h3 style="margin: 0 0 20px; font-size: 19px; font-weight: 600">{{layoutsH}}</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax({{styleMin}}, 1fr)); gap: clamp(12px, 2cqi, 24px); margin-bottom: clamp(48px, 6cqi, 72px)">
+        <sc-for list="{{styles}}" as="s" hint-placeholder-count="6">
+          <div style="display: flex; flex-direction: column; border: 1px solid #D6E0E4; border-radius: 2px">
+            <sc-if value="{{s.hasImg}}" hint-placeholder-val="{{ true }}">
+              <img src="{{s.img}}" alt="{{s.name}}" style="display: block; width: 100%; height: clamp(160px, 20cqi, 260px); object-fit: cover; object-position: 50% 40%">
+            </sc-if>
+            <sc-if value="{{s.noImg}}" hint-placeholder-val="{{ false }}">
+              <span style="display: flex; align-items: center; justify-content: center; width: 100%; height: clamp(160px, 20cqi, 260px); background: #E4EEF0; color: {{brand}}"><svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="{{icon}}"></path></svg></span>
+            </sc-if>
+            <span style="padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 4px">
+              <span style="font-family: 'Newsreader', Georgia, serif; font-size: 22px; font-weight: 500; line-height: 1.2">{{s.name}}</span>
+              <span style="font-size: 14px; color: #4A5C67; line-height: 1.5">{{s.text}}</span>
+            </span>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 48px 64px">
+        <div style="flex: 1 1 420px; min-width: 0">
+          <h3 style="margin: 0 0 20px; font-size: 19px; font-weight: 600">{{glassH}}</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px">
+            <sc-for list="{{glass}}" as="g" hint-placeholder-count="5">
+              <div style="display: flex; flex-direction: column; gap: 8px">
+                <span style="height: 88px; border: 1px solid #C9D6DB; background-color: {{g.fill}}; background-image: {{g.texture}}"></span>
+                <span style="font-size: 15px; font-weight: 600; line-height: 1.3">{{g.name}}</span>
+                <span style="font-size: 13px; color: #4A5C67; line-height: 1.4">{{g.text}}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        <sc-if value="{{hasFin}}" hint-placeholder-val="{{ true }}">
+        <div style="flex: 1 1 420px; min-width: 0">
+          <h3 style="margin: 0 0 20px; font-size: 19px; font-weight: 600">{{finH}}</h3>
+          <div style="display: flex; flex-direction: column; border-top: 1px solid #D6E0E4">
+            <sc-for list="{{finishes}}" as="f" hint-placeholder-count="5">
+              <div style="display: flex; align-items: center; gap: 16px; padding: 12px 0; border-bottom: 1px solid #D6E0E4">
+                <span style="width: 40px; height: 40px; border-radius: 50%; flex: none; background: {{f.hex}}; border: 1px solid rgba(15,36,51,0.15)"></span>
+                <span style="flex: 1; font-size: 16px; font-weight: 500">{{f.name}}</span>
+                <span style="font-size: 13px; color: #4A5C67">{{f.note}}</span>
+              </div>
+            </sc-for>
+          </div>
+          <p style="margin: 16px 0 0; font-size: 14px; color: #4A5C67">{{finNote}}</p>
+        </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECT PHOTOS ===== -->
+  <sc-if value="{{hasPhotos}}" hint-placeholder-val="{{ true }}">
+  <section style="background: #F4F7F8">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 9cqi, 120px) clamp(20px, 4cqi, 48px)">
+      <div style="display: flex; flex-wrap: wrap; gap: 16px 40px; align-items: flex-end; justify-content: space-between; margin-bottom: clamp(28px, 4cqi, 44px)">
+        <div>
+          <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: {{brand}}">{{photosEy}}</div>
+          <h2 style="margin: 14px 0 0; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.6cqi, 48px); line-height: 1.15; letter-spacing: -0.01em">{{photosH}}</h2>
+        </div>
+        <a href="Gallery.dc.html" style="display: inline-flex; align-items: center; gap: 8px; height: 44px; color: {{brand}}; text-decoration: none; font-weight: 600; font-size: 15px; border-bottom: 1px solid currentColor">{{photosLink}}</a>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax({{photoMin}}, 1fr)); gap: clamp(8px, 1.4cqi, 16px)">
+        <sc-for list="{{photos}}" as="p" hint-placeholder-count="4">
+          <a href="Gallery.dc.html" style="display: block; position: relative; aspect-ratio: 3 / 4; overflow: hidden; border-radius: 2px; background-color: {{p.tone}}; background-image: repeating-linear-gradient(118deg, rgba(255,255,255,0) 0 70px, rgba(255,255,255,0.3) 70px 72px); color: #FFFFFF; text-decoration: none">
+            <img src="{{p.img}}" alt="{{p.title}}, {{p.town}}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
+            <span style="position: absolute; left: 10px; right: 10px; bottom: 10px; padding: 10px 12px; background: rgba(15,36,51,0.55); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.25); font-size: 13px"><strong style="display: block; font-size: 14px; font-weight: 600">{{p.title}}</strong>{{p.town}}</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+  </sc-if>
+
+  <!-- ===== PROCESS ===== -->
+  <section>
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 9cqi, 120px) clamp(20px, 4cqi, 48px)">
+      <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: {{brand}}">How it works</div>
+      <h2 style="margin: 14px 0 clamp(32px, 4cqi, 56px); font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.6cqi, 48px); line-height: 1.15; letter-spacing: -0.01em">{{processH}}</h2>
+      <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0">
+        <sc-for list="{{steps}}" as="s" hint-placeholder-count="4">
+          <li style="padding: 28px 28px 28px 0; border-top: 2px solid #0F2433; margin-right: 24px">
+            <div style="font-family: 'Newsreader', Georgia, serif; font-size: 52px; line-height: 1; color: #9C7430; margin-bottom: 18px">{{s.n}}</div>
+            <div style="font-size: 19px; font-weight: 600; margin-bottom: 8px">{{s.title}}</div>
+            <div style="font-size: 15px; color: #4A5C67; line-height: 1.55">{{s.text}}</div>
+          </li>
+        </sc-for>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section style="background: #F4F7F8">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 9cqi, 120px) clamp(20px, 4cqi, 48px); display: flex; flex-wrap: wrap; gap: 32px 80px">
+      <div style="flex: 1 1 300px; min-width: 0">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: {{brand}}">FAQ</div>
+        <h2 style="margin: 14px 0 16px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.6cqi, 48px); line-height: 1.15; letter-spacing: -0.01em">{{faqH}}</h2>
+        <p style="margin: 0 0 20px; color: #4A5C67">Don’t see yours? Orny is happy to talk it through.</p>
+        <a href="tel:+15086852770" style="display: inline-flex; align-items: center; height: 48px; padding: 0 22px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 15px; border-radius: 2px">Call (508) 685-2770</a>
+      </div>
+      <div style="flex: 2 1 520px; min-width: 0; border-top: 1px solid #C9D6DB">
+        <sc-for list="{{faqs}}" as="q" hint-placeholder-count="5">
+          <div style="border-bottom: 1px solid #C9D6DB">
+            <button type="button" onClick="{{q.toggle}}" aria-expanded="{{q.open}}" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 0; background: transparent; border: 0; font: inherit; font-size: 18px; font-weight: 600; color: #0F2433; text-align: left; cursor: pointer">{{q.q}}<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{brand}}" stroke-width="1.8" aria-hidden="true" style="flex: none"><path d="{{q.icon}}"></path></svg></button>
+            <sc-if value="{{q.open}}" hint-placeholder-val="{{ false }}">
+              <p style="margin: 0; padding: 0 40px 24px 0; color: #4A5C67; font-size: 16px; line-height: 1.65">{{q.a}}</p>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RELATED SERVICES ===== -->
+  <section>
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 9cqi, 120px) clamp(20px, 4cqi, 48px)">
+      <h2 style="margin: 0 0 clamp(28px, 4cqi, 44px); font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(30px, 3.2cqi, 40px); line-height: 1.15">Related services</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; background: #D6E0E4; border: 1px solid #D6E0E4">
+        <sc-for list="{{related}}" as="s" hint-placeholder-count="3">
+          <a href="{{s.href}}" style="display: flex; flex-direction: column; gap: 12px; padding: 28px; background: #FFFFFF; color: #0F2433; text-decoration: none">
+            <span style="width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; background: #E4EEF0; color: {{brand}}"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="{{s.d}}"></path></svg></span>
+            <span style="font-size: 19px; font-weight: 600">{{s.name}}</span>
+            <span style="font-size: 15px; color: #4A5C67; line-height: 1.55">{{s.blurb}}</span>
+            <span style="font-size: 14px; font-weight: 600; color: {{brand}}">Learn more →</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ESTIMATE CTA + FORM ===== -->
+  <section id="estimate" style="background: #0F2433; color: #FFFFFF">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 8cqi, 112px) clamp(20px, 4cqi, 48px); display: flex; flex-wrap: wrap; gap: 40px 80px; align-items: center">
+      <div style="flex: 1 1 440px; min-width: 0">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #B9C9D1">Free estimate</div>
+        <h2 style="margin: 14px 0 16px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(34px, 4.2cqi, 56px); line-height: 1.1; letter-spacing: -0.01em">{{ctaH}}</h2>
+        <p style="margin: 0 0 28px; color: #B9C9D1; font-size: 18px">Send a few details and we’ll set up your free on-site consultation.</p>
+        <a href="tel:+15086852770" style="display: inline-flex; align-items: center; gap: 12px; color: #FFFFFF; text-decoration: none"><span style="width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.4)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg></span><span><span style="display: block; font-size: 13px; color: #B9C9D1">Or call us</span><span style="font-family: 'Newsreader', Georgia, serif; font-size: 28px; line-height: 1.1">(508) 685-2770</span></span></a>
+      </div>
+      <form style="flex: 1 1 440px; min-width: 0; box-sizing: border-box; padding: clamp(24px, 3cqi, 36px); background: #FFFFFF; color: #0F2433; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px">
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <label for="s-name" style="font-size: 14px; font-weight: 600">Full name</label>
+          <input id="s-name" type="text" autocomplete="name" style="height: 52px; padding: 0 16px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; color: #0F2433">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <label for="s-phone" style="font-size: 14px; font-weight: 600">Phone</label>
+          <input id="s-phone" type="tel" autocomplete="tel" style="height: 52px; padding: 0 16px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; color: #0F2433">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px; grid-column: 1 / -1">
+          <label for="s-town" style="font-size: 14px; font-weight: 600">Town</label>
+          <select id="s-town" style="height: 52px; padding: 0 14px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; color: #0F2433; background: #FFFFFF"><option>Select your town</option><option>Hyannis</option><option>Chatham</option><option>Falmouth</option></select>
+        </div>
+        <label style="grid-column: 1 / -1; display: flex; gap: 12px; align-items: flex-start; font-size: 12.5px; line-height: 1.5; color: #4A5C67"><input type="checkbox" style="width: 20px; height: 20px; margin: 1px 0 0; flex: none; accent-color: {{brand}}"><span>Text me about my estimate. I agree to receive SMS from The Glass House; msg frequency varies, msg &amp; data rates may apply. Reply STOP to opt out. Consent isn’t required to purchase. <a href="Legal.dc.html" style="color: {{brand}}">Privacy</a></span></label>
+        <button type="submit" style="grid-column: 1 / -1; height: 56px; background: {{brand}}; color: #FFFFFF; border: 0; border-radius: 2px; font: inherit; font-weight: 600; font-size: 16px; cursor: pointer">Request My Free Estimate</button>
+      </form>
+    </div>
+  </section>
+
+  <dc-import name="Footer" mobile="{{m}}" hint-size="100%,860px"></dc-import>
+
+  <sc-if value="{{m}}" hint-placeholder-val="{{ false }}">
+    <div style="position: sticky; bottom: 0; z-index: 60; display: grid; grid-template-columns: 1fr 1.35fr; gap: 8px; padding: 10px 12px 12px; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid #D6E0E4">
+      <a href="tel:+15086852770" style="display: flex; align-items: center; justify-content: center; gap: 8px; height: 52px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg>Call now</a>
+      <a href="#estimate" style="display: flex; align-items: center; justify-content: center; height: 52px; background: {{brand}}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Get Free Estimate</a>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"service":{"editor":"enum","default":"shower","options":["shower","mirrors","railings","storefronts","entrances","partitions","windows","winecellars","countertops","canopies","shelves","fireplace"]},"mobile":{"editor":"boolean","default":false},"brand":{"editor":"color","default":"#1E5873","options":["#1E5873","#2B6E8F","#123B5C","#2F6B69"]},"$preview":{"width":1440,"height":7200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.state || {};
+    const brand = this.props.brand ?? '#1E5873';
+    const m = !!this.props.mobile || !!st.narrow;
+    if (!this._setRoot) {
+      this._setRoot = (el) => {
+        if (!el || this._ro || typeof ResizeObserver === 'undefined') return;
+        this._ro = new ResizeObserver((es) => {
+          const n = es0.contentRect.width < 760;
+          if (n !== !!(this.state || {}).narrow) this.setState({ narrow: n });
+        });
+        this._ro.observe(el);
+      };
+    }
+    const B = '/images/';
+    const I = {
+      measure: 'M3 21l6-6M14 4l6 6-11 11H3v-6zM12 6l6 6',
+      shield: 'M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6zM9 12l2 2 4-4',
+      drop: 'M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z',
+      sun: 'M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z',
+      eye: 'M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12zM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z',
+      wave: 'M2 15c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2M2 19c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2M12 3v7M9 7l3 3 3-3',
+      lock: 'M5 11h14v10H5zM8 11V7a4 4 0 0 1 8 0v4',
+      therm: 'M14 14.8V4a2 2 0 0 0-4 0v10.8a4 4 0 1 0 4 0z',
+      store: 'M3 9l2-5h14l2 5M4 9v11h16V9M9 20v-6h6v6M3 9h18',
+      sparkle: 'M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8zM19 16l.8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8z',
+      tool: 'M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z',
+      layers: 'M12 3l9 5-9 5-9-5zM3 13l9 5 9-5'
+    };
+    const SW = {
+      clear: { name: 'Clear', text: 'Standard, with a slight green edge.', fill: '#E3EEEA', texture: 'none' },
+      lowiron: { name: 'Low-iron', text: 'Ultra-clear, no green tint.', fill: '#F4F9FA', texture: 'none' },
+      etched: { name: 'Acid-etched', text: 'Frosted privacy, soft light.', fill: '#E8ECEE', texture: 'radial-gradient(rgba(15,36,51,0.06) 1px, transparent 1px)' },
+      rain: { name: 'Rain', text: 'Textured, obscures view.', fill: '#E6EEF0', texture: 'repeating-linear-gradient(90deg, rgba(15,36,51,0.06) 0 2px, transparent 2px 7px)' },
+      gray: { name: 'Gray tint', text: 'Moody, modern privacy.', fill: '#C7CCCF', texture: 'none' },
+      bronze: { name: 'Bronze tint', text: 'Warm tone, cuts glare.', fill: '#C9B9A3', texture: 'none' },
+      laminated: { name: 'Laminated', text: 'Holds together if broken.', fill: '#E6F0EE', texture: 'linear-gradient(180deg, transparent 47%, rgba(15,36,51,0.08) 47% 53%, transparent 53%)' },
+      tempered: { name: 'Tempered', text: 'Safety glass, 4–5× stronger.', fill: '#E3EEEA', texture: 'none' },
+      igu: { name: 'Insulated (IGU)', text: 'Two panes, sealed air gap.', fill: '#E8F1F1', texture: 'linear-gradient(90deg, transparent 44%, rgba(15,36,51,0.1) 44% 46%, transparent 46% 54%, rgba(15,36,51,0.1) 54% 56%, transparent 56%)' },
+      lowe: { name: 'Low-E coated', text: 'Keeps heat where you want it.', fill: '#E2ECEF', texture: 'linear-gradient(135deg, rgba(120,170,190,0.18), transparent 60%)' },
+      silver: { name: 'Clear mirror', text: 'Bright, true reflection.', fill: '#DDE4E7', texture: 'linear-gradient(120deg, rgba(255,255,255,0.7) 0 18%, transparent 18% 40%, rgba(255,255,255,0.45) 40% 48%, transparent 48%)' },
+      antique: { name: 'Antique mirror', text: 'Aged, mottled character.', fill: '#C8C1B0', texture: 'radial-gradient(rgba(60,45,30,0.18) 2px, transparent 3px)' },
+      graym: { name: 'Gray mirror', text: 'Soft, smoky reflection.', fill: '#A9B0B4', texture: 'linear-gradient(120deg, rgba(255,255,255,0.35) 0 18%, transparent 18%)' },
+      bronzem: { name: 'Bronze mirror', text: 'Warm, vintage reflection.', fill: '#B59F84', texture: 'linear-gradient(120deg, rgba(255,255,255,0.3) 0 18%, transparent 18%)' },
+      backpaint: { name: 'Back-painted', text: 'Any color, glossy finish.', fill: '#BFD6D3', texture: 'none' },
+      thick: { name: 'Thick clear', text: 'Heavy 1/2″–3/4″ slabs.', fill: '#CFE3DD', texture: 'linear-gradient(90deg, rgba(60,120,100,0.22) 0 6%, transparent 6%)' },
+      ceramic: { name: 'Ceramic glass', text: 'Rated for high heat.', fill: '#E9E6DE', texture: 'none' },
+      frosted: { name: 'Frosted', text: 'Soft, diffused look.', fill: '#E8ECEE', texture: 'radial-gradient(rgba(15,36,51,0.06) 1px, transparent 1px)' }
+    };
+    const HW = [
+      { name: 'Polished chrome', note: 'Most popular', hex: '#C9CED2' },
+      { name: 'Brushed nickel', note: '', hex: '#B5B1A8' },
+      { name: 'Matte black', note: '', hex: '#232527' },
+      { name: 'Satin brass', note: '', hex: '#B89B5E' },
+      { name: 'Oil-rubbed bronze', note: '', hex: '#4A3A2E' }
+    ];
+    const ALU = [
+      { name: 'Clear anodized', note: 'Most common', hex: '#C4C8CA' },
+      { name: 'Dark bronze anodized', note: '', hex: '#4A3A2E' },
+      { name: 'Black anodized', note: '', hex: '#232527' },
+      { name: 'Painted to match', note: 'Custom color', hex: '#E9E6DE' }
+    ];
+    const STEPS = {
+      shower: 'finished shower', mirrors: 'mirror on the wall', railings: 'finished railing', storefronts: 'finished storefront', entrances: 'working entrance', partitions: 'finished glass wall', windows: 'clear new glass', winecellars: 'finished wine room', countertops: 'finished glass top', canopies: 'finished canopy', shelves: 'shelves in place', fireplace: 'finished fireplace screen'
+    };
+    const REL = {
+      shower: { name: 'Shower Enclosures', file: 'Service.dc.html', d: 'M4 3h16v18H4zM12 3v18M14.5 11v2', blurb: 'Frameless, semi-frameless and sliding glass, cut to fit.' },
+      mirrors: { name: 'Custom Mirrors', file: 'Service-Mirrors.dc.html', d: 'M12 3c3.9 0 7 3.6 7 8s-3.1 8-7 8-7-3.6-7-8 3.1-8 7-8zM9 21h6M9.5 8.5l3-2.5', blurb: 'Vanity, gym and feature-wall mirrors with custom edges.' },
+      railings: { name: 'Glass Railings', file: 'Service-Railings.dc.html', d: 'M3 6h18M3 6v13M21 6v13M3 19h18M9 6v13M15 6v13', blurb: 'Stair, deck and pool railings that keep the view.' },
+      storefronts: { name: 'Glass Storefronts', file: 'Service-Storefronts.dc.html', d: 'M3 9l2-5h14l2 5M4 9v11h16V9M9 20v-6h6v6M3 9h18', blurb: 'Storefront glass and framing for shops and offices.' },
+      entrances: { name: 'Front Entrances', file: 'Service-Entrances.dc.html', d: 'M6 21V3h12v18M3 21h18M14.5 12h.5', blurb: 'All-glass entrances, doors and hardware.' },
+      partitions: { name: 'Wall Partitions', file: 'Service-Partitions.dc.html', d: 'M3 4h18M3 20h18M7 4v16M12 4v16M17 4v16', blurb: 'Glass walls that share light between spaces.' },
+      windows: { name: 'Glass Windows', file: 'Service-Windows.dc.html', d: 'M4 4h16v16H4zM12 4v16M4 12h16', blurb: 'Replacement panes, insulated units, custom shapes.' },
+      winecellars: { name: 'Wine Cellars', file: 'Service-WineCellars.dc.html', d: 'M10 2h4M10.5 2v5L8 10v11h8V10l-2.5-3V2M8 14h8', blurb: 'Glass walls and doors to show off the collection.' },
+      countertops: { name: 'Glass Countertops', file: 'Service-Countertops.dc.html', d: 'M2 9h20v3H2zM4 12v9M20 12v9', blurb: 'Tabletops and counter surfaces, cut to fit.' },
+      canopies: { name: 'Canopies & Skylights', file: 'Service-Canopies.dc.html', d: 'M3 10l9-6 9 6zM6 10v10M18 10v10M3 20h18', blurb: 'Overhead glass that brings in daylight.' },
+      shelves: { name: 'Glass Shelves', file: 'Service-Shelves.dc.html', d: 'M3 7h18M3 13h18M3 19h18M5 7v2M19 7v2', blurb: 'Floating shelves for niches, bars and displays.' },
+      fireplace: { name: 'Fireplace Screens', file: 'Service-Fireplace.dc.html', d: 'M3 4h18v17H3zM6 21V9h12v12M12 18c-1.7 0-3-1.2-3-2.8 0-1.8 3-3 3-5 1 1.4 3 2.9 3 5 0 1.6-1.3 2.8-3 2.8z', blurb: 'Clean glass fronts for fireplaces.' }
+    };
+    const S = {
+      shower: {
+        eyebrow: 'Shower enclosures · Cape Cod', h1: 'Frameless glass showers, made to measure.',
+        lede: 'Custom-cut shower glass for Cape Cod homes, measured on site and installed by our own team in Hyannis.',
+        bullets: ['Free on-site design consultation & measure', 'Tempered safety glass, 3/8″ or 1/2″ thick', 'Installed by our own licensed, insured team'],
+        hero: 'frameless-glass-shower-with-marble-look-tile-and-built-in.webp', heroAlt: 'Frameless glass shower with marble-look tile, built-in bench and lit niche',
+        introH: 'Glass that fits your bathroom, not the other way around.',
+        introP1: 'Older Cape homes rarely have perfectly square walls. That’s why every enclosure we build starts with a precise on-site measure, then is cut and fitted to your exact opening.',
+        introP2: 'Whether it’s a primary-bath remodel, a guest-cottage refresh or a builder’s new construction, we help you choose the right layout, glass and hardware, and handle everything through installation.',
+        glance: [['Glass thickness', '3/8″ · 1/2″'], ['Typical lead time', '3–4 weeks'], ['Consultation', 'Free, on site'], ['Service area', 'Cape Cod, SE MA, RI']],
+        benefitsH: 'Why go frameless',
+        benefits: [['Made to measure', 'Cut to your exact opening, even when walls aren’t square.', 'measure'], ['Thick tempered glass', 'Safety-rated glass that feels solid every time you open the door.', 'shield'], ['Easier to clean', 'Fewer metal tracks and seams means fewer places for buildup.', 'drop'], ['More light, more space', 'Clear glass lets tile and daylight carry through the whole room.', 'sun']],
+        optionsH: 'Choose your layout, glass & hardware', layoutsH: 'Layouts',
+        styles: [['Frameless hinged', 'Heavy glass, minimal hardware, cleanest look.', 'off-cape.webp'], ['Fit around a knee wall', 'Glass shaped around half walls, ledges and slopes.', 'shower-door-configurations-compared-the-4-types-of-shower.webp'], ['Sliding / bypass', 'Ideal over tubs and where door swing is tight.', 'what-does-a-wet-room-add-to-a-remodel-budget.webp'], ['Black grid', 'Industrial steel-look grid, sliding or hinged.', 'low-iron-glass-hard-water-stains-maintenance-differences.webp'], ['Bench & corner seat', 'Glass cut around built-in benches and seats.', 'structural-blocking-for-curbless-walk-in-showers-wet-rooms.webp'], ['Tub enclosure', 'Hinged glass doors over a tub or whirlpool.', 'wet-room-waterproofing-membrane-systems-explained.webp']],
+        glassH: 'Glass types', glass: ['clear', 'lowiron', 'etched', 'rain', 'gray'],
+        finH: 'Hardware finishes', fin: HW, finNote: 'Hinges, clamps, handles and towel bars matched to your faucet finish. See samples at the Hyannis shop.',
+        photosEy: 'Recent shower projects', photosH: 'Installed across the Cape', photosLink: 'See all shower projects',
+        photos: [['Black grid bypass shower', 'Portsmouth, RI', 'semi-frameless-vs-framed-shower-doors-which-fits-your-cape.webp'], ['Shower around a knee wall', 'Centerville, MA', 'glass-wine-room-bar-top.webp'], ['Marble shower, lit niche', 'Cape Cod', 'shower-enclosure.webp'], ['Corner shower, brass hinges', 'Cape Cod', 'why-wall-anchoring-matters-how-much-weight-can-a-wall-stud.webp']],
+        faqH: 'Shower glass questions',
+        faqs: [['How much does a frameless shower enclosure cost?', 'It depends on the size of the opening, glass thickness and type, and hardware. After a free on-site measure you get a written quote with no surprises. Most shower enclosures fall between $1,200 and $3,500+.'], ['How long does it take from measure to install?', 'Typically 3–4 weeks from final measure, since every panel is custom-cut. The installation itself usually takes one to two days.'], ['Do you work with builders and remodelers?', 'Yes. Many of our clients are Cape builders and contractors. We coordinate with your schedule and take the final measure once tile is complete.'], ['What is the difference between frameless and semi-frameless?', 'Frameless uses thicker glass held by minimal hinges and clamps for the cleanest look. Semi-frameless adds slim metal framing around the perimeter, often a lower-cost option.'], ['How do I keep shower glass clear in a coastal home?', 'A quick squeegee after each shower and a gentle, non-abrasive cleaner go a long way. Ask us about protective glass coatings that make hard water and salt residue easier to wipe off.']],
+        related: ['mirrors', 'shelves', 'partitions'], ctaH: 'Ready for a new shower?'
+      },
+      mirrors: {
+        eyebrow: 'Custom mirrors · Cape Cod', h1: 'Mirrors cut to fit the wall you have.',
+        lede: 'Vanity, gym and full-wall mirrors, measured on site, edged in our Hyannis shop and hung by our own team.',
+        bullets: ['Free on-site measure & design advice', 'Any size or shape, with polished or beveled edges', 'Safe, secure mounting by our own installers'],
+        hero: 'off-cape-2.webp', heroAlt: 'Wall-to-wall vanity mirror over a double sink',
+        introH: 'The easiest way to make a room feel bigger and brighter.',
+        introP1: 'A custom mirror bounces daylight around the room and fills the wall edge to edge, without the gaps you get from off-the-shelf sizes.',
+        introP2: 'We cut around outlets, lights and medicine cabinets, match the edge or frame to your style, and handle everything from bathrooms and powder rooms to home gyms and dance studios.',
+        glance: [['Mirror thickness', '1/4″ standard'], ['Typical lead time', '3–4 weeks'], ['Consultation', 'Free, on site'], ['Service area', 'Cape Cod, SE MA, RI']],
+        benefitsH: 'Why go custom',
+        benefits: [['Sized to the inch', 'Fills the wall exactly, even around outlets and fixtures.', 'measure'], ['More light', 'Reflects windows and fixtures to brighten small rooms.', 'sun'], ['Finished edges', 'Polished, beveled or framed — no raw cut edges.', 'sparkle'], ['Securely mounted', 'Clips, channels or adhesive chosen for the wall and size.', 'shield']],
+        optionsH: 'Choose your mirror, glass & edge', layoutsH: 'Popular projects',
+        styles: [['Vanity mirrors', 'Over single or double sinks, wall to wall.', 'glass-railing-home-office.webp'], ['Gym & studio walls', 'Floor-to-ceiling panels for workouts and dance.', 'glass-shelves-for-cabinets-a-stylish-way-to-display-and.webp'], ['Full mirror walls', 'Make a narrow room feel twice the size.', 'harwich-area-hero.webp'], ['Framed mirrors', 'Your mirror in a frame that matches the room.', 'frameless-shower-door-grey-tile.webp'], ['Antique mirror', 'Aged glass for backsplashes and accent walls.', 'mashpee-area-hero.webp'], ['Pivot & specialty', 'Tilting, round and custom-shape mirrors.', 'black-grid-bypass-shower.webp']],
+        glassH: 'Mirror types', glass: ['silver', 'antique', 'graym', 'bronzem'],
+        finH: 'Edges & frames', fin: [{ name: 'Flat polished edge', note: 'Clean & modern', hex: '#DDE4E7' }, { name: 'Beveled edge', note: 'Classic', hex: '#CBD5D9' }, { name: 'Pencil-polished edge', note: '', hex: '#E6ECEE' }, { name: 'Metal or wood frame', note: 'Custom', hex: '#B89B5E' }],
+        finNote: 'Bring a photo of your vanity or a sample of your trim and we’ll help you choose.',
+        photosEy: 'Recent mirror projects', photosH: 'Installed across the Cape', photosLink: 'See all mirror projects',
+        photos: [['Framed double-vanity mirrors', 'Cape Cod', 'black-grid-sliding-shower-door.webp'], ['Double-vanity mirror install', 'Cape Cod', 'knee-wall-shower-black-hardware.webp'], ['Home gym mirror wall', 'Cape Cod', 'frameless-shower-grey-subway-tile.webp'], ['Beveled frame mirror, powder room', 'Cape Cod', 'framed-or-frameless-how-to-choose-the-right-glass-windows.webp']],
+        faqH: 'Mirror questions',
+        faqs: [['How much does a custom mirror cost?', 'Price depends on size, mirror type, edge work and any cutouts. After a free measure you get a written quote. Most vanity, gym and accent mirrors fall between $300 and $1,500+.'], ['Can you cut around outlets and light fixtures?', 'Yes. We measure every outlet, switch and fixture on site and cut the openings in the shop so the mirror sits flat and tight.'], ['How are large mirrors hung safely?', 'We pick the mounting to suit the wall and the size — mirror clips, J-channel or mirror mastic — and install it ourselves.'], ['Do you install gym and studio mirror walls?', 'Yes, for home gyms, studios and fitness businesses. We plan the panel layout so seams line up and the wall reads as one surface.'], ['Can you replace an old builder-grade mirror?', 'Yes. We remove the old mirror, repair the mounting area if needed and install the new one in the same visit.']],
+        related: ['shower', 'shelves', 'partitions'], ctaH: 'Ready for a new mirror?'
+      },
+      railings: {
+        eyebrow: 'Glass railings · Cape Cod', h1: 'Glass railings that keep the view.',
+        lede: 'Stair, deck, balcony and pool railings in tempered glass, measured on site and installed by our own team.',
+        bullets: ['Free on-site consultation & measure', 'Tempered or laminated safety glass', 'Installed by our own licensed, insured team'],
+        hero: 'glass-storefront-installation-guide-for-cape-cod-businesses.webp', heroAlt: 'Frameless glass stair railing in a Hyannis home',
+        introH: 'Safety without blocking the water, the light or the room.',
+        introP1: 'On the Cape, the view is the point. Glass railings meet the safety requirement while keeping sightlines open on decks, stairs and lofts.',
+        introP2: 'We help you choose the mounting system, glass and hardware for your space, coordinate with your builder, and install everything ourselves.',
+        glance: [['Glass', 'Tempered or laminated'], ['Typical lead time', '3–4 weeks'], ['Consultation', 'Free, on site'], ['Service area', 'Cape Cod, SE MA, RI']],
+        benefitsH: 'Why choose glass railings',
+        benefits: [['Unbroken views', 'No pickets or cables between you and the water.', 'eye'], ['Built for the coast', 'Glass and stainless hardware that stand up to salt air.', 'wave'], ['Safety rated', 'Tempered or laminated glass for code-compliant guards.', 'shield'], ['Light all the way through', 'Stairwells and lofts feel open instead of boxed in.', 'sun']],
+        optionsH: 'Choose your location, glass & hardware', layoutsH: 'Where we install',
+        styles: [['Interior stairs', 'Clean glass guards along stairs and landings.', 'tub-enclosure-with-brass-hinges.webp'], ['Waterfront decks', 'Keep the view from the deck or patio.', 'orleans-area-hero.webp'], ['Lofts & balconies', 'Open upper floors without a heavy rail.', 'rain-glass-bypass-rolling-hardware.webp'], ['Pool & patio', 'Glass pool fencing and patio guards.', 'how-to-design-a-stunning-bathroom-with-a-walk-in-shower.webp']],
+        glassH: 'Glass types', glass: ['tempered', 'laminated', 'lowiron', 'etched'],
+        finH: 'Hardware finishes', fin: [{ name: 'Brushed stainless', note: 'Best for coastal', hex: '#B9BEC1' }, { name: 'Polished stainless', note: '', hex: '#CFD4D7' }, { name: 'Matte black', note: '', hex: '#232527' }, { name: 'Wood or metal top rail', note: 'Optional', hex: '#A57C52' }],
+        finNote: 'Base shoe, standoff posts or clamps — we’ll recommend the right system for your deck or stair.',
+        photosEy: 'Recent railing projects', photosH: 'Installed across the Cape', photosLink: 'See all railing projects',
+        photos: [['Glass deck railing over a pool', 'Cape Cod', 'architectural-glass-railing.webp'], ['Standoff stair & landing railing', 'Massachusetts', 'eastham-area-hero.webp'], ['Glass balcony railings', 'Massachusetts', 'off-cape-3.webp'], ['Stair railing, black handrail', 'Massachusetts', 'rooftop-glass-railing.webp'], ['Rooftop glass railing', 'Commercial', 'loft-railing-black-top-rail.webp'], ['Loft railing, black top rail', 'Massachusetts', 'frameless-stair-railing.webp'], ['Frameless stair railing', 'Massachusetts', 'terrace-glass-balustrade.webp'], ['Waterfront room with glass railing', 'Cape Cod waterfront', 'waterfront-room-with-sliding-glass-and-a-frameless-glass.webp']],
+        faqH: 'Glass railing questions',
+        faqs: [['How much do glass railings cost?', 'Cost depends on length, height, mounting system and glass type. After a free measure you get a written quote. Most projects run $250–$600+ per linear foot.'], ['Are glass railings safe and up to code?', 'Yes. We use tempered or laminated safety glass and hardware sized for guard loads, installed to meet local building code.'], ['Will salt air damage the hardware?', 'We recommend marine-grade stainless hardware for waterfront homes. A quick rinse and wipe a few times a season keeps it looking new.'], ['Do you work with builders and deck contractors?', 'Yes. We coordinate with your builder so blocking and mounting points are ready before we measure.'], ['How do I keep the glass clean outdoors?', 'A hose rinse and a squeegee handle most salt and pollen. Ask us about protective glass coatings that make cleaning easier.']],
+        related: ['windows', 'partitions', 'canopies'], ctaH: 'Ready for a clear view?'
+      },
+      storefronts: {
+        eyebrow: 'Glass storefronts · Commercial', h1: 'Storefront glass that brings people in.',
+        lede: 'Storefront glass, framing and repairs for shops, restaurants and offices across Cape Cod and Southeastern Massachusetts.',
+        bullets: ['Free on-site consultation & measure', 'Tempered and insulated glass options', 'Scheduled around your business hours'],
+        hero: 'providence-area-hero.webp', heroAlt: 'Point-supported glass storefront with spider fittings',
+        introH: 'Your storefront is your first impression.',
+        introP1: 'Clear, well-fitted glass makes a business look open and inviting from the street, and lets daylight into the space.',
+        introP2: 'From new construction and full storefront systems to replacing a single cracked pane, we handle the measure, glass and installation, and work around your opening hours.',
+        glance: [['Glass', 'Tempered · insulated'], ['Typical lead time', '3–4 weeks'], ['Consultation', 'Free, on site'], ['Service area', 'Cape Cod, SE MA, RI']],
+        benefitsH: 'Why work with us',
+        benefits: [['Curb appeal', 'Clean sightlines that put your business on display.', 'store'], ['Safety glass', 'Tempered and laminated options where code requires.', 'shield'], ['Energy savings', 'Insulated and Low-E glass to cut heating and cooling loss.', 'therm'], ['Minimal downtime', 'We schedule installs around your hours.', 'tool']],
+        optionsH: 'Choose your system, glass & finish', layoutsH: 'Storefront systems',
+        styles: [['Point-supported glass', 'Spider fittings for an all-glass look.', 'brewster-area-hero.webp'], ['Aluminum storefront', 'Framed windows and doors, the commercial standard.', 'install-mirrors-for-a-touch-of-luxury-in-your-home.webp'], ['Standoff glass', 'Glass panels mounted on stainless standoffs.', 'rhodeisland-area-hero.webp'], ['Entrance doors', 'Storefront doors, closers and hardware.', 'retail-storefront-windows.webp']],
+        glassH: 'Glass types', glass: ['tempered', 'igu', 'lowe', 'laminated', 'gray'],
+        finH: 'Frame finishes', fin: ALU, finNote: 'We can match existing framing when replacing or extending a storefront.',
+        photosEy: 'Recent commercial projects', photosH: 'Shops & offices we’ve glazed', photosLink: 'See all storefront projects',
+        photos: [['Aluminum entrance doors & transoms', 'Massachusetts', 'glass-storefronts-the-secret-to-modern-inviting-retail.webp'], ['Glass entrance canopy', 'Cape Cod', 'wellfleet-area-hero.webp']],
+        faqH: 'Storefront questions',
+        faqs: [['How much does storefront glass cost?', 'It depends on the size of the openings, the framing system and the glass. After a free site visit you get a written quote.'], ['Can you replace one broken pane?', 'Yes. We measure, board up if needed and replace the pane with matching glass, as soon as the new glass is ready.'], ['Do you work with general contractors?', 'Yes. We work with GCs and property managers on new builds and fit-outs and follow your schedule.'], ['Can you install outside business hours?', 'Yes. We plan installs to keep your business open where possible.'], ['What glass should I use for a storefront?', 'Most storefronts use tempered or insulated glass. We’ll recommend Low-E or tinted glass if your windows get strong sun.']],
+        related: ['entrances', 'canopies', 'windows'], ctaH: 'Ready to upgrade your storefront?'
+      },
+      entrances: {
+        eyebrow: 'Front entrances · Commercial & residential', h1: 'Glass entrances that open the door to business.',
+        lede: 'Glass entrance doors, frames and hardware, measured, supplied and installed by our own team.',
+        bullets: ['Free on-site consultation & measure', 'Tempered safety glass and commercial hardware', 'Repairs, replacements and new installs'],
+        hero: 'glass-storefronts-the-secret-to-modern-inviting-retail.webp', heroAlt: 'Aluminum glass entrance doors with transom windows',
+        introH: 'A welcoming entrance that works every day.',
+        introP1: 'Your entrance takes more wear than any other glass on the building. We build it to look clean and keep working, with the right doors, closers and hardware.',
+        introP2: 'Whether you need a new all-glass entrance, a storefront door package or a repair to a door that won’t close right, we measure, supply and install it.',
+        glance: [['Glass', 'Tempered safety glass'], ['Typical lead time', '3–4 weeks'], ['Consultation', 'Free, on site'], ['Service area', 'Cape Cod, SE MA, RI']],
+        benefitsH: 'Why upgrade your entrance',
+        benefits: [['First impressions', 'A bright, clear entry that invites people in.', 'store'], ['Secure hardware', 'Commercial locks, closers and pulls.', 'lock'], ['Safety glass', 'Tempered glass throughout.', 'shield'], ['Built to last', 'Doors and hardware sized for daily traffic.', 'tool']],
+        optionsH: 'Choose your door, glass & finish', layoutsH: 'Entrance types',
+        styles: [['Aluminum storefront doors', 'Narrow or wide stile doors with transoms.', 'retail-storefront-windows.webp'], ['All-glass entrances', 'Frameless glass doors and side panels.', 'brewster-area-hero.webp'], ['Entrance canopies', 'Glass overhead protection at the door.', 'wellfleet-area-hero.webp'], ['Hardware & repairs', 'Closers, pivots, locks and pull handles.', '']],
+        glassH: 'Glass types', glass: ['tempered', 'igu', 'laminated', 'lowiron'],
+        finH: 'Frame & hardware finishes', fin: ALU, finNote: 'Pull handles, push bars and locks matched to the frame finish.',
+        photosEy: 'Recent entrance projects', photosH: 'Entrances we’ve installed', photosLink: 'See all entrance projects',
+        photos: [['Glass entry vestibule, fitness club', 'Commercial', 'glass-wine-room-lounge-bar.webp'], ['Spider-fitting glass storefront', 'Cape Cod', 'providence-area-hero.webp'], ['Retail storefront windows', 'Massachusetts', 'install-mirrors-for-a-touch-of-luxury-in-your-home.webp']],
+        faqH: 'Entrance questions',
+        faqs: [['How much does a new glass entrance cost?', 'It depends on the door type, size and hardware. After a free site visit you get a written quote.'], ['Can you fix a door that won’t close properly?', 'Often, yes. Many problems come from a worn closer or pivot, which we can adjust or replace.'], ['Do you install residential glass entry doors?', 'Yes. We install glass entry doors and sidelights for homes as well as businesses.'], ['How long does installation take?', 'Most entrance installs take one to two days once materials arrive.'], ['Can the new doors match my existing storefront?', 'Yes. We match frame profiles and finishes wherever possible.']],
+        related: ['storefronts', 'canopies', 'partitions'], ctaH: 'Ready for a new entrance?'
+      },
+      partitions: {
+        eyebrow: 'Glass wall partitions · Cape Cod', h1: 'Glass walls that share the light.',
+        lede: 'Glass partitions and doors for homes, offices and restaurants, measured on site and installed by our own team.',
+        bullets: ['Free on-site consultation & measure', 'Clear, frosted or tinted tempered glass', 'Installed by our own licensed, insured team'],
+        hero: 'glass-stair-partition.webp', heroAlt: 'Glass partition doors beside a glass stair railing',
+        introH: 'Divide the space without closing it in.',
+        introP1: 'A glass partition separates a room while letting daylight and views pass through, so spaces feel connected instead of chopped up.',
+        introP2: 'We design partitions for home offices, wine rooms, conference rooms and dining areas, with doors, privacy glass and hardware to suit.',
+        glance: [['Glass thickness', '3/8″ · 1/2″'], ['Typical lead time', '3–4 weeks'], ['Consultation', 'Free, on site'], ['Service area', 'Cape Cod, SE MA, RI']],
+        benefitsH: 'Why glass partitions',
+        benefits: [['More daylight', 'Light reaches rooms that used to be dark.', 'sun'], ['Privacy when you want it', 'Frosted or etched glass where you need it.', 'eye'], ['Quieter spaces', 'Cuts noise between rooms.', 'layers'], ['Made to measure', 'Fitted to your exact opening.', 'measure']],
+        optionsH: 'Choose your layout, glass & hardware', layoutsH: 'Where we install',
+        styles: [['Offices & conference rooms', 'Glass walls and doors for workspaces.', 'boston-area-hero.webp'], ['Wine & dining rooms', 'Show off a collection or a private room.', 'custom-glass-shower-doors-enclosures-the-complete-guide.webp'], ['Lofts & stair walls', 'Glass that keeps upper floors open.', 'rain-glass-bypass-rolling-hardware.webp'], ['Sliding glass doors', 'Space-saving doors between rooms.', 'orleans-area-hero.webp']],
+        glassH: 'Glass types', glass: ['clear', 'lowiron', 'etched', 'gray', 'laminated'],
+        finH: 'Hardware finishes', fin: HW, finNote: 'Door pulls, hinges and channels matched to the room. See samples at the Hyannis shop.',
+        photosEy: 'Recent partition projects', photosH: 'Installed across the Cape', photosLink: 'See all partition projects',
+        photos: [['Glass lounge room, fitness club', 'Commercial', 'glass-dining-dividers-restaurant.webp'], ['Glass dining dividers, restaurant', 'Commercial', 'glass-counter-partitions-retail-shop.webp'], ['Glass counter partitions, retail shop', 'Commercial', 'glass-entry-vestibule-fitness-club.webp'], ['Glass wine room & bar top', 'Commercial', 'framed-vanity-mirror.webp']],
+        faqH: 'Partition questions',
+        faqs: [['How much does a glass partition cost?', 'It depends on the size, glass type and whether it includes a door. After a free measure you get a written quote. Most glass wine cellars and partitions run $3,500–$9,000+.'], ['Can a glass wall include a door?', 'Yes. Hinged, pivot and sliding glass doors can all be built into a partition.'], ['Can I get privacy with a glass wall?', 'Yes. Acid-etched, frosted or tinted glass gives privacy while still letting light through.'], ['Do glass partitions need framing?', 'Not always. Many are frameless with slim channels at the floor and ceiling. We’ll recommend the best option for your space.'], ['Do you work in offices and restaurants?', 'Yes. We install partitions in homes and commercial spaces and work around your schedule.']],
+        related: ['winecellars', 'railings', 'shower'], ctaH: 'Ready to open up your space?'
+      },
+      windows: {
+        eyebrow: 'Glass windows · Cape Cod', h1: 'Window glass, replaced and made to fit.',
+        lede: 'Replacement panes, insulated glass units and custom-shaped glass for homes and businesses across the Cape.',
+        bullets: ['Free on-site consultation & measure', 'Insulated, Low-E and tempered options', 'Foggy and broken glass replaced'],
+        hero: 'glass-repair-in-providence-ri.webp', heroAlt: 'Waterfront kitchen with floor-to-ceiling glass windows',
+        introH: 'Clear glass, comfortable rooms.',
+        introP1: 'Foggy, cracked or drafty glass doesn’t always mean new windows. In many cases we can replace just the glass and keep your existing frames.',
+        introP2: 'We measure on site, make the new glass to fit and install it, from a single pane to whole sunrooms and custom shapes.',
+        glance: [['Glass', 'Insulated · Low-E'], ['Typical lead time', '3–4 weeks'], ['Consultation', 'Free, on site'], ['Service area', 'Cape Cod, SE MA, RI']],
+        benefitsH: 'Why replace the glass',
+        benefits: [['Clear again', 'Fogged insulated units replaced with new, sealed glass.', 'eye'], ['Better efficiency', 'Low-E insulated glass keeps rooms comfortable.', 'therm'], ['Keep your frames', 'Often just the glass needs replacing, not the whole window.', 'tool'], ['Any shape', 'Arches, triangles and custom sizes cut to fit.', 'measure']],
+        optionsH: 'Choose your project & glass', layoutsH: 'What we do',
+        styles: [['Foggy & broken glass', 'New insulated units for existing frames.', ''], ['Sunrooms & skylights', 'Glass for sunrooms and overhead panels.', 'custom-glass-sunroom-with-skylights-overlooking-a-cape-cod.webp'], ['Picture & floor-to-ceiling', 'Large panes for big views.', 'waterfront-room-with-sliding-glass-and-a-frameless-glass.webp'], ['Sliding door glass', 'Replacement glass for patio doors.', 'orleans-area-hero.webp']],
+        glassH: 'Glass types', glass: ['igu', 'lowe', 'tempered', 'laminated', 'etched'],
+        finH: '', fin: [], finNote: '',
+        photosEy: 'Recent window projects', photosH: 'Installed across the Cape', photosLink: 'See all window projects',
+        photos: [['Retail storefront windows', 'Massachusetts', 'install-mirrors-for-a-touch-of-luxury-in-your-home.webp']],
+        faqH: 'Window glass questions',
+        faqs: [['How much does window glass replacement cost?', 'It depends on size, glass type and access. After a free measure you get a written quote.'], ['Why is my window foggy between the panes?', 'The seal on the insulated unit has failed. We replace the sealed unit and you keep your existing frame.'], ['Can you replace glass in any window?', 'Most wood, vinyl and aluminum windows, yes. We’ll check on the visit.'], ['What is Low-E glass?', 'Glass with a thin coating that reflects heat, keeping rooms warmer in winter and cooler in summer.'], ['Do you do emergency board-ups?', 'Call us. We’ll assess the damage and replace the glass as soon as the new piece is ready.']],
+        related: ['canopies', 'storefronts', 'railings'], ctaH: 'Ready for clear glass?'
+      },
+      winecellars: {
+        eyebrow: 'Glass wine cellars · Cape Cod', h1: 'Glass wine rooms worth showing off.',
+        lede: 'Glass walls and doors for wine cellars and wine rooms, built for homes and restaurants by our own team.',
+        bullets: ['Free on-site consultation & measure', 'Insulated glass options for cooled rooms', 'Installed by our own licensed, insured team'],
+        hero: 'wall-to-wall-vanity-mirror.webp', heroAlt: 'Glass wine display with pull handles',
+        introH: 'Keep the collection cool, and in view.',
+        introP1: 'A glass wine room turns storage into a feature. The bottles stay at temperature while guests can see the collection from the room.',
+        introP2: 'We work with your cellar builder or cooling contractor on glass, doors, seals and hardware, and install everything ourselves.',
+        glance: [['Glass', 'Insulated · tempered'], ['Typical lead time', '3–4 weeks'], ['Consultation', 'Free, on site'], ['Service area', 'Cape Cod, SE MA, RI']],
+        benefitsH: 'Why a glass wine room',
+        benefits: [['Show the collection', 'Bottles become part of the room’s design.', 'eye'], ['Holds temperature', 'Insulated glass and sealed doors for cooled rooms.', 'therm'], ['Secure', 'Lockable glass doors.', 'lock'], ['Made to measure', 'Fits niches, under-stair spaces and full rooms.', 'measure']],
+        optionsH: 'Choose your layout, glass & hardware', layoutsH: 'Wine room types',
+        styles: [['Glass wine walls', 'A full glass wall into the cellar.', 'custom-glass-shower-doors-enclosures-the-complete-guide.webp'], ['Restaurant wine rooms', 'Display wine in a dining room or bar.', 'framed-vanity-mirror.webp'], ['Under-stair & niche cellars', 'Small spaces turned into wine storage.', ''], ['Glass cellar doors', 'Hinged or pivot doors with seals.', '']],
+        glassH: 'Glass types', glass: ['igu', 'lowiron', 'lowe', 'tempered'],
+        finH: 'Hardware finishes', fin: HW, finNote: 'Pull handles, hinges and locks matched to the room.',
+        photosEy: 'Recent wine room projects', photosH: 'Wine rooms we’ve built', photosLink: 'See all wine cellar projects', photos: [['Glass wine room & lounge bar', 'Commercial', 'are-glass-kitchen-countertops-durable-here-s-what-you-need.webp'], ['Glass wine room & bar top', 'Commercial', 'framed-vanity-mirror.webp']],
+        faqH: 'Wine cellar questions',
+        faqs: [['How much does a glass wine room cost?', 'It depends on size, glass type and doors. After a free measure you get a written quote. Most glass wine cellars and partitions run $3,500–$9,000+.'], ['Will glass keep my wine room cold?', 'Insulated glass and sealed doors help the room hold temperature. We coordinate with your cooling contractor on the right glass.'], ['Can a wine room door lock?', 'Yes. We offer locking glass door hardware.'], ['Do you build the racks too?', 'We focus on the glass, doors and hardware and work with your rack supplier.'], ['Do you do restaurant wine rooms?', 'Yes. We’ve built glass wine rooms for commercial dining spaces.']],
+        related: ['partitions', 'countertops', 'shelves'], ctaH: 'Ready to show off your collection?'
+      },
+      countertops: {
+        eyebrow: 'Glass countertops · Cape Cod', h1: 'Glass countertops and tabletops, cut to fit.',
+        lede: 'Custom glass tops for kitchen islands, bars, desks and tables, templated on site and finished in our shop.',
+        bullets: ['Free on-site consultation & template', 'Thick clear, low-iron and back-painted glass', 'Polished edges and custom shapes'],
+        hero: 'wine-cellar-glass-enclosure-ideas-and-costs.webp', heroAlt: 'Glass tabletop on a kitchen island',
+        introH: 'A surface that’s easy to clean and easy to love.',
+        introP1: 'Glass is non-porous, so it won’t stain or harbor bacteria, and it lets the color or wood beneath it show through.',
+        introP2: 'We template the exact shape, cut and polish the edges, and install the top — from protective table covers to thick bar tops.',
+        glance: [['Glass thickness', '1/4″ – 3/4″'], ['Typical lead time', '3–4 weeks'], ['Consultation', 'Free, on site'], ['Service area', 'Cape Cod, SE MA, RI']],
+        benefitsH: 'Why glass tops',
+        benefits: [['Won’t stain', 'Non-porous and easy to wipe clean.', 'drop'], ['Protects wood', 'Covers tables and islands without hiding them.', 'shield'], ['Any shape', 'Templated to curves, corners and cutouts.', 'measure'], ['Polished edges', 'Smooth, safe, finished edges.', 'sparkle']],
+        optionsH: 'Choose your top, glass & edge', layoutsH: 'What we make',
+        styles: [['Island tabletops', 'Glass over islands and counters.', 'frameless-shower-white-subway-tile.webp'], ['Bar tops', 'Thick glass bar and counter surfaces.', 'lit-glass-bar-shelving.webp'], ['Textured & art glass', 'Cast glass with color and texture.', 'textured-glass-bar-counter.webp'], ['Thick glass islands', 'Heavy textured glass on kitchen islands.', 'glass-island-with-integrated-sink.webp']],
+        glassH: 'Glass types', glass: ['clear', 'lowiron', 'thick', 'backpaint', 'frosted'],
+        finH: 'Edge profiles', fin: [{ name: 'Flat polished', note: 'Most popular', hex: '#DDE4E7' }, { name: 'Pencil polished', note: 'Rounded', hex: '#E6ECEE' }, { name: 'Beveled', note: '', hex: '#CBD5D9' }, { name: 'Seamed', note: 'For under-mount', hex: '#D3DCDF' }],
+        finNote: 'Bring a template, a drawing or a photo of your table and we’ll take it from there.',
+        photosEy: 'Recent countertop projects', photosH: 'Installed across the Cape', photosLink: 'See all countertop projects',
+        photos: [['Lit glass kitchen island', 'Residential', 'glass-for-stairs-railing-a-sleek-upgrade-for-modern-homes.webp'], ['Curved glass breakfast bar', 'Residential', 'art-glass-island-top.webp'], ['Art glass island top', 'Residential', 'countertops-tabletops.webp'], ['Textured glass bar counter', 'Residential', 'thick-glass-island-top.webp'], ['Glass island with integrated sink', 'Residential', 'lit-glass-kitchen-island.webp'], ['Glass bar shelves & counter', 'Cape Cod', 'why-a-glass-canopy-is-the-perfect-blend-of-style-and.webp']],
+        faqH: 'Countertop questions',
+        faqs: [['How much does a glass countertop cost?', 'It depends on size, thickness, glass type and edge work. After a free template you get a written quote.'], ['Will a glass counter scratch?', 'Glass is very hard, but it can scratch from grit or ceramics. Cutting boards and coasters keep it looking new.'], ['Can you match an odd shape?', 'Yes. We template on site so curves, corners and cutouts fit exactly.'], ['What is back-painted glass?', 'Glass painted on the underside so the color shows through a glossy surface. Any color can be matched.'], ['How thick should a glass top be?', 'Table covers are usually 1/4″; standalone tops and bar tops are thicker. We’ll recommend the right thickness for the use.']],
+        related: ['shelves', 'winecellars', 'mirrors'], ctaH: 'Ready for a glass top?'
+      },
+      canopies: {
+        eyebrow: 'Canopies & skylights · Cape Cod', h1: 'Overhead glass that brings in daylight.',
+        lede: 'Glass canopies, skylights and sunroom roofs, measured and installed by our own team.',
+        bullets: ['Free on-site consultation & measure', 'Laminated safety glass overhead', 'Installed by our own licensed, insured team'],
+        hero: 'falmouth-area-hero.webp', heroAlt: 'Glass canopy over a walkway',
+        introH: 'Shelter from the weather, without losing the sky.',
+        introP1: 'A glass canopy protects an entrance or walkway from rain and snow while keeping it bright. Skylights pull daylight deep into a room.',
+        introP2: 'We use laminated safety glass for overhead installs and work with your builder on structure and flashing.',
+        glance: [['Glass', 'Laminated safety glass'], ['Typical lead time', '3–4 weeks'], ['Consultation', 'Free, on site'], ['Service area', 'Cape Cod, SE MA, RI']],
+        benefitsH: 'Why overhead glass',
+        benefits: [['Natural light', 'Brightens entries, walkways and rooms.', 'sun'], ['Weather protection', 'Keeps rain and snow off the door.', 'drop'], ['Safety glass', 'Laminated glass holds together overhead.', 'shield'], ['Clean design', 'Minimal hardware, maximum sky.', 'sparkle']],
+        optionsH: 'Choose your project & glass', layoutsH: 'What we install',
+        styles: [['Entrance canopies', 'Glass shelter over front doors.', 'wellfleet-area-hero.webp'], ['Walkway canopies', 'Covered walkways that stay bright.', 'falmouth-area-hero.webp'], ['Skylights & sunroom roofs', 'Overhead glass for rooms.', 'custom-glass-sunroom-with-skylights-overlooking-a-cape-cod.webp']],
+        glassH: 'Glass types', glass: ['laminated', 'lowe', 'frosted', 'gray'],
+        finH: 'Hardware finishes', fin: [{ name: 'Brushed stainless', note: 'Best for coastal', hex: '#B9BEC1' }, { name: 'Matte black', note: '', hex: '#232527' }, { name: 'Painted to match', note: 'Custom color', hex: '#E9E6DE' }],
+        finNote: 'Brackets, rods and fittings sized for the span and snow load.',
+        photosEy: '', photosH: '', photosLink: '', photos: [],
+        faqH: 'Canopy & skylight questions',
+        faqs: [['How much does a glass canopy cost?', 'It depends on size, glass and support system. After a free site visit you get a written quote.'], ['Is overhead glass safe?', 'We use laminated safety glass overhead, which holds together if it breaks.'], ['Will it hold snow?', 'Glass and supports are sized for the span and expected snow load.'], ['Can you replace glass in an existing skylight?', 'Yes, in most cases. We’ll check the frame on the visit.'], ['Do canopies need a permit?', 'It depends on the town and the project. We’ll help you with what’s needed.']],
+        related: ['entrances', 'windows', 'storefronts'], ctaH: 'Ready to bring in the light?'
+      },
+      shelves: {
+        eyebrow: 'Glass shelves · Cape Cod', h1: 'Floating glass shelves, cut to fit.',
+        lede: 'Glass shelving for bars, kitchens, bathrooms and displays, measured on site and installed by our own team.',
+        bullets: ['Free on-site consultation & measure', 'Clear, low-iron and frosted glass', 'Polished edges and matching brackets'],
+        hero: 'bent-glass-screen-marble-fireplace.webp', heroAlt: 'Lit glass bar shelving with glassware and bottles',
+        introH: 'Display more, without visual clutter.',
+        introP1: 'Glass shelves hold glassware, bottles and decor while letting light pass through, so a wall feels open instead of heavy.',
+        introP2: 'We size the glass thickness to the span and load, polish every edge and install with brackets or hidden supports.',
+        glance: [['Glass thickness', '3/8″ · 1/2″'], ['Typical lead time', '3–4 weeks'], ['Consultation', 'Free, on site'], ['Service area', 'Cape Cod, SE MA, RI']],
+        benefitsH: 'Why glass shelves',
+        benefits: [['Light passes through', 'Keeps bars and niches bright.', 'sun'], ['Strong & tempered', 'Thickness matched to span and load.', 'shield'], ['Easy to clean', 'Wipes clean in seconds.', 'drop'], ['Made to measure', 'Fits niches and walls exactly.', 'measure']],
+        optionsH: 'Choose your shelf, glass & brackets', layoutsH: 'Where we install',
+        styles: [['Home bars', 'Floating shelves for bottles and glassware.', 'why-a-glass-canopy-is-the-perfect-blend-of-style-and.webp'], ['Kitchen open shelving', 'Glass shelves for dishes and display.', 'glass-bar-top-shelves.webp'], ['Bathroom & shower niches', 'Small shelves for niches and vanities.', ''], ['Retail & display', 'Glass shelving for shops and showcases.', '']],
+        glassH: 'Glass types', glass: ['clear', 'lowiron', 'frosted', 'thick'],
+        finH: 'Bracket finishes', fin: HW, finNote: 'Brackets, clips and standards matched to your fixtures.',
+        photosEy: 'Recent shelving projects', photosH: 'Installed across the Cape', photosLink: 'See all shelving projects',
+        photos: [['Glass bar top & shelves', 'Cape Cod', 'lit-glass-bar-shelving.webp']],
+        faqH: 'Glass shelf questions',
+        faqs: [['How much do glass shelves cost?', 'It depends on size, thickness and brackets. After a free measure you get a written quote.'], ['How much weight can a glass shelf hold?', 'It depends on thickness, span and support. We size each shelf for what it will hold.'], ['Can shelves be lit?', 'Yes. We can work with your electrician on lighting above or behind the shelves.'], ['Can you replace a broken shelf?', 'Yes. Bring the old shelf or its measurements and we’ll cut a new one.'], ['Do you do retail display shelves?', 'Yes, for shops and showrooms.']],
+        related: ['countertops', 'mirrors', 'winecellars'], ctaH: 'Ready for new shelves?'
+      },
+      fireplace: {
+        eyebrow: 'Fireplace screens · Cape Cod', h1: 'Glass fireplace screens, made to fit.',
+        lede: 'Custom glass screens and surrounds for fireplaces and fire pits, measured on site and installed by our own team.',
+        bullets: ['Free on-site consultation & measure', 'Tempered and heat-rated glass', 'Freestanding or fixed to the hearth'],
+        hero: 'sandwich-area-hero.webp', heroAlt: 'Glass fireplace surround on a stone hearth',
+        introH: 'See the fire, keep the sparks in.',
+        introP1: 'A glass screen keeps sparks and embers off the floor while letting the fire stay the focal point of the room.',
+        introP2: 'We measure your opening, recommend the right glass for the heat, and fit screens to stone, brick and marble fireplaces — indoors and out.',
+        glance: [['Glass', 'Tempered · ceramic'], ['Typical lead time', '3–4 weeks'], ['Consultation', 'Free, on site'], ['Service area', 'Cape Cod, SE MA, RI']],
+        benefitsH: 'Why a glass screen',
+        benefits: [['See the fire', 'No mesh between you and the flames.', 'eye'], ['Sparks stay in', 'Protects floors, rugs and kids.', 'shield'], ['Heat-rated glass', 'Glass chosen for the fireplace type.', 'therm'], ['Made to measure', 'Fits the opening exactly.', 'measure']],
+        optionsH: 'Choose your screen & glass', layoutsH: 'Screen styles',
+        styles: [['Bent-glass freestanding', 'A curved glass screen on simple feet.', 'truro-area-hero.webp'], ['Corner & multi-sided', 'Glass on two or three sides.', 'bourne-area-hero.webp'], ['Outdoor fire pit guards', 'Glass wind guards for fire pits.', 'chatham-area-hero.webp'], ['Fixed front panels', 'Glass fixed to the fireplace opening.', '']],
+        glassH: 'Glass types', glass: ['tempered', 'ceramic', 'lowiron'],
+        finH: 'Hardware finishes', fin: HW, finNote: 'Feet, clips and handles matched to your fireplace tools.',
+        photosEy: '', photosH: '', photosLink: '', photos: [],
+        faqH: 'Fireplace screen questions',
+        faqs: [['How much does a glass fireplace screen cost?', 'It depends on size, shape and glass type. After a free measure you get a written quote.'], ['Can glass handle the heat of a fireplace?', 'Yes, with the right glass. We recommend tempered or ceramic glass depending on the fireplace and how close the glass sits to the fire.'], ['Do you make screens for outdoor fire pits?', 'Yes. Glass wind guards for gas fire pits are a popular project on the Cape.'], ['How do I clean a glass screen?', 'Once it’s cool, use a non-abrasive glass cleaner.'], ['Can you fit an unusual fireplace?', 'Yes. We measure on site and cut the glass to your opening, including corner and multi-sided fireplaces.']],
+        related: ['mirrors', 'countertops', 'shelves'], ctaH: 'Ready for a glass fireplace screen?'
+      }
+    };
+    const key = S[this.props.service] ? this.props.service : 'shower';
+    const c = S[key];
+    const openFaq = st.faq !== undefined ? st.faq : 0;
+    return {
+      brand: brand,
+      m: m,
+      setRoot: this._setRoot,
+      styleMin: m ? '150px' : '220px',
+      photoMin: m ? '150px' : '220px',
+      name: REL[key].name,
+      icon: REL[key].d,
+      eyebrow: c.eyebrow, h1: c.h1, lede: c.lede, bullets: c.bullets,
+      hero: B + c.hero, heroAlt: c.heroAlt,
+      introH: c.introH, introP1: c.introP1, introP2: c.introP2,
+      glance: c.glance.map((g, i) => ({ k: g[0], v: g[1], bb: i < c.glance.length - 1 ? '1px solid #D6E0E4' : '0' })),
+      benefitsH: c.benefitsH,
+      benefits: c.benefits.map((b) => ({ title: b[0], text: b[1], d: I[b[2]] })),
+      optionsH: c.optionsH, layoutsH: c.layoutsH,
+      styles: c.styles.map((x) => ({ name: x[0], text: x[1], img: x[2] ? B + x[2] : '', hasImg: !!x[2], noImg: !x[2] })),
+      glassH: c.glassH, glass: c.glass.map((g) => SW[g]),
+      hasFin: c.fin.length > 0, finH: c.finH, finishes: c.fin, finNote: c.finNote,
+      hasPhotos: c.photos.length > 0, photosEy: c.photosEy, photosH: c.photosH, photosLink: c.photosLink,
+      photos: c.photos.map((p) => ({ title: p[0], town: p[1], img: B + p[2], tone: '#A6BAC2' })),
+      processH: 'From first call to ' + STEPS[key],
+      faqH: c.faqH,
+      faqs: c.faqs.map((f, i) => ({
+        q: f[0], a: f[1],
+        open: openFaq === i,
+        icon: openFaq === i ? 'M5 12h14' : 'M12 5v14M5 12h14',
+        toggle: () => this.setState({ faq: openFaq === i ? -1 : i })
+      })),
+      steps: [
+        { n: '01', title: 'Free consultation', text: 'Call or send the form. We visit and talk through layout, glass and hardware.' },
+        { n: '02', title: 'Precise measure', text: 'Exact measurements on site, so every piece fits tight.' },
+        { n: '03', title: 'Custom fabrication', text: 'Your glass is cut, edged and tempered to spec.' },
+        { n: '04', title: 'Professional install', text: 'Our team installs, seals and cleans up.' }
+      ],
+      related: c.related.map((k) => ({ name: REL[k].name, blurb: REL[k].blurb, d: REL[k].d, href: REL[k].file })),
+      ctaH: c.ctaH
+    };
+  }
+  componentWillUnmount() { if (this._ro) this._ro.disconnect(); }
+}
+</script>
+</body>
+</html>

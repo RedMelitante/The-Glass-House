@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Areas We Serve — The Glass House</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div ref="{{setRoot}}" style="container-type: inline-size; background: #FFFFFF; color: #0F2433; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6">
+
+  <div style="position: sticky; top: 0; z-index: 50">
+    <dc-import name="Header" mobile="{{m}}" open="none" brand="{{brand}}" hint-size="100%,128px"></dc-import>
+  </div>
+
+  <!-- HERO + MAP -->
+  <section style="background: #F4F7F8; border-bottom: 1px solid #D6E0E4">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(20px, 2.4cqi, 28px) clamp(20px, 4cqi, 48px) clamp(48px, 6cqi, 80px)">
+      <nav aria-label="Breadcrumb" style="font-size: 13px; color: #4A5C67; margin-bottom: clamp(24px, 4cqi, 48px)"><a href="Home.dc.html" style="color: #4A5C67">Home</a><span style="margin: 0 8px">/</span><span aria-current="page" style="color: #0F2433; font-weight: 500">Areas we serve</span></nav>
+      <div style="display: flex; flex-wrap: wrap; gap: 32px 64px; align-items: center">
+        <div style="flex: 1 1 420px; min-width: 0">
+          <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: {{brand}}">Areas we serve · 19 towns</div>
+          <h1 style="margin: 14px 0 16px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(40px, 5.2cqi, 68px); line-height: 1.04; letter-spacing: -0.02em">From the Canal to Provincetown, and over the bridge</h1>
+          <p style="margin: 0 0 24px; font-size: 18px; color: #26394A">Based in Hyannis and serving all of Barnstable County, Southeastern Massachusetts and select areas of Rhode Island.</p>
+          <label for="town-search" style="display: block; font-size: 14px; font-weight: 600; margin-bottom: 6px">Find your town</label>
+          <div style="display: flex; gap: 8px; max-width: 460px">
+            <input id="town-search" type="search" placeholder="e.g. Wellfleet" style="flex: 1; min-width: 0; height: 52px; padding: 0 16px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; background: #FFFFFF">
+            <button type="button" style="height: 52px; padding: 0 20px; background: #0F2433; color: #FFFFFF; border: 0; border-radius: 2px; font: inherit; font-weight: 600; cursor: pointer">Search</button>
+          </div>
+        </div>
+        <div style="flex: 1.2 1 460px; min-width: 0; height: clamp(300px, 34cqi, 440px); position: relative; background-color: #E4EEF0; background-image: linear-gradient(0deg, rgba(255,255,255,0.9) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,0.9) 2px, transparent 2px); background-size: 64px 64px; border: 1px solid #D6E0E4">
+          <sc-for list="{{pins}}" as="p" hint-placeholder-count="8">
+            <span style="position: absolute; left: {{p.x}}; top: {{p.y}}; display: flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; white-space: nowrap"><span style="width: 10px; height: 10px; border-radius: 50%; background: {{p.dot}}; border: 2px solid #FFFFFF"></span>{{p.name}}</span>
+          </sc-for>
+          <span style="position: absolute; left: 12px; bottom: 10px; font-size: 11px; color: #4A5C67">Interactive service-area map (Google Maps)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGIONS -->
+  <section>
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(56px, 8cqi, 104px) clamp(20px, 4cqi, 48px); display: flex; flex-direction: column; gap: clamp(40px, 5cqi, 64px)">
+      <sc-for list="{{regions}}" as="r" hint-placeholder-count="5">
+        <div style="display: flex; flex-wrap: wrap; gap: 20px 48px">
+          <div style="flex: 0 1 260px; min-width: 0">
+            <h2 style="margin: 0 0 6px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(28px, 2.8cqi, 36px); line-height: 1.15">{{r.name}}</h2>
+            <p style="margin: 0; font-size: 15px; color: #4A5C67">{{r.note}}</p>
+          </div>
+          <div style="flex: 1 1 520px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax({{townMin}}, 1fr)); gap: 12px">
+            <sc-for list="{{r.towns}}" as="t" hint-placeholder-count="4">
+              <a href="{{t.href}}" style="display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 18px 18px; border: 1px solid #D6E0E4; border-radius: 2px; color: #0F2433; text-decoration: none; background: #FFFFFF">
+                <span style="font-family: 'Newsreader', Georgia, serif; font-size: 22px; font-weight: 500">{{t.name}}</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{brand}}" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+              </a>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+      <div style="padding: 24px 28px; border: 1px dashed #8FA3AD; display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between">
+        <span style="font-size: 17px"><strong style="font-weight: 600">Don’t see your town?</strong> <span style="color: #4A5C67">We often travel for the right project. Just ask.</span></span>
+        <a href="tel:+15086852770" style="display: inline-flex; align-items: center; height: 48px; padding: 0 22px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 15px; border-radius: 2px">Call (508) 685-2770</a>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="CtaBand" heading="Wherever you are on the Cape, we’ll come to you." sub="Free on-site consultations and estimates." hint-size="100%,320px"></dc-import>
+  <dc-import name="Footer" mobile="{{m}}" hint-size="100%,860px"></dc-import>
+
+  <sc-if value="{{m}}" hint-placeholder-val="{{ false }}">
+    <div style="position: sticky; bottom: 0; z-index: 60; display: grid; grid-template-columns: 1fr 1.35fr; gap: 8px; padding: 10px 12px 12px; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid #D6E0E4">
+      <a href="tel:+15086852770" style="display: flex; align-items: center; justify-content: center; height: 52px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Call now</a>
+      <a href="Estimate.dc.html" style="display: flex; align-items: center; justify-content: center; height: 52px; background: {{brand}}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Get Free Estimate</a>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mobile":{"editor":"boolean","default":false},"brand":{"editor":"color","default":"#1E5873","options":["#1E5873","#2B6E8F","#123B5C","#2F6B69"]},"$preview":{"width":1440,"height":4000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.state || {};
+    const brand = this.props.brand ?? '#1E5873';
+    const m = !!this.props.mobile || !!st.narrow;
+    if (!this._setRoot) {
+      this._setRoot = (el) => {
+        if (!el || this._ro || typeof ResizeObserver === 'undefined') return;
+        this._ro = new ResizeObserver((es) => {
+          const n = es[0].contentRect.width < 760;
+          if (n !== !!(this.state || {}).narrow) this.setState({ narrow: n });
+        });
+        this._ro.observe(el);
+      };
+    }
+    const AH = {'Chatham': 'Area.dc.html', 'Hyannis': 'Area-Hyannis.dc.html', 'Barnstable': 'Area-Barnstable.dc.html', 'Yarmouth': 'Area-Yarmouth.dc.html', 'Dennis': 'Area-Dennis.dc.html', 'Bourne': 'Area-Bourne.dc.html', 'Sandwich': 'Area-Sandwich.dc.html', 'Falmouth': 'Area-Falmouth.dc.html', 'Mashpee': 'Area-Mashpee.dc.html', 'Brewster': 'Area-Brewster.dc.html', 'Harwich': 'Area-Harwich.dc.html', 'Orleans': 'Area-Orleans.dc.html', 'Eastham': 'Area-Eastham.dc.html', 'Wellfleet': 'Area-Wellfleet.dc.html', 'Truro': 'Area-Truro.dc.html', 'Provincetown': 'Area-Provincetown.dc.html', 'Boston': 'Area-Boston.dc.html', 'Rhode Island': 'Area-RhodeIsland.dc.html', 'Providence': 'Area-Providence.dc.html', 'Providence, RI': 'Area-Providence.dc.html'};
+    const t = (names) => names.map((n) => ({ name: n, href: AH[n] || '#' }));
+    return {
+      brand: brand,
+      m: m,
+      setRoot: this._setRoot,
+      townMin: m ? '140px' : '200px',
+      pins: [
+        { name: 'Bourne', x: '10%', y: '34%', dot: '#0F2433' },
+        { name: 'Sandwich', x: '22%', y: '28%', dot: '#0F2433' },
+        { name: 'Falmouth', x: '12%', y: '70%', dot: '#0F2433' },
+        { name: 'Hyannis (shop)', x: '38%', y: '58%', dot: brand },
+        { name: 'Dennis', x: '52%', y: '48%', dot: '#0F2433' },
+        { name: 'Chatham', x: '66%', y: '68%', dot: '#0F2433' },
+        { name: 'Orleans', x: '70%', y: '42%', dot: '#0F2433' },
+        { name: 'Wellfleet', x: '74%', y: '20%', dot: '#0F2433' },
+        { name: 'Provincetown', x: '58%', y: '8%', dot: '#0F2433' }
+      ],
+      regions: [
+        { name: 'Upper Cape', note: 'Closest to the bridges.', towns: t(['Bourne', 'Sandwich', 'Falmouth', 'Mashpee']) },
+        { name: 'Mid Cape', note: 'Our home base in Hyannis.', towns: t(['Hyannis', 'Barnstable', 'Yarmouth', 'Dennis']) },
+        { name: 'Lower Cape', note: 'Harbors, beaches and historic homes.', towns: t(['Brewster', 'Harwich', 'Chatham', 'Orleans']) },
+        { name: 'Outer Cape', note: 'All the way to the tip.', towns: t(['Eastham', 'Wellfleet', 'Truro', 'Provincetown']) },
+        { name: 'Beyond the Cape', note: 'Select projects off-Cape.', towns: t(['Boston', 'Providence', 'Rhode Island']) }
+      ]
+    };
+  }
+  componentWillUnmount() { if (this._ro) this._ro.disconnect(); }
+}
+</script>
+</body>
+</html>

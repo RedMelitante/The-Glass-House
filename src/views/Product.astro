@@ -1,0 +1,246 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { link } from '../lib/routes';
+import { productData } from '../data/product.js';
+
+const { brand, name, lede, note, specs, active, thumbs, uses, typesH, types, hasEdges, edges, hwLabel, mountsH, mounts, hasFin, finishes, callTop, call, hasPhotos, photosH, photosLink, photos, faqH, faqs, related, ctaH, ctaP } = productData(Astro.props);
+---
+<div class="dc-root" style="container-type: inline-size; background: #FFFFFF; color: #0F2433; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6">
+
+  <div style="position: sticky; top: 0; z-index: 50">
+    <Header />
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section>
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(20px, 2.4cqi, 28px) clamp(20px, 4cqi, 48px) clamp(56px, 8cqi, 104px)">
+      <nav aria-label="Breadcrumb" style="font-size: 13px; color: #4A5C67; margin-bottom: clamp(20px, 3cqi, 36px)"><a href="/" style="color: #4A5C67">Home</a><span style="margin: 0 8px">/</span><a href="/custom-glass-products/" style="color: #4A5C67">Products</a><span style="margin: 0 8px">/</span><span aria-current="page" style="color: #0F2433; font-weight: 500">{name}</span></nav>
+      <div style="display: flex; flex-wrap: wrap; gap: 40px 64px; align-items: flex-start">
+        <!-- Image gallery -->
+        <div style="flex: 1.2 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+          <img data-product-main src={active.img} alt={active.label} style={`display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background-color: ${active.tone}`} fetchpriority="high" decoding="async" />
+          <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px">
+            {thumbs.map((t) => (<Fragment>
+              <button type="button" data-product-thumb data-img={t.img} data-label={t.label} data-tone={t.tone} data-brand={brand} aria-label={`Show ${t.label}`} aria-pressed={t.on ? 'true' : 'false'} style={`aspect-ratio: 1 / 1; padding: 0; cursor: pointer; background-color: ${t.tone}; border: 2px solid ${t.ring}; border-radius: 2px; overflow: hidden`}><img src={t.img} alt="" style="display: block; width: 100%; height: 100%; object-fit: cover" loading="lazy" decoding="async" /></button>
+            </Fragment>))}
+          </div>
+        </div>
+        <!-- Product info -->
+        <div style="flex: 1 1 400px; min-width: 0">
+          <div style={`font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: ${brand}`}>Custom product</div>
+          <h1 style="margin: 14px 0 18px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(40px, 4.8cqi, 64px); line-height: 1.05; letter-spacing: -0.02em">{name}</h1>
+          <p style="margin: 0 0 28px; font-size: 18px; color: #26394A">{lede}</p>
+          <div style="border-top: 1px solid #D6E0E4">
+            {specs.map((x) => (<Fragment>
+              <div style="display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid #D6E0E4"><span style="color: #4A5C67">{x.k}</span><span style="font-weight: 600; text-align: right">{x.v}</span></div>
+            </Fragment>))}
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px">
+            <a href="/get-free-estimate/" style={`display: inline-flex; align-items: center; gap: 10px; height: 56px; padding: 0 28px; background: ${brand}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px`}>Get Free Estimate <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+            <a href="tel:+15086852770" style="display: inline-flex; align-items: center; height: 56px; padding: 0 24px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">(508) 685-2770</a>
+          </div>
+          <p style="margin: 16px 0 0; font-size: 14px; color: #4A5C67">{note}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== APPLICATIONS ===== -->
+  <section style="border-top: 1px solid #D6E0E4; border-bottom: 1px solid #D6E0E4; background: #F4F7F8">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 28px clamp(20px, 4cqi, 48px); display: flex; flex-wrap: wrap; gap: 12px 32px; align-items: center">
+      <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #4A5C67">Popular for</span>
+      {uses.map((u) => (<Fragment>
+        <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 500"><span style="width: 6px; height: 6px; background: #9C7430"></span>{u}</span>
+      </Fragment>))}
+    </div>
+  </section>
+
+  <!-- ===== MIRROR TYPES ===== -->
+  <section>
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 9cqi, 120px) clamp(20px, 4cqi, 48px)">
+      <div style={`font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: ${brand}`}>01 · Glass</div>
+      <h2 style="margin: 14px 0 clamp(32px, 4cqi, 48px); font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.6cqi, 48px); line-height: 1.15; letter-spacing: -0.01em">{typesH}</h2>
+      <div style={`display: grid; grid-template-columns: repeat(auto-fit, minmax(var(--cardMin), 1fr)); gap: clamp(12px, 2cqi, 24px)`}>
+        {types.map((t) => (<Fragment>
+          <div style="display: flex; flex-direction: column; gap: 12px">
+            <span style={`aspect-ratio: 4 / 5; border: 1px solid #C9D6DB; background-color: ${t.fill}; background-image: ${t.texture}`}></span>
+            <span style="font-size: 17px; font-weight: 600; line-height: 1.3">{t.name}</span>
+            <span style="font-size: 14px; color: #4A5C67; line-height: 1.5">{t.text}</span>
+          </div>
+        </Fragment>))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EDGE FINISHES ===== -->
+  {hasEdges ? (<Fragment>
+  <section style="background: #E4EEF0">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 9cqi, 120px) clamp(20px, 4cqi, 48px)">
+      <div style={`font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: ${brand}`}>02 · Finish</div>
+      <h2 style="margin: 14px 0 clamp(32px, 4cqi, 48px); font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.6cqi, 48px); line-height: 1.15; letter-spacing: -0.01em">Edge finishes</h2>
+      <div style={`display: grid; grid-template-columns: repeat(auto-fit, minmax(var(--cardMin), 1fr)); gap: 1px; background: #C9D6DB; border: 1px solid #C9D6DB`}>
+        {edges.map((e) => (<Fragment>
+          <div style="background: #FFFFFF; padding: 24px; display: flex; flex-direction: column; gap: 12px">
+            <svg width="100%" height="64" viewBox="0 0 120 40" fill="none" role="img" aria-label={`${e.name} edge profile`}><path d={e.d} fill="#D9E8EC" stroke="#0F2433" stroke-width="1"></path><path d="M8 26h96" stroke="#9C7430" stroke-width="0.8" stroke-dasharray="2 2"></path></svg>
+            <span style="font-size: 17px; font-weight: 600">{e.name}</span>
+            <span style="font-size: 14px; color: #4A5C67; line-height: 1.5">{e.text}</span>
+          </div>
+        </Fragment>))}
+      </div>
+    </div>
+  </section>
+  </Fragment>) : null}
+
+  <!-- ===== HARDWARE ===== -->
+  <section>
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 9cqi, 120px) clamp(20px, 4cqi, 48px); display: flex; flex-wrap: wrap; gap: 48px 80px">
+      <div style="flex: 1.3 1 480px; min-width: 0">
+        <div style={`font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: ${brand}`}>{hwLabel}</div>
+        <h2 style="margin: 14px 0 28px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.6cqi, 48px); line-height: 1.15; letter-spacing: -0.01em">{mountsH}</h2>
+        <div style="border-top: 1px solid #D6E0E4">
+          {mounts.map((h) => (<Fragment>
+            <div style="display: flex; gap: 20px; padding: 18px 0; border-bottom: 1px solid #D6E0E4">
+              <span style={`width: 44px; height: 44px; flex: none; display: flex; align-items: center; justify-content: center; background: #E4EEF0; color: ${brand}`}><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d={h.d}></path></svg></span>
+              <span><span style="display: block; font-size: 17px; font-weight: 600">{h.name}</span><span style="font-size: 15px; color: #4A5C67">{h.text}</span></span>
+            </div>
+          </Fragment>))}
+        </div>
+      </div>
+      <div style="flex: 1 1 340px; min-width: 0">
+        {hasFin ? (<Fragment>
+        <div style="font-size: 15px; font-weight: 600; margin: 52px 0 16px">Finishes</div>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px">
+          {finishes.map((f) => (<Fragment>
+            <div style="display: flex; align-items: center; gap: 12px; padding: 12px; border: 1px solid #D6E0E4">
+              <span style={`width: 32px; height: 32px; border-radius: 50%; flex: none; background: ${f.hex}; border: 1px solid rgba(15,36,51,0.15)`}></span>
+              <span style="font-size: 14px; font-weight: 500">{f.name}</span>
+            </div>
+          </Fragment>))}
+        </div>
+        </Fragment>) : null}
+        <div style={`margin-top: ${callTop}; padding: 24px; background: #F4F7F8; border: 1px solid #D6E0E4`}>
+          <div style="font-size: 15px; font-weight: 600; margin-bottom: 10px">Before you call</div>
+          <ul style="margin: 0; padding-left: 18px; color: #4A5C67; font-size: 15px; display: flex; flex-direction: column; gap: 6px">
+            {call.map((c) => (<Fragment>
+              <li>{c}</li>
+            </Fragment>))}
+          </ul>
+          <p style="margin: 12px 0 0; font-size: 14px; color: #4A5C67">We take exact measurements on site; no need to be precise.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PHOTOS ===== -->
+  {hasPhotos ? (<Fragment>
+  <section style="background: #F4F7F8">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 9cqi, 120px) clamp(20px, 4cqi, 48px)">
+      <div style="display: flex; flex-wrap: wrap; gap: 16px 40px; align-items: flex-end; justify-content: space-between; margin-bottom: clamp(28px, 4cqi, 44px)">
+        <h2 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.6cqi, 48px); line-height: 1.15; letter-spacing: -0.01em">{photosH}</h2>
+        <a href="/project-gallery/" style={`display: inline-flex; align-items: center; height: 44px; color: ${brand}; text-decoration: none; font-weight: 600; font-size: 15px; border-bottom: 1px solid currentColor`}>{photosLink}</a>
+      </div>
+      <div style={`display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--photoMin), 1fr)); gap: clamp(8px, 1.4cqi, 16px)`}>
+        {photos.map((p) => (<Fragment>
+          <a href="/project-gallery/" style={`display: block; position: relative; aspect-ratio: 3 / 4; overflow: hidden; border-radius: 2px; background-color: ${p.tone}; color: #FFFFFF; text-decoration: none`}>
+            <img src={p.img} alt={p.title} style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover" loading="lazy" decoding="async" />
+            <span style="position: absolute; left: 10px; right: 10px; bottom: 10px; padding: 10px 12px; background: rgba(15,36,51,0.55); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.25); font-size: 13px"><strong style="display: block; font-size: 14px; font-weight: 600">{p.title}</strong>{p.town}</span>
+          </a>
+        </Fragment>))}
+      </div>
+    </div>
+  </section>
+  </Fragment>) : null}
+
+  <!-- ===== FAQ ===== -->
+  <section>
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 9cqi, 120px) clamp(20px, 4cqi, 48px); display: flex; flex-wrap: wrap; gap: 32px 80px">
+      <div style="flex: 1 1 300px; min-width: 0">
+        <div style={`font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: ${brand}`}>FAQ</div>
+        <h2 style="margin: 14px 0 16px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.6cqi, 48px); line-height: 1.15; letter-spacing: -0.01em">{faqH}</h2>
+      </div>
+      <div style="flex: 2 1 520px; min-width: 0; border-top: 1px solid #C9D6DB">
+        {faqs.map((q, i) => (<Fragment>
+          <div style="border-bottom: 1px solid #C9D6DB">
+            <button type="button" data-disclosure data-disclosure-group="faq" aria-controls={`faq-${i}`} aria-expanded={q.open ? 'true' : 'false'} data-icon-open="M5 12h14" data-icon-closed="M12 5v14M5 12h14" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 22px 0; background: transparent; border: 0; font: inherit; font-size: 18px; font-weight: 600; color: #0F2433; text-align: left; cursor: pointer">{q.q}<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={brand} stroke-width="1.8" aria-hidden="true" style="flex: none"><path data-disclosure-icon d={q.icon}></path></svg></button>
+            <p id={`faq-${i}`} hidden={!q.open} style="margin: 0; padding: 0 40px 24px 0; color: #4A5C67; font-size: 16px; line-height: 1.65">{q.a}</p>
+          </div>
+        </Fragment>))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RELATED PRODUCTS ===== -->
+  <section style="border-top: 1px solid #D6E0E4">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 9cqi, 120px) clamp(20px, 4cqi, 48px)">
+      <h2 style="margin: 0 0 clamp(28px, 4cqi, 44px); font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(30px, 3.2cqi, 40px); line-height: 1.15">Other custom products</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: clamp(16px, 2cqi, 24px)">
+        {related.map((r) => (<Fragment>
+          <a href={link(r.href)} style="display: flex; flex-direction: column; border: 1px solid #D6E0E4; border-radius: 2px; color: #0F2433; text-decoration: none">
+            <img src={r.img} alt={r.name} style={`display: block; width: 100%; height: 200px; object-fit: cover; background-color: ${r.tone}`} loading="lazy" decoding="async" />
+            <span style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 6px">
+              <span style="font-family: 'Newsreader', Georgia, serif; font-size: 24px; font-weight: 500">{r.name}</span>
+              <span style="font-size: 14px; color: #4A5C67">{r.text}</span>
+              <span style={`font-size: 14px; font-weight: 600; color: ${brand}; margin-top: 4px`}>Glass, finishes &amp; hardware →</span>
+            </span>
+          </a>
+        </Fragment>))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section style="background: #0F2433; color: #FFFFFF">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(56px, 7cqi, 96px) clamp(20px, 4cqi, 48px); display: flex; flex-wrap: wrap; gap: 28px 64px; align-items: center; justify-content: space-between">
+      <div style="flex: 1 1 520px; min-width: 0">
+        <h2 style="margin: 0 0 12px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 4cqi, 52px); line-height: 1.1">{ctaH}</h2>
+        <p style="margin: 0; color: #B9C9D1; font-size: 18px">{ctaP}</p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px">
+        <a href="/get-free-estimate/" style="display: inline-flex; align-items: center; height: 56px; padding: 0 28px; background: #FFFFFF; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Get Free Estimate</a>
+        <a href="tel:+15086852770" style="display: inline-flex; align-items: center; height: 56px; padding: 0 24px; border: 1px solid rgba(255,255,255,0.7); color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Call (508) 685-2770</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+  <div class="dc-m">
+    <div style="position: sticky; bottom: 0; z-index: 60; display: grid; grid-template-columns: 1fr 1.35fr; gap: 8px; padding: 10px 12px 12px; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid #D6E0E4">
+      <a href="tel:+15086852770" style="display: flex; align-items: center; justify-content: center; gap: 8px; height: 52px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg>Call now</a>
+      <a href="/get-free-estimate/" style={`display: flex; align-items: center; justify-content: center; height: 52px; background: ${brand}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px`}>Get Free Estimate</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .dc-root {
+    --cardMin: 200px;
+    --photoMin: 220px;
+  }
+  @media (max-width: 759.98px) {
+    .dc-root {
+      --cardMin: 150px;
+      --photoMin: 150px;
+    }
+  }
+</style>
+
+<script>
+  // Product photo gallery: thumbnails swap the main image.
+  const main = document.querySelector<HTMLImageElement>('[data-product-main]');
+  const thumbs = [...document.querySelectorAll<HTMLButtonElement>('[data-product-thumb]')];
+  for (const btn of thumbs) {
+    btn.addEventListener('click', () => {
+      if (!main) return;
+      main.src = btn.dataset.img!;
+      main.alt = btn.dataset.label!;
+      main.style.backgroundColor = btn.dataset.tone!;
+      for (const t of thumbs) {
+        const on = t === btn;
+        t.setAttribute('aria-pressed', String(on));
+        t.style.borderColor = on ? t.dataset.brand! : 'transparent';
+      }
+    });
+  }
+</script>

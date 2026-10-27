@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Glass House — Design System</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#ffffff}
+a{color:#1E5873}a:hover{color:#153F53}
+</style>
+</helmet>
+<div style="container-type: inline-size; background: #FFFFFF; color: #0F2433; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6">
+
+  <!-- Cover -->
+  <section style="background: #F4F7F8; border-bottom: 1px solid #D6E0E4">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 72px 48px 64px; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-end; justify-content: space-between">
+      <div style="flex: 1 1 520px; min-width: 0">
+        <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 40px">
+          <svg width="44" height="44" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="0.5" y="0.5" width="47" height="47" stroke="{{brand}}"></rect><path d="M10 24L24 12l14 12v14H10z" stroke="{{brand}}" stroke-width="1.6"></path><path d="M17 34l8-8M22 36l6-6" stroke="#9C7430" stroke-width="1.4"></path></svg>
+          <div>
+            <div style="font-family: 'Newsreader', Georgia, serif; font-size: 24px; font-weight: 500; letter-spacing: -0.01em; line-height: 1">The Glass House</div>
+            <div style="font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: #4A5C67; margin-top: 5px">Custom Glass &amp; Mirror · Cape Cod</div>
+          </div>
+        </div>
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #1E5873">Design system · v0.1</div>
+        <h1 style="margin: 12px 0 16px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: 72px; line-height: 1.02; letter-spacing: -0.02em">Clear, coastal,<br>quietly premium.</h1>
+        <p style="margin: 0; max-width: 620px; font-size: 18px; color: #4A5C67">Tokens and components for theghglass.com, built for Astro + Tailwind (ScrewFast / Preline as plumbing only). Every value below maps to a Tailwind class or a <code style="font-size: 15px">tailwind.config</code> token.</p>
+      </div>
+      <div style="flex: 0 1 380px; min-width: 0; border: 1px solid #D6E0E4; background: #FFFFFF; padding: 24px">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #4A5C67; margin-bottom: 12px">Principles</div>
+        <ol style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 15px">
+          <li>Photography leads. UI frames it, never competes.</li>
+          <li>Crisp edges: 2px radius, 1px hairlines.</li>
+          <li>Glass effects only where they earn it: the hero form and image captions.</li>
+          <li>Estimate + phone are always one tap away.</li>
+        </ol>
+        <p style="margin: 16px 0 0; font-size: 13px; color: #9C7430; font-weight: 600">Logo + brand colors are provisional until the logo file is supplied.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 Color -->
+  <section style="max-width: 1240px; margin: 0 auto; padding: 96px 48px 0">
+    <div style="display: flex; align-items: baseline; gap: 16px; border-bottom: 1px solid #D6E0E4; padding-bottom: 16px; margin-bottom: 40px">
+      <span style="font-family: 'Newsreader', Georgia, serif; font-size: 20px; color: #9C7430">01</span>
+      <h2 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: 40px; letter-spacing: -0.01em">Color</h2>
+      <span style="margin-left: auto; font-size: 14px; color: #4A5C67">theme.extend.colors</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px">
+      <sc-for list="{{colors}}" as="c" hint-placeholder-count="8">
+        <div style="border: 1px solid #D6E0E4">
+          <div style="height: 120px; background: {{c.hex}}; color: {{c.fg}}; padding: 14px; box-sizing: border-box; display: flex; align-items: flex-end; font-size: 13px; font-weight: 600">{{c.contrast}}</div>
+          <div style="padding: 14px 16px 16px">
+            <div style="display: flex; justify-content: space-between; gap: 8px"><strong style="font-weight: 600">{{c.name}}</strong><code style="font-size: 13px; color: #4A5C67">{{c.hex}}</code></div>
+            <div style="font-size: 13px; color: #1E5873; font-family: ui-monospace, monospace; margin: 2px 0 6px">{{c.token}}</div>
+            <div style="font-size: 14px; color: #4A5C67; line-height: 1.45">{{c.use}}</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- 02 Type -->
+  <section style="max-width: 1240px; margin: 0 auto; padding: 96px 48px 0">
+    <div style="display: flex; align-items: baseline; gap: 16px; border-bottom: 1px solid #D6E0E4; padding-bottom: 16px; margin-bottom: 40px">
+      <span style="font-family: 'Newsreader', Georgia, serif; font-size: 20px; color: #9C7430">02</span>
+      <h2 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: 40px; letter-spacing: -0.01em">Typography</h2>
+      <span style="margin-left: auto; font-size: 14px; color: #4A5C67">Newsreader (display) · Instrument Sans (body/UI) · Google Fonts</span>
+    </div>
+    <div style="display: grid; grid-template-columns: 220px minmax(0, 1fr); row-gap: 28px; column-gap: 40px; align-items: baseline">
+      <div style="font-size: 13px; color: #4A5C67; line-height: 1.5"><strong style="color: #0F2433">Display</strong><br>Newsreader 400 · 80/84 · −2%<br>mobile 44/48<br><code>font-display text-7xl</code></div>
+      <div style="font-family: 'Newsreader', Georgia, serif; font-size: 80px; line-height: 1.05; letter-spacing: -0.02em">Glass, made to measure.</div>
+      <div style="font-size: 13px; color: #4A5C67; line-height: 1.5"><strong style="color: #0F2433">H1</strong><br>Newsreader 400 · 56/62 · −1.5%<br>mobile 38/44</div>
+      <div style="font-family: 'Newsreader', Georgia, serif; font-size: 56px; line-height: 1.1; letter-spacing: -0.015em">Frameless shower enclosures</div>
+      <div style="font-size: 13px; color: #4A5C67; line-height: 1.5"><strong style="color: #0F2433">H2</strong><br>Newsreader 400 · 44/52<br>mobile 32/38</div>
+      <div style="font-family: 'Newsreader', Georgia, serif; font-size: 44px; line-height: 1.18; letter-spacing: -0.01em">Serving Cape Cod for <em>30+ years</em></div>
+      <div style="font-size: 13px; color: #4A5C67; line-height: 1.5"><strong style="color: #0F2433">H3</strong><br>Newsreader 500 · 28/36</div>
+      <div style="font-family: 'Newsreader', Georgia, serif; font-size: 28px; font-weight: 500; line-height: 1.3">Glass stair &amp; pool railings</div>
+      <div style="font-size: 13px; color: #4A5C67; line-height: 1.5"><strong style="color: #0F2433">H4 / card title</strong><br>Instrument Sans 600 · 19/26</div>
+      <div style="font-size: 19px; font-weight: 600; line-height: 1.4">Custom mirrors for every room</div>
+      <div style="font-size: 13px; color: #4A5C67; line-height: 1.5"><strong style="color: #0F2433">Eyebrow</strong><br>Instrument Sans 600 · 12 · +16% · caps · tide</div>
+      <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #1E5873">Hyannis · Chatham · Falmouth</div>
+      <div style="font-size: 13px; color: #4A5C67; line-height: 1.5"><strong style="color: #0F2433">Body large</strong><br>Instrument Sans 400 · 19/31</div>
+      <div style="font-size: 19px; line-height: 1.65; max-width: 680px; color: #26394A">We design, fabricate and install custom glass for homes and businesses across Cape Cod, Southeastern Massachusetts and Rhode Island.</div>
+      <div style="font-size: 13px; color: #4A5C67; line-height: 1.5"><strong style="color: #0F2433">Body</strong><br>Instrument Sans 400 · 16/26 · slate on white 6.9:1</div>
+      <div style="font-size: 16px; line-height: 1.65; max-width: 680px; color: #4A5C67">Every enclosure is measured on site and cut to fit, so walls that aren’t quite square still get a clean, tight seal.</div>
+      <div style="font-size: 13px; color: #4A5C67; line-height: 1.5"><strong style="color: #0F2433">Small / caption</strong><br>Instrument Sans 500 · 13/20</div>
+      <div style="font-size: 13px; font-weight: 500; color: #4A5C67">Frameless shower · Chatham, MA · 2025</div>
+    </div>
+  </section>
+
+  <!-- 03 Buttons -->
+  <section style="max-width: 1240px; margin: 0 auto; padding: 96px 48px 0">
+    <div style="display: flex; align-items: baseline; gap: 16px; border-bottom: 1px solid #D6E0E4; padding-bottom: 16px; margin-bottom: 40px">
+      <span style="font-family: 'Newsreader', Georgia, serif; font-size: 20px; color: #9C7430">03</span>
+      <h2 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: 40px; letter-spacing: -0.01em">Buttons</h2>
+      <span style="margin-left: auto; font-size: 14px; color: #4A5C67">48px tall (lg 56) · 2px radius · 15px / 600</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px">
+      <div style="border: 1px solid #D6E0E4; padding: 32px; display: flex; flex-direction: column; gap: 20px">
+        <div style="font-size: 13px; font-weight: 600; color: #4A5C67; letter-spacing: 0.1em; text-transform: uppercase">On light</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center">
+          <a href="#" style="display: inline-flex; align-items: center; gap: 10px; height: 56px; padding: 0 28px; background: {{brand}}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Get Free Estimate <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+          <a href="#" style="display: inline-flex; align-items: center; gap: 10px; height: 56px; padding: 0 26px; background: #FFFFFF; color: #0F2433; border: 1px solid #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg>(508) 685-2770</a>
+          <a href="#" style="display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 0 4px; color: {{brand}}; text-decoration: none; font-weight: 600; font-size: 15px; border-bottom: 1px solid currentColor">View all services <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; font-size: 13px; color: #4A5C67">
+          <div><strong style="color: #0F2433">Primary</strong><br>bg brand → hover tide-dark #153F53. One per view; always the estimate action.</div>
+          <div><strong style="color: #0F2433">Secondary</strong><br>1px ink outline → hover fill ink, text white. Used for phone calls.</div>
+          <div><strong style="color: #0F2433">Ghost</strong><br>Text + underline hairline → hover underline 2px. Tertiary links.</div>
+        </div>
+      </div>
+      <div style="background: #0F2433; padding: 32px; display: flex; flex-direction: column; gap: 20px">
+        <div style="font-size: 13px; font-weight: 600; color: #B9C9D1; letter-spacing: 0.1em; text-transform: uppercase">On dark / photo</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center">
+          <a href="#" style="display: inline-flex; align-items: center; gap: 10px; height: 56px; padding: 0 28px; background: #FFFFFF; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Get Free Estimate</a>
+          <a href="#" style="display: inline-flex; align-items: center; gap: 10px; height: 56px; padding: 0 26px; color: #FFFFFF; border: 1px solid rgba(255,255,255,0.7); text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Call (508) 685-2770</a>
+          <a href="#" style="display: inline-flex; align-items: center; height: 48px; padding: 0 4px; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 15px; border-bottom: 1px solid rgba(255,255,255,0.7)">See our work</a>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center">
+          <button type="button" disabled style="height: 48px; padding: 0 24px; background: #D6E0E4; color: #6B7C86; border: 0; font: inherit; font-weight: 600; font-size: 15px; border-radius: 2px">Disabled</button>
+          <a href="#" style="display: inline-flex; align-items: center; height: 40px; padding: 0 16px; background: #FFFFFF; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 14px; border-radius: 2px">Small · 40px</a>
+          <span style="font-size: 13px; color: #B9C9D1">Focus ring on all: 2px outline, brass #C79A4B, 2px offset</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 Forms -->
+  <section style="max-width: 1240px; margin: 0 auto; padding: 96px 48px 0">
+    <div style="display: flex; align-items: baseline; gap: 16px; border-bottom: 1px solid #D6E0E4; padding-bottom: 16px; margin-bottom: 40px">
+      <span style="font-family: 'Newsreader', Georgia, serif; font-size: 20px; color: #9C7430">04</span>
+      <h2 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: 40px; letter-spacing: -0.01em">Form fields</h2>
+      <span style="margin-left: auto; font-size: 14px; color: #4A5C67">52px fields · label above · 1px #B7C6CD → focus brand 2px</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px 24px">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <label for="ds-name" style="font-size: 14px; font-weight: 600">Full name</label>
+        <input id="ds-name" type="text" placeholder="Jane Smith" style="height: 52px; padding: 0 16px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; color: #0F2433; background: #FFFFFF">
+        <span style="font-size: 13px; color: #4A5C67">Default</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <label for="ds-phone" style="font-size: 14px; font-weight: 600">Phone</label>
+        <input id="ds-phone" type="tel" value="(508) 555-01" style="height: 52px; padding: 0 16px; border: 2px solid {{brand}}; border-radius: 2px; font: inherit; font-size: 16px; color: #0F2433; background: #FFFFFF; box-sizing: border-box">
+        <span style="font-size: 13px; color: #4A5C67">Focus</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <label for="ds-email" style="font-size: 14px; font-weight: 600">Email</label>
+        <input id="ds-email" type="email" value="jane@" aria-invalid="true" style="height: 52px; padding: 0 16px; border: 2px solid #B42318; border-radius: 2px; font: inherit; font-size: 16px; color: #0F2433; background: #FFFFFF; box-sizing: border-box">
+        <span style="font-size: 13px; color: #B42318; font-weight: 500">Enter a valid email, like name@example.com</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <label for="ds-svc" style="font-size: 14px; font-weight: 600">Service type</label>
+        <select id="ds-svc" style="height: 52px; padding: 0 14px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; color: #0F2433; background: #FFFFFF"><option>Shower enclosure</option><option>Custom mirror</option><option>Glass railing</option></select>
+        <span style="font-size: 13px; color: #4A5C67">Select</span>
+      </div>
+      <fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px">
+        <legend style="font-size: 14px; font-weight: 600; padding: 0; margin-bottom: 8px">Project type</legend>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; border: 1px solid #B7C6CD; border-radius: 2px; overflow: hidden">
+          <label style="display: flex; align-items: center; justify-content: center; gap: 8px; height: 50px; background: #0F2433; color: #FFFFFF; font-size: 15px; font-weight: 600"><input type="radio" name="ds-rc" checked style="accent-color: #FFFFFF">Residential</label>
+          <label style="display: flex; align-items: center; justify-content: center; gap: 8px; height: 50px; font-size: 15px; font-weight: 500"><input type="radio" name="ds-rc">Commercial</label>
+        </div>
+        <span style="font-size: 13px; color: #4A5C67">Segmented radio</span>
+      </fieldset>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: 14px; font-weight: 600">Photos (optional)</span>
+        <label for="ds-file" style="height: 52px; display: flex; align-items: center; justify-content: center; gap: 10px; border: 1px dashed #8FA3AD; border-radius: 2px; background: #F4F7F8; font-size: 15px; color: #0F2433; cursor: pointer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"></path></svg>Upload photos · JPG, PNG, HEIC</label>
+        <input id="ds-file" type="file" multiple style="display: none">
+        <span style="font-size: 13px; color: #4A5C67">Up to 5 files, 10 MB each</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px; grid-column: span 2">
+        <label for="ds-msg" style="font-size: 14px; font-weight: 600">Tell us about your project</label>
+        <textarea id="ds-msg" rows="4" placeholder="Size, style, timing, anything you know so far…" style="padding: 14px 16px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; color: #0F2433; background: #FFFFFF; resize: vertical"></textarea>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px">
+        <label style="display: flex; gap: 12px; align-items: flex-start; font-size: 13px; line-height: 1.5; color: #4A5C67"><input type="checkbox" checked style="width: 20px; height: 20px; margin: 1px 0 0; flex: none; accent-color: {{brand}}"><span><strong style="color: #0F2433">Text me about my estimate.</strong> I agree to receive SMS from The Glass House. Msg frequency varies; msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. Consent isn’t a condition of purchase. <a href="#">Privacy Policy</a></span></label>
+        <label style="display: flex; gap: 12px; align-items: center; font-size: 15px"><input type="checkbox" style="width: 20px; height: 20px; margin: 0; flex: none; accent-color: {{brand}}">Unchecked checkbox</label>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 Cards -->
+  <section style="max-width: 1240px; margin: 0 auto; padding: 96px 48px 0">
+    <div style="display: flex; align-items: baseline; gap: 16px; border-bottom: 1px solid #D6E0E4; padding-bottom: 16px; margin-bottom: 40px">
+      <span style="font-family: 'Newsreader', Georgia, serif; font-size: 20px; color: #9C7430">05</span>
+      <h2 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: 40px; letter-spacing: -0.01em">Cards</h2>
+      <span style="margin-left: auto; font-size: 14px; color: #4A5C67">1px hairline · 2px radius · hover: border ink + image scale 1.03</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; align-items: start">
+
+      <!-- Service card -->
+      <div>
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #4A5C67; margin-bottom: 10px">Service</div>
+        <a href="#" style="display: flex; flex-direction: column; gap: 14px; padding: 28px; border: 1px solid #D6E0E4; border-radius: 2px; color: #0F2433; text-decoration: none; background: #FFFFFF">
+          <span style="width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; background: #E4EEF0; color: {{brand}}"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 3h16v18H4zM12 3v18M14.5 11v2"></path></svg></span>
+          <span style="font-size: 19px; font-weight: 600">Shower Enclosures</span>
+          <span style="font-size: 15px; color: #4A5C67; line-height: 1.55">Frameless, semi-frameless and sliding glass, measured and cut to your bath.</span>
+          <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: {{brand}}">Learn more <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></span>
+        </a>
+      </div>
+
+      <!-- Product card -->
+      <div>
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #4A5C67; margin-bottom: 10px">Product</div>
+        <a href="#" style="display: flex; flex-direction: column; border: 1px solid #D6E0E4; border-radius: 2px; color: #0F2433; text-decoration: none; background: #FFFFFF">
+          <span style="height: 200px; background-color: #DCE7EB; background-image: url(/images/framed-or-frameless-how-to-choose-the-right-glass-windows.webp); background-size: cover; background-position: center; display: flex; align-items: flex-end; padding: 12px; box-sizing: border-box; font-size: 12px; color: #4A5C67"></span>
+          <span style="padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 8px">
+            <span style="font-family: 'Newsreader', Georgia, serif; font-size: 24px; font-weight: 500">Custom Glass Mirrors</span>
+            <span style="display: flex; flex-wrap: wrap; gap: 6px">
+              <span style="font-size: 12px; font-weight: 500; padding: 3px 10px; border: 1px solid #D6E0E4; border-radius: 2px">Beveled</span>
+              <span style="font-size: 12px; font-weight: 500; padding: 3px 10px; border: 1px solid #D6E0E4; border-radius: 2px">Antiqued</span>
+              <span style="font-size: 12px; font-weight: 500; padding: 3px 10px; border: 1px solid #D6E0E4; border-radius: 2px">Back-lit</span>
+            </span>
+            <span style="font-size: 14px; font-weight: 600; color: {{brand}}; margin-top: 6px">Glass types &amp; finishes →</span>
+          </span>
+        </a>
+      </div>
+
+      <!-- Area card -->
+      <div>
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #4A5C67; margin-bottom: 10px">Area / town</div>
+        <a href="#" style="display: flex; align-items: stretch; border: 1px solid #D6E0E4; border-radius: 2px; color: #0F2433; text-decoration: none; background: #FFFFFF">
+          <span style="width: 116px; flex: none; background-color: #C9D9DE; background-image: url(/images/off-cape.webp); background-size: cover; background-position: center"></span>
+          <span style="padding: 18px 20px; display: flex; flex-direction: column; gap: 4px; flex: 1">
+            <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #4A5C67">Barnstable County</span>
+            <span style="font-family: 'Newsreader', Georgia, serif; font-size: 26px; font-weight: 500; line-height: 1.15">Chatham</span>
+            <span style="font-size: 14px; color: {{brand}}; font-weight: 600">Glass services in Chatham →</span>
+          </span>
+        </a>
+        <div style="font-size: 13px; color: #4A5C67; margin-top: 10px">Compact variant (no image) used for “nearby areas” lists.</div>
+      </div>
+
+      <!-- Project card -->
+      <div>
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #4A5C67; margin-bottom: 10px">Project</div>
+        <a href="#" style="display: block; position: relative; height: 340px; border-radius: 2px; overflow: hidden; background-color: #9FB4BE; background-image: url(/images/frameless-glass-shower-with-marble-look-tile-and-built-in.webp); background-size: cover; background-position: center; color: #FFFFFF; text-decoration: none">
+          <span style="position: absolute; top: 14px; left: 14px; font-size: 12px; color: #0F2433">Frameless steam shower</span>
+          <span style="position: absolute; left: 12px; right: 12px; bottom: 12px; padding: 14px 16px; background: rgba(15,36,51,0.55); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.25); display: flex; justify-content: space-between; align-items: center; gap: 8px">
+            <span><span style="display: block; font-size: 16px; font-weight: 600">Steam shower, low-iron glass</span><span style="font-size: 13px; opacity: 0.9">Showers · Osterville</span></span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg>
+          </span>
+        </a>
+      </div>
+
+      <!-- Blog card -->
+      <div>
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #4A5C67; margin-bottom: 10px">Blog</div>
+        <a href="#" style="display: flex; flex-direction: column; gap: 14px; color: #0F2433; text-decoration: none">
+          <span style="height: 200px; background-color: #E4EEF0; background-image: url(/images/architectural-glass-railing.webp); background-size: cover; background-position: center; display: flex; align-items: flex-end; padding: 12px; box-sizing: border-box; font-size: 12px; color: #4A5C67; border-radius: 2px"></span>
+          <span style="font-size: 13px; color: #4A5C67"><span style="color: {{brand}}; font-weight: 600">Care &amp; maintenance</span> · Sep 18, 2026 · 5 min read</span>
+          <span style="font-family: 'Newsreader', Georgia, serif; font-size: 24px; line-height: 1.25; font-weight: 500">How salt air affects glass railings, and how to care for them</span>
+        </a>
+      </div>
+
+      <!-- Review card -->
+      <div>
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #4A5C67; margin-bottom: 10px">Review</div>
+        <figure style="margin: 0; padding: 28px; border: 1px solid #D6E0E4; border-radius: 2px; background: #FFFFFF; display: flex; flex-direction: column; gap: 16px">
+          <div style="display: flex; justify-content: space-between; align-items: center">
+            <span style="display: flex; gap: 2px; color: #9C7430" role="img" aria-label="5 out of 5 stars"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"></path></svg></span>
+            <span style="font-size: 12px; font-weight: 600; color: #4A5C67">Google</span>
+          </div>
+          <blockquote style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-size: 20px; line-height: 1.45">“The Glass House did a very fine job on my stand-in shower project in Cotuit MA.”</blockquote>
+          <figcaption style="font-size: 14px"><strong style="font-weight: 600">Jason</strong><span style="color: #4A5C67"> · Renaissance Restoration</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 Spacing & surfaces -->
+  <section style="max-width: 1240px; margin: 0 auto; padding: 96px 48px 120px">
+    <div style="display: flex; align-items: baseline; gap: 16px; border-bottom: 1px solid #D6E0E4; padding-bottom: 16px; margin-bottom: 40px">
+      <span style="font-family: 'Newsreader', Georgia, serif; font-size: 20px; color: #9C7430">06</span>
+      <h2 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: 40px; letter-spacing: -0.01em">Spacing, layout &amp; surfaces</h2>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px">
+      <div style="display: flex; flex-direction: column; gap: 14px">
+        <div style="font-size: 15px; font-weight: 600">Section rhythm</div>
+        <div style="display: flex; align-items: center; gap: 16px"><span style="width: 120px; height: 20px; background: #E4EEF0; border: 1px solid #D6E0E4"></span><span style="font-size: 14px"><strong>Section</strong> · py-30 (120px) desktop · py-16 (64px) mobile</span></div>
+        <div style="display: flex; align-items: center; gap: 16px"><span style="width: 64px; height: 20px; background: #E4EEF0; border: 1px solid #D6E0E4"></span><span style="font-size: 14px"><strong>Heading → content</strong> · 64px / 40px</span></div>
+        <div style="display: flex; align-items: center; gap: 16px"><span style="width: 24px; height: 20px; background: #E4EEF0; border: 1px solid #D6E0E4"></span><span style="font-size: 14px"><strong>Card gap</strong> · gap-6 (24px) / gap-4 mobile</span></div>
+        <div style="display: flex; align-items: center; gap: 16px"><span style="width: 8px; height: 20px; background: #E4EEF0; border: 1px solid #D6E0E4"></span><span style="font-size: 14px"><strong>Base unit</strong> · 4px; Tailwind default scale</span></div>
+        <div style="font-size: 14px; color: #4A5C67; margin-top: 6px">Container <code>max-w-[1240px]</code>, gutters 48px desktop / 20px mobile. 12-col grid, 24px gutter. Breakpoints: Tailwind sm 640 · md 768 · lg 1024 · xl 1280.</div>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+        <div style="padding: 20px; background: #FFFFFF; border: 1px solid #D6E0E4"><strong style="font-size: 14px">White</strong><div style="font-size: 13px; color: #4A5C67">Default section</div></div>
+        <div style="padding: 20px; background: #F4F7F8; border: 1px solid #D6E0E4"><strong style="font-size: 14px">Mist</strong><div style="font-size: 13px; color: #4A5C67">Alternate section</div></div>
+        <div style="padding: 20px; background: #E4EEF0"><strong style="font-size: 14px">Sea glass</strong><div style="font-size: 13px; color: #4A5C67">Feature band, icon tiles</div></div>
+        <div style="padding: 20px; background: #0F2433; color: #FFFFFF"><strong style="font-size: 14px">Harbor</strong><div style="font-size: 13px; color: #B9C9D1">CTA band, footer</div></div>
+        <div style="grid-column: span 2; height: 150px; position: relative; background-color: #2C4250; background-image: url(/images/glass-repair-in-providence-ri.webp); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center">
+          <div style="padding: 18px 22px; background: rgba(255,255,255,0.84); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.7); box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset, 0 20px 40px -20px rgba(15,36,51,0.5); font-size: 14px"><strong>Glass panel</strong> · bg-white/85 backdrop-blur-md border-white/70 — hero form + captions only</div>
+        </div>
+      </div>
+    </div>
+    <p style="margin: 40px 0 0; font-size: 14px; color: #4A5C67">Header with dropdown nav and the footer are their own components, on the artboards to the right.</p>
+  </section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"brand":{"editor":"color","default":"#1E5873","options":["#1E5873","#2B6E8F","#123B5C","#2F6B69"]},"$preview":{"width":1440,"height":5400}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const brand = this.props.brand ?? '#1E5873';
+    return {
+      brand: brand,
+      colors: [
+        { name: 'Brand · Tide', hex: brand, token: 'brand', fg: '#FFFFFF', contrast: 'White text 7.8:1', use: 'Primary buttons, links, icons. Swap to the logo blue.' },
+        { name: 'Harbor', hex: '#0F2433', token: 'ink', fg: '#FFFFFF', contrast: 'White text 15.9:1', use: 'Headings, body ink, CTA bands, footer.' },
+        { name: 'Slate', hex: '#4A5C67', token: 'slate', fg: '#FFFFFF', contrast: 'On white 6.9:1', use: 'Secondary text, captions, meta.' },
+        { name: 'Brass', hex: '#9C7430', token: 'brass', fg: '#FFFFFF', contrast: 'Large/icons only', use: 'Stars, numerals, hairline accents. Never body text.' },
+        { name: 'Sea glass', hex: '#E4EEF0', token: 'sea', fg: '#0F2433', contrast: 'Ink 13.5:1', use: 'Icon tiles, feature bands, selected states.' },
+        { name: 'Mist', hex: '#F4F7F8', token: 'mist', fg: '#0F2433', contrast: 'Ink 14.8:1', use: 'Alternate section background.' },
+        { name: 'Hairline', hex: '#D6E0E4', token: 'line', fg: '#0F2433', contrast: 'Borders', use: 'Card borders, dividers. Inputs use #B7C6CD.' },
+        { name: 'White', hex: '#FFFFFF', token: 'white', fg: '#0F2433', contrast: 'Base', use: 'Default page ground. Plenty of it.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Site header</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<header onMouseLeave="{{closeAll}}" style="position: relative; z-index: 50; font-family: 'Instrument Sans', system-ui, sans-serif; color: #0F2433; background: #FFFFFF">
+
+  <!-- ===== DESKTOP ===== -->
+  <sc-if value="{{desktop}}" hint-placeholder-val="{{ true }}">
+    <div style="background: #0F2433; color: #DCE6EA; font-size: 13px">
+      <div style="max-width: 1240px; margin: 0 auto; padding: 0 48px; height: 40px; display: flex; align-items: center; gap: 24px">
+        <span>Family-owned · 30+ years on Cape Cod</span>
+        <span style="opacity: 0.5">|</span>
+        <span>Serving Cape Cod, Southeastern MA &amp; Rhode Island</span>
+        <a href="https://maps.app.goo.gl/vZfV7rE3CSp9vrpHA" target="_blank" rel="noopener" aria-label="Open 270 Communication Way, Hyannis in Google Maps" style="margin-left: auto; color: #DCE6EA; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(220,230,234,0.4)">270 Communication Way, Hyannis</a>
+        <span>Mon–Fri 9:00–5:00</span>
+      </div>
+    </div>
+    <div style="border-bottom: 1px solid #D6E0E4; background: #FFFFFF">
+      <div style="max-width: 1240px; margin: 0 auto; padding: 0 48px; height: 88px; display: flex; align-items: center; gap: 32px">
+        <a href="Home.dc.html" aria-label="The Glass House home" style="display: flex; align-items: center; gap: 12px; color: #0F2433; text-decoration: none; flex: none"><img src="/images/the-glass-house.png" alt="The Glass House" style="display: block; height: 52px; width: auto"></a>
+        <nav aria-label="Main" style="display: flex; align-items: center; gap: 4px; margin-left: 16px">
+          <button type="button" onClick="{{toggleServices}}" onMouseEnter="{{hoverServices}}" aria-expanded="{{servicesOpen}}" aria-haspopup="true" style="display: inline-flex; align-items: center; gap: 6px; height: 44px; padding: 0 14px; background: transparent; border: 0; border-bottom: 2px solid {{servicesLine}}; font: inherit; font-size: 15px; font-weight: 500; color: #0F2433; cursor: pointer">Services <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+          <button type="button" onClick="{{toggleProducts}}" onMouseEnter="{{hoverProducts}}" aria-expanded="{{productsOpen}}" aria-haspopup="true" style="display: inline-flex; align-items: center; gap: 6px; height: 44px; padding: 0 14px; background: transparent; border: 0; border-bottom: 2px solid {{productsLine}}; font: inherit; font-size: 15px; font-weight: 500; color: #0F2433; cursor: pointer">Products <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+          <a href="Gallery.dc.html" onMouseEnter="{{closeAll}}" style="display: inline-flex; align-items: center; height: 44px; padding: 0 14px; color: #0F2433; text-decoration: none; font-size: 15px; font-weight: 500">Projects</a>
+          <a href="Areas.dc.html" onMouseEnter="{{closeAll}}" style="display: inline-flex; align-items: center; height: 44px; padding: 0 14px; color: #0F2433; text-decoration: none; font-size: 15px; font-weight: 500">Areas</a>
+          <a href="About.dc.html" onMouseEnter="{{closeAll}}" style="display: inline-flex; align-items: center; height: 44px; padding: 0 14px; color: #0F2433; text-decoration: none; font-size: 15px; font-weight: 500">About</a>
+          <a href="BlogIndex.dc.html" onMouseEnter="{{closeAll}}" style="display: inline-flex; align-items: center; height: 44px; padding: 0 14px; color: #0F2433; text-decoration: none; font-size: 15px; font-weight: 500">Blog</a>
+          <a href="Contact.dc.html" onMouseEnter="{{closeAll}}" style="display: inline-flex; align-items: center; height: 44px; padding: 0 14px; color: #0F2433; text-decoration: none; font-size: 15px; font-weight: 500">Contact</a>
+        </nav>
+        <div style="margin-left: auto; display: flex; align-items: center; gap: 20px">
+          <a href="tel:+15086852770" style="display: inline-flex; align-items: center; gap: 8px; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{brand}}" stroke-width="1.7" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg>(508) 685-2770</a>
+          <a href="Estimate.dc.html" style="display: inline-flex; align-items: center; height: 48px; padding: 0 22px; background: {{brand}}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 15px; border-radius: 2px">Get Free Estimate</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Services mega menu -->
+    <sc-if value="{{servicesOpen}}" hint-placeholder-val="{{ true }}">
+      <div style="position: absolute; left: 0; right: 0; top: 100%; background: #FFFFFF; border-bottom: 1px solid #D6E0E4; box-shadow: 0 30px 60px -30px rgba(15,36,51,0.35)">
+        <div style="max-width: 1240px; margin: 0 auto; padding: 36px 48px 40px; display: flex; gap: 48px">
+          <div style="flex: 1; min-width: 0">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 18px"><span style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #4A5C67">Services · 12</span><a href="Services.dc.html" style="font-size: 14px; font-weight: 600; color: {{brand}}; text-decoration: none">All services →</a></div>
+            <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px 24px">
+              <sc-for list="{{services}}" as="s" hint-placeholder-count="12">
+                <a href="{{s.href}}" style="display: flex; align-items: center; gap: 14px; padding: 10px 10px; margin: 0 -10px; color: #0F2433; text-decoration: none; border-radius: 2px">
+                  <span style="width: 40px; height: 40px; flex: none; display: flex; align-items: center; justify-content: center; background: #E4EEF0; color: {{brand}}"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="{{s.d}}"></path></svg></span>
+                  <span style="font-size: 15px; font-weight: 500">{{s.name}}</span>
+                </a>
+              </sc-for>
+            </div>
+          </div>
+          <div style="width: 300px; flex: none; display: flex; flex-direction: column; border: 1px solid #D6E0E4">
+            <img src="/images/orny-beltrame-2.webp" alt="Orny Beltrame reviewing a design on a tablet" style="display: block; width: 100%; height: 170px; object-fit: cover; object-position: 50% 25%">
+            <div style="padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 8px">
+              <span style="font-family: 'Newsreader', Georgia, serif; font-size: 21px; font-weight: 500; line-height: 1.25">Not sure what you need?</span>
+              <span style="font-size: 14px; color: #4A5C67">Book a free design consultation with Orny Beltrame.</span>
+              <a href="Estimate.dc.html" style="margin-top: 6px; font-size: 14px; font-weight: 600; color: {{brand}}; text-decoration: none">Book a consultation →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- Products menu -->
+    <sc-if value="{{productsOpen}}" hint-placeholder-val="{{ false }}">
+      <div style="position: absolute; left: 0; right: 0; top: 100%; background: #FFFFFF; border-bottom: 1px solid #D6E0E4; box-shadow: 0 30px 60px -30px rgba(15,36,51,0.35)">
+        <div style="max-width: 1240px; margin: 0 auto; padding: 36px 48px 40px; display: flex; gap: 48px">
+          <div style="flex: 1; min-width: 0">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 18px"><span style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #4A5C67">Custom products · 10</span><a href="Products.dc.html" style="font-size: 14px; font-weight: 600; color: {{brand}}; text-decoration: none">All products →</a></div>
+            <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px">
+              <sc-for list="{{products}}" as="p" hint-placeholder-count="10">
+                <a href="{{p.href}}" style="display: flex; flex-direction: column; gap: 10px; color: #0F2433; text-decoration: none">
+                  <img src="{{p.img}}" alt="" style="display: block; width: 100%; height: 96px; object-fit: cover; background-color: #DCE7EB">
+                  <span style="font-size: 14px; font-weight: 500; line-height: 1.35">{{p.name}}</span>
+                </a>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </div>
+    </sc-if>
+  </sc-if>
+
+  <!-- ===== MOBILE ===== -->
+  <sc-if value="{{mobile}}" hint-placeholder-val="{{ false }}">
+    <div style="border-bottom: 1px solid #D6E0E4; background: #FFFFFF">
+      <div style="padding: 0 12px 0 20px; height: 68px; display: flex; align-items: center; gap: 8px">
+        <a href="Home.dc.html" aria-label="The Glass House home" style="display: flex; align-items: center; gap: 10px; color: #0F2433; text-decoration: none; margin-right: auto"><img src="/images/the-glass-house.png" alt="The Glass House" style="display: block; height: 40px; width: auto"></a>
+        <a href="tel:+15086852770" aria-label="Call (508) 685-2770" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: {{brand}}; border: 1px solid #D6E0E4; border-radius: 2px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg></a>
+        <button type="button" onClick="{{toggleMenu}}" aria-expanded="{{menuOpen}}" aria-label="Menu" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: #0F2433; color: #FFFFFF; border: 0; border-radius: 2px; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="{{menuIcon}}"></path></svg></button>
+      </div>
+    </div>
+    <sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+      <div style="position: absolute; left: 0; right: 0; top: 100%; background: #FFFFFF; border-bottom: 1px solid #D6E0E4; box-shadow: 0 30px 60px -30px rgba(15,36,51,0.4); padding: 8px 20px 24px">
+        <button type="button" onClick="{{toggleServices}}" aria-expanded="{{servicesOpen}}" style="width: 100%; display: flex; justify-content: space-between; align-items: center; height: 56px; background: transparent; border: 0; border-bottom: 1px solid #D6E0E4; font: inherit; font-size: 18px; font-weight: 500; color: #0F2433; padding: 0">Services <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="{{servicesChevron}}"></path></svg></button>
+        <sc-if value="{{servicesOpen}}" hint-placeholder-val="{{ true }}">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; padding: 8px 0 12px; border-bottom: 1px solid #D6E0E4">
+            <sc-for list="{{services}}" as="s" hint-placeholder-count="12">
+              <a href="{{s.href}}" style="display: flex; align-items: center; min-height: 44px; font-size: 15px; color: #26394A; text-decoration: none">{{s.name}}</a>
+            </sc-for>
+          </div>
+        </sc-if>
+        <button type="button" onClick="{{toggleProducts}}" aria-expanded="{{productsOpen}}" style="width: 100%; display: flex; justify-content: space-between; align-items: center; height: 56px; background: transparent; border: 0; border-bottom: 1px solid #D6E0E4; font: inherit; font-size: 18px; font-weight: 500; color: #0F2433; padding: 0">Products <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="{{productsChevron}}"></path></svg></button>
+        <sc-if value="{{productsOpen}}" hint-placeholder-val="{{ false }}">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; padding: 8px 0 12px; border-bottom: 1px solid #D6E0E4">
+            <sc-for list="{{products}}" as="p" hint-placeholder-count="10">
+              <a href="{{p.href}}" style="display: flex; align-items: center; min-height: 44px; font-size: 15px; color: #26394A; text-decoration: none">{{p.name}}</a>
+            </sc-for>
+          </div>
+        </sc-if>
+        <a href="Gallery.dc.html" style="display: flex; align-items: center; height: 56px; border-bottom: 1px solid #D6E0E4; font-size: 18px; font-weight: 500; color: #0F2433; text-decoration: none">Projects</a>
+        <a href="Areas.dc.html" style="display: flex; align-items: center; height: 56px; border-bottom: 1px solid #D6E0E4; font-size: 18px; font-weight: 500; color: #0F2433; text-decoration: none">Areas we serve</a>
+        <a href="About.dc.html" style="display: flex; align-items: center; height: 56px; border-bottom: 1px solid #D6E0E4; font-size: 18px; font-weight: 500; color: #0F2433; text-decoration: none">About</a>
+        <a href="BlogIndex.dc.html" style="display: flex; align-items: center; height: 56px; border-bottom: 1px solid #D6E0E4; font-size: 18px; font-weight: 500; color: #0F2433; text-decoration: none">Blog</a>
+        <a href="Contact.dc.html" style="display: flex; align-items: center; height: 56px; border-bottom: 1px solid #D6E0E4; font-size: 18px; font-weight: 500; color: #0F2433; text-decoration: none">Contact</a>
+        <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 20px">
+          <a href="Estimate.dc.html" style="display: flex; align-items: center; justify-content: center; height: 52px; background: {{brand}}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Get Free Estimate</a>
+          <a href="tel:+15086852770" style="display: flex; align-items: center; justify-content: center; height: 52px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Call (508) 685-2770</a>
+        </div>
+      </div>
+    </sc-if>
+  </sc-if>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mobile":{"editor":"boolean","default":false},"open":{"editor":"enum","options":["none","services","products","menu"],"default":"services"},"brand":{"editor":"color","default":"#1E5873","options":["#1E5873","#2B6E8F","#123B5C","#2F6B69"]},"$preview":{"width":1440,"height":600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const brand = this.props.brand ?? '#1E5873';
+    const mobile = !!this.props.mobile;
+    const st = this.state || {};
+    const open = st.open !== undefined ? st.open : (this.props.open ?? 'services');
+    const sub = st.sub !== undefined ? st.sub : 'services';
+    const set = (o) => this.setState(o);
+    const menuOpen = mobile && open !== 'none';
+    const servicesOpen = mobile ? (menuOpen && sub === 'services') : open === 'services';
+    const productsOpen = mobile ? (menuOpen && sub === 'products') : open === 'products';
+    const up = 'M6 15l6-6 6 6';
+    const down = 'M6 9l6 6 6-6';
+    return {
+      brand: brand,
+      mobile: mobile,
+      desktop: !mobile,
+      menuOpen: menuOpen,
+      servicesOpen: servicesOpen,
+      productsOpen: productsOpen,
+      servicesLine: servicesOpen ? brand : 'transparent',
+      productsLine: productsOpen ? brand : 'transparent',
+      servicesChevron: servicesOpen ? up : down,
+      productsChevron: productsOpen ? up : down,
+      menuIcon: menuOpen ? 'M6 6l12 12M18 6L6 18' : 'M4 7h16M4 12h16M4 17h16',
+      toggleMenu: () => set({ open: menuOpen ? 'none' : 'menu' }),
+      toggleServices: () => mobile ? set({ sub: sub === 'services' ? '' : 'services' }) : set({ open: open === 'services' ? 'none' : 'services' }),
+      hoverServices: () => { if (!mobile && open !== 'services') set({ open: 'services' }); },
+      hoverProducts: () => { if (!mobile && open !== 'products') set({ open: 'products' }); },
+      closeAll: () => { if (!mobile && open !== 'none') set({ open: 'none' }); },
+      toggleProducts: () => mobile ? set({ sub: sub === 'products' ? '' : 'products' }) : set({ open: open === 'products' ? 'none' : 'products' }),
+      services: [
+        { name: 'Shower Enclosures', href: 'Service.dc.html', d: 'M4 3h16v18H4zM12 3v18M14.5 11v2' },
+        { name: 'Custom Mirrors', href: 'Service-Mirrors.dc.html', d: 'M12 3c3.9 0 7 3.6 7 8s-3.1 8-7 8-7-3.6-7-8 3.1-8 7-8zM9 21h6M9.5 8.5l3-2.5' },
+        { name: 'Glass Railings', href: 'Service-Railings.dc.html', d: 'M3 6h18M3 6v13M21 6v13M3 19h18M9 6v13M15 6v13' },
+        { name: 'Storefronts', href: 'Service-Storefronts.dc.html', d: 'M3 9l2-5h14l2 5M4 9v11h16V9M9 20v-6h6v6M3 9h18' },
+        { name: 'Entrances & Doors', href: 'Service-Entrances.dc.html', d: 'M6 21V3h12v18M3 21h18M14.5 12h.5' },
+        { name: 'Glass Windows', href: 'Service-Windows.dc.html', d: 'M4 4h16v16H4zM12 4v16M4 12h16' },
+        { name: 'Wine Cellars', href: 'Service-WineCellars.dc.html', d: 'M10 2h4M10.5 2v5L8 10v11h8V10l-2.5-3V2M8 14h8' },
+        { name: 'Glass Countertops', href: 'Service-Countertops.dc.html', d: 'M2 9h20v3H2zM4 12v9M20 12v9' },
+        { name: 'Canopies & Skylights', href: 'Service-Canopies.dc.html', d: 'M3 10l9-6 9 6zM6 10v10M18 10v10M3 20h18' },
+        { name: 'Wall Partitions', href: 'Service-Partitions.dc.html', d: 'M3 4h18M3 20h18M7 4v16M12 4v16M17 4v16' },
+        { name: 'Glass Shelves', href: 'Service-Shelves.dc.html', d: 'M3 7h18M3 13h18M3 19h18M5 7v2M19 7v2' },
+        { name: 'Fireplace Screens', href: 'Service-Fireplace.dc.html', d: 'M3 4h18v17H3zM6 21V9h12v12M12 18c-1.7 0-3-1.2-3-2.8 0-1.8 3-3 3-5 1 1.4 3 2.9 3 5 0 1.6-1.3 2.8-3 2.8z' }
+      ],
+      products: [{ name: 'Custom Glass Mirrors', href: 'Product.dc.html', img: '/images/off-cape-2.webp' }, { name: 'Custom Glass Shelves', href: 'Product-Shelves.dc.html', img: '/images/why-a-glass-canopy-is-the-perfect-blend-of-style-and.webp' }, { name: 'Custom Glass Railings', href: 'Product-Railings.dc.html', img: '/images/glass-storefront-installation-guide-for-cape-cod-businesses.webp' }, { name: 'Custom Glass Windows', href: 'Product-Windows.dc.html', img: '/images/glass-repair-in-providence-ri.webp' }, { name: 'Custom Glass Storefronts', href: 'Product-Storefronts.dc.html', img: '/images/providence-area-hero.webp' }, { name: 'Custom Glass Wine Cellars', href: 'Product-WineCellars.dc.html', img: '/images/custom-glass-shower-doors-enclosures-the-complete-guide.webp' }, { name: 'Custom Glass Countertops', href: 'Product-Countertops.dc.html', img: '/images/wine-cellar-glass-enclosure-ideas-and-costs.webp' }, { name: 'Fireplace Screens', href: 'Product-Fireplace.dc.html', img: '/images/sandwich-area-hero.webp' }, { name: 'Shower Enclosures', href: 'Product-Shower.dc.html', img: '/images/off-cape.webp' }, { name: 'Canopies & Skylights', href: 'Product-Canopies.dc.html', img: '/images/falmouth-area-hero.webp' }]
+    };
+  }
+}
+</script>
+</body>
+</html>

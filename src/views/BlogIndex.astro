@@ -1,0 +1,175 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { blogIndexData } from '../data/blogIndex.js';
+import { FILTER_CATEGORIES, categoryUrl, type Card } from '../lib/blog';
+
+interface Props {
+  featured?: Card & { author: string };
+  posts: Card[];
+  /** Selected category chip ("All" on /blog/). */
+  active: string;
+  page: { current: number; last: number };
+  pageUrl: (n: number) => string;
+  /** Every post, for the client-side search box. */
+  searchIndex: Card[];
+}
+
+const { featured, posts, active, page, pageUrl, searchIndex } = Astro.props;
+const { brand } = blogIndexData();
+const on = 'background: #0F2433; color: #FFFFFF; border: 1px solid #0F2433';
+const off = 'background: #FFFFFF; color: #0F2433; border: 1px solid #D6E0E4';
+const cats = ['All', ...FILTER_CATEGORIES].map((label) => ({ label, href: categoryUrl(label), on: label === active }));
+
+// Pagination window: 1 … (current-1) current (current+1) … last
+const pages: Array<number | null> = [];
+for (let n = 1; n <= page.last; n++) {
+  if (n === 1 || n === page.last || Math.abs(n - page.current) <= 1) pages.push(n);
+  else if (pages[pages.length - 1] !== null) pages.push(null);
+}
+---
+<div class="dc-root" style="container-type: inline-size; background: #FFFFFF; color: #0F2433; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6">
+
+  <div style="position: sticky; top: 0; z-index: 50">
+    <Header />
+  </div>
+
+  <section>
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(20px, 2.4cqi, 28px) clamp(20px, 4cqi, 48px) clamp(40px, 5cqi, 64px)">
+      <nav aria-label="Breadcrumb" style="font-size: 13px; color: #4A5C67; margin-bottom: clamp(24px, 4cqi, 48px)"><a href="/" style="color: #4A5C67">Home</a><span style="margin: 0 8px">/</span><span aria-current="page" style="color: #0F2433; font-weight: 500">Blog</span></nav>
+      <div style={`font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: ${brand}`}>The Glass House blog</div>
+      <h1 style="margin: 14px 0 clamp(28px, 4cqi, 48px); font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(40px, 5.4cqi, 72px); line-height: 1.04; letter-spacing: -0.02em">Ideas, guides &amp; care tips</h1>
+
+      <!-- Featured -->
+      {featured ? (
+      <a href={featured.href} style="display: flex; flex-wrap: wrap; border: 1px solid #D6E0E4; color: #0F2433; text-decoration: none">
+        <img src={featured.img} alt="" style="display: block; flex: 1.3 1 480px; min-width: 0; width: 100%; min-height: clamp(240px, 30cqi, 420px); height: auto; object-fit: cover; background-color: #9FB4BE" fetchpriority="high" decoding="async" />
+        <span style="flex: 1 1 360px; min-width: 0; padding: clamp(24px, 4cqi, 48px); display: flex; flex-direction: column; justify-content: center; gap: 14px; background: #F4F7F8">
+          <span style={`font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: ${brand}`}>Featured · {featured.cat}</span>
+          <span style="font-family: 'Newsreader', Georgia, serif; font-size: clamp(28px, 3.2cqi, 40px); line-height: 1.15">{featured.title}</span>
+          <span style="font-size: 16px; color: #4A5C67">{featured.text}</span>
+          <span style="font-size: 14px; color: #4A5C67">{featured.author} · {featured.date} · {featured.read}</span>
+        </span>
+      </a>
+      ) : null}
+    </div>
+  </section>
+
+  <section>
+    <div style="max-width: 1240px; margin: 0 auto; padding: 0 clamp(20px, 4cqi, 48px) clamp(64px, 8cqi, 104px)">
+      <div style="display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; padding: 20px 0; border-top: 1px solid #D6E0E4; margin-bottom: clamp(24px, 3cqi, 40px)">
+        <nav aria-label="Filter by category" style="display: flex; gap: 8px; overflow-x: auto; max-width: 100%">
+          {cats.map((c) => (<Fragment>
+            <a href={c.href} aria-current={c.on ? 'page' : undefined} style={`flex: none; display: inline-flex; align-items: center; box-sizing: border-box; height: 40px; padding: 0 14px; border-radius: 2px; font: inherit; font-size: 14px; font-weight: 500; text-decoration: none; cursor: pointer; ${c.on ? on : off}`}>{c.label}</a>
+          </Fragment>))}
+        </nav>
+        <label for="blog-search" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Search articles</label>
+        <input id="blog-search" type="search" placeholder="Search articles" style="width: 240px; max-width: 100%; height: 44px; padding: 0 14px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 15px" />
+      </div>
+
+      <div data-blog-grid style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: clamp(28px, 3cqi, 44px) clamp(16px, 2.4cqi, 32px)">
+        {posts.map((p) => (<Fragment>
+          <a href={p.href} style="display: flex; flex-direction: column; gap: 12px; color: #0F2433; text-decoration: none">
+            <img src={p.img} alt="" style="display: block; width: 100%; height: 210px; object-fit: cover; border-radius: 2px; background-color: #D3E0E4" loading="lazy" decoding="async" />
+            <span style="font-size: 13px; color: #4A5C67"><span style={`color: ${brand}; font-weight: 600`}>{p.cat}</span> · {p.date} · {p.read}</span>
+            <span style="font-family: 'Newsreader', Georgia, serif; font-size: 23px; line-height: 1.25; font-weight: 500">{p.title}</span>
+          </a>
+        </Fragment>))}
+      </div>
+
+      <p data-blog-empty hidden style="margin: 0; padding: 24px 0; font-size: 18px; color: #4A5C67">No articles match that search.</p>
+
+      {page.last > 1 ? (
+      <nav aria-label="Pagination" data-blog-pagination style="display: flex; justify-content: center; gap: 6px; margin-top: clamp(40px, 5cqi, 64px)">
+        {page.current > 1 ? (
+          <a href={pageUrl(page.current - 1)} aria-label="Previous page" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 1px solid #D6E0E4; color: #0F2433"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></a>
+        ) : null}
+        {pages.map((n) => n === null ? (
+          <span style="width: 32px; height: 44px; display: flex; align-items: center; justify-content: center; color: #4A5C67">…</span>
+        ) : n === page.current ? (
+          <a href={pageUrl(n)} aria-current="page" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: #0F2433; color: #FFFFFF; text-decoration: none; font-weight: 600">{n}</a>
+        ) : (
+          <a href={pageUrl(n)} style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 1px solid #D6E0E4; color: #0F2433; text-decoration: none">{n}</a>
+        ))}
+        {page.current < page.last ? (
+          <a href={pageUrl(page.current + 1)} aria-label="Next page" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 1px solid #D6E0E4; color: #0F2433"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></a>
+        ) : null}
+      </nav>
+      ) : null}
+    </div>
+  </section>
+
+  <section style="background: #E4EEF0">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(48px, 6cqi, 72px) clamp(20px, 4cqi, 48px); display: flex; flex-wrap: wrap; gap: 24px 64px; align-items: center">
+      <div style="flex: 1 1 420px; min-width: 0">
+        <h2 style="margin: 0 0 6px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(28px, 2.8cqi, 36px); line-height: 1.2">New articles in your inbox</h2>
+        <p style="margin: 0; color: #4A5C67">A few times a year. No spam.</p>
+      </div>
+      <form name="newsletter" method="POST" action="/thank-you/" data-netlify="true" netlify-honeypot="bot-field" style="flex: 1 1 420px; min-width: 0; display: flex; flex-wrap: wrap; gap: 10px">
+        <input type="hidden" name="form-name" value="newsletter" /><p hidden><label>Leave this empty <input name="bot-field" /></label></p>
+        <label for="bi-email" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Email address</label>
+        <input id="bi-email" name="email" type="email" placeholder="you@example.com" style="flex: 1 1 240px; min-width: 0; height: 52px; padding: 0 16px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; background: #FFFFFF" />
+        <button type="submit" style="height: 52px; padding: 0 24px; background: #0F2433; color: #FFFFFF; border: 0; border-radius: 2px; font: inherit; font-weight: 600; cursor: pointer">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <Footer />
+
+  <div class="dc-m">
+    <div style="position: sticky; bottom: 0; z-index: 60; display: grid; grid-template-columns: 1fr 1.35fr; gap: 8px; padding: 10px 12px 12px; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid #D6E0E4">
+      <a href="tel:+15086852770" style="display: flex; align-items: center; justify-content: center; height: 52px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Call now</a>
+      <a href="/get-free-estimate/" style={`display: flex; align-items: center; justify-content: center; height: 52px; background: ${brand}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px`}>Get Free Estimate</a>
+    </div>
+  </div>
+</div>
+
+<script type="application/json" id="blog-search-index" set:html={JSON.stringify(searchIndex)} />
+
+<script>
+  // Article search across every post (the grid shows one page; search covers the whole blog).
+  type Card = { title: string; href: string; img: string; cat: string; date: string; read: string; text: string };
+  const input = document.querySelector<HTMLInputElement>('#blog-search');
+  const grid = document.querySelector<HTMLElement>('[data-blog-grid]');
+  const empty = document.querySelector<HTMLElement>('[data-blog-empty]');
+  const pagination = document.querySelector<HTMLElement>('[data-blog-pagination]');
+  const index: Card[] = JSON.parse(document.getElementById('blog-search-index')?.textContent ?? '[]');
+  if (input && grid && empty) {
+    const original = [...grid.children];
+    const brand = '#1E5873';
+    const render = (c: Card) => {
+      const a = document.createElement('a');
+      a.href = c.href;
+      a.style.cssText = 'display: flex; flex-direction: column; gap: 12px; color: #0F2433; text-decoration: none';
+      const img = document.createElement('img');
+      img.src = c.img;
+      img.alt = '';
+      img.loading = 'lazy';
+      img.style.cssText = 'display: block; width: 100%; height: 210px; object-fit: cover; border-radius: 2px; background-color: #D3E0E4';
+      const meta = document.createElement('span');
+      meta.style.cssText = 'font-size: 13px; color: #4A5C67';
+      const cat = document.createElement('span');
+      cat.style.cssText = `color: ${brand}; font-weight: 600`;
+      cat.textContent = c.cat;
+      meta.append(cat, ` · ${c.date} · ${c.read}`);
+      const title = document.createElement('span');
+      title.style.cssText = "font-family: 'Newsreader', Georgia, serif; font-size: 23px; line-height: 1.25; font-weight: 500";
+      title.textContent = c.title;
+      a.append(img, meta, title);
+      return a;
+    };
+    input.addEventListener('input', () => {
+      const q = input.value.trim().toLowerCase();
+      if (!q) {
+        grid.replaceChildren(...original);
+        empty.hidden = true;
+        if (pagination) pagination.hidden = false;
+        return;
+      }
+      const hits = index.filter((c) => `${c.title} ${c.text} ${c.cat}`.toLowerCase().includes(q));
+      grid.replaceChildren(...hits.map(render));
+      empty.hidden = hits.length > 0;
+      if (pagination) pagination.hidden = true;
+    });
+  }
+</script>

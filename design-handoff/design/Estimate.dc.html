@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Get Free Estimate — The Glass House</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div ref="{{setRoot}}" style="container-type: inline-size; background: #F4F7F8; color: #0F2433; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6">
+
+  <div style="position: sticky; top: 0; z-index: 50">
+    <dc-import name="Header" mobile="{{m}}" open="none" brand="{{brand}}" hint-size="100%,128px"></dc-import>
+  </div>
+
+  <div style="max-width: 1240px; margin: 0 auto; padding: clamp(20px, 2.4cqi, 28px) clamp(16px, 4cqi, 48px) clamp(64px, 8cqi, 104px)">
+    <nav aria-label="Breadcrumb" style="font-size: 13px; color: #4A5C67; margin-bottom: clamp(24px, 4cqi, 44px)"><a href="Home.dc.html" style="color: #4A5C67">Home</a><span style="margin: 0 8px">/</span><span aria-current="page" style="color: #0F2433; font-weight: 500">Get Free Estimate</span></nav>
+    <div style="max-width: 760px; margin-bottom: clamp(28px, 4cqi, 48px)">
+      <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: {{brand}}">Free estimate · No obligation</div>
+      <h1 style="margin: 14px 0 14px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(38px, 5cqi, 68px); line-height: 1.05; letter-spacing: -0.02em">Tell us about your project</h1>
+      <p style="margin: 0; font-size: 18px; color: #26394A">Takes about 2 minutes. We’ll get back to you promptly to set up a free consultation.</p>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 32px 48px; align-items: flex-start">
+
+      <!-- ===== FORM ===== -->
+      <div id="estimate-form" style="flex: 1.6 1 560px; min-width: 0; background: #FFFFFF; border: 1px solid #D6E0E4; padding: clamp(20px, 4cqi, 48px); box-sizing: border-box">
+        <sc-if value="{{notSent}}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{submit}}" style="display: flex; flex-direction: column; gap: 32px">
+
+            <fieldset style="border: 0; margin: 0; padding: 0">
+              <legend style="padding: 0; margin-bottom: 18px; display: flex; align-items: baseline; gap: 12px"><span style="font-family: 'Newsreader', Georgia, serif; font-size: 18px; color: #9C7430">1</span><span style="font-family: 'Newsreader', Georgia, serif; font-size: 26px">Your details</span></legend>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px">
+                <div style="display: flex; flex-direction: column; gap: 6px">
+                  <label for="e-name" style="font-size: 14px; font-weight: 600">Full name <span style="color: #B42318">*</span></label>
+                  <input id="e-name" type="text" required autocomplete="name" style="height: 52px; padding: 0 16px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; color: #0F2433">
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 6px">
+                  <label for="e-phone" style="font-size: 14px; font-weight: 600">Phone <span style="color: #B42318">*</span></label>
+                  <input id="e-phone" type="tel" required autocomplete="tel" placeholder="(508) 555-0123" style="height: 52px; padding: 0 16px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; color: #0F2433">
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 6px; grid-column: 1 / -1">
+                  <label for="e-email" style="font-size: 14px; font-weight: 600">Email</label>
+                  <input id="e-email" type="email" autocomplete="email" placeholder="you@example.com" style="height: 52px; padding: 0 16px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; color: #0F2433">
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset style="border: 0; margin: 0; padding: 0">
+              <legend style="padding: 0; margin-bottom: 18px; display: flex; align-items: baseline; gap: 12px"><span style="font-family: 'Newsreader', Georgia, serif; font-size: 18px; color: #9C7430">2</span><span style="font-family: 'Newsreader', Georgia, serif; font-size: 26px">Your project</span></legend>
+
+              <div style="font-size: 14px; font-weight: 600; margin-bottom: 10px">Project type</div>
+              <div role="radiogroup" aria-label="Project type" style="display: grid; grid-template-columns: 1fr 1fr; border: 1px solid #B7C6CD; border-radius: 2px; overflow: hidden; margin-bottom: 24px; max-width: 420px">
+                <sc-for list="{{kinds}}" as="k" hint-placeholder-count="2">
+                  <button type="button" role="radio" aria-checked="{{k.on}}" onClick="{{k.pick}}" style="height: 50px; border: 0; font: inherit; font-size: 15px; font-weight: 600; cursor: pointer; {{k.style}}">{{k.label}}</button>
+                </sc-for>
+              </div>
+
+              <div style="font-size: 14px; font-weight: 600; margin-bottom: 4px">Service type <span style="font-weight: 400; color: #4A5C67">· choose any</span></div>
+              <div role="group" aria-label="Service type" style="display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 24px">
+                <sc-for list="{{svc}}" as="s" hint-placeholder-count="12">
+                  <button type="button" aria-pressed="{{s.on}}" onClick="{{s.pick}}" style="display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 14px; border-radius: 2px; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer; {{s.style}}"><sc-if value="{{s.on}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg></sc-if>{{s.label}}</button>
+                </sc-for>
+              </div>
+
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px">
+                <div style="display: flex; flex-direction: column; gap: 6px">
+                  <label for="e-town" style="font-size: 14px; font-weight: 600">Town <span style="color: #B42318">*</span></label>
+                  <select id="e-town" required style="height: 52px; padding: 0 14px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; color: #0F2433; background: #FFFFFF">
+                    <option value="">Select your town</option>
+                    <sc-for list="{{towns}}" as="t" hint-placeholder-count="19"><option>{{t}}</option></sc-for>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 6px">
+                  <label for="e-when" style="font-size: 14px; font-weight: 600">Timeline</label>
+                  <select id="e-when" style="height: 52px; padding: 0 14px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; color: #0F2433; background: #FFFFFF"><option>As soon as possible</option><option>Within 1–3 months</option><option>3+ months</option><option>Just exploring</option></select>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset style="border: 0; margin: 0; padding: 0">
+              <legend style="padding: 0; margin-bottom: 18px; display: flex; align-items: baseline; gap: 12px"><span style="font-family: 'Newsreader', Georgia, serif; font-size: 18px; color: #9C7430">3</span><span style="font-family: 'Newsreader', Georgia, serif; font-size: 26px">Photos &amp; details</span></legend>
+              <label for="e-photos" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 28px 16px; border: 1px dashed #8FA3AD; border-radius: 2px; background: #F4F7F8; text-align: center; cursor: pointer">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="{{brand}}" stroke-width="1.5" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"></path></svg>
+                <span style="font-size: 16px; font-weight: 600">Add photos of the space</span>
+                <span style="font-size: 13px; color: #4A5C67">Tap to upload or drag &amp; drop · JPG, PNG, HEIC · up to 5 files, 10 MB each</span>
+              </label>
+              <input id="e-photos" type="file" accept="image/*" multiple style="position: absolute; width: 1px; height: 1px; opacity: 0">
+              <div style="display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0 22px">
+                <sc-for list="{{uploads}}" as="u" hint-placeholder-count="2">
+                  <div style="position: relative; width: 88px; height: 88px; background-color: {{u.tone}}; background-image: url({{u.img}}); background-size: cover; background-position: center">
+                    <button type="button" aria-label="Remove {{u.name}}" style="position: absolute; top: 4px; right: 4px; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; background: rgba(15,36,51,0.75); border: 0; color: #FFFFFF; cursor: pointer"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+                    <span style="position: absolute; left: 0; right: 0; bottom: 0; padding: 2px 6px; background: rgba(255,255,255,0.85); font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{u.name}}</span>
+                  </div>
+                </sc-for>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 6px">
+                <label for="e-msg" style="font-size: 14px; font-weight: 600">Message</label>
+                <textarea id="e-msg" rows="5" placeholder="Rough sizes, style you like, anything we should know…" style="padding: 14px 16px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; color: #0F2433; resize: vertical"></textarea>
+              </div>
+            </fieldset>
+
+            <div style="display: flex; flex-direction: column; gap: 18px; padding-top: 24px; border-top: 1px solid #D6E0E4">
+              <label style="display: flex; gap: 12px; align-items: flex-start; font-size: 13px; line-height: 1.55; color: #4A5C67"><input type="checkbox" style="width: 22px; height: 22px; margin: 0; flex: none; accent-color: {{brand}}"><span><strong style="color: #0F2433">Yes, text me about my estimate.</strong> By checking this box, I agree to receive text messages from The Glass House at the number provided, including appointment reminders and updates about my request. Message frequency varies. Message &amp; data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase. See our <a href="Legal.dc.html" style="color: {{brand}}">Privacy Policy</a> and <a href="Legal.dc.html" style="color: {{brand}}">SMS Terms</a>.</span></label>
+              <button type="submit" style="height: 60px; background: {{brand}}; color: #FFFFFF; border: 0; border-radius: 2px; font: inherit; font-weight: 600; font-size: 17px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px">Request My Free Estimate <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+              <p style="margin: 0; font-size: 13px; color: #4A5C67; text-align: center">We never share your information. Prefer to talk? <a href="tel:+15086852770" style="color: #0F2433; font-weight: 600">(508) 685-2770</a></p>
+            </div>
+          </form>
+        </sc-if>
+
+        <sc-if value="{{sent}}" hint-placeholder-val="{{ false }}">
+          <div role="status" style="display: flex; flex-direction: column; align-items: flex-start; gap: 16px; padding: 24px 0">
+            <span style="width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; background: #E4EEF0; color: {{brand}}"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg></span>
+            <h2 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: 40px; line-height: 1.1">Thank you, we’ve got it.</h2>
+            <p style="margin: 0; font-size: 18px; color: #26394A; max-width: 520px">Orny will reach out promptly to schedule your free consultation. Need us sooner? Call <a href="tel:+15086852770" style="color: #0F2433; font-weight: 600">(508) 685-2770</a>.</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px">
+              <a href="Gallery.dc.html" style="display: inline-flex; align-items: center; height: 48px; padding: 0 22px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 15px; border-radius: 2px">Browse projects while you wait</a>
+              <button type="button" onClick="{{reset}}" style="height: 48px; padding: 0 8px; background: transparent; border: 0; border-bottom: 1px solid currentColor; font: inherit; font-weight: 600; font-size: 15px; color: {{brand}}; cursor: pointer">Back to the form</button>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+
+      <!-- ===== SIDEBAR ===== -->
+      <aside style="flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+        <div style="background: #FFFFFF; border: 1px solid #D6E0E4; padding: 28px">
+          <div style="font-family: 'Newsreader', Georgia, serif; font-size: 24px; margin-bottom: 8px">What happens next</div>
+          <ol style="list-style: none; margin: 0; padding: 0">
+            <li style="display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid #D6E0E4"><span style="font-family: 'Newsreader', Georgia, serif; font-size: 24px; color: #9C7430; line-height: 1">1</span><span><strong style="display: block; font-weight: 600">We call you back</strong><span style="font-size: 14px; color: #4A5C67">As soon as possible.</span></span></li>
+            <li style="display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid #D6E0E4"><span style="font-family: 'Newsreader', Georgia, serif; font-size: 24px; color: #9C7430; line-height: 1">2</span><span><strong style="display: block; font-weight: 600">Free on-site consultation</strong><span style="font-size: 14px; color: #4A5C67">Measure, samples and options.</span></span></li>
+            <li style="display: flex; gap: 16px; padding: 14px 0 0"><span style="font-family: 'Newsreader', Georgia, serif; font-size: 24px; color: #9C7430; line-height: 1">3</span><span><strong style="display: block; font-weight: 600">Clear written quote</strong><span style="font-size: 14px; color: #4A5C67">Honest pricing, no surprises.</span></span></li>
+          </ol>
+        </div>
+        <div style="background: #0F2433; color: #FFFFFF; padding: 28px; display: flex; flex-direction: column; gap: 12px">
+          <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #B9C9D1">Rather talk?</div>
+          <a href="tel:+15086852770" style="font-family: 'Newsreader', Georgia, serif; font-size: 32px; color: #FFFFFF; text-decoration: none; line-height: 1.1">(508) 685-2770</a>
+          <a href="mailto:ornyb@theghglass.com" style="color: #DCE6EA">ornyb@theghglass.com</a>
+          <span style="font-size: 14px; color: #B9C9D1">270 Communication Way, Hyannis, MA 02601<br>Mon–Fri 9:00–5:00</span>
+        </div>
+        <div style="background: #FFFFFF; border: 1px solid #D6E0E4; padding: 20px; display: flex; gap: 16px; align-items: center">
+          <img src="/images/orny-beltrame-2.webp" alt="Orny Beltrame" style="width: 64px; height: 64px; flex: none; display: block; object-fit: cover; background-color: #B7C9D0">
+          <span><strong style="display: block; font-weight: 600">Orny Beltrame</strong><span style="font-size: 14px; color: #4A5C67">Project &amp; Design Consultant · 25+ years. Your point of contact from first call to install.</span></span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 14px">
+          <span style="display: flex; align-items: center; gap: 8px; padding: 12px; background: #E4EEF0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{brand}}" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>Licensed &amp; insured</span>
+          <span style="display: flex; align-items: center; gap: 8px; padding: 12px; background: #E4EEF0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{brand}}" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>30+ years</span>
+          <span style="display: flex; align-items: center; gap: 8px; padding: 12px; background: #E4EEF0"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{brand}}" stroke-width="2" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>1K+ projects</span>
+          <span style="display: flex; align-items: center; gap: 8px; padding: 12px; background: #E4EEF0"><span style="color: #9C7430" aria-hidden="true">★</span>5.0 Google</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <dc-import name="Footer" mobile="{{m}}" hint-size="100%,860px"></dc-import>
+
+  <sc-if value="{{m}}" hint-placeholder-val="{{ false }}">
+    <div style="position: sticky; bottom: 0; z-index: 60; display: grid; grid-template-columns: 1fr 1.35fr; gap: 8px; padding: 10px 12px 12px; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid #D6E0E4">
+      <a href="tel:+15086852770" style="display: flex; align-items: center; justify-content: center; gap: 8px; height: 52px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Call now</a>
+      <a href="#estimate-form" style="display: flex; align-items: center; justify-content: center; height: 52px; background: {{brand}}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Get Free Estimate</a>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mobile":{"editor":"boolean","default":false},"sent":{"editor":"boolean","default":false},"brand":{"editor":"color","default":"#1E5873","options":["#1E5873","#2B6E8F","#123B5C","#2F6B69"]},"$preview":{"width":1440,"height":3000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.state || {};
+    const brand = this.props.brand ?? '#1E5873';
+    const m = !!this.props.mobile || !!st.narrow;
+    if (!this._setRoot) {
+      this._setRoot = (el) => {
+        if (!el || this._ro || typeof ResizeObserver === 'undefined') return;
+        this._ro = new ResizeObserver((es) => {
+          const n = es[0].contentRect.width < 760;
+          if (n !== !!(this.state || {}).narrow) this.setState({ narrow: n });
+        });
+        this._ro.observe(el);
+      };
+    }
+    const sent = st.sent !== undefined ? st.sent : !!this.props.sent;
+    const kind = st.kind || 'Residential';
+    const picked = st.svc || { 'Shower enclosure': true };
+    const onStyle = 'background: #0F2433; color: #FFFFFF; border: 1px solid #0F2433';
+    const offStyle = 'background: #FFFFFF; color: #0F2433; border: 1px solid #B7C6CD';
+    const services = ['Shower enclosure', 'Custom mirror', 'Glass railing', 'Storefront', 'Entrance / door', 'Window', 'Wine cellar', 'Countertop', 'Canopy / skylight', 'Wall partition', 'Glass shelves', 'Fireplace screen', 'Not sure yet'];
+    return {
+      brand: brand,
+      m: m,
+      setRoot: this._setRoot,
+      sent: sent,
+      notSent: !sent,
+      submit: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ sent: true }); },
+      reset: () => this.setState({ sent: false }),
+      kinds: ['Residential', 'Commercial'].map((k) => ({
+        label: k,
+        on: kind === k,
+        style: kind === k ? 'background: #0F2433; color: #FFFFFF' : 'background: #FFFFFF; color: #0F2433',
+        pick: () => this.setState({ kind: k })
+      })),
+      svc: services.map((s) => ({
+        label: s,
+        on: !!picked[s],
+        style: picked[s] ? onStyle : offStyle,
+        pick: () => { const next = Object.assign({}, picked); next[s] = !picked[s]; this.setState({ svc: next }); }
+      })),
+      towns: ['Hyannis', 'Barnstable', 'Bourne', 'Brewster', 'Chatham', 'Dennis', 'Eastham', 'Falmouth', 'Harwich', 'Mashpee', 'Orleans', 'Provincetown', 'Sandwich', 'Truro', 'Wellfleet', 'Yarmouth', 'Boston area', 'Providence, RI', 'Rhode Island (other)'],
+      uploads: [
+        { name: 'bathroom-1.jpg', tone: '#B3C6CD', img: '/images/shower-curb-height-ledges-wall-anchoring-what-homeowners.webp' },
+        { name: 'shower-opening.heic', tone: '#C2D0D4', img: '/images/neo-angle-corner-shower-enclosures-maximizing-small.webp' }
+      ]
+    };
+  }
+  componentWillUnmount() { if (this._ro) this._ro.disconnect(); }
+}
+</script>
+</body>
+</html>

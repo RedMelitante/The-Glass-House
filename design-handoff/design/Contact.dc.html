@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Contact — The Glass House</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div ref="{{setRoot}}" style="container-type: inline-size; background: #FFFFFF; color: #0F2433; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6">
+
+  <div style="position: sticky; top: 0; z-index: 50">
+    <dc-import name="Header" mobile="{{m}}" open="none" brand="{{brand}}" hint-size="100%,128px"></dc-import>
+  </div>
+
+  <section style="background: #F4F7F8; border-bottom: 1px solid #D6E0E4">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(20px, 2.4cqi, 28px) clamp(20px, 4cqi, 48px) clamp(48px, 6cqi, 80px)">
+      <nav aria-label="Breadcrumb" style="font-size: 13px; color: #4A5C67; margin-bottom: clamp(24px, 4cqi, 48px)"><a href="Home.dc.html" style="color: #4A5C67">Home</a><span style="margin: 0 8px">/</span><span aria-current="page" style="color: #0F2433; font-weight: 500">Contact</span></nav>
+      <h1 style="margin: 0 0 14px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(40px, 5.4cqi, 72px); line-height: 1.04; letter-spacing: -0.02em">Get in touch</h1>
+      <p style="margin: 0 0 clamp(28px, 4cqi, 44px); font-size: 18px; color: #26394A; max-width: 600px">Call, email or stop by the shop. For pricing, the fastest route is a <a href="Estimate.dc.html" style="color: {{brand}}">free estimate request</a>.</p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px">
+        <a href="tel:+15086852770" style="display: flex; flex-direction: column; gap: 8px; padding: 24px; background: #0F2433; color: #FFFFFF; text-decoration: none">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg>
+          <span style="font-size: 13px; color: #B9C9D1">Call</span>
+          <span style="font-family: 'Newsreader', Georgia, serif; font-size: 28px; line-height: 1.1">(508) 685-2770</span>
+        </a>
+        <a href="mailto:ornyb@theghglass.com" style="display: flex; flex-direction: column; gap: 8px; padding: 24px; background: #FFFFFF; border: 1px solid #D6E0E4; color: #0F2433; text-decoration: none">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{brand}}" stroke-width="1.6" aria-hidden="true"><path d="M3 5h18v14H3zM3 6l9 7 9-7"></path></svg>
+          <span style="font-size: 13px; color: #4A5C67">Email</span>
+          <span style="font-size: 19px; font-weight: 600">ornyb@theghglass.com</span>
+        </a>
+        <a href="https://maps.app.goo.gl/vZfV7rE3CSp9vrpHA" target="_blank" rel="noopener" style="display: flex; flex-direction: column; gap: 8px; padding: 24px; background: #FFFFFF; border: 1px solid #D6E0E4; color: #0F2433; text-decoration: none">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{brand}}" stroke-width="1.6" aria-hidden="true"><path d="M12 22s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12zM12 7.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5z"></path></svg>
+          <span style="font-size: 13px; color: #4A5C67">Visit</span>
+          <span style="font-size: 17px; font-weight: 600; line-height: 1.4">270 Communication Way<br>Hyannis, MA 02601</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(56px, 8cqi, 104px) clamp(20px, 4cqi, 48px); display: flex; flex-wrap: wrap; gap: 40px 64px; align-items: flex-start">
+      <form style="flex: 1.3 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+        <h2 style="margin: 0 0 4px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(30px, 3.4cqi, 44px); line-height: 1.15">Send us a message</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+          <div style="display: flex; flex-direction: column; gap: 6px"><label for="c-name" style="font-size: 14px; font-weight: 600">Full name</label><input id="c-name" type="text" autocomplete="name" style="height: 52px; padding: 0 14px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px"></div>
+          <div style="display: flex; flex-direction: column; gap: 6px"><label for="c-phone" style="font-size: 14px; font-weight: 600">Phone</label><input id="c-phone" type="tel" autocomplete="tel" style="height: 52px; padding: 0 14px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px"></div>
+          <div style="display: flex; flex-direction: column; gap: 6px"><label for="c-email" style="font-size: 14px; font-weight: 600">Email</label><input id="c-email" type="email" autocomplete="email" style="height: 52px; padding: 0 14px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px"></div>
+          <div style="display: flex; flex-direction: column; gap: 6px"><label for="c-topic" style="font-size: 14px; font-weight: 600">Topic</label><select id="c-topic" style="height: 52px; padding: 0 12px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; background: #FFFFFF; color: #0F2433"><option>General question</option><option>Builder / trade inquiry</option><option>Existing project</option><option>Other</option></select></div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px"><label for="c-msg" style="font-size: 14px; font-weight: 600">Message</label><textarea id="c-msg" rows="5" style="padding: 14px 16px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; resize: vertical"></textarea></div>
+        <label style="display: flex; gap: 12px; align-items: flex-start; font-size: 13px; line-height: 1.55; color: #4A5C67"><input type="checkbox" style="width: 22px; height: 22px; margin: 0; flex: none; accent-color: {{brand}}"><span>I agree to receive text messages from The Glass House about my inquiry. Msg frequency varies; msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of purchase. <a href="Legal.dc.html" style="color: {{brand}}">Privacy Policy</a></span></label>
+        <a href="ThankYou.dc.html" style="align-self: flex-start; display: inline-flex; align-items: center; height: 56px; padding: 0 32px; background: {{brand}}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Send message</a>
+      </form>
+
+      <aside style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+        <a href="https://maps.app.goo.gl/vZfV7rE3CSp9vrpHA" target="_blank" rel="noopener" aria-label="Open The Glass House, 270 Communication Way, Hyannis, in Google Maps" style="display: block; height: 260px; position: relative; text-decoration: none; background-color: #E4EEF0; background-image: linear-gradient(0deg, rgba(255,255,255,0.9) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,0.9) 2px, transparent 2px); background-size: 56px 56px; border: 1px solid #D6E0E4">
+          <span style="position: absolute; left: 50%; top: 46%; transform: translate(-50%, -100%); display: flex; flex-direction: column; align-items: center; gap: 4px"><span style="padding: 5px 10px; background: #0F2433; color: #FFFFFF; font-size: 13px; font-weight: 600; white-space: nowrap">The Glass House</span><svg width="30" height="30" viewBox="0 0 24 24" fill="{{brand}}" stroke="#FFFFFF" stroke-width="1.2" aria-hidden="true"><path d="M12 22s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"></path><circle cx="12" cy="10" r="2.5" fill="#FFFFFF"></circle></svg></span>
+          <span style="position: absolute; left: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 14px; background: #FFFFFF; border: 1px solid #D6E0E4; box-shadow: 0 8px 20px -10px rgba(15,36,51,0.35); font-size: 14px; font-weight: 600; color: #0F2433">Open in Google Maps <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg></span>
+          <span style="position: absolute; right: 10px; bottom: 6px; font-size: 11px; color: #4A5C67">Live Google Map in the built site</span>
+        </a>
+        <div style="border: 1px solid #D6E0E4; padding: 22px">
+          <div style="font-size: 15px; font-weight: 600; margin-bottom: 8px">Shop hours</div>
+          <div style="display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #E3EAED; font-size: 15px"><span>Mon–Fri</span><span>9:00 am – 5:00 pm</span></div>
+          <div style="display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid #E3EAED; font-size: 15px"><span>Saturday</span><span>Closed</span></div>
+          <div style="display: flex; justify-content: space-between; padding: 6px 0; font-size: 15px"><span>Sunday</span><span>Closed</span></div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px">
+          <a href="https://maps.app.goo.gl/iAU9FApj1hgxd1ah8" target="_blank" rel="noopener" style="display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 16px; border: 1px solid #D6E0E4; color: #0F2433; text-decoration: none; font-size: 14px; font-weight: 600"><img src="/images/qr-code-directions-to-the-shop.webp" alt="QR code: directions to the shop" style="width: 96px; height: 96px; display: block">Get directions</a>
+          <a href="https://hovqr.me/759c4eb8" target="_blank" rel="noopener" style="display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 16px; border: 1px solid #D6E0E4; color: #0F2433; text-decoration: none; font-size: 14px; font-weight: 600"><img src="/images/qr-code-leave-a-google-review.webp" alt="QR code: leave a Google review" style="width: 96px; height: 96px; display: block">Leave a review</a>
+        </div>
+        <div style="display: flex; gap: 10px">
+          <a href="https://www.facebook.com/profile.php?id=61577765273149" target="_blank" rel="noopener" style="flex: 1; display: flex; align-items: center; justify-content: center; height: 44px; border: 1px solid #D6E0E4; color: #0F2433; text-decoration: none; font-size: 14px">Facebook</a>
+          <a href="https://www.instagram.com/the_glass_house_cape_cod/" target="_blank" rel="noopener" style="flex: 1; display: flex; align-items: center; justify-content: center; height: 44px; border: 1px solid #D6E0E4; color: #0F2433; text-decoration: none; font-size: 14px">Instagram</a>
+          <a href="https://youtube.com/@TheGlassHouseGlass" target="_blank" rel="noopener" style="flex: 1; display: flex; align-items: center; justify-content: center; height: 44px; border: 1px solid #D6E0E4; color: #0F2433; text-decoration: none; font-size: 14px">YouTube</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===== VISIT THE SHOP ===== -->
+  <section style="background: #F4F7F8; border-top: 1px solid #D6E0E4">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(56px, 8cqi, 104px) clamp(20px, 4cqi, 48px); display: flex; flex-wrap: wrap; gap: 40px 64px; align-items: center">
+      <div style="flex: 1 1 520px; min-width: 0; display: grid; grid-template-columns: 1.15fr 1fr; gap: 12px">
+        <img src="/images/hyannis-area-hero.webp" alt="The Glass House shopfront at 270 Communication Way, Hyannis" style="display: block; width: 100%; height: 100%; min-height: 260px; aspect-ratio: 4 / 5; object-fit: cover">
+        <img src="/images/orny-beltrame-in-the-glass-house-showroom-with-glass.webp" alt="Orny Beltrame in The Glass House showroom with glass hardware samples" style="display: block; width: 100%; height: 100%; min-height: 260px; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%">
+      </div>
+      <div style="flex: 1 1 380px; min-width: 0">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: {{brand}}">Visit the shop</div>
+        <h2 style="margin: 14px 0 16px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.6cqi, 48px); line-height: 1.15; letter-spacing: -0.01em">See glass, mirrors &amp; hardware in person</h2>
+        <p style="margin: 0 0 24px; font-size: 18px; color: #26394A">Stop by our Hyannis shop to see glass types, edge finishes and hardware samples. Bring a photo or rough measurements and Orny will talk you through the options.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px">
+          <a href="https://maps.app.goo.gl/vZfV7rE3CSp9vrpHA" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; height: 52px; padding: 0 24px; background: {{brand}}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Get directions</a>
+          <a href="tel:+15086852770" style="display: inline-flex; align-items: center; height: 52px; padding: 0 22px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Call ahead</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Footer" mobile="{{m}}" hint-size="100%,860px"></dc-import>
+
+  <sc-if value="{{m}}" hint-placeholder-val="{{ false }}">
+    <div style="position: sticky; bottom: 0; z-index: 60; display: grid; grid-template-columns: 1fr 1.35fr; gap: 8px; padding: 10px 12px 12px; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid #D6E0E4">
+      <a href="tel:+15086852770" style="display: flex; align-items: center; justify-content: center; height: 52px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Call now</a>
+      <a href="Estimate.dc.html" style="display: flex; align-items: center; justify-content: center; height: 52px; background: {{brand}}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Get Free Estimate</a>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mobile":{"editor":"boolean","default":false},"brand":{"editor":"color","default":"#1E5873","options":["#1E5873","#2B6E8F","#123B5C","#2F6B69"]},"$preview":{"width":1440,"height":3000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.state || {};
+    const brand = this.props.brand ?? '#1E5873';
+    const m = !!this.props.mobile || !!st.narrow;
+    if (!this._setRoot) {
+      this._setRoot = (el) => {
+        if (!el || this._ro || typeof ResizeObserver === 'undefined') return;
+        this._ro = new ResizeObserver((es) => {
+          const n = es[0].contentRect.width < 760;
+          if (n !== !!(this.state || {}).narrow) this.setState({ narrow: n });
+        });
+        this._ro.observe(el);
+      };
+    }
+    return { brand: brand, m: m, setRoot: this._setRoot };
+  }
+  componentWillUnmount() { if (this._ro) this._ro.disconnect(); }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Product from '../../views/Product.astro';
+import { productData } from '../../data/product.js';
+import { PRODUCT_SLUGS } from '../../lib/routes';
+import { faqSchema } from '../../lib/site';
+
+export function getStaticPaths() {
+  return Object.entries(PRODUCT_SLUGS).map(([product, slug]) => ({ params: { slug }, props: { product } }));
+}
+
+const { product } = Astro.props;
+const p = productData({ product });
+---
+<BaseLayout
+  title={`${p.name} | Custom Glass Products | The Glass House`}
+  description={p.lede}
+  image={p.active.img}
+  schema={faqSchema(p.faqs.map((q: { q: string; a: string }) => [q.q, q.a]))}
+>
+  <Product product={product} />
+</BaseLayout>

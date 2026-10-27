@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Product Quote — The Glass House</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div ref="{{setRoot}}" style="container-type: inline-size; background: #F4F7F8; color: #0F2433; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6">
+
+  <div style="position: sticky; top: 0; z-index: 50">
+    <dc-import name="Header" mobile="{{m}}" open="none" brand="{{brand}}" hint-size="100%,128px"></dc-import>
+  </div>
+
+  <div style="max-width: 1240px; margin: 0 auto; padding: clamp(20px, 2.4cqi, 28px) clamp(16px, 4cqi, 48px) clamp(64px, 8cqi, 104px)">
+    <nav aria-label="Breadcrumb" style="font-size: 13px; color: #4A5C67; margin-bottom: clamp(24px, 4cqi, 44px)"><a href="Home.dc.html" style="color: #4A5C67">Home</a><span style="margin: 0 8px">/</span><a href="Products.dc.html" style="color: #4A5C67">Products</a><span style="margin: 0 8px">/</span><span aria-current="page" style="color: #0F2433; font-weight: 500">Product quote</span></nav>
+    <div style="max-width: 760px; margin-bottom: clamp(28px, 4cqi, 44px)">
+      <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: {{brand}}">Product quote</div>
+      <h1 style="margin: 14px 0 12px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(38px, 5cqi, 64px); line-height: 1.05; letter-spacing: -0.02em">Quote a custom glass product</h1>
+      <p style="margin: 0; font-size: 18px; color: #26394A">Know roughly what you need? Tell us the size and options and we’ll send a written quote. Not sure? <a href="Estimate.dc.html" style="color: {{brand}}">Book a free on-site estimate</a> instead.</p>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 32px 48px; align-items: flex-start">
+      <form style="flex: 1.6 1 560px; min-width: 0; background: #FFFFFF; border: 1px solid #D6E0E4; padding: clamp(20px, 4cqi, 44px); box-sizing: border-box; display: flex; flex-direction: column; gap: 30px">
+
+        <fieldset style="border: 0; margin: 0; padding: 0">
+          <legend style="padding: 0; margin-bottom: 14px; font-family: 'Newsreader', Georgia, serif; font-size: 24px">Product</legend>
+          <div role="radiogroup" aria-label="Product" style="display: grid; grid-template-columns: repeat(auto-fill, minmax({{tileMin}}, 1fr)); gap: 10px">
+            <sc-for list="{{products}}" as="o" hint-placeholder-count="10">
+              <button type="button" role="radio" aria-checked="{{o.on}}" onClick="{{o.pick}}" style="display: flex; flex-direction: column; padding: 0; border-radius: 2px; font: inherit; font-size: 14px; font-weight: 500; text-align: left; cursor: pointer; overflow: hidden; {{o.style}}">
+                <img src="{{o.img}}" alt="" style="display: block; width: 100%; height: {{tileH}}; object-fit: cover; background-color: #DCE7EB">
+                <span style="padding: 10px 12px; line-height: 1.3">{{o.label}}</span>
+              </button>
+            </sc-for>
+          </div>
+        </fieldset>
+
+        <fieldset style="border: 0; margin: 0; padding: 0">
+          <legend style="padding: 0; margin-bottom: 14px; font-family: 'Newsreader', Georgia, serif; font-size: 24px">Size &amp; quantity</legend>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 16px">
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="q-w" style="font-size: 14px; font-weight: 600">Width (in)</label><input id="q-w" type="number" inputmode="decimal" value="48" style="height: 52px; padding: 0 14px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; color: #0F2433"></div>
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="q-h" style="font-size: 14px; font-weight: 600">Height (in)</label><input id="q-h" type="number" inputmode="decimal" value="36" style="height: 52px; padding: 0 14px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; color: #0F2433"></div>
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="q-t" style="font-size: 14px; font-weight: 600">Thickness</label><select id="q-t" style="height: 52px; padding: 0 12px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; color: #0F2433; background: #FFFFFF"><option>1/4″</option><option>3/8″</option><option>1/2″</option><option>Not sure</option></select></div>
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="q-q" style="font-size: 14px; font-weight: 600">Quantity</label><input id="q-q" type="number" value="1" min="1" style="height: 52px; padding: 0 14px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; color: #0F2433"></div>
+          </div>
+          <p style="margin: 10px 0 0; font-size: 13px; color: #4A5C67">Approximate is fine. We confirm every measurement before cutting.</p>
+        </fieldset>
+
+        <fieldset style="border: 0; margin: 0; padding: 0">
+          <legend style="padding: 0; margin-bottom: 14px; font-family: 'Newsreader', Georgia, serif; font-size: 24px">Options</legend>
+          <div style="font-size: 14px; font-weight: 600; margin-bottom: 8px">Glass type</div>
+          <div role="radiogroup" aria-label="Glass type" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px">
+            <sc-for list="{{glass}}" as="o" hint-placeholder-count="5">
+              <button type="button" role="radio" aria-checked="{{o.on}}" onClick="{{o.pick}}" style="min-height: 44px; padding: 0 14px; border-radius: 2px; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer; {{o.style}}">{{o.label}}</button>
+            </sc-for>
+          </div>
+          <div style="font-size: 14px; font-weight: 600; margin-bottom: 8px">Edge finish</div>
+          <div role="radiogroup" aria-label="Edge finish" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px">
+            <sc-for list="{{edges}}" as="o" hint-placeholder-count="5">
+              <button type="button" role="radio" aria-checked="{{o.on}}" onClick="{{o.pick}}" style="min-height: 44px; padding: 0 14px; border-radius: 2px; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer; {{o.style}}">{{o.label}}</button>
+            </sc-for>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px; max-width: 360px">
+            <label for="q-hw" style="font-size: 14px; font-weight: 600">Hardware finish</label>
+            <select id="q-hw" style="height: 52px; padding: 0 12px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; color: #0F2433; background: #FFFFFF"><option>No hardware</option><option>Polished chrome</option><option>Brushed nickel</option><option>Matte black</option><option>Satin brass</option></select>
+          </div>
+        </fieldset>
+
+        <fieldset style="border: 0; margin: 0; padding: 0">
+          <legend style="padding: 0; margin-bottom: 14px; font-family: 'Newsreader', Georgia, serif; font-size: 24px">Installation</legend>
+          <div role="radiogroup" aria-label="Installation" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px">
+            <sc-for list="{{fulfil}}" as="o" hint-placeholder-count="3">
+              <button type="button" role="radio" aria-checked="{{o.on}}" onClick="{{o.pick}}" style="display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 14px 16px; border-radius: 2px; font: inherit; text-align: left; cursor: pointer; {{o.style}}"><span style="font-size: 15px; font-weight: 600">{{o.label}}</span><span style="font-size: 13px; opacity: 0.8">{{o.note}}</span></button>
+            </sc-for>
+          </div>
+        </fieldset>
+
+        <fieldset style="border: 0; margin: 0; padding: 0">
+          <legend style="padding: 0; margin-bottom: 14px; font-family: 'Newsreader', Georgia, serif; font-size: 24px">Drawings &amp; notes</legend>
+          <label for="q-file" style="display: flex; align-items: center; justify-content: center; gap: 10px; height: 64px; border: 1px dashed #8FA3AD; border-radius: 2px; background: #F4F7F8; font-size: 15px; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{brand}}" stroke-width="1.6" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"></path></svg>Upload a sketch, drawing or photo · PDF, JPG, PNG</label>
+          <input id="q-file" type="file" multiple style="position: absolute; width: 1px; height: 1px; opacity: 0">
+          <label for="q-notes" style="display: block; font-size: 14px; font-weight: 600; margin: 16px 0 6px">Notes</label>
+          <textarea id="q-notes" rows="3" placeholder="Cutouts, shapes, where it’s going…" style="width: 100%; box-sizing: border-box; padding: 14px 16px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; color: #0F2433; resize: vertical"></textarea>
+        </fieldset>
+
+        <fieldset style="border: 0; margin: 0; padding: 0">
+          <legend style="padding: 0; margin-bottom: 14px; font-family: 'Newsreader', Georgia, serif; font-size: 24px">Your details</legend>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="q-name" style="font-size: 14px; font-weight: 600">Full name *</label><input id="q-name" type="text" required autocomplete="name" style="height: 52px; padding: 0 14px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px"></div>
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="q-phone" style="font-size: 14px; font-weight: 600">Phone *</label><input id="q-phone" type="tel" required autocomplete="tel" style="height: 52px; padding: 0 14px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px"></div>
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="q-email" style="font-size: 14px; font-weight: 600">Email</label><input id="q-email" type="email" autocomplete="email" style="height: 52px; padding: 0 14px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px"></div>
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="q-town" style="font-size: 14px; font-weight: 600">Town</label><input id="q-town" type="text" autocomplete="address-level2" style="height: 52px; padding: 0 14px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px"></div>
+          </div>
+        </fieldset>
+
+        <div style="display: flex; flex-direction: column; gap: 16px; padding-top: 22px; border-top: 1px solid #D6E0E4">
+          <label style="display: flex; gap: 12px; align-items: flex-start; font-size: 13px; line-height: 1.55; color: #4A5C67"><input type="checkbox" style="width: 22px; height: 22px; margin: 0; flex: none; accent-color: {{brand}}"><span><strong style="color: #0F2433">Yes, text me about my quote.</strong> I agree to receive text messages from The Glass House at the number provided. Message frequency varies. Message &amp; data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase. <a href="Legal.dc.html" style="color: {{brand}}">Privacy Policy</a> · <a href="Legal.dc.html" style="color: {{brand}}">SMS Terms</a></span></label>
+          <a href="ThankYou.dc.html" style="display: flex; align-items: center; justify-content: center; height: 60px; background: {{brand}}; color: #FFFFFF; text-decoration: none; border-radius: 2px; font-weight: 600; font-size: 17px">Request My Quote</a>
+        </div>
+      </form>
+
+      <!-- SUMMARY -->
+      <aside style="flex: 1 1 300px; min-width: 0; position: sticky; top: 150px; display: flex; flex-direction: column; gap: 16px">
+        <div style="background: #FFFFFF; border: 1px solid #D6E0E4">
+          <img src="{{sum.img}}" alt="{{sum.product}}" style="display: block; width: 100%; height: 180px; object-fit: cover; background-color: #D3E0E4">
+          <div style="padding: 22px">
+            <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #4A5C67">Your request</div>
+            <div style="font-family: 'Newsreader', Georgia, serif; font-size: 26px; line-height: 1.2; margin: 6px 0 12px">{{sum.product}}</div>
+            <div style="display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-top: 1px solid #D6E0E4; font-size: 15px"><span style="color: #4A5C67">Size</span><span style="font-weight: 600">48″ × 36″ · qty 1</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-top: 1px solid #D6E0E4; font-size: 15px"><span style="color: #4A5C67">Glass</span><span style="font-weight: 600">{{sum.glass}}</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-top: 1px solid #D6E0E4; font-size: 15px"><span style="color: #4A5C67">Edge</span><span style="font-weight: 600">{{sum.edge}}</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-top: 1px solid #D6E0E4; font-size: 15px"><span style="color: #4A5C67">Install</span><span style="font-weight: 600">{{sum.fulfil}}</span></div>
+          </div>
+        </div>
+        <div style="background: #0F2433; color: #FFFFFF; padding: 22px">
+          <div style="font-size: 14px; color: #B9C9D1">Questions about sizing?</div>
+          <a href="tel:+15086852770" style="font-family: 'Newsreader', Georgia, serif; font-size: 28px; color: #FFFFFF; text-decoration: none">(508) 685-2770</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <dc-import name="Footer" mobile="{{m}}" hint-size="100%,860px"></dc-import>
+
+  <sc-if value="{{m}}" hint-placeholder-val="{{ false }}">
+    <div style="position: sticky; bottom: 0; z-index: 60; display: grid; grid-template-columns: 1fr 1.35fr; gap: 8px; padding: 10px 12px 12px; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid #D6E0E4">
+      <a href="tel:+15086852770" style="display: flex; align-items: center; justify-content: center; height: 52px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Call now</a>
+      <a href="Estimate.dc.html" style="display: flex; align-items: center; justify-content: center; height: 52px; background: {{brand}}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Get Free Estimate</a>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mobile":{"editor":"boolean","default":false},"brand":{"editor":"color","default":"#1E5873","options":["#1E5873","#2B6E8F","#123B5C","#2F6B69"]},"$preview":{"width":1440,"height":2900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.state || {};
+    const brand = this.props.brand ?? '#1E5873';
+    const m = !!this.props.mobile || !!st.narrow;
+    if (!this._setRoot) {
+      this._setRoot = (el) => {
+        if (!el || this._ro || typeof ResizeObserver === 'undefined') return;
+        this._ro = new ResizeObserver((es) => {
+          const n = es[0].contentRect.width < 760;
+          if (n !== !!(this.state || {}).narrow) this.setState({ narrow: n });
+        });
+        this._ro.observe(el);
+      };
+    }
+    const on = 'background: #0F2433; color: #FFFFFF; border: 1px solid #0F2433';
+    const tileOn = 'background: #0F2433; color: #FFFFFF; border: 2px solid #0F2433';
+    const tileOff = 'background: #FFFFFF; color: #0F2433; border: 2px solid #D6E0E4';
+    const off = 'background: #FFFFFF; color: #0F2433; border: 1px solid #B7C6CD';
+    const group = (key, opts, def) => {
+      const cur = st[key] || def;
+      return { cur: cur, items: opts.map((o) => {
+        const label = typeof o === 'string' ? o : o.label;
+        return Object.assign({}, typeof o === 'string' ? {} : o, { label: label, on: cur === label, style: cur === label ? on : off, pick: () => { const s = {}; s[key] = label; this.setState(s); } });
+      }) };
+    };
+    const pimg = {'Mirror': '/images/off-cape-2.webp', 'Shelves': '/images/why-a-glass-canopy-is-the-perfect-blend-of-style-and.webp', 'Railing panels': '/images/glass-storefront-installation-guide-for-cape-cod-businesses.webp', 'Window glass': '/images/glass-repair-in-providence-ri.webp', 'Storefront glass': '/images/providence-area-hero.webp', 'Wine cellar': '/images/custom-glass-shower-doors-enclosures-the-complete-guide.webp', 'Countertop': '/images/wine-cellar-glass-enclosure-ideas-and-costs.webp', 'Fireplace screen': '/images/sandwich-area-hero.webp', 'Shower glass': '/images/off-cape.webp', 'Canopy / skylight': '/images/falmouth-area-hero.webp'};
+    const p = group('product', Object.keys(pimg).map((k) => ({ label: k, img: pimg[k] })), 'Mirror');
+    const g = group('glass', ['Clear', 'Low-iron', 'Acid-etched', 'Tinted', 'Antique mirror'], 'Clear');
+    const e = group('edge', ['Flat polished', 'Pencil polished', 'Beveled', 'Seamed', 'Not sure'], 'Beveled');
+    const f = group('fulfil', [{ label: 'Installed', note: 'We measure & install' }, { label: 'Pickup', note: 'Hyannis shop' }, { label: 'Delivery', note: 'Ask about your area' }], 'Installed');
+    return {
+      brand: brand,
+      m: m,
+      setRoot: this._setRoot,
+      products: p.items.map((o) => ({ ...o, style: o.on ? tileOn : tileOff })),
+      tileMin: m ? '130px' : '150px',
+      tileH: m ? '72px' : '88px',
+      glass: g.items,
+      edges: e.items,
+      fulfil: f.items,
+      sum: { img: pimg[p.cur], product: 'Custom ' + p.cur.toLowerCase(), glass: g.cur, edge: e.cur, fulfil: f.cur }
+    };
+  }
+  componentWillUnmount() { if (this._ro) this._ro.disconnect(); }
+}
+</script>
+</body>
+</html>

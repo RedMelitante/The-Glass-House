@@ -1,0 +1,97 @@
+/*
+ * Global styles. The page markup carries its own inline styles (ported 1:1 from the Claude Design
+ * files), so Tailwind's preflight reset is deliberately NOT loaded — the design was drawn on browser
+ * defaults with only `body { margin: 0 }`. Tailwind provides the design tokens and utilities.
+ */
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+@theme {
+  --font-serif: "Newsreader", Georgia, serif;
+  --font-sans: "Instrument Sans", system-ui, sans-serif;
+
+  --color-ink: #0F2433;
+  --color-brand: #1E5873;
+  --color-body: #4A5C67;
+  --color-line: #D6E0E4;
+  --color-mist: #F4F7F8;
+  --color-frost: #E3EAED;
+  --color-frost-2: #E4EEF0;
+  --color-brass: #9C7430;
+  --color-teal: #2F6B69;
+  --color-footer-link: #7FD3D9;
+  --color-white: #FFFFFF;
+
+  /* Design artboards: 1440px desktop, 390px mobile; layouts switch below 760px. */
+  --breakpoint-dc: 760px;
+}
+
+:root {
+  --gh-ink: #0F2433;
+  --gh-brand: #1E5873;
+  --gh-body: #4A5C67;
+  --gh-line: #D6E0E4;
+  --gh-mist: #F4F7F8;
+  --gh-frost: #E3EAED;
+  --gh-brass: #9C7430;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: #FFFFFF;
+  color: #0F2433;
+  font-family: "Instrument Sans", system-ui, sans-serif;
+}
+
+/*
+ * Desktop / mobile variants. The design renders separate markup for the 1440px and 390px artboards
+ * (switching when the page is narrower than 760px). Both variants are in the HTML; CSS shows one.
+ */
+.dc-d { display: contents; }
+.dc-m { display: none; }
+@media (max-width: 759.98px) {
+  .dc-d { display: none; }
+  .dc-m { display: contents; }
+}
+
+[hidden] { display: none !important; }
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 2px solid #1E5873;
+  outline-offset: 2px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* Filtered lists: phones show a shorter "All" list (see scripts/filter.ts). */
+@media (max-width: 759.98px) {
+  [data-filter-root][data-active="All"] [data-m-extra] { display: none !important; }
+}

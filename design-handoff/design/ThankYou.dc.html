@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Thank you — The Glass House</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div ref="{{setRoot}}" style="container-type: inline-size; background: #FFFFFF; color: #0F2433; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6">
+
+  <div style="position: sticky; top: 0; z-index: 50">
+    <dc-import name="Header" mobile="{{m}}" open="none" brand="{{brand}}" hint-size="100%,128px"></dc-import>
+  </div>
+
+  <section style="background: #F4F7F8">
+    <div style="max-width: 760px; margin: 0 auto; padding: clamp(56px, 9cqi, 120px) clamp(20px, 4cqi, 48px); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 18px">
+      <span style="width: 72px; height: 72px; display: flex; align-items: center; justify-content: center; background: #FFFFFF; border: 1px solid #D6E0E4; color: {{brand}}"><svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg></span>
+      <h1 style="margin: 0; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(40px, 5.4cqi, 68px); line-height: 1.05; letter-spacing: -0.02em">Thank you, we’ve got your request.</h1>
+      <p style="margin: 0; font-size: 19px; color: #26394A">Orny will reach out promptly to schedule your free consultation. Need us sooner?</p>
+      <a href="tel:+15086852770" style="display: inline-flex; align-items: center; gap: 10px; height: 56px; padding: 0 28px; background: {{brand}}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Call (508) 685-2770</a>
+    </div>
+  </section>
+
+  <section>
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(56px, 8cqi, 104px) clamp(20px, 4cqi, 48px)">
+      <h2 style="margin: 0 0 28px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(28px, 3cqi, 40px); text-align: center">While you wait</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px">
+        <a href="Gallery.dc.html" style="display: flex; flex-direction: column; border: 1px solid #D6E0E4; color: #0F2433; text-decoration: none"><span style="height: 180px; background-color: #9FB4BE; background-image: url(/images/glass-storefront-installation-guide-for-cape-cod-businesses.webp); background-size: cover; background-position: center"></span><span style="padding: 18px 20px"><span style="display: block; font-size: 18px; font-weight: 600">Browse our projects</span><span style="font-size: 14px; color: #4A5C67">Ideas from 1K+ installs</span></span></a>
+        <a href="CostGuide.dc.html" style="display: flex; flex-direction: column; border: 1px solid #D6E0E4; color: #0F2433; text-decoration: none"><span style="height: 180px; background-color: #C9D9DE; background-image: url(/images/wine-cellar-glass-enclosure-ideas-and-costs.webp); background-size: cover; background-position: center"></span><span style="padding: 18px 20px"><span style="display: block; font-size: 18px; font-weight: 600">Read the cost guide</span><span style="font-size: 14px; color: #4A5C67">Typical price ranges</span></span></a>
+        <a href="Faq.dc.html" style="display: flex; flex-direction: column; border: 1px solid #D6E0E4; color: #0F2433; text-decoration: none"><span style="height: 180px; background-color: #DCE7EB; background-image: url(/images/orny-beltrame-in-the-glass-house-showroom-with-glass.webp); background-size: cover; background-position: center"></span><span style="padding: 18px 20px"><span style="display: block; font-size: 18px; font-weight: 600">Common questions</span><span style="font-size: 14px; color: #4A5C67">What to expect next</span></span></a>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Footer" mobile="{{m}}" hint-size="100%,860px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mobile":{"editor":"boolean","default":false},"brand":{"editor":"color","default":"#1E5873","options":["#1E5873","#2B6E8F","#123B5C","#2F6B69"]},"$preview":{"width":1440,"height":2000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.state || {};
+    const brand = this.props.brand ?? '#1E5873';
+    const m = !!this.props.mobile || !!st.narrow;
+    if (!this._setRoot) {
+      this._setRoot = (el) => {
+        if (!el || this._ro || typeof ResizeObserver === 'undefined') return;
+        this._ro = new ResizeObserver((es) => {
+          const n = es[0].contentRect.width < 760;
+          if (n !== !!(this.state || {}).narrow) this.setState({ narrow: n });
+        });
+        this._ro.observe(el);
+      };
+    }
+    return { brand: brand, m: m, setRoot: this._setRoot };
+  }
+  componentWillUnmount() { if (this._ro) this._ro.disconnect(); }
+}
+</script>
+</body>
+</html>

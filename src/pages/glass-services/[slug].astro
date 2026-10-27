@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Service from '../../views/Service.astro';
+import { serviceData } from '../../data/service.js';
+import { SERVICE_SLUGS } from '../../lib/routes';
+import { faqSchema } from '../../lib/site';
+
+export function getStaticPaths() {
+  return Object.entries(SERVICE_SLUGS).map(([service, slug]) => ({ params: { slug }, props: { service } }));
+}
+
+const { service } = Astro.props;
+const s = serviceData({ service });
+---
+<BaseLayout
+  title={`${s.name} on Cape Cod | The Glass House`}
+  description={s.lede}
+  image={s.hero}
+  schema={faqSchema(s.faqs.map((q: { q: string; a: string }) => [q.q, q.a]))}
+>
+  <Service service={service} />
+</BaseLayout>

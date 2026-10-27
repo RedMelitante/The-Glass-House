@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogIndex from '../../views/BlogIndex.astro';
+import { getPosts } from '../../lib/blog';
+import { listingPages, searchIndex } from '../../lib/blogPages';
+
+export async function getStaticPaths() {
+  const pages = listingPages(await getPosts(), '/blog/');
+  return pages.map((p) => ({ params: { page: p.page === 1 ? undefined : `page/${p.page}` }, props: p }));
+}
+
+const { page, featured, posts, last, pageUrl } = Astro.props;
+const index = await searchIndex();
+const suffix = page > 1 ? ` – Page ${page}` : '';
+---
+<BaseLayout
+  title={`Blog${suffix} | Custom Glass Ideas, Guides & Care Tips | The Glass House`}
+  description="Ideas, guides and care tips for custom glass on Cape Cod: shower enclosures, mirrors, railings, windows, storefronts and more from The Glass House in Hyannis."
+>
+  <BlogIndex featured={featured} posts={posts} active="All" page={{ current: page, last }} pageUrl={pageUrl} searchIndex={index} />
+</BaseLayout>

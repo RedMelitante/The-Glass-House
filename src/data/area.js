@@ -1,0 +1,104 @@
+// Page data and copy, ported from design/Area.dc.html.
+export const areaDefaults = {"town":"chatham","mobile":false,"brand":"#1E5873"};
+
+export function areaData(props = {}, state = {}) {
+  const self = { props: { ...areaDefaults, ...props }, state, setState() {} };
+  return function () {
+    const st = this.state || {};
+    const brand = this.props.brand ?? '#1E5873';
+    const m = !!this.props.mobile || !!st.narrow;
+    const B = '/images/';
+    const RG = {
+      upper: { name: 'Upper Cape', the: 'the Upper Cape' }, mid: { name: 'Mid Cape', the: 'the Mid Cape' },
+      lower: { name: 'Lower Cape', the: 'the Lower Cape' }, outer: { name: 'Outer Cape', the: 'the Outer Cape' },
+      beyond: { name: 'Off-Cape', the: 'Southeastern New England' }
+    };
+    const PJ = {
+      upper: [['Glass balcony railings', 'Railings', 'off-cape-3.webp', 'Cape Cod'], ['Frameless shower, white subway tile', 'Showers', 'off-cape.webp', 'Cape Cod'], ['Wall-to-wall vanity mirror', 'Mirrors', 'off-cape-2.webp', 'Cape Cod']],
+      mid: [['Frameless glass stair railing', 'Railings', 'glass-storefront-installation-guide-for-cape-cod-businesses.webp', 'Hyannis, MA'], ['Tub enclosure with brass hinges', 'Showers', 'antique-mirror-panels-kitchen.webp', 'Hyannis, MA'], ['Glass tabletop on kitchen island', 'Countertops', 'wine-cellar-glass-enclosure-ideas-and-costs.webp', 'Plymouth, MA']],
+      lower: [['Glass deck railing over a pool', 'Railings', 'architectural-glass-railing.webp', 'Cape Cod'], ['Frameless shower with bench', 'Showers', 'structural-blocking-for-curbless-walk-in-showers-wet-rooms.webp', 'Cape Cod'], ['Spider-fitting glass storefront', 'Storefronts', 'providence-area-hero.webp', 'Cape Cod']],
+      outer: [['Glass pool fence', 'Railings', 'how-to-design-a-stunning-bathroom-with-a-walk-in-shower.webp', 'Cape Cod'], ['Marble shower with bench & lit niche', 'Showers', 'shower-enclosure.webp', 'Cape Cod'], ['Waterfront glass fire pit', 'Fireplaces', 'chatham-area-hero.webp', 'Cape Cod']],
+      beyond: [['Glass office partitions, loft', 'Partitions', 'boston-area-hero.webp', 'Commercial'], ['Rooftop glass railing', 'Railings', 'loft-railing-black-top-rail.webp', 'Commercial'], ['Black grid bypass shower', 'Showers', 'semi-frameless-vs-framed-shower-doors-which-fits-your-cape.webp', 'Portsmouth, RI']]
+    };
+    const EX = {
+      chatham: ['25', 'Chatham homes face the Atlantic and Pleasant Bay, so we recommend tempered glass and marine-grade hardware for decks and railings, and low-iron glass where clarity matters. Inside, many houses are older capes and shingle-style homes, which means walls and floors are rarely square. Our on-site measure captures every angle so shower doors, mirrors and partitions sit tight. We schedule Chatham installs around your plans, whether it’s a summer home that needs to be ready by June or a year-round remodel with a builder.'],
+      hyannis: ['0', 'Because our shop is in Hyannis, we can usually visit quickly for measures, repairs and replacement glass. Homeowners, landlords and businesses along Main Street and around the harbor use us for everything from a single mirror to full storefront glass. You’re welcome to stop by 270 Communication Way to see glass types, edge finishes and hardware in person before you decide, then we’ll measure on site and install with our own team.'],
+      barnstable: ['10', 'Barnstable is our home town, with seven villages that range from waterfront estates in Osterville and Cotuit to family homes in Centerville and Marstons Mills. We work with many local builders and remodelers here and coordinate measures around tile and cabinet schedules. Whether it’s a frameless shower in a new primary bath, a glass stair railing or a mirror wall for a home gym, we measure on site and install with our own crew.'],
+      yarmouth: ['10', 'Yarmouth has everything from historic homes in Yarmouth Port to cottages and rentals near Bass River and along Route 28. Older homes often have sloped ceilings, knee walls and uneven floors, and we cut shower glass to fit those spaces exactly. For rental properties, we can help you choose durable glass and hardware that hold up to heavy summer use and are easy to keep clean between guests.'],
+      dennis: ['15', 'Dennis stretches from the bay side to Nantucket Sound, with summer cottages, year-round homes and plenty of small businesses in between. We handle shower enclosures, mirrors and railings for homeowners, plus storefront and window glass for local shops. Salt air near the beaches is hard on hardware, so we recommend finishes and maintenance that keep glass and fittings looking new season after season.'],
+      bourne: ['30', 'Bourne sits on both sides of the Cape Cod Canal, with waterfront homes along Buzzards Bay and villages from Sagamore Beach to Cataumet. Many Bourne projects are about the water view, so glass railings and larger window panes are popular here. We also handle bathroom glass, mirrors and commercial storefronts, measuring on site and scheduling installs to suit you.'],
+      sandwich: ['20', 'Sandwich is one of the oldest towns on the Cape, and many homes here have original woodwork and walls that have shifted over the years. We measure carefully on site and cut glass to fit those openings, whether it’s a shower in a vintage bath or a mirror over an antique vanity. For newer homes in Forestdale and East Sandwich, we install frameless showers, railings and sunroom glass.'],
+      falmouth: ['30', 'Falmouth has a long coastline on Buzzards Bay and Vineyard Sound, from Woods Hole to Waquoit, and many homes are designed around the view. Glass deck railings and large window panes keep sightlines open, and we recommend coastal-grade hardware for anything outdoors. We also install frameless showers, custom mirrors and shelving for Falmouth homes and businesses.'],
+      mashpee: ['20', 'Mashpee includes waterfront neighborhoods like New Seabury and Popponesset as well as homes and shops near Mashpee Commons. We install shower enclosures, vanity and gym mirrors, glass railings and storefront glass here, and we work with homeowners, property managers and builders. Every project starts with a free on-site measure so the glass fits exactly.'],
+      brewster: ['25', 'Brewster’s bay-side homes and historic captains’ houses often have sloped ceilings, dormers and older walls that make standard shower doors a poor fit. We measure on site and cut every panel to your space. Outdoors, glass railings and wind guards help homeowners enjoy the bay views, and we recommend hardware made to handle salt air.'],
+      harwich: ['20', 'Harwich has a mix of seasonal cottages near Harwich Port and year-round homes inland. Projects here range from quick mirror and shelf installs to full frameless shower remodels and glass railings on decks facing the water. We’re happy to work with your contractor’s schedule or directly with homeowners, and we can time installs before the summer season.'],
+      orleans: ['30', 'Orleans sits where the Lower Cape meets the Outer Cape, with homes on ponds, bays and the ocean. Glass railings, wind guards and larger window panes are popular for keeping those views clear. Inside, we install frameless showers, custom mirrors and glass shelving, measuring on site and fitting every piece to the space.'],
+      eastham: ['35', 'Eastham homes near Cape Cod Bay and the National Seashore deal with sun, sand and salt air, so we recommend tempered glass and hardware finishes made for the coast. We install shower enclosures, mirrors and glass railings for year-round residents and summer homes, and we schedule installs to fit around your stay.'],
+      wellfleet: ['45', 'Wellfleet’s harbor and ocean-side homes call for railings and windows that frame the view without getting in its way. We also install frameless showers, mirrors and shelving in cottages and new builds. Because Wellfleet is farther from our shop, we plan visits carefully so the measure and installation happen efficiently.'],
+      truro: ['50', 'Truro homes sit among dunes, hills and big skies, and many are designed with large glass openings. Frameless railings and floor-to-ceiling glass make the most of those views, and we recommend coastal-grade hardware for anything exposed to the weather. Inside, we install showers, mirrors and shelving cut to fit.'],
+      provincetown: ['60', 'At the tip of the Cape, Provincetown’s guest houses, galleries, restaurants and homes all need glass that stands up to harbor weather. We install storefront glass, shower enclosures for guest rooms, mirrors and railings, and we plan Provincetown visits ahead so measures and installs are done efficiently, often outside the busiest summer weeks.'],
+      boston: ['90', 'We take on select projects in Greater Boston, from glass office partitions and conference rooms to custom showers and mirrors in city homes and condos. For off-Cape work we plan the measure and installation days in advance and coordinate with building managers on access, parking and schedules.'],
+      providence: ['80', 'We take on select projects in Providence, from glass office partitions and storefront glass to custom showers and mirrors in homes and condos. For off-Cape work we plan the measure and installation days in advance and coordinate with building managers on access and parking, so the job is done efficiently.'],
+      rhodeisland: ['90', 'We take on select projects in Rhode Island, including custom showers like our black grid bypass shower in Portsmouth. For off-Cape work we plan the measure and installation days in advance so the job is done efficiently, and we coordinate directly with homeowners and contractors.']
+    };
+    const mk = (key, name, file, region, hero, map, villages, near, opener) => ({
+      name: name, file: file, region: region, hero: hero, map: map, villages: villages, near: near,
+      lede: 'Shower enclosures, mirrors, railings and more for ' + name + ' homes and businesses, from our shop in Hyannis' + (file === 'Area-Hyannis.dc.html' ? '.' : ', about ' + EX[key][0] + ' minutes away.'),
+      consult: 'Free on-site consultation and measure in ' + name + '. Call or send the form to book.',
+      introH: 'Your local glass shop for ' + name + '’s homes and shops',
+      intro: opener + ' We measure on site and build every piece to fit.',
+      drive: file === 'Area-Hyannis.dc.html' ? 'Our home base' : '~' + EX[key][0] + ' min drive', local: EX[key][1], statNum: file === 'Area-Hyannis.dc.html' ? 'Local' : '~' + EX[key][0], statLabel: file === 'Area-Hyannis.dc.html' ? 'Our shop is in Hyannis' : 'Minutes from our shop'
+    });
+    const TW = {
+      chatham: mk('chatham', 'Chatham', 'Area.dc.html', 'lower', 'chatham-area-hero.webp', ['66%', '40%'], 'North Chatham, West Chatham, South Chatham', ['harwich', 'orleans', 'brewster', 'dennis', 'eastham', 'hyannis'], 'From waterfront homes to Main Street storefronts, Chatham projects ask a lot of glass: salt air, big views and older walls that are rarely square.'),
+      hyannis: mk('hyannis', 'Hyannis', 'Area-Hyannis.dc.html', 'mid', 'hyannis-area-hero.webp', ['36%', '52%'], 'Hyannis Port, West Hyannis Port', ['barnstable', 'yarmouth', 'dennis', 'mashpee', 'harwich', 'chatham'], 'Our shop is right here on Communication Way, so Hyannis homeowners, builders and businesses can stop by to see glass and hardware samples before they decide.'),
+      barnstable: mk('barnstable', 'Barnstable', 'Area-Barnstable.dc.html', 'mid', 'barnstable-area-hero.webp', ['26%', '42%'], 'Centerville, Osterville, Cotuit, Marstons Mills, West Barnstable', ['hyannis', 'yarmouth', 'mashpee', 'sandwich', 'dennis', 'falmouth'], 'From Cotuit to Barnstable Village, we work on everything from harbor-view homes to busy family bathrooms across the town’s seven villages.'),
+      yarmouth: mk('yarmouth', 'Yarmouth', 'Area-Yarmouth.dc.html', 'mid', 'yarmouth-area-hero.webp', ['42%', '46%'], 'Yarmouth Port, South Yarmouth, West Yarmouth', ['hyannis', 'dennis', 'barnstable', 'harwich', 'brewster', 'chatham'], 'From historic homes in Yarmouth Port to cottages near Bass River, Yarmouth projects often mean fitting new glass into older, out-of-square spaces.'),
+      dennis: mk('dennis', 'Dennis', 'Area-Dennis.dc.html', 'mid', 'dennis-area-hero.webp', ['50%', '42%'], 'Dennis Port, East Dennis, South Dennis, West Dennis', ['yarmouth', 'harwich', 'brewster', 'hyannis', 'chatham', 'barnstable'], 'Between the bay side and the sound side, Dennis homes range from summer cottages to year-round renovations, and we fit glass to all of them.'),
+      bourne: mk('bourne', 'Bourne', 'Area-Bourne.dc.html', 'upper', 'bourne-area-hero.webp', ['8%', '30%'], 'Buzzards Bay, Pocasset, Cataumet, Sagamore Beach, Monument Beach', ['sandwich', 'falmouth', 'mashpee', 'barnstable', 'hyannis', 'boston'], 'Right by the canal bridges, Bourne is our gateway to the Cape, with waterfront homes on Buzzards Bay and busy shops on Main Street.'),
+      sandwich: mk('sandwich', 'Sandwich', 'Area-Sandwich.dc.html', 'upper', 'sandwich-area-hero.webp', ['16%', '28%'], 'East Sandwich, Forestdale', ['bourne', 'barnstable', 'mashpee', 'falmouth', 'hyannis', 'yarmouth'], 'Sandwich mixes historic village homes with newer builds, and both need glass cut to fit, whether it’s a vintage bath or a new sunroom.'),
+      falmouth: mk('falmouth', 'Falmouth', 'Area-Falmouth.dc.html', 'upper', 'falmouth-area-hero.webp', ['10%', '72%'], 'Woods Hole, North Falmouth, West Falmouth, East Falmouth, Waquoit', ['mashpee', 'bourne', 'sandwich', 'barnstable', 'hyannis', 'yarmouth'], 'With coastline on Buzzards Bay and Vineyard Sound, Falmouth homes are built around the view, and glass railings and windows keep it open.'),
+      mashpee: mk('mashpee', 'Mashpee', 'Area-Mashpee.dc.html', 'upper', 'mashpee-area-hero.webp', ['20%', '64%'], 'New Seabury, Popponesset', ['falmouth', 'barnstable', 'sandwich', 'hyannis', 'bourne', 'yarmouth'], 'From New Seabury to Mashpee Commons, we handle showers, mirrors and railings for homes and shops across town.'),
+      brewster: mk('brewster', 'Brewster', 'Area-Brewster.dc.html', 'lower', 'brewster-area-hero.webp', ['58%', '30%'], 'West Brewster, East Brewster', ['orleans', 'harwich', 'dennis', 'chatham', 'eastham', 'yarmouth'], 'Brewster’s bay-side homes and historic captains’ houses often need glass fitted around old walls, slopes and window light.'),
+      harwich: mk('harwich', 'Harwich', 'Area-Harwich.dc.html', 'lower', 'harwich-area-hero.webp', ['58%', '54%'], 'Harwich Port, West Harwich, East Harwich', ['chatham', 'brewster', 'dennis', 'orleans', 'yarmouth', 'hyannis'], 'From Harwich Port cottages to year-round homes inland, Harwich projects range from quick mirror installs to full shower remodels.'),
+      orleans: mk('orleans', 'Orleans', 'Area-Orleans.dc.html', 'lower', 'orleans-area-hero.webp', ['72%', '36%'], 'East Orleans, South Orleans', ['eastham', 'brewster', 'chatham', 'harwich', 'wellfleet', 'dennis'], 'Where the Lower Cape meets the Outer Cape, Orleans homes look out over ponds, bays and the ocean, and our glass keeps those views clear.'),
+      eastham: mk('eastham', 'Eastham', 'Area-Eastham.dc.html', 'outer', 'eastham-area-hero.webp', ['76%', '28%'], 'North Eastham', ['orleans', 'wellfleet', 'brewster', 'truro', 'chatham', 'provincetown'], 'Eastham homes near the bay and the National Seashore deal with salt air and sun, so we recommend glass and hardware built for the coast.'),
+      wellfleet: mk('wellfleet', 'Wellfleet', 'Area-Wellfleet.dc.html', 'outer', 'wellfleet-area-hero.webp', ['80%', '22%'], 'South Wellfleet', ['eastham', 'truro', 'orleans', 'provincetown', 'brewster', 'chatham'], 'Wellfleet’s harbor and ocean-side homes call for railings and windows that frame the view without getting in its way.'),
+      truro: mk('truro', 'Truro', 'Area-Truro.dc.html', 'outer', 'truro-area-hero.webp', ['84%', '16%'], 'North Truro', ['wellfleet', 'provincetown', 'eastham', 'orleans', 'brewster', 'chatham'], 'Truro homes sit among dunes and big skies, and floor-to-ceiling glass and frameless railings make the most of them.'),
+      provincetown: mk('provincetown', 'Provincetown', 'Area-Provincetown.dc.html', 'outer', 'provincetown-area-hero.webp', ['72%', '14%'], 'West End, East End', ['truro', 'wellfleet', 'eastham', 'orleans', 'chatham', 'hyannis'], 'At the tip of the Cape, Provincetown’s guest houses, galleries and homes all need glass that stands up to the harbor weather.'),
+      boston: mk('boston', 'Boston', 'Area-Boston.dc.html', 'beyond', 'boston-area-hero.webp', ['10%', '16%'], 'Greater Boston (select projects)', ['bourne', 'sandwich', 'falmouth', 'providence', 'rhodeisland', 'hyannis'], 'We take on select projects in Boston, from office glass partitions to custom showers and mirrors in city homes.'),
+      providence: mk('providence', 'Providence', 'Area-Providence.dc.html', 'beyond', 'providence-area-hero.webp', ['4%', '62%'], 'Greater Providence (select projects)', ['rhodeisland', 'boston', 'bourne', 'falmouth', 'sandwich', 'hyannis'], 'We take on select projects in Providence, from office glass partitions to custom showers and mirrors in city homes.'),
+      rhodeisland: mk('rhodeisland', 'Rhode Island', 'Area-RhodeIsland.dc.html', 'beyond', 'rhodeisland-area-hero.webp', ['6%', '50%'], 'Portsmouth, Newport', ['providence', 'boston', 'bourne', 'falmouth', 'sandwich', 'hyannis'], 'We take on select projects in Rhode Island, including custom showers like our black grid bypass shower in Portsmouth.')
+    };
+    const c = TW[this.props.town] || TW.chatham;
+    return {
+      brand: brand,
+      m: m,
+      svcMin: m ? '100%' : '280px',
+      services: [
+        { name: 'Shower Enclosures', href: 'Service.dc.html', d: 'M4 3h16v18H4zM12 3v18M14.5 11v2' },
+        { name: 'Custom Mirrors', href: 'Product.dc.html', d: 'M12 3c3.9 0 7 3.6 7 8s-3.1 8-7 8-7-3.6-7-8 3.1-8 7-8zM9 21h6M9.5 8.5l3-2.5' },
+        { name: 'Glass Railings', href: 'Service-Railings.dc.html', d: 'M3 6h18M3 6v13M21 6v13M3 19h18M9 6v13M15 6v13' },
+        { name: 'Storefronts', href: 'Service-Storefronts.dc.html', d: 'M3 9l2-5h14l2 5M4 9v11h16V9M9 20v-6h6v6M3 9h18' },
+        { name: 'Entrances & Doors', href: 'Service-Entrances.dc.html', d: 'M6 21V3h12v18M3 21h18M14.5 12h.5' },
+        { name: 'Glass Windows', href: 'Service-Windows.dc.html', d: 'M4 4h16v16H4zM12 4v16M4 12h16' },
+        { name: 'Wine Cellars', href: 'Service-WineCellars.dc.html', d: 'M10 2h4M10.5 2v5L8 10v11h8V10l-2.5-3V2M8 14h8' },
+        { name: 'Glass Countertops', href: 'Service-Countertops.dc.html', d: 'M2 9h20v3H2zM4 12v9M20 12v9' },
+        { name: 'Canopies & Skylights', href: 'Service-Canopies.dc.html', d: 'M3 10l9-6 9 6zM6 10v10M18 10v10M3 20h18' },
+        { name: 'Wall Partitions', href: 'Service-Partitions.dc.html', d: 'M3 4h18M3 20h18M7 4v16M12 4v16M17 4v16' },
+        { name: 'Glass Shelves', href: 'Service-Shelves.dc.html', d: 'M3 7h18M3 13h18M3 19h18M5 7v2M19 7v2' },
+        { name: 'Fireplace Screens', href: 'Service-Fireplace.dc.html', d: 'M3 4h18v17H3zM6 21V9h12v12M12 18c-1.7 0-3-1.2-3-2.8 0-1.8 3-3 3-5 1 1.4 3 2.9 3 5 0 1.6-1.3 2.8-3 2.8z' }
+      ],
+      town: c.name, hero: B + c.hero, lede: c.lede, consult: c.consult, introH: c.introH, intro: c.intro,
+      drive: c.drive, local: c.local, statNum: c.statNum, statLabel: c.statLabel, villages: c.villages, regionName: RG[c.region].name, regionThe: RG[c.region].the,
+      mapX: c.map[0], mapY: c.map[1],
+      projects: (PJ[c.region] || PJ.lower).map((x) => ({ title: x[0], cat: x[1], town: x[3], tone: '#A9BCC4', img: B + x[2] })),
+      reviews: [
+        { quote: 'The Glass House did a very fine job on my stand-in shower project in Cotuit MA…', name: 'Jason', meta: 'Renaissance Restoration' },
+        { quote: 'We have used the Glass House on several of our bathroom remodeling projects…', name: 'Constantin Tabla', meta: 'Google review' },
+        { quote: 'This Cape based glass company has an awesome staff, for they leverage great designers…', name: 'Paul Paolillo', meta: 'Google review' }
+      ],
+      nearby: c.near.map((k) => ({ name: TW[k].name, region: k === 'hyannis' ? 'Home base' : RG[TW[k].region].name, href: TW[k].file }))
+    };
+  }.call(self);
+}

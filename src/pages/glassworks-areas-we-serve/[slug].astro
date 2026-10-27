@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Area from '../../views/Area.astro';
+import { areaData } from '../../data/area.js';
+import { AREA_SLUGS } from '../../lib/routes';
+
+export function getStaticPaths() {
+  return Object.entries(AREA_SLUGS).map(([town, slug]) => ({ params: { slug }, props: { town } }));
+}
+
+const { town } = Astro.props;
+const a = areaData({ town });
+const place = town === 'rhodeisland' ? a.town : `${a.town}, ${town === 'providence' ? 'RI' : 'MA'}`;
+---
+<BaseLayout
+  title={`Custom Glass & Mirrors in ${place} | The Glass House`}
+  description={a.lede}
+  image={a.hero}
+>
+  <Area town={town} />
+</BaseLayout>

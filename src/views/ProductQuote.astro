@@ -1,0 +1,171 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { productQuoteData } from '../data/productQuote.js';
+
+const { brand, products, glass, edges, fulfil, sum } = productQuoteData(Astro.props);
+---
+<div class="dc-root" style="container-type: inline-size; background: #F4F7F8; color: #0F2433; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6">
+
+  <div style="position: sticky; top: 0; z-index: 50">
+    <Header />
+  </div>
+
+  <div style="max-width: 1240px; margin: 0 auto; padding: clamp(20px, 2.4cqi, 28px) clamp(16px, 4cqi, 48px) clamp(64px, 8cqi, 104px)">
+    <nav aria-label="Breadcrumb" style="font-size: 13px; color: #4A5C67; margin-bottom: clamp(24px, 4cqi, 44px)"><a href="/" style="color: #4A5C67">Home</a><span style="margin: 0 8px">/</span><a href="/custom-glass-products/" style="color: #4A5C67">Products</a><span style="margin: 0 8px">/</span><span aria-current="page" style="color: #0F2433; font-weight: 500">Product quote</span></nav>
+    <div style="max-width: 760px; margin-bottom: clamp(28px, 4cqi, 44px)">
+      <div style={`font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: ${brand}`}>Product quote</div>
+      <h1 style="margin: 14px 0 12px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(38px, 5cqi, 64px); line-height: 1.05; letter-spacing: -0.02em">Quote a custom glass product</h1>
+      <p style="margin: 0; font-size: 18px; color: #26394A">Know roughly what you need? Tell us the size and options and we’ll send a written quote. Not sure? <a href="/get-free-estimate/" style={`color: ${brand}`}>Book a free on-site estimate</a> instead.</p>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 32px 48px; align-items: flex-start">
+      <form name="product-quote" method="POST" action="/thank-you/" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" style="flex: 1.6 1 560px; min-width: 0; background: #FFFFFF; border: 1px solid #D6E0E4; padding: clamp(20px, 4cqi, 44px); box-sizing: border-box; display: flex; flex-direction: column; gap: 30px">
+        <input type="hidden" name="form-name" value="product-quote" /><p hidden><label>Leave this empty <input name="bot-field" /></label></p>
+
+        <fieldset style="border: 0; margin: 0; padding: 0">
+          <legend style="padding: 0; margin-bottom: 14px; font-family: 'Newsreader', Georgia, serif; font-size: 24px">Product</legend>
+          <div role="radiogroup" aria-label="Product" style={`display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--tileMin), 1fr)); gap: 10px`}>
+            {products.map((o) => (<Fragment>
+              <label class="tile" style="display: flex; flex-direction: column; padding: 0; border-radius: 2px; font: inherit; font-size: 14px; font-weight: 500; text-align: left; cursor: pointer; overflow: hidden; box-sizing: border-box"><input class="sr-only" type="radio" name="product" value={o.label} checked={o.on} data-img={o.img} />
+                <img src={o.img} alt="" style={`display: block; width: 100%; height: var(--tileH); object-fit: cover; background-color: #DCE7EB`} loading="lazy" decoding="async" />
+                <span style="padding: 10px 12px; line-height: 1.3">{o.label}</span>
+              </label>
+            </Fragment>))}
+          </div>
+        </fieldset>
+
+        <fieldset style="border: 0; margin: 0; padding: 0">
+          <legend style="padding: 0; margin-bottom: 14px; font-family: 'Newsreader', Georgia, serif; font-size: 24px">Size &amp; quantity</legend>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 16px">
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="q-w" style="font-size: 14px; font-weight: 600">Width (in)</label><input id="q-w" name="width" type="number" inputmode="decimal" value="48" style="height: 52px; padding: 0 14px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; color: #0F2433" /></div>
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="q-h" style="font-size: 14px; font-weight: 600">Height (in)</label><input id="q-h" name="height" type="number" inputmode="decimal" value="36" style="height: 52px; padding: 0 14px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; color: #0F2433" /></div>
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="q-t" style="font-size: 14px; font-weight: 600">Thickness</label><select id="q-t" name="thickness" style="height: 52px; padding: 0 12px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; color: #0F2433; background: #FFFFFF"><option>1/4″</option><option>3/8″</option><option>1/2″</option><option>Not sure</option></select></div>
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="q-q" style="font-size: 14px; font-weight: 600">Quantity</label><input id="q-q" name="quantity" type="number" value="1" min="1" style="height: 52px; padding: 0 14px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; color: #0F2433" /></div>
+          </div>
+          <p style="margin: 10px 0 0; font-size: 13px; color: #4A5C67">Approximate is fine. We confirm every measurement before cutting.</p>
+        </fieldset>
+
+        <fieldset style="border: 0; margin: 0; padding: 0">
+          <legend style="padding: 0; margin-bottom: 14px; font-family: 'Newsreader', Georgia, serif; font-size: 24px">Options</legend>
+          <div style="font-size: 14px; font-weight: 600; margin-bottom: 8px">Glass type</div>
+          <div role="radiogroup" aria-label="Glass type" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px">
+            {glass.map((o) => (<Fragment>
+              <label class="opt" style="min-height: 44px; padding: 0 14px; border-radius: 2px; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer; box-sizing: border-box"><input class="sr-only" type="radio" name="glass" value={o.label} checked={o.on} />{o.label}</label>
+            </Fragment>))}
+          </div>
+          <div style="font-size: 14px; font-weight: 600; margin-bottom: 8px">Edge finish</div>
+          <div role="radiogroup" aria-label="Edge finish" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px">
+            {edges.map((o) => (<Fragment>
+              <label class="opt" style="min-height: 44px; padding: 0 14px; border-radius: 2px; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer; box-sizing: border-box"><input class="sr-only" type="radio" name="edge" value={o.label} checked={o.on} />{o.label}</label>
+            </Fragment>))}
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px; max-width: 360px">
+            <label for="q-hw" style="font-size: 14px; font-weight: 600">Hardware finish</label>
+            <select id="q-hw" name="hardware" style="height: 52px; padding: 0 12px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; color: #0F2433; background: #FFFFFF"><option>No hardware</option><option>Polished chrome</option><option>Brushed nickel</option><option>Matte black</option><option>Satin brass</option></select>
+          </div>
+        </fieldset>
+
+        <fieldset style="border: 0; margin: 0; padding: 0">
+          <legend style="padding: 0; margin-bottom: 14px; font-family: 'Newsreader', Georgia, serif; font-size: 24px">Installation</legend>
+          <div role="radiogroup" aria-label="Installation" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px">
+            {fulfil.map((o) => (<Fragment>
+              <label class="opt" style="display: flex; flex-direction: column; align-items: flex-start; gap: 2px; padding: 14px 16px; border-radius: 2px; font: inherit; text-align: left; cursor: pointer; box-sizing: border-box"><input class="sr-only" type="radio" name="installation" value={o.label} checked={o.on} /><span style="font-size: 15px; font-weight: 600">{o.label}</span><span style="font-size: 13px; opacity: 0.8">{o.note}</span></label>
+            </Fragment>))}
+          </div>
+        </fieldset>
+
+        <fieldset style="border: 0; margin: 0; padding: 0">
+          <legend style="padding: 0; margin-bottom: 14px; font-family: 'Newsreader', Georgia, serif; font-size: 24px">Drawings &amp; notes</legend>
+          <label for="q-file" style="display: flex; align-items: center; justify-content: center; gap: 10px; height: 64px; border: 1px dashed #8FA3AD; border-radius: 2px; background: #F4F7F8; font-size: 15px; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={brand} stroke-width="1.6" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M4 20h16"></path></svg>Upload a sketch, drawing or photo · PDF, JPG, PNG</label>
+          <input id="q-file" name="files" type="file" multiple style="position: absolute; width: 1px; height: 1px; opacity: 0" />
+          <label for="q-notes" style="display: block; font-size: 14px; font-weight: 600; margin: 16px 0 6px">Notes</label>
+          <textarea id="q-notes" name="notes" rows="3" placeholder="Cutouts, shapes, where it’s going…" style="width: 100%; box-sizing: border-box; padding: 14px 16px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; color: #0F2433; resize: vertical"></textarea>
+        </fieldset>
+
+        <fieldset style="border: 0; margin: 0; padding: 0">
+          <legend style="padding: 0; margin-bottom: 14px; font-family: 'Newsreader', Georgia, serif; font-size: 24px">Your details</legend>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px">
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="q-name" style="font-size: 14px; font-weight: 600">Full name *</label><input id="q-name" name="name" type="text" required autocomplete="name" style="height: 52px; padding: 0 14px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px" /></div>
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="q-phone" style="font-size: 14px; font-weight: 600">Phone *</label><input id="q-phone" name="phone" type="tel" required autocomplete="tel" style="height: 52px; padding: 0 14px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px" /></div>
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="q-email" style="font-size: 14px; font-weight: 600">Email</label><input id="q-email" name="email" type="email" autocomplete="email" style="height: 52px; padding: 0 14px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px" /></div>
+            <div style="display: flex; flex-direction: column; gap: 6px"><label for="q-town" style="font-size: 14px; font-weight: 600">Town</label><input id="q-town" name="town" type="text" autocomplete="address-level2" style="height: 52px; padding: 0 14px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px" /></div>
+          </div>
+        </fieldset>
+
+        <div style="display: flex; flex-direction: column; gap: 16px; padding-top: 22px; border-top: 1px solid #D6E0E4">
+          <label style="display: flex; gap: 12px; align-items: flex-start; font-size: 13px; line-height: 1.55; color: #4A5C67"><input type="checkbox" name="sms_consent" value="yes" style={`width: 22px; height: 22px; margin: 0; flex: none; accent-color: ${brand}`} /><span><strong style="color: #0F2433">Yes, text me about my quote.</strong> I agree to receive text messages from The Glass House at the number provided. Message frequency varies. Message &amp; data rates may apply. Reply STOP to opt out or HELP for help. Consent is not a condition of purchase. <a href="/privacy-policy/" style={`color: ${brand}`}>Privacy Policy</a> · <a href="/terms-and-conditions/" style={`color: ${brand}`}>SMS Terms</a></span></label>
+          <button type="submit" style={`display: flex; align-items: center; justify-content: center; height: 60px; background: ${brand}; color: #FFFFFF; text-decoration: none; border-radius: 2px; font-weight: 600; font-size: 17px; border: 0; font-family: inherit; cursor: pointer`}>Request My Quote</button>
+        </div>
+      </form>
+
+      <!-- SUMMARY -->
+      <aside style="flex: 1 1 300px; min-width: 0; position: sticky; top: 150px; display: flex; flex-direction: column; gap: 16px">
+        <div style="background: #FFFFFF; border: 1px solid #D6E0E4">
+          <img data-sum-img src={sum.img} alt={sum.product} style="display: block; width: 100%; height: 180px; object-fit: cover; background-color: #D3E0E4" fetchpriority="high" decoding="async" />
+          <div style="padding: 22px">
+            <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #4A5C67">Your request</div>
+            <div style="font-family: 'Newsreader', Georgia, serif; font-size: 26px; line-height: 1.2; margin: 6px 0 12px" data-sum="product">{sum.product}</div>
+            <div style="display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-top: 1px solid #D6E0E4; font-size: 15px"><span style="color: #4A5C67">Size</span><span style="font-weight: 600">48″ × 36″ · qty 1</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-top: 1px solid #D6E0E4; font-size: 15px"><span style="color: #4A5C67">Glass</span><span style="font-weight: 600" data-sum="glass">{sum.glass}</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-top: 1px solid #D6E0E4; font-size: 15px"><span style="color: #4A5C67">Edge</span><span style="font-weight: 600" data-sum="edge">{sum.edge}</span></div>
+            <div style="display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-top: 1px solid #D6E0E4; font-size: 15px"><span style="color: #4A5C67">Install</span><span style="font-weight: 600" data-sum="installation">{sum.fulfil}</span></div>
+          </div>
+        </div>
+        <div style="background: #0F2433; color: #FFFFFF; padding: 22px">
+          <div style="font-size: 14px; color: #B9C9D1">Questions about sizing?</div>
+          <a href="tel:+15086852770" style="font-family: 'Newsreader', Georgia, serif; font-size: 28px; color: #FFFFFF; text-decoration: none">(508) 685-2770</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <Footer />
+
+  <div class="dc-m">
+    <div style="position: sticky; bottom: 0; z-index: 60; display: grid; grid-template-columns: 1fr 1.35fr; gap: 8px; padding: 10px 12px 12px; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid #D6E0E4">
+      <a href="tel:+15086852770" style="display: flex; align-items: center; justify-content: center; height: 52px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Call now</a>
+      <a href="/get-free-estimate/" style={`display: flex; align-items: center; justify-content: center; height: 52px; background: ${brand}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px`}>Get Free Estimate</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .dc-root {
+    --tileMin: 150px;
+    --tileH: 88px;
+  }
+  @media (max-width: 759.98px) {
+    .dc-root {
+      --tileMin: 130px;
+      --tileH: 72px;
+    }
+  }
+</style>
+
+<style>
+  .tile { background: #FFFFFF; color: #0F2433; border: 2px solid #D6E0E4; }
+  .tile:has(input:checked) { background: #0F2433; color: #FFFFFF; border-color: #0F2433; }
+  .opt { background: #FFFFFF; color: #0F2433; border: 1px solid #B7C6CD; }
+  .opt:has(input:checked) { background: #0F2433; color: #FFFFFF; border-color: #0F2433; }
+  .tile:has(input:focus-visible),
+  .opt:has(input:focus-visible) { outline: 2px solid #1E5873; outline-offset: 2px; }
+</style>
+
+<script>
+  // Keep the quote summary card in sync with the chosen options.
+  const form = document.querySelector<HTMLFormElement>('form[name="product-quote"]');
+  form?.addEventListener('change', (e) => {
+    const input = e.target as HTMLInputElement;
+    if (input.type !== 'radio') return;
+    const out = document.querySelector<HTMLElement>(`[data-sum="${input.name}"]`);
+    if (input.name === 'product') {
+      const label = `Custom ${input.value.toLowerCase()}`;
+      if (out) out.textContent = label;
+      const img = document.querySelector<HTMLImageElement>('[data-sum-img]');
+      if (img && input.dataset.img) { img.src = input.dataset.img; img.alt = label; }
+    } else if (out) {
+      out.textContent = input.value;
+    }
+  });
+</script>

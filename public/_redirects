@@ -1,0 +1,25 @@
+# 301 redirects for old WordPress URLs that have no direct equivalent on the new site.
+# (Netlify / Cloudflare Pages format. Every other old URL — pages, services, products, areas,
+# blog posts and /category/* archives — keeps its original path.)
+
+# Area pages that were folded into a neighbouring town
+/glassworks-areas-we-serve/cotuit-glass-installation/        /glassworks-areas-we-serve/barnstable-glass-window-replacement/   301
+/glassworks-areas-we-serve/centerville-glass-installation/   /glassworks-areas-we-serve/barnstable-glass-window-replacement/   301
+/glassworks-areas-we-serve/custom-glass-portsmouth-ri/       /glassworks-areas-we-serve/rhode-island-mirror-replacement/       301
+/glassworks-areas-we-serve/plymouth-glass-installation/      /glassworks-areas-we-serve/                                       301
+
+# Blog
+/category/blogs/                                    /blog/                                                              301
+/category/blogs/*                                   /blog/                                                              301
+/author/*                                           /blog/                                                              301
+/guides/wet-room-waterproofing-membrane-systems/    /wet-room-waterproofing-membrane-systems-explained/                 301
+/guides/linear-drain-vs-point-drain/                /linear-drain-vs-point-drain-which-is-right-for-your-wet-room/      301
+/feed/                                              /blog/                                                              301
+/*/feed/                                            /blog/                                                              301
+
+# WordPress leftovers
+/wp-admin/*                                         /                                                                   301
+/wp-login.php                                       /                                                                   301
+/home/                                              /                                                                   301
+/sitemap_index.xml                                  /sitemap-index.xml                                                  301
+/sitemap.xml                                        /sitemap-index.xml                                                  301

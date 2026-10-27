@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Blog post — Wet Room vs. Traditional Shower: Which Fits Your Bathroom?</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div ref="{{setRoot}}" style="container-type: inline-size; background: #FFFFFF; color: #0F2433; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6">
+
+  <div style="position: sticky; top: 0; z-index: 50">
+    <dc-import name="Header" mobile="{{m}}" open="none" brand="{{brand}}" hint-size="100%,128px"></dc-import>
+  </div>
+
+  <!-- ===== ARTICLE HEADER ===== -->
+  <header style="max-width: 1240px; margin: 0 auto; padding: clamp(20px, 2.4cqi, 28px) clamp(20px, 4cqi, 48px) 0">
+    <nav aria-label="Breadcrumb" style="font-size: 13px; color: #4A5C67; margin-bottom: clamp(28px, 5cqi, 56px)"><a href="Home.dc.html" style="color: #4A5C67">Home</a><span style="margin: 0 8px">/</span><a href="BlogIndex.dc.html" style="color: #4A5C67">Blog</a><span style="margin: 0 8px">/</span><span aria-current="page" style="color: #0F2433; font-weight: 500">Shower enclosures</span></nav>
+    <div style="max-width: 880px">
+      <a href="BlogIndex.dc.html" style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: {{brand}}; text-decoration: none">Shower enclosures · Guide</a>
+      <h1 style="margin: 16px 0 24px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(36px, 4.8cqi, 64px); line-height: 1.08; letter-spacing: -0.02em">Wet Room vs. Traditional Shower: Which Fits Your Bathroom?</h1>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; font-size: 14px; color: #4A5C67">
+        <span style="display: inline-flex; align-items: center; gap: 10px"><img src="/images/orny-beltrame-2.webp" alt="Orny Beltrame" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; display: inline-block"><span><strong style="color: #0F2433; font-weight: 600">Orny Beltrame</strong><br>Project &amp; Design Consultant</span></span>
+        <span>September 18, 2026</span>
+        <span>4 min read</span>
+      </div>
+    </div>
+    <img src="/images/frameless-glass-shower-with-marble-look-tile-and-built-in.webp" alt="Frameless glass shower with marble-look tile and built-in bench" style="display: block; width: 100%; margin-top: clamp(28px, 4cqi, 48px); aspect-ratio: 21 / 9; object-fit: cover; object-position: 50% 45%; background-color: #9FB4BE">
+  </header>
+
+  <!-- ===== BODY ===== -->
+  <div style="max-width: 1240px; margin: 0 auto; padding: clamp(40px, 6cqi, 80px) clamp(20px, 4cqi, 48px) clamp(64px, 8cqi, 104px); display: flex; flex-wrap: wrap; gap: 32px 80px; align-items: flex-start">
+
+    <!-- TOC -->
+    <sc-if value="{{d}}" hint-placeholder-val="{{ true }}">
+      <aside style="flex: 0 0 240px; position: sticky; top: 152px">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #4A5C67; margin-bottom: 14px">On this page</div>
+        <nav aria-label="Table of contents" style="display: flex; flex-direction: column; border-left: 1px solid #D6E0E4">
+          <sc-for list="{{toc}}" as="t" hint-placeholder-count="7">
+            <a href="#{{t.id}}" style="padding: 7px 0 7px 16px; margin-left: -1px; font-size: 14px; line-height: 1.4; text-decoration: none; {{t.style}}">{{t.label}}</a>
+          </sc-for>
+        </nav>
+        <div style="margin-top: 32px; padding: 20px; background: #F4F7F8; border: 1px solid #D6E0E4">
+          <div style="font-size: 15px; font-weight: 600; margin-bottom: 6px">Planning a new shower?</div>
+          <div style="font-size: 14px; color: #4A5C67; margin-bottom: 14px">Free consultation and measure.</div>
+          <a href="Estimate.dc.html" style="display: flex; align-items: center; justify-content: center; height: 44px; background: {{brand}}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 14px; border-radius: 2px">Get Free Estimate</a>
+        </div>
+      </aside>
+    </sc-if>
+
+    <article style="flex: 1 1 560px; min-width: 0; max-width: 720px; font-size: 18px; line-height: 1.75; color: #26394A">
+      <sc-if value="{{m}}" hint-placeholder-val="{{ false }}">
+        <div style="border: 1px solid #D6E0E4; margin-bottom: 32px">
+          <button type="button" onClick="{{toggleToc}}" aria-expanded="{{tocOpen}}" style="width: 100%; display: flex; justify-content: space-between; align-items: center; height: 52px; padding: 0 16px; background: #F4F7F8; border: 0; font: inherit; font-size: 15px; font-weight: 600; color: #0F2433">On this page<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="{{tocIcon}}"></path></svg></button>
+          <sc-if value="{{tocOpen}}" hint-placeholder-val="{{ false }}">
+            <nav aria-label="Table of contents" style="display: flex; flex-direction: column; padding: 8px 16px 12px">
+              <sc-for list="{{toc}}" as="t" hint-placeholder-count="7">
+                <a href="#{{t.id}}" style="display: flex; align-items: center; min-height: 40px; font-size: 15px; color: #0F2433; text-decoration: none">{{t.label}}</a>
+              </sc-for>
+            </nav>
+          </sc-if>
+        </div>
+      </sc-if>
+
+      <p style="margin: 0 0 24px; font-size: 21px; line-height: 1.6; color: #0F2433">Neither configuration is objectively better a wet room and a traditional curbed shower solve different problems. This framework walks through the factors that actually determine which one fits your bathroom, your budget, and your future in the home.</p>
+      <blockquote style="margin: 28px 0; padding: 16px 0 16px 24px; border-left: 2px solid #9C7430; color: #0F2433">
+      <p style="margin: 0">📖For the full technical detail on wet room planning, see <strong style="color: #0F2433; font-weight: 600"><a href="Blog.dc.html" style="color: #1E5873">Curbless Walk-In Showers &amp; Wet Rooms: Planning Slope, Drainage &amp; Fixed Glass Layout</a></strong>.</p>
+      </blockquote>
+      <p style="margin: 0 0 20px">Our <a href="Blog.dc.html" style="color: #1E5873">Complete Guide to Custom Glass Shower Doors &amp; Enclosures</a> covers enclosure types frameless, semi-frameless, and framed at a high level. This page answers a different question that comes before any of that: should the room itself be a wet room at all, or is a traditional curbed shower the better foundation for your bathroom?</p>
+      <p style="margin: 0 0 20px">It's a question worth resolving early, because it isn't a finishing decision it's a structural one. Wet room vs. traditional shower determines your floor framing, your waterproofing scope, your drain type, and ultimately how much of your remodel budget goes into the room before glass or tile selection ever comes up. Getting this decision right the first time avoids the more expensive scenario of committing to one configuration partway through a project and discovering it doesn't fit the room, the budget, or how the home will actually be used.</p>
+      <hr style="border: 0; border-top: 1px solid #D6E0E4; margin: 40px 0"/>
+      <h2 id="decision-framework-room-size-budget-desi" style="margin: 48px 0 16px; font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: 32px; line-height: 1.2; color: #0F2433">Decision Framework: Room Size, Budget &amp; Design Goals</h2>
+      <p style="margin: 0 0 20px">Three factors do most of the work in this decision, and they interact with each other.</p>
+      <ul style="margin: 0 0 24px; padding-left: 24px; display: flex; flex-direction: column; gap: 8px">
+      <li><strong style="color: #0F2433; font-weight: 600">Room size: </strong>A wet room needs enough open floor area for the slope to a drain to work without an unusually steep pitch. In a genuinely small secondary bathroom, a traditional shower with a defined, contained footprint is often the more space-efficient choice.</li>
+      <li><strong style="color: #0F2433; font-weight: 600">Budget: </strong>As covered in our <a href="Blog.dc.html" style="color: #1E5873">wet room remodel budget breakdown</a>, a wet room typically adds $2,000–$5,000 over a comparable curbed enclosure, driven mainly by <a href="Blog.dc.html" style="color: #1E5873">waterproofing</a> and floor framing. If budget is the binding constraint, a traditional shower delivers most of the same glass and finish quality for less.</li>
+      <li><strong style="color: #0F2433; font-weight: 600">Design goals: </strong>If the goal is an open, boundary-dissolving spa aesthetic the effect our pillar guide describes as architectural rather than decorative a wet room delivers it more completely than any curbed configuration can. If the goal is simply an updated, high-quality shower, a traditional enclosure achieves that without the added floor work.</li>
+      </ul>
+      <hr style="border: 0; border-top: 1px solid #D6E0E4; margin: 40px 0"/>
+      <h2 id="resale-value-comparison-in-different-mar" style="margin: 48px 0 16px; font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: 32px; line-height: 1.2; color: #0F2433">Resale Value Comparison in Different Markets</h2>
+      <p style="margin: 0 0 20px">Resale impact depends heavily on the specific market and the rest of the home, not on a universal rule.</p>
+      <ul style="margin: 0 0 24px; padding-left: 24px; display: flex; flex-direction: column; gap: 8px">
+      <li><strong style="color: #0F2433; font-weight: 600">Higher-end, design-forward markets:</strong> Including much of the luxury <a href="Areas.dc.html" style="color: #1E5873">Cape Cod and coastal New England </a>market we serve generally view an open wet room in a primary suite as a value-add, consistent with the broader buyer preference for open, spa-like bathrooms discussed in our pillar guide.</li>
+      <li><strong style="color: #0F2433; font-weight: 600">Markets or homes where buyers expect a tub:</strong> Particularly a home's only full bathroom can see a wet room replacing that tub as a harder sell, regardless of how well it's executed.</li>
+      <li><strong style="color: #0F2433; font-weight: 600">Starter and mid-market homes: </strong>Often see less resale differentiation either way, since buyers in that segment tend to weight overall bathroom count and condition more heavily than configuration details.</li>
+      </ul>
+      <hr style="border: 0; border-top: 1px solid #D6E0E4; margin: 40px 0"/>
+            <aside style="margin: 40px 0; padding: 28px; background: #0F2433; color: #FFFFFF; display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: center">
+              <div style="flex: 1 1 260px; min-width: 0"><div style="font-family: 'Newsreader', Georgia, serif; font-size: 24px; line-height: 1.25">Planning a wet room or walk-in shower?</div><div style="font-size: 15px; color: #B9C9D1; margin-top: 4px">We’ll measure and show you both, free.</div></div>
+              <a href="Estimate.dc.html" style="display: inline-flex; align-items: center; height: 48px; padding: 0 22px; background: #FFFFFF; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 15px; border-radius: 2px">Get Free Estimate</a>
+            </aside>
+      <h2 id="aging-in-place-accessibility-considerati" style="margin: 48px 0 16px; font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: 32px; line-height: 1.2; color: #0F2433">Aging-in-Place &amp; Accessibility Considerations</h2>
+      <p style="margin: 0 0 20px">With that clarified, a curbless wet room genuinely does align well with aging-in-place and universal design goals: a zero-threshold entry eliminates the trip hazard a curb presents, and the open floor accommodates a shower seat, grab bars, or future wheelchair access without a structural step. A traditional shower can be built with grab bar blocking and a low-threshold curb, but it doesn't eliminate the threshold the way a true wet room does.</p>
+      <p style="margin: 0 0 20px">For homeowners planning to stay in a home long-term, a wet room is often the more forward-looking choice on this dimension specifically independent of the resale or budget considerations above.</p>
+      <hr style="border: 0; border-top: 1px solid #D6E0E4; margin: 40px 0"/>
+      <h2 id="mold-ventilation-long-term-moisture-mana" style="margin: 48px 0 16px; font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: 32px; line-height: 1.2; color: #0F2433">Mold, Ventilation &amp; Long-Term Moisture Management</h2>
+      <p style="margin: 0 0 20px">Both configurations manage moisture successfully when built correctly, but the failure modes differ.</p>
+      <div style="overflow-x: auto; margin: 0 0 28px; border: 1px solid #D6E0E4"><table style="width: 100%; min-width: 480px; border-collapse: collapse; font-size: 15px; line-height: 1.5"><thead><tr><th style="padding: 12px 14px; text-align: left; font-weight: 600; color: #FFFFFF; background: #0F2433">Factor</th><th style="padding: 12px 14px; text-align: left; font-weight: 600; color: #FFFFFF; background: #0F2433">Traditional Shower</th><th style="padding: 12px 14px; text-align: left; font-weight: 600; color: #FFFFFF; background: #0F2433">Wet Room</th></tr></thead><tbody><tr><td style="padding: 12px 14px; border-top: 1px solid #D6E0E4; vertical-align: top">Waterproofed area</td><td style="padding: 12px 14px; border-top: 1px solid #D6E0E4; vertical-align: top">Contained shower pan footprint</td><td style="padding: 12px 14px; border-top: 1px solid #D6E0E4; vertical-align: top">Full floor of the wet area</td></tr><tr><td style="padding: 12px 14px; border-top: 1px solid #D6E0E4; vertical-align: top">Hidden cavity risk</td><td style="padding: 12px 14px; border-top: 1px solid #D6E0E4; vertical-align: top">Framed pan can hide leaks behind walls</td><td style="padding: 12px 14px; border-top: 1px solid #D6E0E4; vertical-align: top">Continuous membrane reduces hidden cavities</td></tr><tr><td style="padding: 12px 14px; border-top: 1px solid #D6E0E4; vertical-align: top">Ventilation demand</td><td style="padding: 12px 14px; border-top: 1px solid #D6E0E4; vertical-align: top">Standard bathroom exhaust typically sufficient</td><td style="padding: 12px 14px; border-top: 1px solid #D6E0E4; vertical-align: top">Higher-capacity exhaust recommended for larger wet area</td></tr></tbody></table></div>
+      <p style="margin: 0 0 20px">Our Wet Room FAQ addresses the mold question directly, and our <a href="/guides/wet-room-waterproofing-membrane-systems/" rel="noopener" style="color: #1E5873" target="_blank">waterproofing membrane guide</a> covers the underlying method in full technical detail if you're evaluating this factor closely.</p>
+      <hr style="border: 0; border-top: 1px solid #D6E0E4; margin: 40px 0"/>
+      <h2 id="who-should-choose-each-configuration" style="margin: 48px 0 16px; font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: 32px; line-height: 1.2; color: #0F2433">Who Should Choose Each Configuration</h2>
+      <ul style="margin: 0 0 24px; padding-left: 24px; display: flex; flex-direction: column; gap: 8px">
+      <li><strong style="color: #0F2433; font-weight: 600">Choose a wet room</strong>if you have adequate floor area, are planning a primary suite in a higher-end market, want the open spa aesthetic our pillar guide describes, or are prioritizing aging-in-place access.</li>
+      <li><strong style="color: #0F2433; font-weight: 600">Choose a traditional curbed shower</strong>if you're working with a smaller secondary bathroom, budget is the primary constraint, the home's buyer pool expects a defined tub/shower split, or you want a high-quality frameless enclosure without the added floor and waterproofing scope.</li>
+      </ul>
+      <p style="margin: 0 0 20px">Many of our clients land somewhere in between these two extremes a primary bathroom that gets the full wet room treatment, paired with a more traditional, budget-conscious enclosure in a guest or secondary bath elsewhere in the home. There's no requirement that every bathroom in a house follow the same configuration; the decision is best made room by room, against that room's specific size, budget, and purpose.</p>
+      <blockquote style="margin: 28px 0; padding: 16px 0 16px 24px; border-left: 2px solid #9C7430; color: #0F2433">
+      <p style="margin: 0 0 20px">🏛️<a href="Home.dc.html" style="color: #1E5873">The Glass House Recommendation</a></p>
+      <p style="margin: 0">This decision is worth making before glass is selected, not after configuration drives floor structure, drain type, and hardware, all of which are far more costly to change once construction begins. We walk through this framework with every client during the initial consultation, before any glass conversation starts.</p>
+      </blockquote>
+
+      <!-- Share -->
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 20px 0; border-top: 1px solid #D6E0E4; border-bottom: 1px solid #D6E0E4; font-size: 14px">
+        <span style="font-weight: 600; color: #0F2433; margin-right: 6px">Share</span>
+        <a href="#" style="display: inline-flex; align-items: center; height: 40px; padding: 0 14px; border: 1px solid #D6E0E4; color: #0F2433; text-decoration: none">Facebook</a>
+        <a href="#" style="display: inline-flex; align-items: center; height: 40px; padding: 0 14px; border: 1px solid #D6E0E4; color: #0F2433; text-decoration: none">Pinterest</a>
+        <a href="#" style="display: inline-flex; align-items: center; height: 40px; padding: 0 14px; border: 1px solid #D6E0E4; color: #0F2433; text-decoration: none">Email</a>
+        <button type="button" style="display: inline-flex; align-items: center; height: 40px; padding: 0 14px; border: 1px solid #D6E0E4; background: #FFFFFF; font: inherit; font-size: 14px; color: #0F2433; cursor: pointer">Copy link</button>
+      </div>
+
+      <!-- Author box -->
+      <div style="margin-top: 36px; padding: 28px; background: #F4F7F8; border: 1px solid #D6E0E4; display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
+        <img src="/images/orny-beltrame-2.webp" alt="Orny Beltrame" style="width: 88px; height: 88px; flex: none; display: block; object-fit: cover; background-color: #B7C9D0">
+        <div style="flex: 1 1 260px; min-width: 0">
+          <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #4A5C67">Written by</div>
+          <div style="font-family: 'Newsreader', Georgia, serif; font-size: 26px; color: #0F2433; line-height: 1.2; margin: 4px 0 2px">Orny Beltrame</div>
+          <div style="font-size: 14px; font-weight: 600; color: #4A5C67; margin-bottom: 10px">Project &amp; Design Consultant · 25+ years</div>
+          <p style="margin: 0 0 12px; font-size: 15px; line-height: 1.6">Orny helps Cape homeowners, builders and architects choose and plan custom glass, from first visit to final install.</p>
+          <a href="mailto:ornyb@theghglass.com" style="font-size: 15px; font-weight: 600; color: {{brand}}">ornyb@theghglass.com</a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- ===== RELATED POSTS ===== -->
+  <section style="background: #F4F7F8; border-top: 1px solid #D6E0E4">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 8cqi, 104px) clamp(20px, 4cqi, 48px)">
+      <h2 style="margin: 0 0 clamp(28px, 4cqi, 44px); font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(30px, 3.2cqi, 40px); line-height: 1.15">Keep reading</h2>
+      <div style="display: flex; gap: 28px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px">
+        <sc-for list="{{related}}" as="p" hint-placeholder-count="3">
+          <a href="Blog.dc.html" style="flex: 1 0 290px; scroll-snap-align: start; display: flex; flex-direction: column; gap: 14px; color: #0F2433; text-decoration: none">
+            <img src="{{p.img}}" alt="" style="display: block; width: 100%; height: 200px; object-fit: cover; border-radius: 2px; background-color: {{p.tone}}">
+            <span style="font-size: 13px; color: #4A5C67"><span style="color: {{brand}}; font-weight: 600">{{p.cat}}</span> · {{p.read}}</span>
+            <span style="font-family: 'Newsreader', Georgia, serif; font-size: 23px; line-height: 1.25; font-weight: 500">{{p.title}}</span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section style="background: #0F2433; color: #FFFFFF">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(56px, 7cqi, 96px) clamp(20px, 4cqi, 48px); display: flex; flex-wrap: wrap; gap: 28px 64px; align-items: center; justify-content: space-between">
+      <div style="flex: 1 1 520px; min-width: 0">
+        <h2 style="margin: 0 0 12px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 4cqi, 52px); line-height: 1.1">Ready to talk about your project?</h2>
+        <p style="margin: 0; color: #B9C9D1; font-size: 18px">Free estimates across Cape Cod, Southeastern MA and Rhode Island.</p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px">
+        <a href="Estimate.dc.html" style="display: inline-flex; align-items: center; height: 56px; padding: 0 28px; background: #FFFFFF; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Get Free Estimate</a>
+        <a href="tel:+15086852770" style="display: inline-flex; align-items: center; height: 56px; padding: 0 24px; border: 1px solid rgba(255,255,255,0.7); color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Call (508) 685-2770</a>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Footer" mobile="{{m}}" hint-size="100%,860px"></dc-import>
+
+  <sc-if value="{{m}}" hint-placeholder-val="{{ false }}">
+    <div style="position: sticky; bottom: 0; z-index: 60; display: grid; grid-template-columns: 1fr 1.35fr; gap: 8px; padding: 10px 12px 12px; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid #D6E0E4">
+      <a href="tel:+15086852770" style="display: flex; align-items: center; justify-content: center; gap: 8px; height: 52px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Call now</a>
+      <a href="Estimate.dc.html" style="display: flex; align-items: center; justify-content: center; height: 52px; background: {{brand}}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Get Free Estimate</a>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mobile":{"editor":"boolean","default":false},"brand":{"editor":"color","default":"#1E5873","options":["#1E5873","#2B6E8F","#123B5C","#2F6B69"]},"$preview":{"width":1440,"height":6200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.state || {};
+    const brand = this.props.brand ?? '#1E5873';
+    const m = !!this.props.mobile || !!st.narrow;
+    if (!this._setRoot) {
+      this._setRoot = (el) => {
+        if (!el || this._ro || typeof ResizeObserver === 'undefined') return;
+        this._ro = new ResizeObserver((es) => {
+          const n = es[0].contentRect.width < 760;
+          if (n !== !!(this.state || {}).narrow) this.setState({ narrow: n });
+        });
+        this._ro.observe(el);
+      };
+    }
+    const tocOpen = !!st.toc;
+    const items = [
+      { id: 'decision-framework-room-size-budget-desi', label: 'Decision Framework: Room Size, Budget & Design Goals' },
+      { id: 'resale-value-comparison-in-different-mar', label: 'Resale Value Comparison in Different Markets' },
+      { id: 'aging-in-place-accessibility-considerati', label: 'Aging-in-Place & Accessibility Considerations' },
+      { id: 'mold-ventilation-long-term-moisture-mana', label: 'Mold, Ventilation & Long-Term Moisture Management' },
+      { id: 'who-should-choose-each-configuration', label: 'Who Should Choose Each Configuration' }
+    ];
+    const activeId = st.active || 'decision-framework-room-size-budget-desi';
+    return {
+      brand: brand,
+      m: m,
+      d: !m,
+      setRoot: this._setRoot,
+      tocOpen: tocOpen,
+      tocIcon: tocOpen ? 'M6 15l6-6 6 6' : 'M6 9l6 6 6-6',
+      toggleToc: () => this.setState({ toc: !tocOpen }),
+      toc: items.map((t) => ({
+        ...t,
+        style: t.id === activeId ? 'color: #0F2433; font-weight: 600; border-left: 2px solid ' + brand : 'color: #4A5C67; border-left: 2px solid transparent'
+      })),
+      related: [
+        { title: 'Linear Drain vs. Point Drain: Which Is Right for Your Wet Room', cat: 'Shower Enclosure', read: '4 min read', tone: '#DCE7EB', img: '/images/what-does-a-wet-room-add-to-a-remodel-budget.webp' },
+        { title: 'What Does a Wet Room Add to a Remodel Budget?', cat: 'Shower Enclosure', read: '4 min read', tone: '#DCE7EB', img: '/images/wet-room-waterproofing-membrane-systems-explained.webp' },
+        { title: 'Wet Room Waterproofing: Membrane Systems Explained', cat: 'Shower Enclosure', read: '5 min read', tone: '#DCE7EB', img: '/images/shower-enclosure.webp' }
+      ]
+    };
+  }
+  componentWillUnmount() { if (this._ro) this._ro.disconnect(); }
+}
+</script>
+</body>
+</html>

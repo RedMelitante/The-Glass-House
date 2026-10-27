@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Glass Services — The Glass House</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div ref="{{setRoot}}" style="container-type: inline-size; background: #FFFFFF; color: #0F2433; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6">
+
+  <div style="position: sticky; top: 0; z-index: 50">
+    <dc-import name="Header" mobile="{{m}}" open="none" brand="{{brand}}" hint-size="100%,128px"></dc-import>
+  </div>
+
+  <!-- HERO -->
+  <section style="background: #F4F7F8; border-bottom: 1px solid #D6E0E4">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(20px, 2.4cqi, 28px) clamp(20px, 4cqi, 48px) clamp(48px, 6cqi, 80px)">
+      <nav aria-label="Breadcrumb" style="font-size: 13px; color: #4A5C67; margin-bottom: clamp(24px, 4cqi, 48px)"><a href="Home.dc.html" style="color: #4A5C67">Home</a><span style="margin: 0 8px">/</span><span aria-current="page" style="color: #0F2433; font-weight: 500">Glass services</span></nav>
+      <div style="display: flex; flex-wrap: wrap; gap: 32px 64px; align-items: flex-end; justify-content: space-between">
+        <div style="flex: 1 1 600px; min-width: 0">
+          <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: {{brand}}">Glass services · 12 specialties</div>
+          <h1 style="margin: 14px 0 16px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(40px, 5.4cqi, 72px); line-height: 1.04; letter-spacing: -0.02em">Custom glass, designed &amp; installed on the Cape</h1>
+          <p style="margin: 0; font-size: 18px; color: #26394A; max-width: 620px">One local team for design, measuring, fabrication and installation, for homes, builders and businesses across Cape Cod, Southeastern MA and Rhode Island.</p>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px">
+          <a href="Estimate.dc.html" style="display: inline-flex; align-items: center; height: 56px; padding: 0 28px; background: {{brand}}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Get Free Estimate</a>
+          <a href="tel:+15086852770" style="display: inline-flex; align-items: center; height: 56px; padding: 0 24px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">(508) 685-2770</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE GRID -->
+  <section>
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(40px, 6cqi, 72px) clamp(20px, 4cqi, 48px) clamp(64px, 9cqi, 120px)">
+      <div style="display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; margin-bottom: clamp(24px, 3cqi, 36px)">
+        <div role="radiogroup" aria-label="Filter services" style="display: inline-grid; grid-template-columns: repeat(3, auto); border: 1px solid #B7C6CD; border-radius: 2px; overflow: hidden">
+          <sc-for list="{{tabs}}" as="t" hint-placeholder-count="3">
+            <button type="button" role="radio" aria-checked="{{t.on}}" onClick="{{t.pick}}" style="height: 44px; padding: 0 18px; border: 0; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; {{t.style}}">{{t.label}}</button>
+          </sc-for>
+        </div>
+        <span style="font-size: 14px; color: #4A5C67">{{count}} services</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax({{cardMin}}, 1fr)); gap: clamp(12px, 2cqi, 24px)">
+        <sc-for list="{{services}}" as="s" hint-placeholder-count="12">
+          <a href="{{s.href}}" style="display: flex; flex-direction: column; border: 1px solid #D6E0E4; border-radius: 2px; color: #0F2433; text-decoration: none; background: #FFFFFF">
+            <span style="position: relative; height: {{photoH}}; background-color: {{s.tone}}; background-image: repeating-linear-gradient(118deg, rgba(255,255,255,0) 0 70px, rgba(255,255,255,0.4) 70px 72px)">
+              <sc-if value="{{s.hasImg}}" hint-placeholder-val="{{ true }}"><img src="{{s.img}}" alt="{{s.name}} project" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover"></sc-if>
+              <span style="position: absolute; left: 16px; bottom: -22px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: #FFFFFF; border: 1px solid #D6E0E4; color: {{brand}}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="{{s.d}}"></path></svg></span>
+            </span>
+            <span style="padding: 34px 18px 20px; display: flex; flex-direction: column; gap: 6px; flex: 1">
+              <span style="font-size: 18px; font-weight: 600; line-height: 1.3">{{s.name}}</span>
+              <sc-if value="{{d}}" hint-placeholder-val="{{ true }}"><span style="font-size: 14px; color: #4A5C67; line-height: 1.5">{{s.blurb}}</span></sc-if>
+              <span style="margin-top: auto; padding-top: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #4A5C67">{{s.tags}}</span>
+            </span>
+          </a>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRADE -->
+  <section style="background: #E4EEF0">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 8cqi, 104px) clamp(20px, 4cqi, 48px); display: flex; flex-wrap: wrap; gap: 40px 80px; align-items: center">
+      <div style="flex: 1 1 460px; min-width: 0">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: {{brand}}">For builders &amp; architects</div>
+        <h2 style="margin: 14px 0 16px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.6cqi, 48px); line-height: 1.15; letter-spacing: -0.01em">A glass partner that shows up on schedule</h2>
+        <p style="margin: 0 0 28px; font-size: 17px; color: #26394A">Many of our clients are Cape builders and contractors who send us job after job. We coordinate with your schedule, measure after tile or framing, and keep one point of contact from bid to install.</p>
+        <a href="Contact.dc.html" style="display: inline-flex; align-items: center; height: 52px; padding: 0 24px; background: #0F2433; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 15px; border-radius: 2px">Trade inquiries</a>
+      </div>
+      <ul style="flex: 1 1 380px; min-width: 0; list-style: none; margin: 0; padding: 0; border-top: 1px solid #0F2433">
+        <li style="display: flex; gap: 14px; padding: 18px 0; border-bottom: 1px solid #C9D6DB"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{brand}}" stroke-width="2" aria-hidden="true" style="flex: none; margin-top: 3px"><path d="M20 6L9 17l-5-5"></path></svg><span><strong style="font-weight: 600">Bids from your plans</strong><br><span style="color: #4A5C67; font-size: 15px">Send drawings, get a written quote.</span></span></li>
+        <li style="display: flex; gap: 14px; padding: 18px 0; border-bottom: 1px solid #C9D6DB"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{brand}}" stroke-width="2" aria-hidden="true" style="flex: none; margin-top: 3px"><path d="M20 6L9 17l-5-5"></path></svg><span><strong style="font-weight: 600">Site coordination</strong><br><span style="color: #4A5C67; font-size: 15px">Measure and install around your trades.</span></span></li>
+        <li style="display: flex; gap: 14px; padding: 18px 0; border-bottom: 1px solid #C9D6DB"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{brand}}" stroke-width="2" aria-hidden="true" style="flex: none; margin-top: 3px"><path d="M20 6L9 17l-5-5"></path></svg><span><strong style="font-weight: 600">Commercial experience</strong><br><span style="color: #4A5C67; font-size: 15px">Storefronts, entrances, partitions, gyms.</span></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section>
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 9cqi, 120px) clamp(20px, 4cqi, 48px)">
+      <h2 style="margin: 0 0 clamp(32px, 4cqi, 56px); font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.6cqi, 48px); line-height: 1.15; letter-spacing: -0.01em">How every project works</h2>
+      <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px">
+        <sc-for list="{{steps}}" as="s" hint-placeholder-count="4">
+          <li style="padding-top: 24px; border-top: 2px solid #0F2433">
+            <div style="font-family: 'Newsreader', Georgia, serif; font-size: 48px; line-height: 1; color: #9C7430; margin-bottom: 16px">{{s.n}}</div>
+            <div style="font-size: 19px; font-weight: 600; margin-bottom: 6px">{{s.title}}</div>
+            <div style="font-size: 15px; color: #4A5C67">{{s.text}}</div>
+          </li>
+        </sc-for>
+      </ol>
+    </div>
+  </section>
+
+  <dc-import name="CtaBand" heading="Not sure which service you need?" sub="Book a free design consultation. We’ll visit, measure and recommend the right glass." hint-size="100%,320px"></dc-import>
+  <dc-import name="Footer" mobile="{{m}}" hint-size="100%,860px"></dc-import>
+
+  <sc-if value="{{m}}" hint-placeholder-val="{{ false }}">
+    <div style="position: sticky; bottom: 0; z-index: 60; display: grid; grid-template-columns: 1fr 1.35fr; gap: 8px; padding: 10px 12px 12px; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid #D6E0E4">
+      <a href="tel:+15086852770" style="display: flex; align-items: center; justify-content: center; height: 52px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Call now</a>
+      <a href="Estimate.dc.html" style="display: flex; align-items: center; justify-content: center; height: 52px; background: {{brand}}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Get Free Estimate</a>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mobile":{"editor":"boolean","default":false},"brand":{"editor":"color","default":"#1E5873","options":["#1E5873","#2B6E8F","#123B5C","#2F6B69"]},"$preview":{"width":1440,"height":5000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.state || {};
+    const brand = this.props.brand ?? '#1E5873';
+    const m = !!this.props.mobile || !!st.narrow;
+    if (!this._setRoot) {
+      this._setRoot = (el) => {
+        if (!el || this._ro || typeof ResizeObserver === 'undefined') return;
+        this._ro = new ResizeObserver((es) => {
+          const n = es[0].contentRect.width < 760;
+          if (n !== !!(this.state || {}).narrow) this.setState({ narrow: n });
+        });
+        this._ro.observe(el);
+      };
+    }
+    const all = [
+      { name: 'Shower Enclosures', href: 'Service.dc.html', r: 1, c: 0, blurb: 'Frameless, semi-frameless and sliding glass, cut to fit.', d: 'M4 3h16v18H4zM12 3v18M14.5 11v2', tone: '#C9D9DE' },
+      { name: 'Custom Mirrors', href: 'Service-Mirrors.dc.html', r: 1, c: 1, blurb: 'Vanity, gym and feature-wall mirrors with custom edges.', d: 'M12 3c3.9 0 7 3.6 7 8s-3.1 8-7 8-7-3.6-7-8 3.1-8 7-8zM9 21h6M9.5 8.5l3-2.5', tone: '#D3E0E4' },
+      { name: 'Glass Railings', href: 'Service-Railings.dc.html', r: 1, c: 1, blurb: 'Stair, deck and pool railings that keep the view.', d: 'M3 6h18M3 6v13M21 6v13M3 19h18M9 6v13M15 6v13', tone: '#BFD0D6' },
+      { name: 'Glass Storefronts', href: 'Service-Storefronts.dc.html', r: 0, c: 1, blurb: 'Storefront glass and framing for shops and offices.', d: 'M3 9l2-5h14l2 5M4 9v11h16V9M9 20v-6h6v6M3 9h18', tone: '#B3C6CD' },
+      { name: 'Front Entrances', href: 'Service-Entrances.dc.html', r: 1, c: 1, blurb: 'All-glass entrances, doors and hardware.', d: 'M6 21V3h12v18M3 21h18M14.5 12h.5', tone: '#C2D3D9' },
+      { name: 'Wall Partitions', href: 'Service-Partitions.dc.html', r: 1, c: 1, blurb: 'Glass walls that share light between spaces.', d: 'M3 4h18M3 20h18M7 4v16M12 4v16M17 4v16', tone: '#CCDADF' },
+      { name: 'Glass Windows', href: 'Service-Windows.dc.html', r: 1, c: 1, blurb: 'Replacement panes, insulated units, custom shapes.', d: 'M4 4h16v16H4zM12 4v16M4 12h16', tone: '#D8E3E6' },
+      { name: 'Wine Cellars', href: 'Service-WineCellars.dc.html', r: 1, c: 1, blurb: 'Glass walls and doors to show off the collection.', d: 'M10 2h4M10.5 2v5L8 10v11h8V10l-2.5-3V2M8 14h8', tone: '#BCCED4' },
+      { name: 'Glass Countertops', href: 'Service-Countertops.dc.html', r: 1, c: 1, blurb: 'Tabletops and counter surfaces, cut to fit.', d: 'M2 9h20v3H2zM4 12v9M20 12v9', tone: '#D0DDE1' },
+      { name: 'Canopies & Skylights', href: 'Service-Canopies.dc.html', r: 1, c: 1, blurb: 'Overhead glass that brings in daylight.', d: 'M3 10l9-6 9 6zM6 10v10M18 10v10M3 20h18', tone: '#C5D5DA' },
+      { name: 'Glass Shelves', href: 'Service-Shelves.dc.html', r: 1, c: 1, blurb: 'Floating shelves for niches, bars and displays.', d: 'M3 7h18M3 13h18M3 19h18M5 7v2M19 7v2', tone: '#DCE7EB' },
+      { name: 'Fireplace Screens', href: 'Service-Fireplace.dc.html', r: 1, c: 0, blurb: 'Clean glass fronts for fireplaces.', d: 'M3 4h18v17H3zM6 21V9h12v12M12 18c-1.7 0-3-1.2-3-2.8 0-1.8 3-3 3-5 1 1.4 3 2.9 3 5 0 1.6-1.3 2.8-3 2.8z', tone: '#C9CFD1' }
+    ];
+    const imgs = {'Shower Enclosures': '/images/off-cape.webp', 'Custom Mirrors': '/images/off-cape-2.webp', 'Glass Railings': '/images/glass-storefront-installation-guide-for-cape-cod-businesses.webp', 'Glass Storefronts': '/images/rhodeisland-area-hero.webp', 'Wall Partitions': '/images/glass-stair-partition.webp', 'Glass Windows': '/images/custom-glass-sunroom-with-skylights-overlooking-a-cape-cod.webp', 'Wine Cellars': '/images/wall-to-wall-vanity-mirror.webp', 'Glass Countertops': '/images/wine-cellar-glass-enclosure-ideas-and-costs.webp', 'Canopies & Skylights': '/images/falmouth-area-hero.webp', 'Front Entrances': '/images/glass-storefronts-the-secret-to-modern-inviting-retail.webp', 'Glass Shelves': '/images/bent-glass-screen-marble-fireplace.webp', 'Fireplace Screens': '/images/sandwich-area-hero.webp'};
+    const tab = st.tab || 'All';
+    const list = all.filter((s) => tab === 'All' || (tab === 'Residential' ? s.r : s.c));
+    return {
+      brand: brand,
+      m: m,
+      d: !m,
+      setRoot: this._setRoot,
+      cardMin: m ? '150px' : '260px',
+      photoH: m ? '110px' : '170px',
+      count: list.length,
+      tabs: ['All', 'Residential', 'Commercial'].map((t) => ({
+        label: t, on: tab === t,
+        style: tab === t ? 'background: #0F2433; color: #FFFFFF' : 'background: #FFFFFF; color: #0F2433',
+        pick: () => this.setState({ tab: t })
+      })),
+      services: list.map((s) => ({ ...s, img: imgs[s.name] || '', hasImg: !!imgs[s.name], tags: s.r && s.c ? 'Residential · Commercial' : (s.r ? 'Residential' : 'Commercial') })),
+      steps: [
+        { n: '01', title: 'Free consultation', text: 'We visit, listen and talk through options.' },
+        { n: '02', title: 'Precise measure', text: 'Exact on-site measurements for a tight fit.' },
+        { n: '03', title: 'Custom fabrication', text: 'Glass cut, edged and tempered to spec.' },
+        { n: '04', title: 'Professional install', text: 'Our own team installs and cleans up.' }
+      ]
+    };
+  }
+  componentWillUnmount() { if (this._ro) this._ro.disconnect(); }
+}
+</script>
+</body>
+</html>

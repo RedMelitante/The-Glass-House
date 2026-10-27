@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Site footer</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<footer style="container-type: inline-size; background: #0F2433; color: #DCE6EA; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 15px; line-height: 1.6">
+  <div style="max-width: 1240px; margin: 0 auto; padding: clamp(56px, 7cqi, 88px) clamp(20px, 4cqi, 48px) 0">
+
+    <div style="display: flex; flex-wrap: wrap; gap: 40px 64px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.14)">
+      <!-- Brand -->
+      <div style="flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+        <a href="Home.dc.html" aria-label="The Glass House home" style="display: flex; align-items: center; gap: 12px; color: #FFFFFF; text-decoration: none"><img src="/images/the-glass-house-2.png" alt="The Glass House" style="display: block; height: 68px; width: auto"></a>
+        <p style="margin: 0; color: #B9C9D1; max-width: 340px">Family-owned custom glass and mirror installation in Hyannis for 30+ years. Licensed and insured.</p>
+        <div style="display: flex; gap: 10px">
+          <a href="https://www.facebook.com/profile.php?id=61577765273149" target="_blank" rel="noopener" aria-label="Facebook" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.25); color: #FFFFFF"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6.5v3.5H9V21h3.5v-7.5H15l.5-3.5h-3V7a1 1 0 0 1 1-1H15z"></path></svg></a>
+          <a href="https://www.instagram.com/the_glass_house_cape_cod/" target="_blank" rel="noopener" aria-label="Instagram" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.25); color: #FFFFFF"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zM12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM17.5 6.5h.01"></path></svg></a>
+          <a href="https://youtube.com/@TheGlassHouseGlass" target="_blank" rel="noopener" aria-label="YouTube" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.25); color: #FFFFFF"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4a2.5 2.5 0 0 0-1.8 1.8C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3z"></path></svg></a>
+        </div>
+      </div>
+
+      <!-- Quick links -->
+      <nav aria-label="Footer" style="flex: 1 1 160px; min-width: 0">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #FFFFFF; margin-bottom: 16px">Company</div>
+        <div style="display: flex; flex-direction: column; gap: 2px">
+          <a href="About.dc.html" style="color: #DCE6EA; text-decoration: none; min-height: 32px; display: flex; align-items: center">About us</a>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px">
+            <a href="Services.dc.html" style="color: #DCE6EA; text-decoration: none; min-height: 32px; display: flex; align-items: center">Services</a>
+            <button type="button" onClick="{{toggleServices}}" aria-expanded="{{servicesOpen}}" aria-label="Show all services" style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; background: transparent; border: 1px solid rgba(255,255,255,0.18); border-radius: 2px; color: #DCE6EA; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="{{servicesIcon}}"></path></svg></button>
+          </div>
+          <sc-if value="{{servicesOpen}}" hint-placeholder-val="{{ false }}">
+            <div style="display: flex; flex-direction: column; padding: 2px 0 8px 12px; border-left: 1px solid rgba(255,255,255,0.18); margin: 0 0 6px 2px">
+              <sc-for list="{{svcList}}" as="x" hint-placeholder-count="10">
+                <a href="{{x.href}}" style="color: #B9C9D1; text-decoration: none; min-height: 30px; display: flex; align-items: center; font-size: 14px">{{x.name}}</a>
+              </sc-for>
+            </div>
+          </sc-if>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px">
+            <a href="Products.dc.html" style="color: #DCE6EA; text-decoration: none; min-height: 32px; display: flex; align-items: center">Products</a>
+            <button type="button" onClick="{{toggleProducts}}" aria-expanded="{{productsOpen}}" aria-label="Show all products" style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; background: transparent; border: 1px solid rgba(255,255,255,0.18); border-radius: 2px; color: #DCE6EA; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="{{productsIcon}}"></path></svg></button>
+          </div>
+          <sc-if value="{{productsOpen}}" hint-placeholder-val="{{ false }}">
+            <div style="display: flex; flex-direction: column; padding: 2px 0 8px 12px; border-left: 1px solid rgba(255,255,255,0.18); margin: 0 0 6px 2px">
+              <sc-for list="{{prodList}}" as="x" hint-placeholder-count="10">
+                <a href="{{x.href}}" style="color: #B9C9D1; text-decoration: none; min-height: 30px; display: flex; align-items: center; font-size: 14px">{{x.name}}</a>
+              </sc-for>
+            </div>
+          </sc-if>
+          <a href="Gallery.dc.html" style="color: #DCE6EA; text-decoration: none; min-height: 32px; display: flex; align-items: center">Project gallery</a>
+          <a href="BlogIndex.dc.html" style="color: #DCE6EA; text-decoration: none; min-height: 32px; display: flex; align-items: center">Blog</a>
+          <a href="Faq.dc.html" style="color: #DCE6EA; text-decoration: none; min-height: 32px; display: flex; align-items: center">FAQ</a>
+          <a href="CostGuide.dc.html" style="color: #DCE6EA; text-decoration: none; min-height: 32px; display: flex; align-items: center">Cost guide</a>
+          <a href="Contact.dc.html" style="color: #DCE6EA; text-decoration: none; min-height: 32px; display: flex; align-items: center">Contact us</a>
+          <a href="Estimate.dc.html" style="color: #FFFFFF; font-weight: 600; text-decoration: none; min-height: 32px; display: flex; align-items: center">Get Free Estimate →</a>
+        </div>
+      </nav>
+
+      <!-- Service areas -->
+      <div style="flex: 2 1 320px; min-width: 0">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #FFFFFF; margin-bottom: 16px">Areas we serve</div>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px 16px; font-size: 14px">
+          <sc-for list="{{towns}}" as="t" hint-placeholder-count="19">
+            <a href="{{t.href}}" style="color: #DCE6EA; text-decoration: none; min-height: 30px; display: flex; align-items: center">{{t.name}}</a>
+          </sc-for>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <address style="flex: 1 1 240px; min-width: 0; font-style: normal; display: flex; flex-direction: column; gap: 14px">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #FFFFFF">Visit · Call · Email</div>
+        <a href="tel:+15086852770" style="font-family: 'Newsreader', Georgia, serif; font-size: 28px; color: #FFFFFF; text-decoration: none; line-height: 1.1">(508) 685-2770</a>
+        <a href="mailto:ornyb@theghglass.com" style="color: #DCE6EA">ornyb@theghglass.com</a>
+        <a href="https://maps.app.goo.gl/vZfV7rE3CSp9vrpHA" target="_blank" rel="noopener" aria-label="Open 270 Communication Way, Hyannis, MA 02601 in Google Maps" style="color: inherit; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(220,230,234,0.4)">270 Communication Way<br>Hyannis, MA 02601</a>
+        <span style="color: #B9C9D1; font-size: 14px">Mon–Fri 9:00–5:00 · Sat–Sun closed</span>
+      </address>
+    </div>
+
+    <!-- QR row -->
+    <div style="display: flex; flex-wrap: wrap; gap: 24px; padding: 40px 0; border-bottom: 1px solid rgba(255,255,255,0.14); align-items: center">
+      <div style="flex: 1 1 300px; min-width: 0">
+        <div style="font-family: 'Newsreader', Georgia, serif; font-size: 26px; color: #FFFFFF; line-height: 1.25">Scan from your phone</div>
+        <div style="color: #B9C9D1; font-size: 14px; margin-top: 4px">Point your camera at a code: leave us a Google review, or get turn-by-turn directions to the shop.</div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px">
+        <a href="https://hovqr.me/759c4eb8" style="display: flex; align-items: center; gap: 14px; padding: 12px 18px 12px 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.18); color: #FFFFFF; text-decoration: none">
+          <img src="/images/qr-code-leave-a-google-review.webp" alt="QR code: leave a Google review" style="width: 84px; height: 84px; flex: none; display: block; background: #FFFFFF; padding: 4px; box-sizing: border-box">
+          <span><span style="display: block; font-weight: 600">Leave a review</span><span style="font-size: 13px; color: #B9C9D1">Google · ★★★★★</span></span>
+        </a>
+        <a href="https://maps.app.goo.gl/iAU9FApj1hgxd1ah8" style="display: flex; align-items: center; gap: 14px; padding: 12px 18px 12px 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.18); color: #FFFFFF; text-decoration: none">
+          <img src="/images/qr-code-directions-to-the-shop.webp" alt="QR code: directions to the shop" style="width: 84px; height: 84px; flex: none; display: block; background: #FFFFFF; padding: 4px; box-sizing: border-box">
+          <span><span style="display: block; font-weight: 600">Get directions</span><span style="font-size: 13px; color: #B9C9D1">Google Maps</span></span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div style="display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 24px 0 {{bottomPad}}; font-size: 13px; color: #B9C9D1">
+      <span>Powered by <a href="https://www.digitalservicesmaster.com/" target="_blank" rel="noopener" style="color: #7FD3D9; text-decoration: none">Digital Services Master</a> Copyright © 2024. All rights reserved</span>
+      <span style="margin-left: auto; display: flex; gap: 20px"><a href="Legal.dc.html" style="color: #B9C9D1">Privacy</a><a href="Legal.dc.html" style="color: #B9C9D1">Terms &amp; Conditions</a></span>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mobile":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":860}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.state || {};
+    const so = !!st.svc, po = !!st.prod;
+    return {
+      servicesOpen: so, productsOpen: po,
+      servicesIcon: so ? 'M6 15l6-6 6 6' : 'M6 9l6 6 6-6', productsIcon: po ? 'M6 15l6-6 6 6' : 'M6 9l6 6 6-6',
+      toggleServices: () => this.setState({ svc: !so }),
+      toggleProducts: () => this.setState({ prod: !po }),
+      svcList: [{ name: 'Shower Enclosures', href: 'Service.dc.html' }, { name: 'Custom Mirrors', href: 'Service-Mirrors.dc.html' }, { name: 'Glass Railings', href: 'Service-Railings.dc.html' }, { name: 'Glass Storefronts', href: 'Service-Storefronts.dc.html' }, { name: 'Front Entrances', href: 'Service-Entrances.dc.html' }, { name: 'Wall Partitions', href: 'Service-Partitions.dc.html' }, { name: 'Glass Windows', href: 'Service-Windows.dc.html' }, { name: 'Wine Cellars', href: 'Service-WineCellars.dc.html' }, { name: 'Glass Countertops', href: 'Service-Countertops.dc.html' }, { name: 'Canopies & Skylights', href: 'Service-Canopies.dc.html' }, { name: 'Glass Shelves', href: 'Service-Shelves.dc.html' }, { name: 'Fireplace Screens', href: 'Service-Fireplace.dc.html' }],
+      prodList: [{ name: 'Custom Glass Mirrors', href: 'Product.dc.html' }, { name: 'Custom Glass Shelves', href: 'Product-Shelves.dc.html' }, { name: 'Custom Glass Railings', href: 'Product-Railings.dc.html' }, { name: 'Custom Glass Windows', href: 'Product-Windows.dc.html' }, { name: 'Custom Glass Storefronts', href: 'Product-Storefronts.dc.html' }, { name: 'Custom Glass Wine Cellars', href: 'Product-WineCellars.dc.html' }, { name: 'Custom Glass Countertops', href: 'Product-Countertops.dc.html' }, { name: 'Fireplace Screens', href: 'Product-Fireplace.dc.html' }, { name: 'Shower Enclosures', href: 'Product-Shower.dc.html' }, { name: 'Canopies & Skylights', href: 'Product-Canopies.dc.html' }],
+      bottomPad: this.props.mobile ? '104px' : '32px',
+      towns: [{ name: 'Hyannis', href: 'Area-Hyannis.dc.html' }, { name: 'Barnstable', href: 'Area-Barnstable.dc.html' }, { name: 'Bourne', href: 'Area-Bourne.dc.html' }, { name: 'Brewster', href: 'Area-Brewster.dc.html' }, { name: 'Chatham', href: 'Area.dc.html' }, { name: 'Dennis', href: 'Area-Dennis.dc.html' }, { name: 'Eastham', href: 'Area-Eastham.dc.html' }, { name: 'Falmouth', href: 'Area-Falmouth.dc.html' }, { name: 'Harwich', href: 'Area-Harwich.dc.html' }, { name: 'Mashpee', href: 'Area-Mashpee.dc.html' }, { name: 'Orleans', href: 'Area-Orleans.dc.html' }, { name: 'Provincetown', href: 'Area-Provincetown.dc.html' }, { name: 'Sandwich', href: 'Area-Sandwich.dc.html' }, { name: 'Truro', href: 'Area-Truro.dc.html' }, { name: 'Wellfleet', href: 'Area-Wellfleet.dc.html' }, { name: 'Yarmouth', href: 'Area-Yarmouth.dc.html' }, { name: 'Boston', href: 'Area-Boston.dc.html' }, { name: 'Providence, RI', href: 'Area-Providence.dc.html' }, { name: 'Rhode Island', href: 'Area-RhodeIsland.dc.html' }]
+    };
+  }
+}
+</script>
+</body>
+</html>
