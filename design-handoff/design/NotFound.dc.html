@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Page not found — The Glass House</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div ref="{{setRoot}}" style="container-type: inline-size; background: #FFFFFF; color: #0F2433; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6">
+
+  <div style="position: sticky; top: 0; z-index: 50">
+    <dc-import name="Header" mobile="{{m}}" open="none" brand="{{brand}}" hint-size="100%,128px"></dc-import>
+  </div>
+
+  <section style="position: relative; overflow: hidden; background: #F4F7F8">
+    <svg width="560" height="560" viewBox="0 0 520 520" fill="none" aria-hidden="true" style="position: absolute; right: -120px; top: -40px; opacity: 0.35"><rect x="0.5" y="0.5" width="300" height="420" stroke="#9FB4BE"></rect><rect x="160.5" y="80.5" width="300" height="420" stroke="#9FB4BE"></rect><path d="M60 380L260 180M120 440L320 240" stroke="#C79A4B"></path></svg>
+    <div style="position: relative; max-width: 1240px; margin: 0 auto; padding: clamp(56px, 9cqi, 128px) clamp(20px, 4cqi, 48px)">
+      <div style="font-family: 'Newsreader', Georgia, serif; font-size: clamp(96px, 14cqi, 200px); line-height: 0.9; color: #9C7430; font-style: italic">404</div>
+      <h1 style="margin: 20px 0 14px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(34px, 4.4cqi, 56px); line-height: 1.1; max-width: 680px">This page went right through the glass.</h1>
+      <p style="margin: 0 0 28px; font-size: 18px; color: #26394A; max-width: 560px">The page you’re looking for has moved or no longer exists. Try one of these instead.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px">
+        <a href="Home.dc.html" style="display: inline-flex; align-items: center; height: 52px; padding: 0 24px; background: {{brand}}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 15px; border-radius: 2px">Back to home</a>
+        <a href="Estimate.dc.html" style="display: inline-flex; align-items: center; height: 52px; padding: 0 24px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 15px; border-radius: 2px">Get Free Estimate</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(48px, 6cqi, 80px) clamp(20px, 4cqi, 48px)">
+      <h2 style="margin: 0 0 20px; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #4A5C67">Popular pages</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: #D6E0E4; border: 1px solid #D6E0E4">
+        <a href="Service.dc.html" style="padding: 22px; background: #FFFFFF; color: #0F2433; text-decoration: none; font-size: 17px; font-weight: 600">Shower enclosures →</a>
+        <a href="Product.dc.html" style="padding: 22px; background: #FFFFFF; color: #0F2433; text-decoration: none; font-size: 17px; font-weight: 600">Custom mirrors →</a>
+        <a href="Gallery.dc.html" style="padding: 22px; background: #FFFFFF; color: #0F2433; text-decoration: none; font-size: 17px; font-weight: 600">Project gallery →</a>
+        <a href="CostGuide.dc.html" style="padding: 22px; background: #FFFFFF; color: #0F2433; text-decoration: none; font-size: 17px; font-weight: 600">Cost guide →</a>
+        <a href="Areas.dc.html" style="padding: 22px; background: #FFFFFF; color: #0F2433; text-decoration: none; font-size: 17px; font-weight: 600">Areas we serve →</a>
+        <a href="Contact.dc.html" style="padding: 22px; background: #FFFFFF; color: #0F2433; text-decoration: none; font-size: 17px; font-weight: 600">Contact →</a>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Footer" mobile="{{m}}" hint-size="100%,860px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mobile":{"editor":"boolean","default":false},"brand":{"editor":"color","default":"#1E5873","options":["#1E5873","#2B6E8F","#123B5C","#2F6B69"]},"$preview":{"width":1440,"height":1900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.state || {};
+    const brand = this.props.brand ?? '#1E5873';
+    const m = !!this.props.mobile || !!st.narrow;
+    if (!this._setRoot) {
+      this._setRoot = (el) => {
+        if (!el || this._ro || typeof ResizeObserver === 'undefined') return;
+        this._ro = new ResizeObserver((es) => {
+          const n = es[0].contentRect.width < 760;
+          if (n !== !!(this.state || {}).narrow) this.setState({ narrow: n });
+        });
+        this._ro.observe(el);
+      };
+    }
+    return { brand: brand, m: m, setRoot: this._setRoot };
+  }
+  componentWillUnmount() { if (this._ro) this._ro.disconnect(); }
+}
+</script>
+</body>
+</html>

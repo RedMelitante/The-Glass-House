@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Privacy Policy — The Glass House</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div ref="{{setRoot}}" style="container-type: inline-size; background: #FFFFFF; color: #0F2433; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6">
+
+  <div style="position: sticky; top: 0; z-index: 50">
+    <dc-import name="Header" mobile="{{m}}" open="none" brand="{{brand}}" hint-size="100%,128px"></dc-import>
+  </div>
+
+  <section style="background: #F4F7F8; border-bottom: 1px solid #D6E0E4">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(20px, 2.4cqi, 28px) clamp(20px, 4cqi, 48px) 0">
+      <nav aria-label="Breadcrumb" style="font-size: 13px; color: #4A5C67; margin-bottom: clamp(24px, 4cqi, 44px)"><a href="Home.dc.html" style="color: #4A5C67">Home</a><span style="margin: 0 8px">/</span><span aria-current="page" style="color: #0F2433; font-weight: 500">{{doc.title}}</span></nav>
+      <h1 style="margin: 0 0 8px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(38px, 4.8cqi, 64px); line-height: 1.05">{{doc.title}}</h1>
+      <p style="margin: 0 0 28px; font-size: 15px; color: #4A5C67">Last updated {{doc.updated}}</p>
+      <div role="tablist" aria-label="Legal documents" style="display: flex; gap: 4px; overflow-x: auto">
+        <sc-for list="{{tabs}}" as="t" hint-placeholder-count="3">
+          <button type="button" role="tab" aria-selected="{{t.on}}" onClick="{{t.pick}}" style="flex: none; height: 48px; padding: 0 18px; border: 0; border-bottom: 2px solid {{t.line}}; background: transparent; font: inherit; font-size: 15px; font-weight: 600; color: {{t.color}}; cursor: pointer">{{t.label}}</button>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(40px, 6cqi, 72px) clamp(20px, 4cqi, 48px) clamp(64px, 8cqi, 104px); display: flex; flex-wrap: wrap; gap: 32px 80px; align-items: flex-start">
+      <sc-if value="{{d}}" hint-placeholder-val="{{ true }}">
+        <nav aria-label="On this page" style="flex: 0 0 240px; position: sticky; top: 152px; border-left: 1px solid #D6E0E4">
+          <sc-for list="{{doc.sections}}" as="s" hint-placeholder-count="7">
+            <a href="#{{s.id}}" style="display: block; padding: 6px 0 6px 16px; font-size: 14px; color: #4A5C67; text-decoration: none">{{s.h}}</a>
+          </sc-for>
+        </nav>
+      </sc-if>
+      <article style="flex: 1 1 560px; min-width: 0; max-width: 720px; font-size: 17px; line-height: 1.75; color: #26394A">
+        <sc-if value="{{doc.draft}}" hint-placeholder-val="{{ false }}">
+          <div style="padding: 16px 20px; background: #FFF8E6; border: 1px solid #E8D5A8; font-size: 14px; color: #5C4718; margin-bottom: 32px">Template layout. Final legal text to be supplied or approved by the client or their counsel.</div>
+        </sc-if>
+        <sc-for list="{{doc.sections}}" as="s" hint-placeholder-count="7">
+          <div id="{{s.id}}" style="margin-bottom: 32px">
+            <h2 style="margin: 0 0 10px; font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: 26px; color: #0F2433">{{s.h}}</h2>
+            <sc-for list="{{s.blocks}}" as="b" hint-placeholder-count="1">
+              <sc-if value="{{b.isSub}}" hint-placeholder-val="{{ false }}">
+                <h3 style="margin: 18px 0 6px; font-size: 17px; font-weight: 600; color: #0F2433">{{b.text}}</h3>
+              </sc-if>
+              <sc-if value="{{b.isP}}" hint-placeholder-val="{{ true }}">
+                <p style="margin: 0 0 12px">{{b.text}}</p>
+              </sc-if>
+              <sc-if value="{{b.isList}}" hint-placeholder-val="{{ false }}">
+                <ul style="margin: 0 0 14px; padding-left: 22px; display: flex; flex-direction: column; gap: 4px">
+                  <sc-for list="{{b.items}}" as="li" hint-placeholder-count="3">
+                    <li>{{li}}</li>
+                  </sc-for>
+                </ul>
+              </sc-if>
+            </sc-for>
+          </div>
+        </sc-for>
+        <div style="margin-top: 40px; padding: 24px; border: 1px solid #D6E0E4">
+          <div style="font-weight: 600; color: #0F2433; margin-bottom: 6px">Questions about this policy?</div>
+          <div style="font-size: 15px">The Glass House · 270 Communication Way, Hyannis, MA 02601 · <a href="mailto:ornyb@theghglass.com" style="color: {{brand}}">ornyb@theghglass.com</a> · <a href="tel:+15086852770" style="color: {{brand}}">(508) 685-2770</a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <dc-import name="Footer" mobile="{{m}}" hint-size="100%,860px"></dc-import>
+
+  <sc-if value="{{m}}" hint-placeholder-val="{{ false }}">
+    <div style="position: sticky; bottom: 0; z-index: 60; display: grid; grid-template-columns: 1fr 1.35fr; gap: 8px; padding: 10px 12px 12px; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid #D6E0E4">
+      <a href="tel:+15086852770" style="display: flex; align-items: center; justify-content: center; height: 52px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Call now</a>
+      <a href="Estimate.dc.html" style="display: flex; align-items: center; justify-content: center; height: 52px; background: {{brand}}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Get Free Estimate</a>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mobile":{"editor":"boolean","default":false},"brand":{"editor":"color","default":"#1E5873","options":["#1E5873","#2B6E8F","#123B5C","#2F6B69"]},"$preview":{"width":1440,"height":3400}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.state || {};
+    const brand = this.props.brand ?? '#1E5873';
+    const m = !!this.props.mobile || !!st.narrow;
+    if (!this._setRoot) {
+      this._setRoot = (el) => {
+        if (!el || this._ro || typeof ResizeObserver === 'undefined') return;
+        this._ro = new ResizeObserver((es) => {
+          const n = es[0].contentRect.width < 760;
+          if (n !== !!(this.state || {}).narrow) this.setState({ narrow: n });
+        });
+        this._ro.observe(el);
+      };
+    }
+    const blk = (b) => Array.isArray(b) ? { isList: true, isP: false, isSub: false, items: b } : (b.charAt(0) === '#' ? { isSub: true, isP: false, isList: false, text: b.slice(1) } : { isP: true, isSub: false, isList: false, text: b });
+    const mk = (pairs) => pairs.map((p, i) => ({ id: 's' + i, h: p[0], blocks: (Array.isArray(p[1]) && p[1].length && typeof p[1][0] !== 'string' ? p[1] : (typeof p[1] === 'string' ? [p[1]] : p[1])).map(blk) }));
+    const L = (...items) => [items];
+    const docs = {
+      privacy: { label: 'Privacy Policy', title: 'Privacy Policy', updated: 'March 6, 2026', draft: false, sections: mk([
+        ['Introduction', ['The Glass House respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use and safeguard information when you visit our website or communicate with us, including by SMS/text message.', 'By using our website, you agree to the practices described in this policy.']],
+        ['Information we collect', ['#Information you provide', ...L('Name', 'Email address', 'Phone number', 'Project details or inquiry information', 'Any other information you choose to submit'), '#Automatically collected information', ...L('IP address', 'Browser type', 'Device type', 'Pages visited', 'Time spent on our site'), 'We may use cookies and analytics tools to improve website performance.']],
+        ['How we use your information', ['We use the information we collect to:', ...L('Respond to your inquiries', 'Provide estimates and consultations', 'Schedule and confirm appointments', 'Send service updates', 'Improve website functionality', 'Maintain security and prevent fraud'), 'We do not sell or rent your personal information.']],
+        ['SMS communications & messaging policy', ['If you voluntarily provide your mobile number and consent to receive text messages, we may send you texts about:', ...L('Your inquiries', 'Appointment confirmations and reminders', 'Consultation scheduling', 'Service updates', 'Customer care'), 'Message frequency varies. Message and data rates may apply from your carrier.', 'You can opt out at any time by replying STOP. For help, reply HELP or contact us by email or through our website.', 'We do not sell, rent or share mobile numbers or SMS consent data with third parties for marketing purposes. SMS opt-in data is not shared with third parties.']],
+        ['Sharing of information', ['We may share information only with:', ...L('Website hosting providers', 'Analytics providers', 'Technology service providers', 'Legal authorities, when required by law'), 'All third parties are required to safeguard your data.']],
+        ['Data retention', ['We keep personal information only as long as needed to fulfill the purposes it was collected for, meet legal obligations or resolve disputes. You may request deletion of your information at any time.']],
+        ['Your rights', ['You may request to:', ...L('Access the personal information we hold about you', 'Correct your information', 'Delete your information', 'Opt out of communications'), 'To make a request, email ornyb@theghglass.com.']],
+        ['Security', ['We use reasonable administrative, technical and physical safeguards to protect your information.']],
+        ['Updates to this policy', ['We may update this Privacy Policy from time to time. Changes will be posted on this page with a revised date.']],
+        ['Contact us', ['The Glass House', 'Email: ornyb@theghglass.com', 'Website: www.theghglass.com']]
+      ]) },
+      terms: { label: 'Terms & Conditions', title: 'Terms & Conditions', updated: 'November 14, 2025', draft: false, sections: mk([
+        ['SMS terms & conditions', ['These terms apply to text messaging services provided by The Glass House.']],
+        ['Program description', ['By providing your mobile number and opting in, you agree to receive text messages from The Glass House about:', ...L('Customer inquiries', 'Appointment confirmations', 'Consultation reminders', 'Service updates', 'Customer care support'), 'This messaging service is not used for unsolicited marketing.']],
+        ['Message frequency', ['Message frequency varies depending on your interaction with our services.']],
+        ['Message & data rates', ['Message and data rates may apply under your mobile carrier plan.']],
+        ['Opt-out instructions', ['You can opt out at any time by replying STOP. After you send STOP, you will receive a confirmation message, and no further messages will be sent unless you re-subscribe.']],
+        ['Help instructions', ['For help, reply HELP or contact us:', ...L('Email: ornyb@theghglass.com', 'Website: www.theghglass.com')]],
+        ['Privacy Policy', ['Your information is handled under our Privacy Policy, available at theghglass.com/privacy-policy.']],
+        ['Carrier disclaimer', ['Carriers are not liable for delayed or undelivered messages.']],
+        ['Eligibility', ['You must be the authorized user of the mobile number you provide and be at least 18 years old, or have permission from a parent or guardian.']]
+      ]) }
+    };
+    const cur = st.doc || 'privacy';
+    return {
+      brand: brand,
+      m: m,
+      d: !m,
+      setRoot: this._setRoot,
+      doc: docs[cur],
+      tabs: Object.keys(docs).map((k) => ({ label: docs[k].label, on: cur === k, line: cur === k ? brand : 'transparent', color: cur === k ? '#0F2433' : '#4A5C67', pick: () => this.setState({ doc: k }) }))
+    };
+  }
+  componentWillUnmount() { if (this._ro) this._ro.disconnect(); }
+}
+</script>
+</body>
+</html>

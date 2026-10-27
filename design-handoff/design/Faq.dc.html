@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>FAQ — The Glass House</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div ref="{{setRoot}}" style="container-type: inline-size; background: #FFFFFF; color: #0F2433; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6">
+
+  <div style="position: sticky; top: 0; z-index: 50">
+    <dc-import name="Header" mobile="{{m}}" open="none" brand="{{brand}}" hint-size="100%,128px"></dc-import>
+  </div>
+
+  <section style="background: #F4F7F8; border-bottom: 1px solid #D6E0E4">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(20px, 2.4cqi, 28px) clamp(20px, 4cqi, 48px) clamp(40px, 5cqi, 64px)">
+      <nav aria-label="Breadcrumb" style="font-size: 13px; color: #4A5C67; margin-bottom: clamp(24px, 4cqi, 48px)"><a href="Home.dc.html" style="color: #4A5C67">Home</a><span style="margin: 0 8px">/</span><span aria-current="page" style="color: #0F2433; font-weight: 500">FAQ</span></nav>
+      <h1 style="margin: 0 0 14px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(40px, 5.4cqi, 72px); line-height: 1.04; letter-spacing: -0.02em">Frequently asked questions</h1>
+      <p style="margin: 0 0 24px; font-size: 18px; color: #26394A">Pricing, timing, materials and what to expect.</p>
+      <label for="faq-search" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Search questions</label>
+      <div style="display: flex; align-items: center; gap: 10px; max-width: 560px; height: 56px; padding: 0 16px; background: #FFFFFF; border: 1px solid #B7C6CD; border-radius: 2px">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A5C67" stroke-width="1.8" aria-hidden="true"><path d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM20 20l-4-4"></path></svg>
+        <input id="faq-search" type="search" placeholder="Search, e.g. “lead time” or “salt air”" style="flex: 1; min-width: 0; height: 100%; border: 0; font: inherit; font-size: 16px; outline-offset: 4px">
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(36px, 5cqi, 64px) clamp(20px, 4cqi, 48px) clamp(64px, 8cqi, 104px); display: flex; flex-wrap: wrap; gap: 32px 64px; align-items: flex-start">
+      <nav aria-label="FAQ categories" style="flex: 0 1 240px; min-width: 0; display: flex; flex-direction: {{catDir}}; gap: 6px; overflow-x: auto; max-width: 100%">
+        <sc-for list="{{cats}}" as="c" hint-placeholder-count="6">
+          <button type="button" aria-pressed="{{c.on}}" onClick="{{c.pick}}" style="flex: none; display: flex; justify-content: space-between; gap: 12px; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 2px; font: inherit; font-size: 15px; font-weight: 500; text-align: left; cursor: pointer; {{c.style}}">{{c.label}}<span style="font-size: 12px; opacity: 0.7">{{c.count}}</span></button>
+        </sc-for>
+      </nav>
+      <div style="flex: 1 1 560px; min-width: 0">
+        <h2 style="margin: 0 0 12px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: 32px">{{catName}}</h2>
+        <div style="border-top: 1px solid #C9D6DB">
+          <sc-for list="{{faqs}}" as="q" hint-placeholder-count="5">
+            <div style="border-bottom: 1px solid #C9D6DB">
+              <button type="button" onClick="{{q.toggle}}" aria-expanded="{{q.open}}" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 0; background: transparent; border: 0; font: inherit; font-size: 18px; font-weight: 600; color: #0F2433; text-align: left; cursor: pointer">{{q.q}}<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{brand}}" stroke-width="1.8" aria-hidden="true" style="flex: none"><path d="{{q.icon}}"></path></svg></button>
+              <sc-if value="{{q.open}}" hint-placeholder-val="{{ false }}">
+                <p style="margin: 0; padding: 0 40px 22px 0; color: #4A5C67; font-size: 16px; line-height: 1.65">{{q.a}}</p>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+        <div style="margin-top: 40px; padding: 28px; background: #E4EEF0; display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: center; justify-content: space-between">
+          <div><div style="font-family: 'Newsreader', Georgia, serif; font-size: 24px">Still have a question?</div><div style="font-size: 15px; color: #4A5C67">Orny is happy to talk it through.</div></div>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px">
+            <a href="tel:+15086852770" style="display: inline-flex; align-items: center; height: 48px; padding: 0 20px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 15px; border-radius: 2px">(508) 685-2770</a>
+            <a href="Contact.dc.html" style="display: inline-flex; align-items: center; height: 48px; padding: 0 20px; background: #0F2433; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 15px; border-radius: 2px">Send a message</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="CtaBand" heading="Ready for a price?" sub="A free estimate is the fastest way to a real number." hint-size="100%,320px"></dc-import>
+  <dc-import name="Footer" mobile="{{m}}" hint-size="100%,860px"></dc-import>
+
+  <sc-if value="{{m}}" hint-placeholder-val="{{ false }}">
+    <div style="position: sticky; bottom: 0; z-index: 60; display: grid; grid-template-columns: 1fr 1.35fr; gap: 8px; padding: 10px 12px 12px; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid #D6E0E4">
+      <a href="tel:+15086852770" style="display: flex; align-items: center; justify-content: center; height: 52px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Call now</a>
+      <a href="Estimate.dc.html" style="display: flex; align-items: center; justify-content: center; height: 52px; background: {{brand}}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Get Free Estimate</a>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mobile":{"editor":"boolean","default":false},"brand":{"editor":"color","default":"#1E5873","options":["#1E5873","#2B6E8F","#123B5C","#2F6B69"]},"$preview":{"width":1440,"height":3200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.state || {};
+    const brand = this.props.brand ?? '#1E5873';
+    const m = !!this.props.mobile || !!st.narrow;
+    if (!this._setRoot) {
+      this._setRoot = (el) => {
+        if (!el || this._ro || typeof ResizeObserver === 'undefined') return;
+        this._ro = new ResizeObserver((es) => {
+          const n = es[0].contentRect.width < 760;
+          if (n !== !!(this.state || {}).narrow) this.setState({ narrow: n });
+        });
+        this._ro.observe(el);
+      };
+    }
+    const data = {
+      'General': [
+        ['What types of custom glass installations do you offer?', 'We offer a wide range of custom glass solutions, including shower enclosures, mirrors, doors, railings, tabletops, shelving, storefronts, skylights, canopies and partitions. Each project is tailored to your design.'],
+        ['How long does the installation process take?', 'Fabrication usually takes about three to four weeks after measurements and design approval, and installation typically takes one to two days. Timelines vary by project complexity.'],
+        ['Do you provide free estimates?', 'Yes. We offer free, no-obligation estimates, including a site visit, measurements and a discussion of your design preferences.']
+      ],
+      'Custom shower enclosures': [
+        ['What types of shower enclosures do you install?', 'We install frameless, semi-frameless and framed shower enclosures, with glass options including clear, low-iron and tempered glass.'],
+        ['How do I maintain and clean my glass shower enclosure?', 'Use a mild, non-abrasive glass cleaner, and squeegee the glass after each use to prevent water spots and soap scum.'],
+        ['Can you create custom designs for shower enclosures?', 'Yes. We tailor every shower enclosure to your vision and your bathroom’s decor.']
+      ],
+      'Custom mirrors': [
+        ['Do you offer custom-cut mirrors?', 'Yes. We cut mirrors to any custom size or shape for bathrooms, gyms and living areas.'],
+        ['Can mirrors be framed or beveled?', 'Yes. Mirrors can have framed or beveled edges, with a variety of frame styles and finishes to choose from.'],
+        ['How do you install large mirrors safely?', 'Our team uses specialized tools and techniques so large mirrors are properly anchored and safe.']
+      ],
+      'Installation & maintenance': [
+        ['How do you ensure accurate measurements for custom glass installations?', 'We use precise measuring tools and thorough site inspections so every installation fits exactly.'],
+        ['What if my glass gets damaged or breaks?', 'We offer repair and replacement services. We’ll assess the damage and recommend the best solution.']
+      ],
+      'Contact & scheduling': [
+        ['How do I schedule an appointment for a consultation or installation?', 'Call us at (508) 685-2770, email ornyb@theghglass.com or use the contact form on our website, and we’ll promptly arrange a convenient time.'],
+        ['What areas do you serve?', 'We serve Cape Cod and the surrounding areas of Massachusetts. If you’re not sure whether we cover your location, just contact us.'],
+        ['Can you provide references or examples of your previous work?', 'Yes. Our portfolio and customer testimonials are available on request, and you can browse recent work in our Project Gallery.']
+      ]
+    };
+    const names = Object.keys(data);
+    const cat = st.cat || names[0];
+    const openIdx = st.open !== undefined ? st.open : 0;
+    const on = 'background: #0F2433; color: #FFFFFF; border: 1px solid #0F2433';
+    const off = 'background: #FFFFFF; color: #0F2433; border: 1px solid #D6E0E4';
+    return {
+      brand: brand,
+      m: m,
+      setRoot: this._setRoot,
+      catDir: m ? 'row' : 'column',
+      catName: cat,
+      cats: names.map((n) => ({ label: n, count: data[n].length, on: cat === n, style: cat === n ? on : off, pick: () => this.setState({ cat: n, open: 0 }) })),
+      faqs: data[cat].map((qa, i) => ({
+        q: qa[0], a: qa[1], open: openIdx === i,
+        icon: openIdx === i ? 'M5 12h14' : 'M12 5v14M5 12h14',
+        toggle: () => this.setState({ open: openIdx === i ? -1 : i })
+      }))
+    };
+  }
+  componentWillUnmount() { if (this._ro) this._ro.disconnect(); }
+}
+</script>
+</body>
+</html>

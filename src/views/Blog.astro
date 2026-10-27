@@ -1,0 +1,264 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { blogData } from '../data/blog.js';
+import { categoryUrl, longDate, postImage, postUrl, primaryCategory, readTime, type Card, type Post } from '../lib/blog';
+
+interface Props {
+  post: Post;
+  /** Rendered Markdown body. */
+  html: string;
+  headings: Array<{ depth: number; slug: string; text: string }>;
+  related: Card[];
+}
+
+const { post, html, headings, related } = Astro.props;
+const { brand } = blogData();
+const { title, pubDate, author, categories } = post.data;
+const cat = primaryCategory(post);
+const eyebrow = [cat, ...categories.filter((c) => c !== cat)].slice(0, 2).join(' · ');
+const hero = postImage(post);
+const url = new URL(postUrl(post), Astro.site).href;
+const shower = categories.includes('Shower Enclosure');
+
+// Table of contents from the article's H2s; the first entry starts highlighted (scripted below).
+const activeStyle = `color: #0F2433; font-weight: 600; border-left: 2px solid ${brand}`;
+const idleStyle = 'color: #4A5C67; border-left: 2px solid transparent';
+const toc = headings.filter((h) => h.depth === 2).map((h, i) => ({ id: h.slug, label: h.text, style: i === 0 ? activeStyle : idleStyle }));
+
+// Mid-article call to action, placed before the third section as in the design.
+const inlineCta = `<aside class="post-cta"><div style="flex: 1 1 260px; min-width: 0"><div style="font-family: 'Newsreader', Georgia, serif; font-size: 24px; line-height: 1.25">${
+  shower ? 'Planning a wet room or walk-in shower?' : 'Planning a custom glass project?'
+}</div><div style="font-size: 15px; color: #B9C9D1; margin-top: 4px">${
+  shower ? 'We’ll measure and show you both, free.' : 'We’ll measure and quote it, free.'
+}</div></div><a href="/get-free-estimate/">Get Free Estimate</a></aside>`;
+const parts = html.split(/(?=<h2[\s>])/);
+const body = parts.length > 3 ? [...parts.slice(0, 3), inlineCta, ...parts.slice(3)].join('') : html;
+
+const share = {
+  facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+  pinterest: `https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(url)}&media=${encodeURIComponent(new URL(hero, Astro.site).href)}&description=${encodeURIComponent(title)}`,
+  email: `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(`${title}\n${url}`)}`,
+};
+---
+<div class="dc-root" style="container-type: inline-size; background: #FFFFFF; color: #0F2433; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6">
+
+  <div style="position: sticky; top: 0; z-index: 50">
+    <Header />
+  </div>
+
+  <!-- ===== ARTICLE HEADER ===== -->
+  <header style="max-width: 1240px; margin: 0 auto; padding: clamp(20px, 2.4cqi, 28px) clamp(20px, 4cqi, 48px) 0">
+    <nav aria-label="Breadcrumb" style="font-size: 13px; color: #4A5C67; margin-bottom: clamp(28px, 5cqi, 56px)"><a href="/" style="color: #4A5C67">Home</a><span style="margin: 0 8px">/</span><a href="/blog/" style="color: #4A5C67">Blog</a><span style="margin: 0 8px">/</span><a href={categoryUrl(cat)} style="color: #4A5C67">{cat}</a><span style="margin: 0 8px">/</span><span aria-current="page" style="color: #0F2433; font-weight: 500">{title}</span></nav>
+    <div style="max-width: 880px">
+      <a href={categoryUrl(cat)} style={`font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: ${brand}; text-decoration: none`}>{eyebrow}</a>
+      <h1 style="margin: 16px 0 24px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(36px, 4.8cqi, 64px); line-height: 1.08; letter-spacing: -0.02em">{title}</h1>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; font-size: 14px; color: #4A5C67">
+        <span style="display: inline-flex; align-items: center; gap: 10px"><img src="/images/orny-beltrame-2.webp" alt="" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover; display: inline-block" decoding="async" /><span><strong style="color: #0F2433; font-weight: 600">{author}</strong><br />Project &amp; Design Consultant</span></span>
+        <time datetime={pubDate.toISOString().slice(0, 10)}>{longDate(pubDate)}</time>
+        <span>{readTime(post)}</span>
+      </div>
+    </div>
+    <img src={hero} alt={title} style="display: block; width: 100%; margin-top: clamp(28px, 4cqi, 48px); aspect-ratio: 21 / 9; object-fit: cover; object-position: 50% 45%; background-color: #9FB4BE" fetchpriority="high" decoding="async" />
+  </header>
+
+  <!-- ===== BODY ===== -->
+  <div style="max-width: 1240px; margin: 0 auto; padding: clamp(40px, 6cqi, 80px) clamp(20px, 4cqi, 48px) clamp(64px, 8cqi, 104px); display: flex; flex-wrap: wrap; gap: 32px 80px; align-items: flex-start">
+
+    <!-- TOC -->
+    <div class="dc-d">
+      <aside style="flex: 0 0 240px; position: sticky; top: 152px">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #4A5C67; margin-bottom: 14px">On this page</div>
+        <nav aria-label="Table of contents" data-toc style="display: flex; flex-direction: column; border-left: 1px solid #D6E0E4">
+          {toc.map((t) => (<Fragment>
+            <a href={`#${t.id}`} data-toc-link={t.id} data-style-active={activeStyle} data-style-idle={idleStyle} style={`padding: 7px 0 7px 16px; margin-left: -1px; font-size: 14px; line-height: 1.4; text-decoration: none; ${t.style}`}>{t.label}</a>
+          </Fragment>))}
+        </nav>
+        <div style="margin-top: 32px; padding: 20px; background: #F4F7F8; border: 1px solid #D6E0E4">
+          <div style="font-size: 15px; font-weight: 600; margin-bottom: 6px">{shower ? 'Planning a new shower?' : 'Planning a glass project?'}</div>
+          <div style="font-size: 14px; color: #4A5C67; margin-bottom: 14px">Free consultation and measure.</div>
+          <a href="/get-free-estimate/" style={`display: flex; align-items: center; justify-content: center; height: 44px; background: ${brand}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 14px; border-radius: 2px`}>Get Free Estimate</a>
+        </div>
+      </aside>
+    </div>
+
+    <article style="flex: 1 1 560px; min-width: 0; max-width: 720px; font-size: 18px; line-height: 1.75; color: #26394A">
+      {toc.length > 0 && <div class="dc-m">
+        <div style="border: 1px solid #D6E0E4; margin-bottom: 32px">
+          <button type="button" data-disclosure aria-controls="toc-mobile" aria-expanded="false" data-icon-open="M6 15l6-6 6 6" data-icon-closed="M6 9l6 6 6-6" style="width: 100%; display: flex; justify-content: space-between; align-items: center; height: 52px; padding: 0 16px; background: #F4F7F8; border: 0; font: inherit; font-size: 15px; font-weight: 600; color: #0F2433">On this page<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path data-disclosure-icon d="M6 9l6 6 6-6"></path></svg></button>
+          <div id="toc-mobile" hidden>
+            <nav aria-label="Table of contents" style="display: flex; flex-direction: column; padding: 8px 16px 12px">
+              {toc.map((t) => (<Fragment>
+                <a href={`#${t.id}`} style="display: flex; align-items: center; min-height: 40px; font-size: 15px; color: #0F2433; text-decoration: none">{t.label}</a>
+              </Fragment>))}
+            </nav>
+          </div>
+        </div>
+      </div>}
+
+      <div class="post-body" set:html={body} />
+
+      <!-- Share -->
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 20px 0; border-top: 1px solid #D6E0E4; border-bottom: 1px solid #D6E0E4; font-size: 14px">
+        <span style="font-weight: 600; color: #0F2433; margin-right: 6px">Share</span>
+        <a href={share.facebook} target="_blank" rel="noopener" style="display: inline-flex; align-items: center; height: 40px; padding: 0 14px; border: 1px solid #D6E0E4; color: #0F2433; text-decoration: none">Facebook</a>
+        <a href={share.pinterest} target="_blank" rel="noopener" style="display: inline-flex; align-items: center; height: 40px; padding: 0 14px; border: 1px solid #D6E0E4; color: #0F2433; text-decoration: none">Pinterest</a>
+        <a href={share.email} style="display: inline-flex; align-items: center; height: 40px; padding: 0 14px; border: 1px solid #D6E0E4; color: #0F2433; text-decoration: none">Email</a>
+        <button type="button" data-copy-link={url} style="display: inline-flex; align-items: center; height: 40px; padding: 0 14px; border: 1px solid #D6E0E4; background: #FFFFFF; font: inherit; font-size: 14px; color: #0F2433; cursor: pointer">Copy link</button>
+      </div>
+
+      <!-- Author box -->
+      <div style="margin-top: 36px; padding: 28px; background: #F4F7F8; border: 1px solid #D6E0E4; display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start">
+        <img src="/images/orny-beltrame-2.webp" alt="Orny Beltrame" style="width: 88px; height: 88px; flex: none; display: block; object-fit: cover; background-color: #B7C9D0" loading="lazy" decoding="async" />
+        <div style="flex: 1 1 260px; min-width: 0">
+          <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #4A5C67">Written by</div>
+          <div style="font-family: 'Newsreader', Georgia, serif; font-size: 26px; color: #0F2433; line-height: 1.2; margin: 4px 0 2px">{author}</div>
+          <div style="font-size: 14px; font-weight: 600; color: #4A5C67; margin-bottom: 10px">Project &amp; Design Consultant · 25+ years</div>
+          <p style="margin: 0 0 12px; font-size: 15px; line-height: 1.6">Orny helps Cape homeowners, builders and architects choose and plan custom glass, from first visit to final install.</p>
+          <a href="mailto:ornyb@theghglass.com" style={`font-size: 15px; font-weight: 600; color: ${brand}`}>ornyb@theghglass.com</a>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <!-- ===== RELATED POSTS ===== -->
+  <section style="background: #F4F7F8; border-top: 1px solid #D6E0E4">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 8cqi, 104px) clamp(20px, 4cqi, 48px)">
+      <h2 style="margin: 0 0 clamp(28px, 4cqi, 44px); font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(30px, 3.2cqi, 40px); line-height: 1.15">Keep reading</h2>
+      <div style="display: flex; gap: 28px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px">
+        {related.map((p) => (<Fragment>
+          <a href={p.href} style="flex: 1 0 290px; scroll-snap-align: start; display: flex; flex-direction: column; gap: 14px; color: #0F2433; text-decoration: none">
+            <img src={p.img} alt="" style="display: block; width: 100%; height: 200px; object-fit: cover; border-radius: 2px; background-color: #DCE7EB" loading="lazy" decoding="async" />
+            <span style="font-size: 13px; color: #4A5C67"><span style={`color: ${brand}; font-weight: 600`}>{p.cat}</span> · {p.read}</span>
+            <span style="font-family: 'Newsreader', Georgia, serif; font-size: 23px; line-height: 1.25; font-weight: 500">{p.title}</span>
+          </a>
+        </Fragment>))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section style="background: #0F2433; color: #FFFFFF">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(56px, 7cqi, 96px) clamp(20px, 4cqi, 48px); display: flex; flex-wrap: wrap; gap: 28px 64px; align-items: center; justify-content: space-between">
+      <div style="flex: 1 1 520px; min-width: 0">
+        <h2 style="margin: 0 0 12px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 4cqi, 52px); line-height: 1.1">Ready to talk about your project?</h2>
+        <p style="margin: 0; color: #B9C9D1; font-size: 18px">Free estimates across Cape Cod, Southeastern MA and Rhode Island.</p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px">
+        <a href="/get-free-estimate/" style="display: inline-flex; align-items: center; height: 56px; padding: 0 28px; background: #FFFFFF; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Get Free Estimate</a>
+        <a href="tel:+15086852770" style="display: inline-flex; align-items: center; height: 56px; padding: 0 24px; border: 1px solid rgba(255,255,255,0.7); color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Call (508) 685-2770</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+
+  <div class="dc-m">
+    <div style="position: sticky; bottom: 0; z-index: 60; display: grid; grid-template-columns: 1fr 1.35fr; gap: 8px; padding: 10px 12px 12px; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid #D6E0E4">
+      <a href="tel:+15086852770" style="display: flex; align-items: center; justify-content: center; gap: 8px; height: 52px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Call now</a>
+      <a href="/get-free-estimate/" style={`display: flex; align-items: center; justify-content: center; height: 52px; background: ${brand}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px`}>Get Free Estimate</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Article typography, matching the article body in design/Blog.dc.html. */
+  .post-body > :global(p:first-child) { margin: 0 0 24px; font-size: 21px; line-height: 1.6; color: #0F2433; }
+  .post-body :global(p) { margin: 0 0 20px; }
+  .post-body :global(h2) {
+    margin: 48px 0 16px;
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 1.2;
+    color: #0F2433;
+    scroll-margin-top: 152px;
+  }
+  .post-body :global(h3) {
+    margin: 36px 0 12px;
+    font-family: 'Newsreader', Georgia, serif;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.25;
+    color: #0F2433;
+    scroll-margin-top: 152px;
+  }
+  .post-body :global(h4) { margin: 28px 0 10px; font-size: 18px; font-weight: 600; color: #0F2433; }
+  .post-body > :global(:first-child:is(h2, h3)) { margin-top: 0; }
+  .post-body :global(h2 strong),
+  .post-body :global(h3 strong) { font-weight: inherit; }
+  .post-body :global(strong) { color: #0F2433; font-weight: 600; }
+  .post-body :global(a) { color: #1E5873; }
+  .post-body :global(ul),
+  .post-body :global(ol) { margin: 0 0 24px; padding-left: 24px; display: flex; flex-direction: column; gap: 8px; }
+  .post-body :global(li > p) { margin: 0; }
+  .post-body :global(blockquote) { margin: 28px 0; padding: 16px 0 16px 24px; border-left: 2px solid #9C7430; color: #0F2433; }
+  .post-body :global(blockquote > p:last-child) { margin-bottom: 0; }
+  .post-body :global(hr) { border: 0; border-top: 1px solid #D6E0E4; margin: 40px 0; }
+  .post-body :global(img) { display: block; max-width: 100%; height: auto; margin: 28px 0; border-radius: 2px; }
+  .post-body :global(table) {
+    display: block;
+    overflow-x: auto;
+    width: 100%;
+    margin: 0 0 28px;
+    border: 1px solid #D6E0E4;
+    border-collapse: collapse;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .post-body :global(th) { padding: 12px 14px; text-align: left; font-weight: 600; color: #FFFFFF; background: #0F2433; }
+  .post-body :global(td) { padding: 12px 14px; border-top: 1px solid #D6E0E4; vertical-align: top; }
+  .post-body :global(tr:nth-child(even) td) { background: #F4F7F8; }
+  .post-body :global(.post-cta) {
+    margin: 40px 0;
+    padding: 28px;
+    background: #0F2433;
+    color: #FFFFFF;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 24px;
+    align-items: center;
+  }
+  .post-body :global(.post-cta a) {
+    display: inline-flex;
+    align-items: center;
+    height: 48px;
+    padding: 0 22px;
+    background: #FFFFFF;
+    color: #0F2433;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    border-radius: 2px;
+  }
+</style>
+
+<script>
+  // Highlight the table-of-contents entry for the section in view.
+  const links = [...document.querySelectorAll<HTMLAnchorElement>('[data-toc-link]')];
+  const setActive = (id: string) => {
+    for (const a of links) a.style.cssText = `padding: 7px 0 7px 16px; margin-left: -1px; font-size: 14px; line-height: 1.4; text-decoration: none; ${a.dataset.tocLink === id ? a.dataset.styleActive : a.dataset.styleIdle}`;
+  };
+  const sections = links.map((a) => document.getElementById(a.dataset.tocLink!)).filter((el): el is HTMLElement => !!el);
+  if (sections.length) {
+    const onScroll = () => {
+      let current = sections[0].id;
+      for (const h of sections) if (h.getBoundingClientRect().top < 200) current = h.id;
+      setActive(current);
+    };
+    document.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  // Share: copy link.
+  document.querySelectorAll<HTMLButtonElement>('[data-copy-link]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(btn.dataset.copyLink!);
+        btn.textContent = 'Link copied';
+      } catch {
+        window.prompt('Copy this link:', btn.dataset.copyLink);
+      }
+      setTimeout(() => (btn.textContent = 'Copy link'), 2000);
+    });
+  });
+</script>

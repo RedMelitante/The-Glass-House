@@ -1,0 +1,114 @@
+---
+import { link } from '../lib/routes';
+import { footerData } from '../data/footer.js';
+
+const { svcList, prodList, towns } = footerData(Astro.props);
+---
+<footer style="container-type: inline-size; background: #0F2433; color: #DCE6EA; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 15px; line-height: 1.6">
+  <div style="max-width: 1240px; margin: 0 auto; padding: clamp(56px, 7cqi, 88px) clamp(20px, 4cqi, 48px) 0">
+
+    <div style="display: flex; flex-wrap: wrap; gap: 40px 64px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.14)">
+      <!-- Brand -->
+      <div style="flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+        <a href="/" aria-label="The Glass House home" style="display: flex; align-items: center; gap: 12px; color: #FFFFFF; text-decoration: none"><img src="/images/the-glass-house-2.png" alt="The Glass House" style="display: block; height: 68px; width: auto" loading="lazy" decoding="async" /></a>
+        <p style="margin: 0; color: #B9C9D1; max-width: 340px">Family-owned custom glass and mirror installation in Hyannis for 30+ years. Licensed and insured.</p>
+        <div style="display: flex; gap: 10px">
+          <a href="https://www.facebook.com/profile.php?id=61577765273149" target="_blank" rel="noopener" aria-label="Facebook" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.25); color: #FFFFFF"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6.5v3.5H9V21h3.5v-7.5H15l.5-3.5h-3V7a1 1 0 0 1 1-1H15z"></path></svg></a>
+          <a href="https://www.instagram.com/the_glass_house_cape_cod/" target="_blank" rel="noopener" aria-label="Instagram" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.25); color: #FFFFFF"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zM12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM17.5 6.5h.01"></path></svg></a>
+          <a href="https://youtube.com/@TheGlassHouseGlass" target="_blank" rel="noopener" aria-label="YouTube" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.25); color: #FFFFFF"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4a2.5 2.5 0 0 0-1.8 1.8C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-4.8.4-4.8s0-3.2-.4-4.8zM10 15V9l5.2 3z"></path></svg></a>
+        </div>
+      </div>
+
+      <!-- Quick links -->
+      <nav aria-label="Footer" style="flex: 1 1 160px; min-width: 0">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #FFFFFF; margin-bottom: 16px">Company</div>
+        <div style="display: flex; flex-direction: column; gap: 2px">
+          <a href="/about-us-glass-installation/" style="color: #DCE6EA; text-decoration: none; min-height: 32px; display: flex; align-items: center">About us</a>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px">
+            <a href="/glass-services/" style="color: #DCE6EA; text-decoration: none; min-height: 32px; display: flex; align-items: center">Services</a>
+            <button type="button" data-disclosure aria-controls="footer-services" aria-expanded="false" data-icon-open="M6 15l6-6 6 6" data-icon-closed="M6 9l6 6 6-6" aria-label="Show all services" style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; background: transparent; border: 1px solid rgba(255,255,255,0.18); border-radius: 2px; color: #DCE6EA; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path data-disclosure-icon d="M6 9l6 6 6-6"></path></svg></button>
+          </div>
+          <div id="footer-services" hidden>
+            <div style="display: flex; flex-direction: column; padding: 2px 0 8px 12px; border-left: 1px solid rgba(255,255,255,0.18); margin: 0 0 6px 2px">
+              {svcList.map((x) => (<Fragment>
+                <a href={link(x.href)} style="color: #B9C9D1; text-decoration: none; min-height: 30px; display: flex; align-items: center; font-size: 14px">{x.name}</a>
+              </Fragment>))}
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px">
+            <a href="/custom-glass-products/" style="color: #DCE6EA; text-decoration: none; min-height: 32px; display: flex; align-items: center">Products</a>
+            <button type="button" data-disclosure aria-controls="footer-products" aria-expanded="false" data-icon-open="M6 15l6-6 6 6" data-icon-closed="M6 9l6 6 6-6" aria-label="Show all products" style="width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; background: transparent; border: 1px solid rgba(255,255,255,0.18); border-radius: 2px; color: #DCE6EA; cursor: pointer"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path data-disclosure-icon d="M6 9l6 6 6-6"></path></svg></button>
+          </div>
+          <div id="footer-products" hidden>
+            <div style="display: flex; flex-direction: column; padding: 2px 0 8px 12px; border-left: 1px solid rgba(255,255,255,0.18); margin: 0 0 6px 2px">
+              {prodList.map((x) => (<Fragment>
+                <a href={link(x.href)} style="color: #B9C9D1; text-decoration: none; min-height: 30px; display: flex; align-items: center; font-size: 14px">{x.name}</a>
+              </Fragment>))}
+            </div>
+          </div>
+          <a href="/project-gallery/" style="color: #DCE6EA; text-decoration: none; min-height: 32px; display: flex; align-items: center">Project gallery</a>
+          <a href="/blog/" style="color: #DCE6EA; text-decoration: none; min-height: 32px; display: flex; align-items: center">Blog</a>
+          <a href="/faq/" style="color: #DCE6EA; text-decoration: none; min-height: 32px; display: flex; align-items: center">FAQ</a>
+          <a href="/cost-guide/" style="color: #DCE6EA; text-decoration: none; min-height: 32px; display: flex; align-items: center">Cost guide</a>
+          <a href="/contact/" style="color: #DCE6EA; text-decoration: none; min-height: 32px; display: flex; align-items: center">Contact us</a>
+          <a href="/get-free-estimate/" style="color: #FFFFFF; font-weight: 600; text-decoration: none; min-height: 32px; display: flex; align-items: center">Get Free Estimate →</a>
+        </div>
+      </nav>
+
+      <!-- Service areas -->
+      <div style="flex: 2 1 320px; min-width: 0">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #FFFFFF; margin-bottom: 16px">Areas we serve</div>
+        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px 16px; font-size: 14px">
+          {towns.map((t) => (<Fragment>
+            <a href={link(t.href)} style="color: #DCE6EA; text-decoration: none; min-height: 30px; display: flex; align-items: center">{t.name}</a>
+          </Fragment>))}
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <address style="flex: 1 1 240px; min-width: 0; font-style: normal; display: flex; flex-direction: column; gap: 14px">
+        <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #FFFFFF">Visit · Call · Email</div>
+        <a href="tel:+15086852770" style="font-family: 'Newsreader', Georgia, serif; font-size: 28px; color: #FFFFFF; text-decoration: none; line-height: 1.1">(508) 685-2770</a>
+        <a href="mailto:ornyb@theghglass.com" style="color: #DCE6EA">ornyb@theghglass.com</a>
+        <a href="https://maps.app.goo.gl/vZfV7rE3CSp9vrpHA" target="_blank" rel="noopener" aria-label="Open 270 Communication Way, Hyannis, MA 02601 in Google Maps" style="color: inherit; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(220,230,234,0.4)">270 Communication Way<br />Hyannis, MA 02601</a>
+        <span style="color: #B9C9D1; font-size: 14px">Mon–Fri 9:00–5:00 · Sat–Sun closed</span>
+      </address>
+    </div>
+
+    <!-- QR row -->
+    <div style="display: flex; flex-wrap: wrap; gap: 24px; padding: 40px 0; border-bottom: 1px solid rgba(255,255,255,0.14); align-items: center">
+      <div style="flex: 1 1 300px; min-width: 0">
+        <div style="font-family: 'Newsreader', Georgia, serif; font-size: 26px; color: #FFFFFF; line-height: 1.25">Scan from your phone</div>
+        <div style="color: #B9C9D1; font-size: 14px; margin-top: 4px">Point your camera at a code: leave us a Google review, or get turn-by-turn directions to the shop.</div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px">
+        <a href="https://hovqr.me/759c4eb8" style="display: flex; align-items: center; gap: 14px; padding: 12px 18px 12px 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.18); color: #FFFFFF; text-decoration: none">
+          <img src="/images/qr-code-leave-a-google-review.webp" alt="QR code: leave a Google review" style="width: 84px; height: 84px; flex: none; display: block; background: #FFFFFF; padding: 4px; box-sizing: border-box" loading="lazy" decoding="async" />
+          <span><span style="display: block; font-weight: 600">Leave a review</span><span style="font-size: 13px; color: #B9C9D1">Google · ★★★★★</span></span>
+        </a>
+        <a href="https://maps.app.goo.gl/iAU9FApj1hgxd1ah8" style="display: flex; align-items: center; gap: 14px; padding: 12px 18px 12px 12px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.18); color: #FFFFFF; text-decoration: none">
+          <img src="/images/qr-code-directions-to-the-shop.webp" alt="QR code: directions to the shop" style="width: 84px; height: 84px; flex: none; display: block; background: #FFFFFF; padding: 4px; box-sizing: border-box" loading="lazy" decoding="async" />
+          <span><span style="display: block; font-weight: 600">Get directions</span><span style="font-size: 13px; color: #B9C9D1">Google Maps</span></span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div style={`display: flex; flex-wrap: wrap; gap: 8px 24px; padding: 24px 0 var(--footer-bottom-pad); font-size: 13px; color: #B9C9D1`}>
+      <span>Powered by <a href="https://www.digitalservicesmaster.com/" target="_blank" rel="noopener" style="color: #7FD3D9; text-decoration: none">Digital Services Master</a> Copyright © 2024. All rights reserved</span>
+      <span style="margin-left: auto; display: flex; gap: 20px"><a href="/privacy-policy/" style="color: #B9C9D1">Privacy</a><a href="/terms-and-conditions/" style="color: #B9C9D1">Terms &amp; Conditions</a></span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  /* Extra room on mobile for the sticky call / estimate bar. */
+  footer {
+    --footer-bottom-pad: 32px;
+  }
+  @media (max-width: 759.98px) {
+    footer {
+      --footer-bottom-pad: 104px;
+    }
+  }
+</style>

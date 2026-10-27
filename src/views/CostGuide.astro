@@ -1,0 +1,116 @@
+---
+import Header from '../components/Header.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Footer from '../components/Footer.astro';
+import { link } from '../lib/routes';
+import { costGuideData } from '../data/costGuide.js';
+
+const { brand, strip, rows, factors, examples } = costGuideData(Astro.props);
+---
+<div class="dc-root" style="container-type: inline-size; background: #FFFFFF; color: #0F2433; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6">
+
+  <div style="position: sticky; top: 0; z-index: 50">
+    <Header />
+  </div>
+
+  <section style="background: #F4F7F8; border-bottom: 1px solid #D6E0E4">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(20px, 2.4cqi, 28px) clamp(20px, 4cqi, 48px) clamp(48px, 6cqi, 80px)">
+      <nav aria-label="Breadcrumb" style="font-size: 13px; color: #4A5C67; margin-bottom: clamp(24px, 4cqi, 48px)"><a href="/" style="color: #4A5C67">Home</a><span style="margin: 0 8px">/</span><span aria-current="page" style="color: #0F2433; font-weight: 500">Cost guide</span></nav>
+      <div style="display: flex; flex-wrap: wrap; gap: 28px 64px; align-items: flex-end; justify-content: space-between">
+        <div style="flex: 1 1 600px; min-width: 0">
+          <div style={`font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: ${brand}`}>Cost guide · Updated May 2026</div>
+          <h1 style="margin: 14px 0 16px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(40px, 5.4cqi, 72px); line-height: 1.04; letter-spacing: -0.02em">Custom glass installation cost guide</h1>
+          <p style="margin: 0; font-size: 18px; color: #26394A; max-width: 640px">Transparent information for your Cape Cod &amp; Southeastern MA home or business. Every piece we make is custom-fabricated, so there’s no fixed price, but these ranges show what most projects cost and what moves the number up or down.</p>
+        </div>
+        <a href="/get-free-estimate/" style={`display: inline-flex; align-items: center; height: 56px; padding: 0 28px; background: ${brand}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px`}>Get my exact price</a>
+      </div>
+      <div style={`display: grid; grid-template-columns: repeat(auto-fit, minmax(var(--stripMin), 1fr)); gap: 10px; margin-top: clamp(28px, 4cqi, 44px)`}>
+        {strip.map((h) => (<Fragment>
+          <img src={h.img} alt={h.alt} style={`display: block; width: 100%; height: var(--stripH); object-fit: cover; background-color: #DCE7EB`} fetchpriority="high" decoding="async" />
+        </Fragment>))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICE TABLE -->
+  <section>
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(56px, 8cqi, 104px) clamp(20px, 4cqi, 48px)">
+      <h2 style="margin: 0 0 24px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.6cqi, 48px); line-height: 1.15">General estimated investment ranges</h2>
+      <div style="overflow-x: auto; border: 1px solid #D6E0E4">
+        <table style="width: 100%; min-width: 640px; border-collapse: collapse; font-size: 15px">
+          <thead><tr style="background: #0F2433; color: #FFFFFF; text-align: left"><th scope="col" style="padding: 16px 20px; font-weight: 600">Project</th><th scope="col" style="padding: 16px 20px; font-weight: 600">Typical range</th><th scope="col" style="padding: 16px 20px; font-weight: 600">Priced by</th><th scope="col" style="padding: 16px 20px; font-weight: 600">What drives the price</th></tr></thead>
+          <tbody>
+            {rows.map((r) => (<Fragment>
+              <tr style={`border-top: 1px solid #D6E0E4; background: ${r.bg}`}>
+                <th scope="row" style="padding: 12px 20px; text-align: left; font-weight: 600"><a href={link(r.href)} style="display: flex; align-items: center; gap: 14px; color: #0F2433"><img src={r.img} alt="" style="width: 56px; height: 56px; flex: none; object-fit: cover; display: block; background-color: #DCE7EB" loading="lazy" decoding="async" /><span style="display: flex; flex-direction: column; gap: 2px"><span>{r.name}</span><span style="font-size: 13px; font-weight: 400; color: #4A5C67">{r.sub}</span></span></a></th>
+                <td style="padding: 16px 20px; font-family: 'Newsreader', Georgia, serif; font-size: 20px; white-space: nowrap">{r.range}</td>
+                <td style="padding: 16px 20px; color: #4A5C67">{r.unit}</td>
+                <td style="padding: 16px 20px; color: #4A5C67">{r.inc}</td>
+              </tr>
+            </Fragment>))}
+          </tbody>
+        </table>
+      </div>
+      <p style="margin: 14px 0 0; font-size: 13px; color: #4A5C67">These ranges reflect typical baseline investments for professional, custom-fabricated glass installations in New England. Actual quotes vary by project scope. On-site measurements are free with no obligation, and we usually send your written quote within 24–48 hours of the visit.</p>
+    </div>
+  </section>
+
+  <!-- FACTORS -->
+  <section style="background: #E4EEF0">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 8cqi, 104px) clamp(20px, 4cqi, 48px)">
+      <h2 style="margin: 0 0 clamp(32px, 4cqi, 48px); font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.6cqi, 48px); line-height: 1.15">The major factors that affect custom glass costs</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; background: #C9D6DB; border: 1px solid #C9D6DB">
+        {factors.map((f) => (<Fragment>
+          <div style="background: #FFFFFF; padding: 26px">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px"><span style="font-family: 'Newsreader', Georgia, serif; font-size: 22px; color: #9C7430">{f.n}</span><span style="font-size: 18px; font-weight: 600">{f.title}</span></div>
+            <div style="font-size: 15px; color: #4A5C67">{f.text}</div>
+          </div>
+        </Fragment>))}
+      </div>
+    </div>
+  </section>
+
+  <!-- EXAMPLES -->
+  <section>
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 9cqi, 120px) clamp(20px, 4cqi, 48px)">
+      <h2 style="margin: 0 0 clamp(28px, 4cqi, 44px); font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.6cqi, 48px); line-height: 1.15">What a typical project looks like</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(14px, 2cqi, 24px)">
+        {examples.map((e) => (<Fragment>
+          <div style="border: 1px solid #D6E0E4; display: flex; flex-direction: column">
+            <img src={e.img} alt={e.title} style={`display: block; width: 100%; height: 220px; object-fit: cover; background-color: ${e.tone}`} loading="lazy" decoding="async" />
+            <div style="padding: 20px 22px 22px">
+              <div style="font-size: 13px; color: #4A5C67">{e.town}</div>
+              <div style="font-family: 'Newsreader', Georgia, serif; font-size: 23px; line-height: 1.25; margin: 4px 0 12px">{e.title}</div>
+              <div style="font-size: 14px; color: #4A5C67; margin-bottom: 14px">{e.spec}</div>
+              <div style="display: flex; justify-content: space-between; align-items: baseline; padding-top: 12px; border-top: 1px solid #D6E0E4"><span style="font-size: 13px; color: #4A5C67">Typical range</span><span style="font-family: 'Newsreader', Georgia, serif; font-size: 22px">{e.price}</span></div>
+            </div>
+          </div>
+        </Fragment>))}
+      </div>
+      <p style="margin: 28px 0 0; font-size: 15px; color: #4A5C67">More questions about pricing? See the <a href="/faq/" style={`color: ${brand}`}>FAQ</a>.</p>
+    </div>
+  </section>
+
+  <CtaBand heading="Get a real number, free." sub="We measure on site and send a clear written quote. No obligation." />
+  <Footer />
+
+  <div class="dc-m">
+    <div style="position: sticky; bottom: 0; z-index: 60; display: grid; grid-template-columns: 1fr 1.35fr; gap: 8px; padding: 10px 12px 12px; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid #D6E0E4">
+      <a href="tel:+15086852770" style="display: flex; align-items: center; justify-content: center; height: 52px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Call now</a>
+      <a href="/get-free-estimate/" style={`display: flex; align-items: center; justify-content: center; height: 52px; background: ${brand}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px`}>Get Free Estimate</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .dc-root {
+    --stripMin: 220px;
+    --stripH: 180px;
+  }
+  @media (max-width: 759.98px) {
+    .dc-root {
+      --stripMin: 140px;
+      --stripH: 120px;
+    }
+  }
+</style>

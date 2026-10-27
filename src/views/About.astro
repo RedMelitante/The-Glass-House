@@ -1,0 +1,201 @@
+---
+import Header from '../components/Header.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Footer from '../components/Footer.astro';
+import { aboutData } from '../data/about.js';
+
+const { brand, work, timeline, values, trusted } = aboutData(Astro.props);
+---
+<div class="dc-root" style="container-type: inline-size; background: #FFFFFF; color: #0F2433; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6">
+
+  <div style="position: sticky; top: 0; z-index: 50">
+    <Header />
+  </div>
+
+  <!-- HERO -->
+  <section>
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(20px, 2.4cqi, 28px) clamp(20px, 4cqi, 48px) clamp(56px, 8cqi, 104px)">
+      <nav aria-label="Breadcrumb" style="font-size: 13px; color: #4A5C67; margin-bottom: clamp(24px, 4cqi, 48px)"><a href="/" style="color: #4A5C67">Home</a><span style="margin: 0 8px">/</span><span aria-current="page" style="color: #0F2433; font-weight: 500">About us</span></nav>
+      <div style="display: flex; flex-wrap: wrap; gap: 40px 72px; align-items: flex-end">
+        <div style="flex: 1 1 520px; min-width: 0">
+          <div style={`font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: ${brand}`}>About The Glass House</div>
+          <h1 style="margin: 14px 0 20px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(42px, 6cqi, 84px); line-height: 1.02; letter-spacing: -0.02em">Three decades of glass on <em>Cape Cod</em></h1>
+          <p style="margin: 0; font-size: 19px; color: #26394A; max-width: 560px">We’re a family-owned glass and mirror company in Hyannis. For 30+ years we’ve designed, built and installed custom glass for Cape homes, builders and businesses.</p>
+        </div>
+        <div style="flex: 1 1 380px; min-width: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid #0F2433">
+          <div style="padding: 18px 12px 0 0"><div style="font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 4cqi, 52px); line-height: 1">30+</div><div style="font-size: 13px; color: #4A5C67; margin-top: 6px">Years</div></div>
+          <div style="padding: 18px 12px 0; border-left: 1px solid #D6E0E4"><div style="font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 4cqi, 52px); line-height: 1">1K+</div><div style="font-size: 13px; color: #4A5C67; margin-top: 6px">Projects</div></div>
+          <div style="padding: 18px 0 0 12px; border-left: 1px solid #D6E0E4"><div style="font-family: 'Newsreader', Georgia, serif; font-size: clamp(36px, 4cqi, 52px); line-height: 1">19</div><div style="font-size: 13px; color: #4A5C67; margin-top: 6px">Towns</div></div>
+        </div>
+      </div>
+      <figure style="margin: clamp(36px, 5cqi, 64px) 0 0; position: relative"><img src="/images/provincetown-area-hero.webp" alt="Aerial view of Provincetown harbor and the tip of Cape Cod" style={`display: block; width: 100%; aspect-ratio: var(--heroRatio); object-fit: cover; object-position: 50% 55%`} fetchpriority="high" decoding="async" /><figcaption style="position: absolute; right: 14px; bottom: 12px; font-size: 12px; font-weight: 500; color: #FFFFFF; text-shadow: 0 1px 4px rgba(0,0,0,0.6)">Provincetown, at the tip of the Cape</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section style="background: #F4F7F8">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 9cqi, 120px) clamp(20px, 4cqi, 48px); display: flex; flex-wrap: wrap; gap: 48px 80px; align-items: flex-start">
+      <div style="flex: 1 1 420px; min-width: 0; position: relative; height: clamp(380px, 46cqi, 600px)">
+        <img src="/images/custom-glass-sunroom-with-skylights-overlooking-a-cape-cod.webp" alt="Custom glass sunroom with skylights overlooking a Cape Cod marsh" style="position: absolute; left: 0; top: 0; width: 72%; height: 52%; object-fit: cover" loading="lazy" decoding="async" />
+        <img src="/images/waterfront-room-with-sliding-glass-and-a-frameless-glass.webp" alt="Waterfront room with sliding glass and a frameless glass railing" style="position: absolute; right: 0; bottom: 0; width: 56%; height: 66%; object-fit: cover; border: 8px solid #F4F7F8; box-sizing: border-box" loading="lazy" decoding="async" />
+      </div>
+      <div style="flex: 1.15 1 480px; min-width: 0">
+        <div style={`font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: ${brand}`}>Our story</div>
+        <h2 style="margin: 14px 0 22px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.6cqi, 48px); line-height: 1.15; letter-spacing: -0.01em">Who is The Glass House?</h2>
+        <h3 style="margin: 0 0 10px; font-size: 18px; font-weight: 600">What makes The Glass House a trusted glass company in Cape Cod?</h3>
+        <p style="margin: 0 0 16px; font-size: 17px; color: #26394A">For more than 30 years, The Glass House has been a family-owned, locally operated glass installation company serving Cape Cod, Southeastern Massachusetts, and select Rhode Island communities. We specialize in custom glass and mirror installations for homeowners, builders, and businesses.</p>
+        <p style="margin: 0 0 28px; font-size: 17px; color: #26394A">From frameless glass shower enclosures and custom mirrors to commercial storefronts and architectural glass, every project is handled with precision, safety, and design-driven craftsmanship.</p>
+        <h3 style="margin: 0 0 10px; font-size: 18px; font-weight: 600">What types of glass projects do you handle?</h3>
+        <p style="margin: 0 0 24px; font-size: 17px; color: #26394A">We install frameless shower enclosures, custom mirrors, commercial storefronts, architectural glass systems, glass railings, and custom entryways, all delivered with precision, safety, and design-driven craftsmanship.</p>
+        <p style="margin: 0 0 40px; padding: 4px 0 4px 24px; border-left: 2px solid #9C7430; font-family: 'Newsreader', Georgia, serif; font-size: clamp(22px, 2.2cqi, 28px); line-height: 1.35; color: #0F2433">“We don’t just install glass, we transform spaces across Cape Cod.”</p>
+        <h3 style="margin: 0 0 10px; font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: clamp(24px, 2.4cqi, 30px); line-height: 1.2">Why choose The Glass House for glass installation?</h3>
+        <p style="margin: 0 0 12px; font-size: 17px; color: #26394A">Our team combines over 30 years of local experience with modern design expertise, precision fabrication, and clean, professional installations.</p>
+        <ul style="list-style: none; margin: 0; padding: 0; border-top: 1px solid #D6E0E4">
+            <li style="display: flex; align-items: center; gap: 14px; padding: 12px 0; border-bottom: 1px solid #D6E0E4"><span style={`width: 40px; height: 40px; flex: none; display: flex; align-items: center; justify-content: center; background: #FFFFFF; border: 1px solid #D6E0E4; color: ${brand}`}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 7v5l3 2"></path></svg></span><span style="font-size: 16px; font-weight: 500">On-time project completion</span></li>
+            <li style="display: flex; align-items: center; gap: 14px; padding: 12px 0; border-bottom: 1px solid #D6E0E4"><span style={`width: 40px; height: 40px; flex: none; display: flex; align-items: center; justify-content: center; background: #FFFFFF; border: 1px solid #D6E0E4; color: ${brand}`}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg></span><span style="font-size: 16px; font-weight: 500">Dedicated project support</span></li>
+            <li style="display: flex; align-items: center; gap: 14px; padding: 12px 0; border-bottom: 1px solid #D6E0E4"><span style={`width: 40px; height: 40px; flex: none; display: flex; align-items: center; justify-content: center; background: #FFFFFF; border: 1px solid #D6E0E4; color: ${brand}`}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM8.2 13.9L7 22l5-3 5 3-1.2-8.1"></path></svg></span><span style="font-size: 16px; font-weight: 500">30+ years serving Cape Cod &amp; Massachusetts</span></li>
+            <li style="display: flex; align-items: center; gap: 14px; padding: 12px 0; border-bottom: 1px solid #D6E0E4"><span style={`width: 40px; height: 40px; flex: none; display: flex; align-items: center; justify-content: center; background: #FFFFFF; border: 1px solid #D6E0E4; color: ${brand}`}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg></span><span style="font-size: 16px; font-weight: 500">Residential &amp; commercial glass expertise</span></li>
+            <li style="display: flex; align-items: center; gap: 14px; padding: 12px 0; border-bottom: 1px solid #D6E0E4"><span style={`width: 40px; height: 40px; flex: none; display: flex; align-items: center; justify-content: center; background: #FFFFFF; border: 1px solid #D6E0E4; color: ${brand}`}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM12 12h.01"></path></svg></span><span style="font-size: 16px; font-weight: 500">Precision craftsmanship and clean finishes</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section>
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 9cqi, 120px) clamp(20px, 4cqi, 48px)">
+      <h2 style="margin: 0 0 clamp(32px, 4cqi, 56px); font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.6cqi, 48px); line-height: 1.15">Milestones</h2>
+      <ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px">
+        {timeline.map((t) => (<Fragment>
+          <li style="padding-top: 20px; border-top: 2px solid #0F2433; position: relative">
+            <span style="position: absolute; top: -7px; left: 0; width: 12px; height: 12px; background: #9C7430"></span>
+            <div style="font-family: 'Newsreader', Georgia, serif; font-size: 34px; line-height: 1; margin-bottom: 10px">{t.year}</div>
+            <div style="font-size: 15px; color: #4A5C67">{t.text}</div>
+          </li>
+        </Fragment>))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section style="background: #E4EEF0">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 8cqi, 104px) clamp(20px, 4cqi, 48px)">
+      <h2 style="margin: 0 0 clamp(32px, 4cqi, 48px); font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.6cqi, 48px); line-height: 1.15">How we work</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: clamp(24px, 3cqi, 40px)">
+        {values.map((v) => (<Fragment>
+          <div style="border-top: 1px solid #0F2433; padding-top: 20px">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke={brand} stroke-width="1.4" aria-hidden="true"><path d={v.d}></path></svg>
+            <div style="font-size: 18px; font-weight: 600; margin: 12px 0 6px">{v.title}</div>
+            <div style="font-size: 15px; color: #4A5C67">{v.text}</div>
+          </div>
+        </Fragment>))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK MOSAIC -->
+  <section>
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 9cqi, 120px) clamp(20px, 4cqi, 48px) 0">
+      <div style="display: flex; flex-wrap: wrap; gap: 16px 40px; align-items: flex-end; justify-content: space-between; margin-bottom: clamp(28px, 4cqi, 44px)">
+        <div>
+          <div style={`font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: ${brand}`}>Our work</div>
+          <h2 style="margin: 14px 0 0; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.6cqi, 48px); line-height: 1.15">Glass that lets the Cape in</h2>
+        </div>
+        <a href="/project-gallery/" style={`display: inline-flex; align-items: center; height: 44px; color: ${brand}; text-decoration: none; font-weight: 600; font-size: 15px; border-bottom: 1px solid currentColor`}>See the project gallery</a>
+      </div>
+      <div style={`display: grid; grid-template-columns: repeat(var(--mosaicCols), minmax(0, 1fr)); grid-auto-rows: var(--mosaicRow); gap: clamp(8px, 1.4cqi, 16px)`}>
+        {work.map((w, i) => (<Fragment>
+          <figure class:list={[i === 0 && 'mosaic-lead', i === 5 && 'mosaic-extra']} style="margin: 0; position: relative; overflow: hidden; background: #DCE7EB">
+            <img src={w.img} alt={w.alt} style={`position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: ${w.pos}`} loading="lazy" decoding="async" />
+            <figcaption style="position: absolute; left: 10px; bottom: 10px; padding: 6px 10px; background: rgba(15,36,51,0.55); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.25); color: #FFFFFF; font-size: 13px; font-weight: 600">{w.cap}</figcaption>
+          </figure>
+        </Fragment>))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CONSULTANT -->
+  <section>
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 9cqi, 120px) clamp(20px, 4cqi, 48px)">
+      <div style="text-align: center; margin-bottom: clamp(32px, 5cqi, 64px)">
+        <div style={`font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: ${brand}`}>The person you’ll meet</div>
+        <h2 style="margin: 14px 0 0; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.8cqi, 52px); line-height: 1.12; letter-spacing: -0.01em">Who is your Project &amp; Design Consultant?</h2>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 40px 72px; align-items: center">
+        <div style="flex: 1 1 420px; min-width: 0">
+          <h3 style="margin: 0 0 16px; font-family: 'Newsreader', Georgia, serif; font-weight: 500; font-size: clamp(26px, 2.6cqi, 34px); line-height: 1.2">Who is Orny Beltrame?</h3>
+          <p style="margin: 0 0 18px; font-size: 18px; line-height: 1.7; color: #26394A">Orny Beltrame brings over 25 years of hands-on experience in custom glass applications throughout Cape Cod and Massachusetts. With a background in construction, design, and client coordination, he ensures every project is delivered on time, on budget, and to exact specifications.</p>
+          <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid #D6E0E4; margin: 28px 0 32px">
+            <div style="padding: 16px 12px 0 0"><div style="font-family: 'Newsreader', Georgia, serif; font-size: 36px; line-height: 1">25+</div><div style="font-size: 13px; color: #4A5C67; margin-top: 6px">Years in glass</div></div>
+            <div style="padding: 16px 12px 0; border-left: 1px solid #D6E0E4"><div style="font-family: 'Newsreader', Georgia, serif; font-size: 36px; line-height: 1">1</div><div style="font-size: 13px; color: #4A5C67; margin-top: 6px">Point of contact</div></div>
+            <div style="padding: 16px 0 0 12px; border-left: 1px solid #D6E0E4"><div style="font-family: 'Newsreader', Georgia, serif; font-size: 36px; line-height: 1">Free</div><div style="font-size: 13px; color: #4A5C67; margin-top: 6px">Design consults</div></div>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px">
+            <a href="/get-free-estimate/" style={`display: inline-flex; align-items: center; height: 52px; padding: 0 24px; background: ${brand}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 15px; border-radius: 2px`}>Book a free consultation</a>
+            <a href="mailto:ornyb@theghglass.com" style="display: inline-flex; align-items: center; height: 52px; padding: 0 20px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 15px; border-radius: 2px">ornyb@theghglass.com</a>
+          </div>
+        </div>
+        <figure style="flex: 1 1 440px; min-width: 0; margin: 0">
+          <img src="/images/orny-beltrame-in-the-glass-house-showroom-with-glass.webp" alt="Orny Beltrame in The Glass House showroom with glass hardware samples" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 30%" loading="lazy" decoding="async" />
+          <figcaption style="padding: 16px 20px; background: #E4EEF0"><span style="display: block; font-size: 18px; font-weight: 600">Orny Beltrame</span><span style="font-size: 14px; color: #4A5C67">Project &amp; Design Consultant</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOP -->
+  <section style="background: #F4F7F8">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 9cqi, 120px) clamp(20px, 4cqi, 48px); display: flex; flex-wrap: wrap; gap: 40px 80px; align-items: center">
+      <img src="/images/hyannis-area-hero.webp" alt="The Glass House shopfront at 270 Communication Way, Hyannis, with its red front door and sign" style="flex: 1 1 420px; min-width: 0; width: 100%; max-width: 560px; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 42%" loading="lazy" decoding="async" />
+      <div style="flex: 1 1 380px; min-width: 0">
+        <div style={`font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: ${brand}`}>The shop</div>
+        <h2 style="margin: 14px 0 16px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.6cqi, 48px); line-height: 1.15">Made right here in Hyannis</h2>
+        <p style="margin: 0 0 24px; font-size: 17px; color: #26394A">Our shop at 270 Communication Way is where glass is cut, edged and prepared for install, and where you can see samples of glass, edges and hardware.</p>
+        <a href="/contact/" style="display: inline-flex; align-items: center; height: 52px; padding: 0 24px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 15px; border-radius: 2px">Visit the shop</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUSTED -->
+  <section style="border-bottom: 1px solid #D6E0E4">
+    <div style="max-width: 1240px; margin: 0 auto; padding: 40px clamp(20px, 4cqi, 48px); display: flex; flex-wrap: wrap; align-items: center; gap: 20px 40px">
+      <div style="flex: 0 1 200px; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #4A5C67">Trusted by Cape builders, architects &amp; businesses</div>
+      <div style="flex: 1 1 600px; min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(104px, 1fr)); gap: 16px">
+        {trusted.map((t) => (<Fragment>
+          <div style="height: 76px; display: flex; align-items: center; justify-content: center; padding: 6px; box-sizing: border-box"><img src={t.img} alt={t.name} style="max-width: 100%; max-height: 64px; object-fit: contain; display: block" loading="lazy" decoding="async" /></div>
+        </Fragment>))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand heading="Let’s talk about your project." sub="Free design consultations and estimates, from a team that’s been here for 30+ years." />
+  <Footer />
+
+  <div class="dc-m">
+    <div style="position: sticky; bottom: 0; z-index: 60; display: grid; grid-template-columns: 1fr 1.35fr; gap: 8px; padding: 10px 12px 12px; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid #D6E0E4">
+      <a href="tel:+15086852770" style="display: flex; align-items: center; justify-content: center; height: 52px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Call now</a>
+      <a href="/get-free-estimate/" style={`display: flex; align-items: center; justify-content: center; height: 52px; background: ${brand}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px`}>Get Free Estimate</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Project mosaic: lead photo spans 2×2 on desktop, a full row on phones; phones show five photos. */
+  .mosaic-lead { grid-column: span 2; grid-row: span 2; }
+  @media (max-width: 759.98px) {
+    .mosaic-lead { grid-row: auto; }
+    .mosaic-extra { display: none; }
+  }
+  .dc-root {
+    --heroRatio: 21 / 8;
+    --mosaicCols: 4;
+    --mosaicRow: 260px;
+  }
+  @media (max-width: 759.98px) {
+    .dc-root {
+      --heroRatio: 4 / 3;
+      --mosaicCols: 2;
+      --mosaicRow: 160px;
+    }
+  }
+</style>

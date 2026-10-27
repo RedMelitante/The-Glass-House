@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Faq from '../../views/Faq.astro';
+import { faqData } from '../../data/faq.js';
+import { faqSchema } from '../../lib/site';
+
+const allFaqs = faqData().cats.flatMap((c) =>
+  faqData({}, { cat: c.label }).faqs.map((q) => [q.q, q.a] as [string, string]),
+);
+---
+<BaseLayout
+  title="FAQ | Custom Glass Questions Answered | The Glass House"
+  description="Answers to common questions about custom shower enclosures, mirrors, railings, pricing, lead times and installation on Cape Cod."
+  schema={faqSchema(allFaqs)}
+>
+  <Faq />
+</BaseLayout>

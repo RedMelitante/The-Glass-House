@@ -1,0 +1,121 @@
+---
+import Header from '../components/Header.astro';
+import CtaBand from '../components/CtaBand.astro';
+import Footer from '../components/Footer.astro';
+import { faqData } from '../data/faq.js';
+
+const { brand, cats } = faqData(Astro.props);
+
+// Every category is rendered; the chips switch which one is visible (first question open, as designed).
+const groups = cats.map((c, ci) => ({ ...c, idx: ci, faqs: faqData(Astro.props, { cat: c.label, open: 0 }).faqs }));
+const chipBase = 'flex: none; display: flex; justify-content: space-between; gap: 12px; align-items: center; min-height: 44px; padding: 0 14px; border-radius: 2px; font: inherit; font-size: 15px; font-weight: 500; text-align: left; cursor: pointer';
+const chipOn = cats.find((c) => c.on)?.style;
+const chipOff = cats.find((c) => !c.on)?.style;
+---
+<div class="dc-root" style="container-type: inline-size; background: #FFFFFF; color: #0F2433; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6">
+
+  <div style="position: sticky; top: 0; z-index: 50">
+    <Header />
+  </div>
+
+  <section style="background: #F4F7F8; border-bottom: 1px solid #D6E0E4">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(20px, 2.4cqi, 28px) clamp(20px, 4cqi, 48px) clamp(40px, 5cqi, 64px)">
+      <nav aria-label="Breadcrumb" style="font-size: 13px; color: #4A5C67; margin-bottom: clamp(24px, 4cqi, 48px)"><a href="/" style="color: #4A5C67">Home</a><span style="margin: 0 8px">/</span><span aria-current="page" style="color: #0F2433; font-weight: 500">FAQ</span></nav>
+      <h1 style="margin: 0 0 14px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(40px, 5.4cqi, 72px); line-height: 1.04; letter-spacing: -0.02em">Frequently asked questions</h1>
+      <p style="margin: 0 0 24px; font-size: 18px; color: #26394A">Pricing, timing, materials and what to expect.</p>
+      <label for="faq-search" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Search questions</label>
+      <div style="display: flex; align-items: center; gap: 10px; max-width: 560px; height: 56px; padding: 0 16px; background: #FFFFFF; border: 1px solid #B7C6CD; border-radius: 2px">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A5C67" stroke-width="1.8" aria-hidden="true"><path d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14zM20 20l-4-4"></path></svg>
+        <input id="faq-search" type="search" placeholder="Search, e.g. “lead time” or “salt air”" style="flex: 1; min-width: 0; height: 100%; border: 0; font: inherit; font-size: 16px; outline-offset: 4px" />
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div data-filter-root data-active={cats[0].label} data-faq-root style="max-width: 1240px; margin: 0 auto; padding: clamp(36px, 5cqi, 64px) clamp(20px, 4cqi, 48px) clamp(64px, 8cqi, 104px); display: flex; flex-wrap: wrap; gap: 32px 64px; align-items: flex-start">
+      <nav aria-label="FAQ categories" style={`flex: 0 1 240px; min-width: 0; display: flex; flex-direction: var(--catDir); gap: 6px; overflow-x: auto; max-width: 100%`}>
+        {cats.map((c) => (<Fragment>
+          <button type="button" aria-pressed={c.on ? 'true' : 'false'} data-filter={c.label} data-style-base={chipBase} data-style-on={chipOn} data-style-off={chipOff} style={`${chipBase}; ${c.style}`}>{c.label}<span style="font-size: 12px; opacity: 0.7">{c.count}</span></button>
+        </Fragment>))}
+      </nav>
+      <div style="flex: 1 1 560px; min-width: 0">
+        {groups.map((g) => (
+          <div data-filter-item data-cat={g.label} data-faq-group hidden={!g.on}>
+            <h2 style="margin: 0 0 12px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: 32px">{g.label}</h2>
+            <div style="border-top: 1px solid #C9D6DB">
+              {g.faqs.map((q, i) => (<Fragment>
+                <div data-faq-item style="border-bottom: 1px solid #C9D6DB">
+                  <button type="button" data-disclosure data-disclosure-group={`faq-${g.idx}`} aria-controls={`faq-${g.idx}-${i}`} aria-expanded={q.open ? 'true' : 'false'} data-icon-open="M5 12h14" data-icon-closed="M12 5v14M5 12h14" style="width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 0; background: transparent; border: 0; font: inherit; font-size: 18px; font-weight: 600; color: #0F2433; text-align: left; cursor: pointer">{q.q}<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={brand} stroke-width="1.8" aria-hidden="true" style="flex: none"><path data-disclosure-icon d={q.icon}></path></svg></button>
+                  <p id={`faq-${g.idx}-${i}`} hidden={!q.open} style="margin: 0; padding: 0 40px 22px 0; color: #4A5C67; font-size: 16px; line-height: 1.65">{q.a}</p>
+                </div>
+              </Fragment>))}
+            </div>
+          </div>
+        ))}
+        <p data-faq-empty hidden style="margin: 0; padding: 20px 0; font-size: 18px; color: #4A5C67">No questions match that search. Try another word, or ask us directly.</p>
+        <div style="margin-top: 40px; padding: 28px; background: #E4EEF0; display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: center; justify-content: space-between">
+          <div><div style="font-family: 'Newsreader', Georgia, serif; font-size: 24px">Still have a question?</div><div style="font-size: 15px; color: #4A5C67">Orny is happy to talk it through.</div></div>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px">
+            <a href="tel:+15086852770" style="display: inline-flex; align-items: center; height: 48px; padding: 0 20px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 15px; border-radius: 2px">(508) 685-2770</a>
+            <a href="/contact/" style="display: inline-flex; align-items: center; height: 48px; padding: 0 20px; background: #0F2433; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 15px; border-radius: 2px">Send a message</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand heading="Ready for a price?" sub="A free estimate is the fastest way to a real number." />
+  <Footer />
+
+  <div class="dc-m">
+    <div style="position: sticky; bottom: 0; z-index: 60; display: grid; grid-template-columns: 1fr 1.35fr; gap: 8px; padding: 10px 12px 12px; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid #D6E0E4">
+      <a href="tel:+15086852770" style="display: flex; align-items: center; justify-content: center; height: 52px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Call now</a>
+      <a href="/get-free-estimate/" style={`display: flex; align-items: center; justify-content: center; height: 52px; background: ${brand}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px`}>Get Free Estimate</a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .dc-root {
+    --catDir: column;
+  }
+  @media (max-width: 759.98px) {
+    .dc-root {
+      --catDir: row;
+    }
+  }
+</style>
+
+<script>
+  // FAQ search: matches across every category; clearing it returns to the selected category.
+  const root = document.querySelector<HTMLElement>('[data-faq-root]');
+  const search = document.querySelector<HTMLInputElement>('#faq-search');
+  if (root && search) {
+    const groups = [...root.querySelectorAll<HTMLElement>('[data-faq-group]')];
+    const empty = root.querySelector<HTMLElement>('[data-faq-empty]')!;
+    const showCategory = () => {
+      groups.forEach((g) => {
+        g.hidden = g.dataset.cat !== root.dataset.active;
+        g.querySelectorAll<HTMLElement>('[data-faq-item]').forEach((item) => (item.hidden = false));
+      });
+      empty.hidden = true;
+    };
+    search.addEventListener('input', () => {
+      const q = search.value.trim().toLowerCase();
+      if (!q) return showCategory();
+      let total = 0;
+      groups.forEach((g) => {
+        let hits = 0;
+        g.querySelectorAll<HTMLElement>('[data-faq-item]').forEach((item) => {
+          const match = (item.textContent ?? '').toLowerCase().includes(q);
+          item.hidden = !match;
+          if (match) hits++;
+        });
+        g.hidden = hits === 0;
+        total += hits;
+      });
+      empty.hidden = total > 0;
+    });
+    root.addEventListener('filterchange', () => { search.value = ''; showCategory(); });
+  }
+</script>

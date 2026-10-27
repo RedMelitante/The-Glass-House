@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Cost Guide — The Glass House</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div ref="{{setRoot}}" style="container-type: inline-size; background: #FFFFFF; color: #0F2433; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6">
+
+  <div style="position: sticky; top: 0; z-index: 50">
+    <dc-import name="Header" mobile="{{m}}" open="none" brand="{{brand}}" hint-size="100%,128px"></dc-import>
+  </div>
+
+  <section style="background: #F4F7F8; border-bottom: 1px solid #D6E0E4">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(20px, 2.4cqi, 28px) clamp(20px, 4cqi, 48px) clamp(48px, 6cqi, 80px)">
+      <nav aria-label="Breadcrumb" style="font-size: 13px; color: #4A5C67; margin-bottom: clamp(24px, 4cqi, 48px)"><a href="Home.dc.html" style="color: #4A5C67">Home</a><span style="margin: 0 8px">/</span><span aria-current="page" style="color: #0F2433; font-weight: 500">Cost guide</span></nav>
+      <div style="display: flex; flex-wrap: wrap; gap: 28px 64px; align-items: flex-end; justify-content: space-between">
+        <div style="flex: 1 1 600px; min-width: 0">
+          <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: {{brand}}">Cost guide · Updated May 2026</div>
+          <h1 style="margin: 14px 0 16px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(40px, 5.4cqi, 72px); line-height: 1.04; letter-spacing: -0.02em">Custom glass installation cost guide</h1>
+          <p style="margin: 0; font-size: 18px; color: #26394A; max-width: 640px">Transparent information for your Cape Cod &amp; Southeastern MA home or business. Every piece we make is custom-fabricated, so there’s no fixed price, but these ranges show what most projects cost and what moves the number up or down.</p>
+        </div>
+        <a href="Estimate.dc.html" style="display: inline-flex; align-items: center; height: 56px; padding: 0 28px; background: {{brand}}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Get my exact price</a>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax({{stripMin}}, 1fr)); gap: 10px; margin-top: clamp(28px, 4cqi, 44px)">
+        <sc-for list="{{strip}}" as="h" hint-placeholder-count="4">
+          <img src="{{h.img}}" alt="{{h.alt}}" style="display: block; width: 100%; height: {{stripH}}; object-fit: cover; background-color: #DCE7EB">
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICE TABLE -->
+  <section>
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(56px, 8cqi, 104px) clamp(20px, 4cqi, 48px)">
+      <h2 style="margin: 0 0 24px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.6cqi, 48px); line-height: 1.15">General estimated investment ranges</h2>
+      <div style="overflow-x: auto; border: 1px solid #D6E0E4">
+        <table style="width: 100%; min-width: 640px; border-collapse: collapse; font-size: 15px">
+          <thead><tr style="background: #0F2433; color: #FFFFFF; text-align: left"><th scope="col" style="padding: 16px 20px; font-weight: 600">Project</th><th scope="col" style="padding: 16px 20px; font-weight: 600">Typical range</th><th scope="col" style="padding: 16px 20px; font-weight: 600">Priced by</th><th scope="col" style="padding: 16px 20px; font-weight: 600">What drives the price</th></tr></thead>
+          <tbody>
+            <sc-for list="{{rows}}" as="r" hint-placeholder-count="8">
+              <tr style="border-top: 1px solid #D6E0E4; background: {{r.bg}}">
+                <th scope="row" style="padding: 12px 20px; text-align: left; font-weight: 600"><a href="{{r.href}}" style="display: flex; align-items: center; gap: 14px; color: #0F2433"><img src="{{r.img}}" alt="" style="width: 56px; height: 56px; flex: none; object-fit: cover; display: block; background-color: #DCE7EB"><span style="display: flex; flex-direction: column; gap: 2px"><span>{{r.name}}</span><span style="font-size: 13px; font-weight: 400; color: #4A5C67">{{r.sub}}</span></span></a></th>
+                <td style="padding: 16px 20px; font-family: 'Newsreader', Georgia, serif; font-size: 20px; white-space: nowrap">{{r.range}}</td>
+                <td style="padding: 16px 20px; color: #4A5C67">{{r.unit}}</td>
+                <td style="padding: 16px 20px; color: #4A5C67">{{r.inc}}</td>
+              </tr>
+            </sc-for>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin: 14px 0 0; font-size: 13px; color: #4A5C67">These ranges reflect typical baseline investments for professional, custom-fabricated glass installations in New England. Actual quotes vary by project scope. On-site measurements are free with no obligation, and we usually send your written quote within 24–48 hours of the visit.</p>
+    </div>
+  </section>
+
+  <!-- FACTORS -->
+  <section style="background: #E4EEF0">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 8cqi, 104px) clamp(20px, 4cqi, 48px)">
+      <h2 style="margin: 0 0 clamp(32px, 4cqi, 48px); font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.6cqi, 48px); line-height: 1.15">The major factors that affect custom glass costs</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; background: #C9D6DB; border: 1px solid #C9D6DB">
+        <sc-for list="{{factors}}" as="f" hint-placeholder-count="6">
+          <div style="background: #FFFFFF; padding: 26px">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px"><span style="font-family: 'Newsreader', Georgia, serif; font-size: 22px; color: #9C7430">{{f.n}}</span><span style="font-size: 18px; font-weight: 600">{{f.title}}</span></div>
+            <div style="font-size: 15px; color: #4A5C67">{{f.text}}</div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXAMPLES -->
+  <section>
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(64px, 9cqi, 120px) clamp(20px, 4cqi, 48px)">
+      <h2 style="margin: 0 0 clamp(28px, 4cqi, 44px); font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 3.6cqi, 48px); line-height: 1.15">What a typical project looks like</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: clamp(14px, 2cqi, 24px)">
+        <sc-for list="{{examples}}" as="e" hint-placeholder-count="3">
+          <div style="border: 1px solid #D6E0E4; display: flex; flex-direction: column">
+            <img src="{{e.img}}" alt="{{e.title}}" style="display: block; width: 100%; height: 220px; object-fit: cover; background-color: {{e.tone}}">
+            <div style="padding: 20px 22px 22px">
+              <div style="font-size: 13px; color: #4A5C67">{{e.town}}</div>
+              <div style="font-family: 'Newsreader', Georgia, serif; font-size: 23px; line-height: 1.25; margin: 4px 0 12px">{{e.title}}</div>
+              <div style="font-size: 14px; color: #4A5C67; margin-bottom: 14px">{{e.spec}}</div>
+              <div style="display: flex; justify-content: space-between; align-items: baseline; padding-top: 12px; border-top: 1px solid #D6E0E4"><span style="font-size: 13px; color: #4A5C67">Typical range</span><span style="font-family: 'Newsreader', Georgia, serif; font-size: 22px">{{e.price}}</span></div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <p style="margin: 28px 0 0; font-size: 15px; color: #4A5C67">More questions about pricing? See the <a href="Faq.dc.html" style="color: {{brand}}">FAQ</a>.</p>
+    </div>
+  </section>
+
+  <dc-import name="CtaBand" heading="Get a real number, free." sub="We measure on site and send a clear written quote. No obligation." hint-size="100%,320px"></dc-import>
+  <dc-import name="Footer" mobile="{{m}}" hint-size="100%,860px"></dc-import>
+
+  <sc-if value="{{m}}" hint-placeholder-val="{{ false }}">
+    <div style="position: sticky; bottom: 0; z-index: 60; display: grid; grid-template-columns: 1fr 1.35fr; gap: 8px; padding: 10px 12px 12px; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid #D6E0E4">
+      <a href="tel:+15086852770" style="display: flex; align-items: center; justify-content: center; height: 52px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Call now</a>
+      <a href="Estimate.dc.html" style="display: flex; align-items: center; justify-content: center; height: 52px; background: {{brand}}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Get Free Estimate</a>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mobile":{"editor":"boolean","default":false},"brand":{"editor":"color","default":"#1E5873","options":["#1E5873","#2B6E8F","#123B5C","#2F6B69"]},"$preview":{"width":1440,"height":4600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.state || {};
+    const brand = this.props.brand ?? '#1E5873';
+    const m = !!this.props.mobile || !!st.narrow;
+    if (!this._setRoot) {
+      this._setRoot = (el) => {
+        if (!el || this._ro || typeof ResizeObserver === 'undefined') return;
+        this._ro = new ResizeObserver((es) => {
+          const n = es[0].contentRect.width < 760;
+          if (n !== !!(this.state || {}).narrow) this.setState({ narrow: n });
+        });
+        this._ro.observe(el);
+      };
+    }
+    const rows = [
+      { name: 'Custom shower enclosures', sub: 'Inline door & panel, corner showers', href: 'Service.dc.html', img: '/images/frameless-glass-shower-with-marble-look-tile-and-built-in.webp', range: '$1,200 – $3,500+', unit: 'Per project', inc: 'Depends on size, glass thickness, hardware finish and structural cuts' },
+      { name: 'Custom mirrors', sub: 'Vanity, gym or accent mirrors', href: 'Product.dc.html', img: '/images/off-cape-2.webp', range: '$300 – $1,500+', unit: 'Per project', inc: 'Depends on dimensions, edge work and cut-outs for outlets or fixtures' },
+      { name: 'Glass wine cellars & partitions', sub: 'Custom wine displays, wall partitions', href: 'Service-WineCellars.dc.html', img: '/images/custom-glass-shower-doors-enclosures-the-complete-guide.webp', range: '$3,500 – $9,000+', unit: 'Per project', inc: 'Depends on sealing, door hardware, glass thickness and clarity upgrades' },
+      { name: 'Glass stair & pool railings', sub: 'Architectural railing systems', href: 'Service-Railings.dc.html', img: '/images/glass-storefront-installation-guide-for-cape-cod-businesses.webp', range: '$250 – $600+', unit: 'Per linear foot', inc: 'Depends on mounting style, linear footage and reinforcement' }
+    ];
+    return {
+      brand: brand,
+      m: m,
+      setRoot: this._setRoot,
+      stripMin: m ? '140px' : '220px',
+      stripH: m ? '120px' : '180px',
+      strip: [{ img: '/images/off-cape.webp', alt: 'Frameless glass shower' }, { img: '/images/off-cape-2.webp', alt: 'Wall-to-wall vanity mirror' }, { img: '/images/glass-storefront-installation-guide-for-cape-cod-businesses.webp', alt: 'Glass stair railing' }, { img: '/images/wine-cellar-glass-enclosure-ideas-and-costs.webp', alt: 'Glass island tabletop' }],
+      rows: rows.map((r, i) => ({ ...r, bg: i % 2 ? '#F9FBFB' : '#FFFFFF' })),
+      factors: [
+        { n: '01', title: 'Glass thickness & type', text: 'Heavier 3/8″ or 1/2″ glass costs more than 1/4″. Low-iron clarity glass and easy-clean protective coatings add a modest upfront cost.' },
+        { n: '02', title: 'Layout, dimensions & custom shapes', text: 'Larger pieces cost more. Sloped ceilings, bench cut-outs and out-of-square walls add fabrication time.' },
+        { n: '03', title: 'Hardware material & finish', text: 'Premium finishes like matte black, brushed gold and satin brass cost more than chrome or brushed nickel.' },
+        { n: '04', title: 'Installation & structural needs', text: 'Some installs, such as stair and pool railings, need structural blocking in walls or floors to meet building code.' }
+      ],
+      examples: [
+        { title: 'Frameless shower enclosure', town: 'Shower enclosures', spec: 'Heavy tempered glass, minimal hinges and clamps, cut to an out-of-square opening.', price: '$1,200 – $3,500+', tone: '#9FB4BE', img: '/images/structural-blocking-for-curbless-walk-in-showers-wet-rooms.webp' },
+        { title: 'Modern glass wine cellar', town: 'Wine cellars & partitions', spec: 'Sealed glass walls and door with locking hardware to show off the collection.', price: '$3,500 – $9,000+', tone: '#B3C6CD', img: '/images/custom-glass-shower-doors-enclosures-the-complete-guide.webp' },
+        { title: 'Architectural glass railing', town: 'Stair & pool railings', spec: 'Code-compliant tempered glass panels with structural mounting.', price: '$250 – $600+ / ft', tone: '#C2D0D4', img: '/images/architectural-glass-railing.webp' }
+      ]
+    };
+  }
+  componentWillUnmount() { if (this._ro) this._ro.disconnect(); }
+}
+</script>
+</body>
+</html>

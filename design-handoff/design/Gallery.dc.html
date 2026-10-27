@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Project Gallery — The Glass House</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&amp;family=Instrument+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div ref="{{setRoot}}" style="container-type: inline-size; background: #FFFFFF; color: #0F2433; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6">
+
+  <div style="position: sticky; top: 0; z-index: 50">
+    <dc-import name="Header" mobile="{{m}}" open="none" brand="{{brand}}" hint-size="100%,128px"></dc-import>
+  </div>
+
+  <!-- ===== PAGE HEADER ===== -->
+  <section style="background: #F4F7F8; border-bottom: 1px solid #D6E0E4">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(20px, 2.4cqi, 28px) clamp(20px, 4cqi, 48px) clamp(40px, 5cqi, 64px)">
+      <nav aria-label="Breadcrumb" style="font-size: 13px; color: #4A5C67; margin-bottom: clamp(24px, 4cqi, 48px)"><a href="Home.dc.html" style="color: #4A5C67">Home</a><span style="margin: 0 8px">/</span><span aria-current="page" style="color: #0F2433; font-weight: 500">Project gallery</span></nav>
+      <div style="display: flex; flex-wrap: wrap; gap: 20px 64px; align-items: flex-end; justify-content: space-between">
+        <div style="flex: 1 1 560px; min-width: 0">
+          <div style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: {{brand}}">1K+ projects · 30+ years</div>
+          <h1 style="margin: 14px 0 14px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(40px, 5.2cqi, 72px); line-height: 1.04; letter-spacing: -0.02em">Project gallery</h1>
+          <p style="margin: 0; font-size: 18px; color: #26394A; max-width: 600px">Showers, mirrors, railings and storefronts we’ve designed and installed across Cape Cod, Southeastern MA and Rhode Island.</p>
+        </div>
+        <a href="Estimate.dc.html" style="display: inline-flex; align-items: center; height: 52px; padding: 0 24px; background: {{brand}}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 15px; border-radius: 2px">Get Free Estimate</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FILTERS + GRID ===== -->
+  <section>
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(28px, 4cqi, 48px) clamp(20px, 4cqi, 48px) clamp(64px, 9cqi, 120px)">
+      <div style="display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: center; justify-content: space-between; margin-bottom: clamp(24px, 3cqi, 36px)">
+        <div role="group" aria-label="Filter by category" style="display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; max-width: 100%">
+          <sc-for list="{{filters}}" as="f" hint-placeholder-count="8">
+            <button type="button" onClick="{{f.pick}}" aria-pressed="{{f.on}}" style="flex: none; display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 16px; border-radius: 2px; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer; {{f.style}}">{{f.label}}<span style="font-size: 12px; opacity: 0.7">{{f.count}}</span></button>
+          </sc-for>
+        </div>
+        <span style="font-size: 14px; color: #4A5C67">Showing {{shownCount}} of {{totalCount}}</span>
+      </div>
+
+      <div style="columns: {{cols}}; column-gap: clamp(10px, 1.6cqi, 20px)">
+        <sc-for list="{{items}}" as="p" hint-placeholder-count="12">
+          <button type="button" onClick="{{p.open}}" aria-label="Open {{p.title}}" style="display: block; width: 100%; break-inside: avoid; margin: 0 0 clamp(10px, 1.6cqi, 20px); padding: 0; border: 0; background: transparent; text-align: left; font: inherit; color: #0F2433; cursor: zoom-in">
+            <span style="display: block; position: relative; height: {{p.h}}; background-color: {{p.tone}}; background-image: repeating-linear-gradient(118deg, rgba(255,255,255,0) 0 80px, rgba(255,255,255,0.3) 80px 82px); border-radius: 2px">
+              <img src="{{p.img}}" alt="{{p.title}}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 2px">
+              <span style="position: absolute; right: 10px; top: 10px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.8); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0F2433" stroke-width="1.8" aria-hidden="true"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"></path></svg></span>
+            </span>
+            <span style="display: block; padding: 10px 2px 0"><span style="display: block; font-size: 15px; font-weight: 600; line-height: 1.35">{{p.title}}</span><span style="font-size: 13px; color: #4A5C67">{{p.cat}} · {{p.town}}</span></span>
+          </button>
+        </sc-for>
+      </div>
+
+      <div style="display: flex; justify-content: center; margin-top: 28px">
+        <button type="button" style="height: 52px; padding: 0 28px; background: #FFFFFF; border: 1px solid #0F2433; border-radius: 2px; font: inherit; font-weight: 600; font-size: 15px; color: #0F2433; cursor: pointer">Load more projects</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section style="background: #0F2433; color: #FFFFFF">
+    <div style="max-width: 1240px; margin: 0 auto; padding: clamp(56px, 7cqi, 96px) clamp(20px, 4cqi, 48px); display: flex; flex-wrap: wrap; gap: 28px 64px; align-items: center; justify-content: space-between">
+      <div style="flex: 1 1 520px; min-width: 0">
+        <h2 style="margin: 0 0 12px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(32px, 4cqi, 52px); line-height: 1.1">See something you like?</h2>
+        <p style="margin: 0; color: #B9C9D1; font-size: 18px">Tell us which project caught your eye and we’ll design one for your space.</p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px">
+        <a href="Estimate.dc.html" style="display: inline-flex; align-items: center; height: 56px; padding: 0 28px; background: #FFFFFF; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Get Free Estimate</a>
+        <a href="tel:+15086852770" style="display: inline-flex; align-items: center; height: 56px; padding: 0 24px; border: 1px solid rgba(255,255,255,0.7); color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Call (508) 685-2770</a>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Footer" mobile="{{m}}" hint-size="100%,860px"></dc-import>
+
+  <sc-if value="{{m}}" hint-placeholder-val="{{ false }}">
+    <div style="position: sticky; bottom: 0; z-index: 60; display: grid; grid-template-columns: 1fr 1.35fr; gap: 8px; padding: 10px 12px 12px; background: rgba(255,255,255,0.94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid #D6E0E4">
+      <a href="tel:+15086852770" style="display: flex; align-items: center; justify-content: center; gap: 8px; height: 52px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Call now</a>
+      <a href="Estimate.dc.html" style="display: flex; align-items: center; justify-content: center; height: 52px; background: {{brand}}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Get Free Estimate</a>
+    </div>
+  </sc-if>
+
+  <!-- ===== LIGHTBOX ===== -->
+  <sc-if value="{{lbOpen}}" hint-placeholder-val="{{ false }}">
+    <div role="dialog" aria-modal="true" aria-label="Project photo viewer" style="position: fixed; inset: 0; z-index: 200; background: rgba(8,20,28,0.95); color: #FFFFFF; display: flex; flex-direction: column">
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px clamp(12px, 2cqi, 28px); gap: 16px">
+        <span style="font-size: 14px; color: #B9C9D1">{{lbIndex}} / {{shownCount}}</span>
+        <span style="font-size: 14px; color: #B9C9D1; display: {{lbCatDisplay}}">{{lb.cat}}</span>
+        <button type="button" onClick="{{closeLb}}" aria-label="Close" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: transparent; border: 1px solid rgba(255,255,255,0.3); color: #FFFFFF; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg></button>
+      </div>
+      <div style="flex: 1; min-height: 0; display: flex; align-items: center; gap: clamp(8px, 2cqi, 24px); padding: 0 clamp(8px, 2cqi, 28px)">
+        <button type="button" onClick="{{prev}}" aria-label="Previous photo" style="flex: none; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.25); color: #FFFFFF; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M15 6l-6 6 6 6"></path></svg></button>
+        <div style="flex: 1; min-width: 0; height: 100%; max-height: 640px; display: flex; align-items: center; justify-content: center"><img src="{{lb.img}}" alt="{{lb.title}}" style="display: block; max-width: 100%; max-height: 100%; object-fit: contain"></div>
+        <button type="button" onClick="{{next}}" aria-label="Next photo" style="flex: none; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.25); color: #FFFFFF; cursor: pointer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 6l6 6-6 6"></path></svg></button>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px; padding: 18px clamp(16px, 4cqi, 96px) 22px">
+        <div style="flex: 1 1 320px; min-width: 0">
+          <div style="font-family: 'Newsreader', Georgia, serif; font-size: 26px; line-height: 1.2">{{lb.title}}</div>
+          <div style="font-size: 14px; color: #B9C9D1; margin-top: 4px">{{lb.cat}} · {{lb.town}}</div>
+        </div>
+        <a href="Estimate.dc.html" style="display: inline-flex; align-items: center; height: 48px; padding: 0 22px; background: #FFFFFF; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 15px; border-radius: 2px">Get a quote for something similar</a>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mobile":{"editor":"boolean","default":false},"openItem":{"editor":"int","default":-1,"min":-1,"max":78},"brand":{"editor":"color","default":"#1E5873","options":["#1E5873","#2B6E8F","#123B5C","#2F6B69"]},"$preview":{"width":1440,"height":4000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.state || {};
+    const brand = this.props.brand ?? '#1E5873';
+    const m = !!this.props.mobile || !!st.narrow;
+    if (!this._setRoot) {
+      this._setRoot = (el) => {
+        if (!el || this._ro || typeof ResizeObserver === 'undefined') return;
+        this._ro = new ResizeObserver((es) => {
+          const n = es[0].contentRect.width < 760;
+          if (n !== !!(this.state || {}).narrow) this.setState({ narrow: n });
+        });
+        this._ro.observe(el);
+      };
+    }
+    const all = [
+      { title: 'Sliding glass & frameless railing', cat: 'Railings', town: 'Cape Cod waterfront', h: 224, tone: '#C9D9DE', img: '/images/orleans-area-hero.webp' },
+      { title: 'Shower fit around a knee wall', cat: 'Showers', town: 'Centerville, MA', h: 460, tone: '#C9D9DE', img: '/images/shower-door-configurations-compared-the-4-types-of-shower.webp' },
+      { title: 'Marble bath, frameless shower & mirror', cat: 'Showers', town: 'Cape Cod', h: 491, tone: '#C9D9DE', img: '/images/home-gym-mirror-wall.webp' },
+      { title: 'Home gym mirror wall', cat: 'Mirrors', town: 'Cape Cod', h: 277, tone: '#C9D9DE', img: '/images/glass-shelves-for-cabinets-a-stylish-way-to-display-and.webp' },
+      { title: 'Double-door tub enclosure, satin brass', cat: 'Tub enclosures', town: 'Hyannis, MA', h: 460, tone: '#C9D9DE', img: '/images/wet-room-waterproofing-membrane-systems-explained.webp' },
+      { title: 'Glass wine wall, private dining room', cat: 'Wine cellars', town: 'Commercial', h: 460, tone: '#C9D9DE', img: '/images/custom-glass-shower-doors-enclosures-the-complete-guide.webp' },
+      { title: 'Pivoting chrome-frame vanity mirror', cat: 'Mirrors', town: 'Cape Cod', h: 491, tone: '#C9D9DE', img: '/images/black-grid-bypass-shower.webp' },
+      { title: 'Black grid bypass shower', cat: 'Showers', town: 'Portsmouth, RI', h: 460, tone: '#C9D9DE', img: '/images/low-iron-glass-hard-water-stains-maintenance-differences.webp' },
+      { title: 'Frameless glass stair railing', cat: 'Railings', town: 'Hyannis, MA', h: 460, tone: '#C9D9DE', img: '/images/glass-storefront-installation-guide-for-cape-cod-businesses.webp' },
+      { title: 'Frameless corner shower, brass hinges', cat: 'Showers', town: 'Cape Cod', h: 341, tone: '#C9D9DE', img: '/images/why-wall-anchoring-matters-how-much-weight-can-a-wall-stud.webp' },
+      { title: 'Frameless shower with built-in bench', cat: 'Showers', town: 'Cape Cod', h: 460, tone: '#C9D9DE', img: '/images/structural-blocking-for-curbless-walk-in-showers-wet-rooms.webp' },
+      { title: 'Beveled frame mirror, powder room', cat: 'Mirrors', town: 'Cape Cod', h: 491, tone: '#C9D9DE', img: '/images/framed-or-frameless-how-to-choose-the-right-glass-windows.webp' },
+      { title: 'Storefront glass with standoffs', cat: 'Storefronts', town: 'Commercial', h: 223, tone: '#C9D9DE', img: '/images/rhodeisland-area-hero.webp' },
+      { title: 'Glass tabletop on kitchen island', cat: 'Countertops & tabletops', town: 'Plymouth, MA', h: 460, tone: '#C9D9DE', img: '/images/wine-cellar-glass-enclosure-ideas-and-costs.webp' },
+      { title: 'Glass tabletop, blue kitchen island', cat: 'Countertops & tabletops', town: 'Plymouth, MA', h: 460, tone: '#C9D9DE', img: '/images/frameless-shower-white-subway-tile.webp' },
+      { title: 'Frameless shower, white subway tile', cat: 'Showers', town: 'Cape Cod', h: 460, tone: '#C9D9DE', img: '/images/off-cape.webp' },
+      { title: 'Floor-to-ceiling mirror wall', cat: 'Mirrors', town: 'Cape Cod', h: 277, tone: '#C9D9DE', img: '/images/harwich-area-hero.webp' },
+      { title: 'Bypass shower, textured rain glass', cat: 'Showers', town: 'Dennis, MA', h: 460, tone: '#C9D9DE', img: '/images/what-does-a-wet-room-add-to-a-remodel-budget.webp' },
+      { title: 'Marble shower with bench & lit niche', cat: 'Showers', town: 'Cape Cod', h: 460, tone: '#C9D9DE', img: '/images/shower-enclosure.webp' },
+      { title: 'Glass wine display with pull handles', cat: 'Wine cellars', town: 'Cape Cod', h: 460, tone: '#C9D9DE', img: '/images/wall-to-wall-vanity-mirror.webp' },
+      { title: 'Wall-to-wall vanity mirror', cat: 'Mirrors', town: 'Cape Cod', h: 491, tone: '#C9D9DE', img: '/images/off-cape-2.webp' },
+      { title: 'Waterfront room with glass railing', cat: 'Railings', town: 'Cape Cod waterfront', h: 460, tone: '#C9D9DE', img: '/images/waterfront-room-with-sliding-glass-and-a-frameless-glass.webp' },
+      { title: 'Home gym mirror wall, second view', cat: 'Mirrors', town: 'Cape Cod', h: 277, tone: '#C9D9DE', img: '/images/frameless-shower-grey-subway-tile.webp' },
+      { title: 'Frameless shower, grey subway tile', cat: 'Showers', town: 'Cape Cod', h: 460, tone: '#C9D9DE', img: '/images/shower-curb-height-ledges-wall-anchoring-what-homeowners.webp' },
+      { title: 'Glass canopy & walkway', cat: 'Canopies & skylights', town: 'Cape Cod', h: 277, tone: '#C9D9DE', img: '/images/falmouth-area-hero.webp' },
+      { title: 'Framed double-vanity mirrors', cat: 'Mirrors', town: 'Cape Cod', h: 491, tone: '#C9D9DE', img: '/images/black-grid-sliding-shower-door.webp' },
+      { title: 'Black grid sliding shower door', cat: 'Showers', town: 'Portsmouth, RI', h: 460, tone: '#C9D9DE', img: '/images/semi-frameless-vs-framed-shower-doors-which-fits-your-cape.webp' },
+      { title: 'Glass stair railing, before & after', cat: 'Railings', town: 'Hyannis, MA', h: 460, tone: '#C9D9DE', img: '/images/tub-enclosure-with-brass-hinges.webp' },
+      { title: 'Tub enclosure with brass hinges', cat: 'Tub enclosures', town: 'Hyannis, MA', h: 460, tone: '#C9D9DE', img: '/images/antique-mirror-panels-kitchen.webp' },
+      { title: 'Antique mirror panels, kitchen', cat: 'Mirrors', town: 'Cape Cod', h: 277, tone: '#C9D9DE', img: '/images/mashpee-area-hero.webp' },
+      { title: 'Double-vanity mirror install', cat: 'Mirrors', town: 'Cape Cod', h: 277, tone: '#C9D9DE', img: '/images/knee-wall-shower-black-hardware.webp' },
+      { title: 'Knee-wall shower, black hardware', cat: 'Showers', town: 'Centerville, MA', h: 460, tone: '#C9D9DE', img: '/images/glass-wine-room-bar-top.webp' },
+      { title: 'Glass wine room & bar top', cat: 'Wine cellars', town: 'Commercial', h: 245, tone: '#C9D9DE', img: '/images/framed-vanity-mirror.webp' },
+      { title: 'Framed vanity mirror', cat: 'Mirrors', town: 'Cape Cod', h: 491, tone: '#C9D9DE', img: '/images/frameless-shower-door-grey-tile.webp' },
+      { title: 'Frameless shower door, grey tile', cat: 'Showers', town: 'Cape Cod', h: 460, tone: '#C9D9DE', img: '/images/neo-angle-corner-shower-enclosures-maximizing-small.webp' },
+      { title: 'Frameless mirror over marble vanity', cat: 'Mirrors', town: 'Cape Cod', h: 257, tone: '#C9D9DE', img: '/images/glass-railing-home-office.webp' },
+      { title: 'Glass railing, home office', cat: 'Railings', town: 'Cape Cod', h: 338, tone: '#C9D9DE', img: '/images/rain-glass-bypass-rolling-hardware.webp' },
+      { title: 'Rain glass bypass, rolling hardware', cat: 'Showers', town: 'Dennis, MA', h: 460, tone: '#C9D9DE', img: '/images/why-cape-cod-shower-glass-needs-protective-coating-well.webp' },
+      { title: 'Sunroom windows & skylights', cat: 'Windows & sunrooms', town: 'Cape Cod', h: 247, tone: '#C9D9DE', img: '/images/custom-glass-sunroom-with-skylights-overlooking-a-cape-cod.webp' },
+      { title: 'Glass partition doors & stair railing', cat: 'Doors & partitions', town: 'Cape Cod', h: 368, tone: '#C9D9DE', img: '/images/glass-stair-partition.webp' },
+      { title: 'Bench shower with window light', cat: 'Showers', town: 'Cape Cod', h: 460, tone: '#C9D9DE', img: '/images/shower-enclosure-2.webp' },
+      { title: 'Waterfront kitchen, floor-to-ceiling glass', cat: 'Windows & sunrooms', town: 'Cape Cod waterfront', h: 338, tone: '#C9D9DE', img: '/images/glass-repair-in-providence-ri.webp' },
+      { title: 'Marble shower enclosure, full bath', cat: 'Showers', town: 'Cape Cod', h: 460, tone: '#C9D9DE', img: '/images/frameless-glass-shower-with-marble-look-tile-and-built-in.webp' },
+      { title: 'Glass entrance canopy, commercial building', cat: 'Canopies & skylights', town: 'Cape Cod', h: 460, tone: '#C9D9DE', img: '/images/wellfleet-area-hero.webp' },
+      { title: 'Aluminum entrance doors & transoms', cat: 'Storefronts', town: 'Massachusetts', h: 470, tone: '#C9D9DE', img: '/images/glass-storefronts-the-secret-to-modern-inviting-retail.webp' },
+      { title: 'Spider-fitting glass storefront', cat: 'Storefronts', town: 'Cape Cod', h: 277, tone: '#C9D9DE', img: '/images/providence-area-hero.webp' },
+      { title: 'Double entrance doors, retail', cat: 'Storefronts', town: 'Massachusetts', h: 460, tone: '#C9D9DE', img: '/images/retail-storefront-windows.webp' },
+      { title: 'Retail storefront windows', cat: 'Storefronts', town: 'Massachusetts', h: 460, tone: '#C9D9DE', img: '/images/install-mirrors-for-a-touch-of-luxury-in-your-home.webp' },
+      { title: 'Point-supported glass wall & entry', cat: 'Storefronts', town: 'Cape Cod', h: 277, tone: '#C9D9DE', img: '/images/brewster-area-hero.webp' },
+      { title: 'Floating glass bar shelves', cat: 'Shelves', town: 'Cape Cod', h: 460, tone: '#C9D9DE', img: '/images/why-a-glass-canopy-is-the-perfect-blend-of-style-and.webp' },
+      { title: 'Sea-glass kitchen shelves', cat: 'Shelves', town: 'Cape Cod', h: 460, tone: '#C9D9DE', img: '/images/glass-bar-top-shelves.webp' },
+      { title: 'Glass bar top & shelves', cat: 'Countertops & tabletops', town: 'Cape Cod', h: 460, tone: '#C9D9DE', img: '/images/lit-glass-bar-shelving.webp' },
+      { title: 'Lit glass bar shelving', cat: 'Shelves', town: 'Cape Cod', h: 460, tone: '#C9D9DE', img: '/images/bent-glass-screen-marble-fireplace.webp' },
+      { title: 'Bent-glass screen, marble fireplace', cat: 'Fireplaces', town: 'Boston', h: 480, tone: '#C9D9DE', img: '/images/truro-area-hero.webp' },
+      { title: 'Corner glass fireplace screen', cat: 'Fireplaces', town: 'Massachusetts', h: 277, tone: '#C9D9DE', img: '/images/bourne-area-hero.webp' },
+      { title: 'Glass fireplace surround, stone hearth', cat: 'Fireplaces', town: 'Massachusetts', h: 277, tone: '#C9D9DE', img: '/images/sandwich-area-hero.webp' },
+      { title: 'Waterfront glass fire pit', cat: 'Fireplaces', town: 'Cape Cod', h: 480, tone: '#C9D9DE', img: '/images/chatham-area-hero.webp' },
+      { title: 'Glass deck railing over a pool', cat: 'Railings', town: 'Massachusetts', h: 277, tone: '#C9D9DE', img: '/images/architectural-glass-railing.webp' },
+      { title: 'Glass pool fence', cat: 'Railings', town: 'Massachusetts', h: 277, tone: '#C9D9DE', img: '/images/how-to-design-a-stunning-bathroom-with-a-walk-in-shower.webp' },
+      { title: 'Standoff stair & landing railing', cat: 'Railings', town: 'Massachusetts', h: 480, tone: '#C9D9DE', img: '/images/eastham-area-hero.webp' },
+      { title: 'Glass balcony railings', cat: 'Railings', town: 'Massachusetts', h: 277, tone: '#C9D9DE', img: '/images/off-cape-3.webp' },
+      { title: 'Stair railing, black handrail', cat: 'Railings', town: 'Massachusetts', h: 480, tone: '#C9D9DE', img: '/images/rooftop-glass-railing.webp' },
+      { title: 'Rooftop glass railing', cat: 'Railings', town: 'Massachusetts', h: 360, tone: '#C9D9DE', img: '/images/loft-railing-black-top-rail.webp' },
+      { title: 'Loft railing, black top rail', cat: 'Railings', town: 'Massachusetts', h: 480, tone: '#C9D9DE', img: '/images/frameless-stair-railing.webp' },
+      { title: 'Frameless stair railing', cat: 'Railings', town: 'Massachusetts', h: 460, tone: '#C9D9DE', img: '/images/terrace-glass-balustrade.webp' },
+      { title: 'Terrace glass balustrade', cat: 'Railings', town: 'Massachusetts', h: 270, tone: '#C9D9DE', img: '/images/glass-office-partitions-loft.webp' },
+      { title: 'Glass office partitions, loft', cat: 'Doors & partitions', town: 'Massachusetts', h: 277, tone: '#C9D9DE', img: '/images/boston-area-hero.webp' },
+      { title: 'Glass lounge room, fitness club', cat: 'Doors & partitions', town: 'Massachusetts', h: 277, tone: '#C9D9DE', img: '/images/glass-dining-dividers-restaurant.webp' },
+      { title: 'Glass dining dividers, restaurant', cat: 'Doors & partitions', town: 'Massachusetts', h: 277, tone: '#C9D9DE', img: '/images/glass-counter-partitions-retail-shop.webp' },
+      { title: 'Glass counter partitions, retail shop', cat: 'Doors & partitions', town: 'Massachusetts', h: 277, tone: '#C9D9DE', img: '/images/glass-entry-vestibule-fitness-club.webp' },
+      { title: 'Glass entry vestibule, fitness club', cat: 'Storefronts', town: 'Massachusetts', h: 460, tone: '#C9D9DE', img: '/images/glass-wine-room-lounge-bar.webp' },
+      { title: 'Glass wine room & lounge bar', cat: 'Wine cellars', town: 'Massachusetts', h: 277, tone: '#C9D9DE', img: '/images/are-glass-kitchen-countertops-durable-here-s-what-you-need.webp' },
+      { title: 'Art glass kitchen island', cat: 'Countertops & tabletops', town: 'Massachusetts', h: 277, tone: '#C9D9DE', img: '/images/textured-glass-bar-counter.webp' },
+      { title: 'Textured glass bar counter', cat: 'Countertops & tabletops', town: 'Massachusetts', h: 277, tone: '#C9D9DE', img: '/images/thick-glass-island-top.webp' },
+      { title: 'Thick glass island top', cat: 'Countertops & tabletops', town: 'Massachusetts', h: 277, tone: '#C9D9DE', img: '/images/glass-island-with-integrated-sink.webp' },
+      { title: 'Glass island with integrated sink', cat: 'Countertops & tabletops', town: 'Massachusetts', h: 460, tone: '#C9D9DE', img: '/images/lit-glass-kitchen-island.webp' },
+      { title: 'Lit glass kitchen island', cat: 'Countertops & tabletops', town: 'Massachusetts', h: 277, tone: '#C9D9DE', img: '/images/glass-for-stairs-railing-a-sleek-upgrade-for-modern-homes.webp' },
+      { title: 'Curved glass breakfast bar', cat: 'Countertops & tabletops', town: 'Massachusetts', h: 460, tone: '#C9D9DE', img: '/images/art-glass-island-top.webp' },
+      { title: 'Art glass island top', cat: 'Countertops & tabletops', town: 'Massachusetts', h: 360, tone: '#C9D9DE', img: '/images/countertops-tabletops.webp' }
+    ];
+    const cats = ['All', 'Showers', 'Tub enclosures', 'Mirrors', 'Railings', 'Windows & sunrooms', 'Countertops & tabletops', 'Storefronts', 'Wine cellars', 'Doors & partitions', 'Canopies & skylights', 'Shelves', 'Fireplaces'];
+    const cat = st.cat || 'All';
+    const list = cat === 'All' ? all : all.filter((p) => p.cat === cat);
+    const open = st.open !== undefined ? st.open : (this.props.openItem ?? -1);
+    const lbOpen = open >= 0 && open < list.length;
+    const lb = lbOpen ? list[open] : list[0] || all[0];
+    return {
+      brand: brand,
+      m: m,
+      setRoot: this._setRoot,
+      cols: m ? '2' : '3',
+      filters: cats.map((c) => ({
+        label: c,
+        count: c === 'All' ? all.length : all.filter((p) => p.cat === c).length,
+        on: cat === c,
+        style: cat === c ? 'background: #0F2433; color: #FFFFFF; border: 1px solid #0F2433' : 'background: #FFFFFF; color: #0F2433; border: 1px solid #D6E0E4',
+        pick: () => this.setState({ cat: c, open: -1 })
+      })),
+      items: list.map((p, i) => ({ ...p, h: (m ? Math.round(p.h * 0.62) : p.h) + 'px', open: () => this.setState({ open: i }) })),
+      shownCount: list.length,
+      totalCount: all.length,
+      lbOpen: lbOpen,
+      lb: lb,
+      lbIndex: open + 1,
+      lbCatDisplay: m ? 'none' : 'inline',
+      closeLb: () => this.setState({ open: -1 }),
+      prev: () => this.setState({ open: (open - 1 + list.length) % list.length }),
+      next: () => this.setState({ open: (open + 1) % list.length })
+    };
+  }
+  componentWillUnmount() { if (this._ro) this._ro.disconnect(); }
+}
+</script>
+</body>
+</html>

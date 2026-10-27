@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Home from '../views/Home.astro';
+import { card, getPosts } from '../lib/blog';
+
+const latest = (await getPosts()).slice(0, 3).map(card);
+---
+<BaseLayout
+  title="The Glass House | Custom Glass, Shower Enclosures & Mirrors on Cape Cod"
+  description="Family-owned glass company in Hyannis for 30+ years. Custom shower enclosures, mirrors, railings, storefronts and more across Cape Cod, Southeastern MA and Rhode Island. Free estimates."
+>
+  <Home latest={latest} />
+</BaseLayout>

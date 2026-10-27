@@ -1,0 +1,184 @@
+---
+import { link } from '../lib/routes';
+import { headerData } from '../data/header.js';
+
+// Menus render closed; the script below opens them (hover/click on desktop, tap on mobile).
+const { brand, services, products } = headerData({ ...Astro.props, open: 'none' });
+const up = 'M6 15l6-6 6 6';
+const down = 'M6 9l6 6 6-6';
+---
+<header data-site-header style="position: relative; z-index: 50; font-family: 'Instrument Sans', system-ui, sans-serif; color: #0F2433; background: #FFFFFF">
+
+  <!-- ===== DESKTOP ===== -->
+  <div class="dc-d">
+    <div style="background: #0F2433; color: #DCE6EA; font-size: 13px">
+      <div style="max-width: 1240px; margin: 0 auto; padding: 0 48px; height: 40px; display: flex; align-items: center; gap: 24px">
+        <span>Family-owned · 30+ years on Cape Cod</span>
+        <span style="opacity: 0.5">|</span>
+        <span>Serving Cape Cod, Southeastern MA &amp; Rhode Island</span>
+        <a href="https://maps.app.goo.gl/vZfV7rE3CSp9vrpHA" target="_blank" rel="noopener" aria-label="Open 270 Communication Way, Hyannis in Google Maps" style="margin-left: auto; color: #DCE6EA; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(220,230,234,0.4)">270 Communication Way, Hyannis</a>
+        <span>Mon–Fri 9:00–5:00</span>
+      </div>
+    </div>
+    <div style="border-bottom: 1px solid #D6E0E4; background: #FFFFFF">
+      <div style="max-width: 1240px; margin: 0 auto; padding: 0 48px; height: 88px; display: flex; align-items: center; gap: 32px">
+        <a href="/" aria-label="The Glass House home" style="display: flex; align-items: center; gap: 12px; color: #0F2433; text-decoration: none; flex: none"><img src="/images/the-glass-house.png" alt="The Glass House" width="111" height="52" style="display: block; height: 52px; width: auto" decoding="async" /></a>
+        <nav aria-label="Main" style="display: flex; align-items: center; gap: 4px; margin-left: 16px">
+          <button type="button" data-mega-toggle="services" aria-expanded="false" aria-controls="mega-services" aria-haspopup="true" data-brand={brand} style={`display: inline-flex; align-items: center; gap: 6px; height: 44px; padding: 0 14px; background: transparent; border: 0; border-bottom: 2px solid transparent; font: inherit; font-size: 15px; font-weight: 500; color: #0F2433; cursor: pointer`}>Services <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+          <button type="button" data-mega-toggle="products" aria-expanded="false" aria-controls="mega-products" aria-haspopup="true" data-brand={brand} style={`display: inline-flex; align-items: center; gap: 6px; height: 44px; padding: 0 14px; background: transparent; border: 0; border-bottom: 2px solid transparent; font: inherit; font-size: 15px; font-weight: 500; color: #0F2433; cursor: pointer`}>Products <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"></path></svg></button>
+          <a href="/project-gallery/" data-mega-close style="display: inline-flex; align-items: center; height: 44px; padding: 0 14px; color: #0F2433; text-decoration: none; font-size: 15px; font-weight: 500">Projects</a>
+          <a href="/glassworks-areas-we-serve/" data-mega-close style="display: inline-flex; align-items: center; height: 44px; padding: 0 14px; color: #0F2433; text-decoration: none; font-size: 15px; font-weight: 500">Areas</a>
+          <a href="/about-us-glass-installation/" data-mega-close style="display: inline-flex; align-items: center; height: 44px; padding: 0 14px; color: #0F2433; text-decoration: none; font-size: 15px; font-weight: 500">About</a>
+          <a href="/blog/" data-mega-close style="display: inline-flex; align-items: center; height: 44px; padding: 0 14px; color: #0F2433; text-decoration: none; font-size: 15px; font-weight: 500">Blog</a>
+          <a href="/contact/" data-mega-close style="display: inline-flex; align-items: center; height: 44px; padding: 0 14px; color: #0F2433; text-decoration: none; font-size: 15px; font-weight: 500">Contact</a>
+        </nav>
+        <div style="margin-left: auto; display: flex; align-items: center; gap: 20px">
+          <a href="tel:+15086852770" style="display: inline-flex; align-items: center; gap: 8px; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={brand} stroke-width="1.7" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg>(508) 685-2770</a>
+          <a href="/get-free-estimate/" style={`display: inline-flex; align-items: center; height: 48px; padding: 0 22px; background: ${brand}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 15px; border-radius: 2px`}>Get Free Estimate</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Services mega menu -->
+    <div id="mega-services" data-mega="services" hidden>
+      <div style="position: absolute; left: 0; right: 0; top: 100%; background: #FFFFFF; border-bottom: 1px solid #D6E0E4; box-shadow: 0 30px 60px -30px rgba(15,36,51,0.35)">
+        <div style="max-width: 1240px; margin: 0 auto; padding: 36px 48px 40px; display: flex; gap: 48px">
+          <div style="flex: 1; min-width: 0">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 18px"><span style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #4A5C67">Services · 12</span><a href="/glass-services/" style={`font-size: 14px; font-weight: 600; color: ${brand}; text-decoration: none`}>All services →</a></div>
+            <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px 24px">
+              {services.map((s) => (<Fragment>
+                <a href={link(s.href)} style="display: flex; align-items: center; gap: 14px; padding: 10px 10px; margin: 0 -10px; color: #0F2433; text-decoration: none; border-radius: 2px">
+                  <span style={`width: 40px; height: 40px; flex: none; display: flex; align-items: center; justify-content: center; background: #E4EEF0; color: ${brand}`}><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d={s.d}></path></svg></span>
+                  <span style="font-size: 15px; font-weight: 500">{s.name}</span>
+                </a>
+              </Fragment>))}
+            </div>
+          </div>
+          <div style="width: 300px; flex: none; display: flex; flex-direction: column; border: 1px solid #D6E0E4">
+            <img src="/images/orny-beltrame-2.webp" alt="Orny Beltrame reviewing a design on a tablet" style="display: block; width: 100%; height: 170px; object-fit: cover; object-position: 50% 25%" loading="lazy" decoding="async" />
+            <div style="padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 8px">
+              <span style="font-family: 'Newsreader', Georgia, serif; font-size: 21px; font-weight: 500; line-height: 1.25">Not sure what you need?</span>
+              <span style="font-size: 14px; color: #4A5C67">Book a free design consultation with Orny Beltrame.</span>
+              <a href="/get-free-estimate/" style={`margin-top: 6px; font-size: 14px; font-weight: 600; color: ${brand}; text-decoration: none`}>Book a consultation →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Products menu -->
+    <div id="mega-products" data-mega="products" hidden>
+      <div style="position: absolute; left: 0; right: 0; top: 100%; background: #FFFFFF; border-bottom: 1px solid #D6E0E4; box-shadow: 0 30px 60px -30px rgba(15,36,51,0.35)">
+        <div style="max-width: 1240px; margin: 0 auto; padding: 36px 48px 40px; display: flex; gap: 48px">
+          <div style="flex: 1; min-width: 0">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 18px"><span style="font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #4A5C67">Custom products · 10</span><a href="/custom-glass-products/" style={`font-size: 14px; font-weight: 600; color: ${brand}; text-decoration: none`}>All products →</a></div>
+            <div style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px">
+              {products.map((p) => (<Fragment>
+                <a href={link(p.href)} style="display: flex; flex-direction: column; gap: 10px; color: #0F2433; text-decoration: none">
+                  <img src={p.img} alt="" style="display: block; width: 100%; height: 96px; object-fit: cover; background-color: #DCE7EB" loading="lazy" decoding="async" />
+                  <span style="font-size: 14px; font-weight: 500; line-height: 1.35">{p.name}</span>
+                </a>
+              </Fragment>))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MOBILE ===== -->
+  <div class="dc-m">
+    <div style="border-bottom: 1px solid #D6E0E4; background: #FFFFFF">
+      <div style="padding: 0 12px 0 20px; height: 68px; display: flex; align-items: center; gap: 8px">
+        <a href="/" aria-label="The Glass House home" style="display: flex; align-items: center; gap: 10px; color: #0F2433; text-decoration: none; margin-right: auto"><img src="/images/the-glass-house.png" alt="The Glass House" width="85" height="40" style="display: block; height: 40px; width: auto" decoding="async" /></a>
+        <a href="tel:+15086852770" aria-label="Call (508) 685-2770" style={`width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: ${brand}; border: 1px solid #D6E0E4; border-radius: 2px`}><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"></path></svg></a>
+        <button type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; background: #0F2433; color: #FFFFFF; border: 0; border-radius: 2px; cursor: pointer"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path data-menu-icon d="M4 7h16M4 12h16M4 17h16"></path></svg></button>
+      </div>
+    </div>
+    <div id="mobile-menu" data-mobile-menu hidden>
+      <div style="position: absolute; left: 0; right: 0; top: 100%; max-height: calc(100dvh - 68px); overflow-y: auto; overscroll-behavior: contain; background: #FFFFFF; border-bottom: 1px solid #D6E0E4; box-shadow: 0 30px 60px -30px rgba(15,36,51,0.4); padding: 8px 20px 24px">
+        <button type="button" data-sub-toggle="services" aria-expanded="true" aria-controls="mobile-services" style="width: 100%; display: flex; justify-content: space-between; align-items: center; height: 56px; background: transparent; border: 0; border-bottom: 1px solid #D6E0E4; font: inherit; font-size: 18px; font-weight: 500; color: #0F2433; padding: 0">Services <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path data-chevron d={up}></path></svg></button>
+        <div id="mobile-services" data-sub="services">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; padding: 8px 0 12px; border-bottom: 1px solid #D6E0E4">
+            {services.map((s) => (<Fragment>
+              <a href={link(s.href)} style="display: flex; align-items: center; min-height: 44px; font-size: 15px; color: #26394A; text-decoration: none">{s.name}</a>
+            </Fragment>))}
+          </div>
+        </div>
+        <button type="button" data-sub-toggle="products" aria-expanded="false" aria-controls="mobile-products" style="width: 100%; display: flex; justify-content: space-between; align-items: center; height: 56px; background: transparent; border: 0; border-bottom: 1px solid #D6E0E4; font: inherit; font-size: 18px; font-weight: 500; color: #0F2433; padding: 0">Products <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path data-chevron d={down}></path></svg></button>
+        <div id="mobile-products" data-sub="products" hidden>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; padding: 8px 0 12px; border-bottom: 1px solid #D6E0E4">
+            {products.map((p) => (<Fragment>
+              <a href={link(p.href)} style="display: flex; align-items: center; min-height: 44px; font-size: 15px; color: #26394A; text-decoration: none">{p.name}</a>
+            </Fragment>))}
+          </div>
+        </div>
+        <a href="/project-gallery/" style="display: flex; align-items: center; height: 56px; border-bottom: 1px solid #D6E0E4; font-size: 18px; font-weight: 500; color: #0F2433; text-decoration: none">Projects</a>
+        <a href="/glassworks-areas-we-serve/" style="display: flex; align-items: center; height: 56px; border-bottom: 1px solid #D6E0E4; font-size: 18px; font-weight: 500; color: #0F2433; text-decoration: none">Areas we serve</a>
+        <a href="/about-us-glass-installation/" style="display: flex; align-items: center; height: 56px; border-bottom: 1px solid #D6E0E4; font-size: 18px; font-weight: 500; color: #0F2433; text-decoration: none">About</a>
+        <a href="/blog/" style="display: flex; align-items: center; height: 56px; border-bottom: 1px solid #D6E0E4; font-size: 18px; font-weight: 500; color: #0F2433; text-decoration: none">Blog</a>
+        <a href="/contact/" style="display: flex; align-items: center; height: 56px; border-bottom: 1px solid #D6E0E4; font-size: 18px; font-weight: 500; color: #0F2433; text-decoration: none">Contact</a>
+        <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 20px">
+          <a href="/get-free-estimate/" style={`display: flex; align-items: center; justify-content: center; height: 52px; background: ${brand}; color: #FFFFFF; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px`}>Get Free Estimate</a>
+          <a href="tel:+15086852770" style="display: flex; align-items: center; justify-content: center; height: 52px; border: 1px solid #0F2433; color: #0F2433; text-decoration: none; font-weight: 600; font-size: 16px; border-radius: 2px">Call (508) 685-2770</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const UP = 'M6 15l6-6 6 6';
+  const DOWN = 'M6 9l6 6 6-6';
+  const MENU = 'M4 7h16M4 12h16M4 17h16';
+  const CLOSE = 'M6 6l12 12M18 6L6 18';
+
+  for (const header of document.querySelectorAll<HTMLElement>('[data-site-header]')) {
+    // Desktop mega menus: open on hover or click, close when the pointer leaves the header.
+    const toggles = [...header.querySelectorAll<HTMLButtonElement>('[data-mega-toggle]')];
+    const setMega = (name: string | null) => {
+      for (const btn of toggles) {
+        const on = btn.dataset.megaToggle === name;
+        btn.setAttribute('aria-expanded', String(on));
+        btn.style.borderBottomColor = on ? (btn.dataset.brand ?? '') : 'transparent';
+        header.querySelector<HTMLElement>(`[data-mega="${btn.dataset.megaToggle}"]`)!.hidden = !on;
+      }
+    };
+    const current = () => toggles.find((b) => b.getAttribute('aria-expanded') === 'true')?.dataset.megaToggle ?? null;
+    for (const btn of toggles) {
+      const name = btn.dataset.megaToggle!;
+      btn.addEventListener('click', () => setMega(current() === name ? null : name));
+      btn.addEventListener('mouseenter', () => { if (current() !== name) setMega(name); });
+    }
+    header.querySelectorAll('[data-mega-close]').forEach((a) => a.addEventListener('mouseenter', () => setMega(null)));
+    header.addEventListener('mouseleave', () => setMega(null));
+
+    // Mobile menu with Services / Products sub-lists.
+    const menuBtn = header.querySelector<HTMLButtonElement>('[data-menu-toggle]')!;
+    const menu = header.querySelector<HTMLElement>('[data-mobile-menu]')!;
+    const setMenu = (open: boolean) => {
+      menu.hidden = !open;
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.querySelector('[data-menu-icon]')!.setAttribute('d', open ? CLOSE : MENU);
+    };
+    menuBtn.addEventListener('click', () => setMenu(menu.hidden === true));
+    const subs = [...header.querySelectorAll<HTMLButtonElement>('[data-sub-toggle]')];
+    for (const btn of subs) {
+      btn.addEventListener('click', () => {
+        const opening = btn.getAttribute('aria-expanded') !== 'true';
+        for (const other of subs) {
+          const on = other === btn && opening;
+          other.setAttribute('aria-expanded', String(on));
+          other.querySelector('[data-chevron]')!.setAttribute('d', on ? UP : DOWN);
+          header.querySelector<HTMLElement>(`[data-sub="${other.dataset.subToggle}"]`)!.hidden = !on;
+        }
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      setMega(null);
+      if (!menu.hidden) { setMenu(false); menuBtn.focus(); }
+    });
+  }
+</script>

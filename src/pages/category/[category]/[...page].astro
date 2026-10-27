@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BlogIndex from '../../../views/BlogIndex.astro';
+import { FILTER_CATEGORIES, getPosts, slugify } from '../../../lib/blog';
+import { listingPages, searchIndex } from '../../../lib/blogPages';
+
+// One archive per post category, at the old WordPress /category/<slug>/ URLs.
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  const names = [...new Set(posts.flatMap((p) => p.data.categories))];
+  return names.flatMap((name) => {
+    const base = `/category/${slugify(name)}/`;
+    const inCat = posts.filter((p) => p.data.categories.includes(name));
+    return listingPages(inCat, base).map((p) => ({
+      params: { category: slugify(name), page: p.page === 1 ? undefined : `page/${p.page}` },
+      props: { ...p, name },
+    }));
+  });
+}
+
+const { name, page, featured, posts, last, pageUrl } = Astro.props;
+const index = await searchIndex();
+const suffix = page > 1 ? ` – Page ${page}` : '';
+---
+<BaseLayout
+  title={`${name}${suffix} | The Glass House Blog`}
+  description={`${name} articles from The Glass House: ideas, guides and care tips for custom glass on Cape Cod and Southeastern Massachusetts.`}
+>
+  <BlogIndex
+    featured={featured}
+    posts={posts}
+    active={FILTER_CATEGORIES.includes(name) ? name : ''}
+    page={{ current: page, last }}
+    pageUrl={pageUrl}
+    searchIndex={index}
+  />
+</BaseLayout>
