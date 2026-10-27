@@ -11,7 +11,9 @@ npm install
 npm run dev        # http://localhost:4321
 npm run build      # static site in dist/
 npm run preview    # serve dist/
-npm run check      # type-check .astro / .ts files
+npm run check      # type-check the site and the Worker
+npm run preview:worker   # build, then serve through the Cloudflare Worker locally (wrangler dev)
+npm run deploy     # build, then deploy to Cloudflare (needs CLOUDFLARE_API_TOKEN)
 ```
 
 ## How the design was ported
@@ -54,9 +56,19 @@ post, drop a new `.md` file with the same frontmatter (`title`, `description`, `
 
 ## Forms
 
-Estimate, quick estimate (home), service-page estimate, contact, product quote and newsletter forms use
-**Netlify Forms** (`data-netlify`, honeypot field) and redirect to `/thank-you/`. On another host, point each
-form's `action` at your handler (Formspree, CRM webhook, …).
+Estimate, quick estimate (home), service-page estimate, contact, product quote and newsletter forms all
+`POST` to `/thank-you/` with a hidden `form-name` field and a `bot-field` honeypot. The Worker
+(`worker/index.ts`) drops honeypot hits, forwards each submission unchanged (multipart, including uploaded
+photos) to the URL in the `FORM_WEBHOOK_URL` secret, and redirects the visitor to `/thank-you/`.
+
+Point `FORM_WEBHOOK_URL` at anything that accepts a form POST: a Formspree form endpoint, a Make or Zapier
+webhook, or your CRM. Set it with:
+
+```bash
+npx wrangler secret put FORM_WEBHOOK_URL
+```
+
+**Until it is set, submissions are logged in the Worker's logs but not delivered anywhere.**
 
 ## SEO
 
@@ -64,14 +76,31 @@ Per-page titles/descriptions, canonical URLs, Open Graph/Twitter tags, `LocalBus
 (`src/lib/site.ts`), `FAQPage` JSON-LD on the FAQ, service and product pages, `BlogPosting` on posts,
 `sitemap-index.xml` (`@astrojs/sitemap`) and `robots.txt`. Images below the fold are lazy-loaded.
 
-## Deployment
+## Deployment (Cloudflare Workers + static assets)
 
-`netlify.toml` builds with `npm run build` and publishes `dist/`. Any static host works; `_redirects` is the
-Netlify / Cloudflare Pages format.
+`wrangler.jsonc` deploys the Worker `the-glass-house`, which serves `./dist` through the `ASSETS` binding:
+
+- `html_handling: auto-trailing-slash`: `/contact` redirects to `/contact/`, which serves `contact/index.html`.
+- `not_found_handling: 404-page`: unknown URLs get `404.html` with a 404 status.
+- `run_worker_first` for `/thank-you/` so form POSTs reach the Worker (the asset layer only answers GET/HEAD).
+- `public/_redirects` (301s for retired URLs) and `public/_headers` (security and cache headers) are applied
+  by Cloudflare.
+
+Deploy:
+
+```bash
+export CLOUDFLARE_API_TOKEN=...   # token from the "Edit Cloudflare Workers" template
+export CLOUDFLARE_ACCOUNT_ID=...  # only needed if the token can see several accounts
+npm run deploy
+```
+
+The first deploy publishes to `https://the-glass-house.<your-subdomain>.workers.dev`. To serve
+www.theghglass.com, add it as a Custom Domain on the Worker in the Cloudflare dashboard (the domain's DNS must
+be on Cloudflare).
 
 ## Open items before launch
 
 - Areas hub map is the design's stylised placeholder ("Interactive service-area map (Google Maps)") — swap in a
   Google Maps embed if wanted.
 - Known soft photos to replace: Orleans, Truro, Eastham and Rhode Island area heroes.
-- Confirm the Netlify form notifications (email/CRM) after the first deploy.
+- Set `FORM_WEBHOOK_URL` and send a test submission from each form after the first deploy.

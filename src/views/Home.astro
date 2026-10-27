@@ -45,7 +45,7 @@ const chipOff = filters.find((f) => !f.on)?.style;
       </div>
 
       <!-- Glass estimate card -->
-      <form name="quick-estimate" method="POST" action="/thank-you/" data-netlify="true" netlify-honeypot="bot-field" id="estimate" style="flex: 0 1 420px; min-width: 0; box-sizing: border-box; padding: clamp(24px, 3cqi, 36px); background: rgba(255,255,255,0.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.7); box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset, 0 40px 80px -40px rgba(5,15,22,0.7); color: #0F2433; display: flex; flex-direction: column; gap: 16px">
+      <form name="quick-estimate" method="POST" action="/thank-you/" id="estimate" style="flex: 0 1 420px; min-width: 0; box-sizing: border-box; padding: clamp(24px, 3cqi, 36px); background: rgba(255,255,255,0.88); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.7); box-shadow: 0 1px 0 rgba(255,255,255,0.9) inset, 0 40px 80px -40px rgba(5,15,22,0.7); color: #0F2433; display: flex; flex-direction: column; gap: 16px">
         <input type="hidden" name="form-name" value="quick-estimate" /><p hidden><label>Leave this empty <input name="bot-field" /></label></p>
         <div style="display: flex; align-items: center; gap: 14px">
           <img src="/images/orny-beltrame.webp" alt="Orny Beltrame" style="width: 60px; height: 60px; flex: none; border-radius: 50%; object-fit: cover; object-position: 50% 12%; background: #E4EEF0; border: 1px solid #D6E0E4" fetchpriority="high" decoding="async" />
@@ -349,7 +349,7 @@ const chipOff = filters.find((f) => !f.on)?.style;
         <h2 style="margin: 0 0 6px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(28px, 2.8cqi, 36px); line-height: 1.2">Glass ideas &amp; care tips, a few times a year</h2>
         <p style="margin: 0; color: #4A5C67">New projects, seasonal maintenance reminders and the occasional offer. No spam.</p>
       </div>
-      <form name="newsletter" method="POST" action="/thank-you/" data-netlify="true" netlify-honeypot="bot-field" style="flex: 1 1 420px; min-width: 0; display: flex; flex-wrap: wrap; gap: 10px">
+      <form name="newsletter" method="POST" action="/thank-you/" style="flex: 1 1 420px; min-width: 0; display: flex; flex-wrap: wrap; gap: 10px">
         <input type="hidden" name="form-name" value="newsletter" /><p hidden><label>Leave this empty <input name="bot-field" /></label></p>
         <label for="nl-email" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Email address</label>
         <input id="nl-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" style="flex: 1 1 240px; min-width: 0; height: 52px; padding: 0 16px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; background: #FFFFFF; color: #0F2433" />

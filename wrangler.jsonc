@@ -1,0 +1,19 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "the-glass-house",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-10-20",
+  "observability": { "enabled": true },
+  "assets": {
+    // Astro's static build output.
+    "directory": "./dist",
+    "binding": "ASSETS",
+    // /contact/ serves dist/contact/index.html; /contact redirects to /contact/.
+    "html_handling": "auto-trailing-slash",
+    // Unknown URLs get dist/404.html with a 404 status.
+    "not_found_handling": "404-page",
+    // Forms POST here; send it to the Worker before the asset layer (which only answers GET/HEAD).
+    "run_worker_first": ["/thank-you", "/thank-you/"]
+  }
+  // Optional: set FORM_WEBHOOK_URL (wrangler secret put FORM_WEBHOOK_URL) to receive form submissions.
+}
