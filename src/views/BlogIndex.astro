@@ -105,7 +105,7 @@ for (let n = 1; n <= page.last; n++) {
         <h2 style="margin: 0 0 6px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(28px, 2.8cqi, 36px); line-height: 1.2">New articles in your inbox</h2>
         <p style="margin: 0; color: #4A5C67">A few times a year. No spam.</p>
       </div>
-      <form name="newsletter" method="POST" action="/thank-you/" data-netlify="true" netlify-honeypot="bot-field" style="flex: 1 1 420px; min-width: 0; display: flex; flex-wrap: wrap; gap: 10px">
+      <form name="newsletter" method="POST" action="/thank-you/" style="flex: 1 1 420px; min-width: 0; display: flex; flex-wrap: wrap; gap: 10px">
         <input type="hidden" name="form-name" value="newsletter" /><p hidden><label>Leave this empty <input name="bot-field" /></label></p>
         <label for="bi-email" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Email address</label>
         <input id="bi-email" name="email" type="email" placeholder="you@example.com" style="flex: 1 1 240px; min-width: 0; height: 52px; padding: 0 16px; border: 1px solid #B7C6CD; border-radius: 2px; font: inherit; font-size: 16px; background: #FFFFFF" />

@@ -23,7 +23,7 @@ const { brand, kinds, svc, towns } = estimateData(Astro.props);
 
       <!-- ===== FORM ===== -->
       <div id="estimate-form" style="flex: 1.6 1 560px; min-width: 0; background: #FFFFFF; border: 1px solid #D6E0E4; padding: clamp(20px, 4cqi, 48px); box-sizing: border-box">
-          <form name="estimate" method="POST" action="/thank-you/" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" style="display: flex; flex-direction: column; gap: 32px">
+          <form name="estimate" method="POST" action="/thank-you/" enctype="multipart/form-data" style="display: flex; flex-direction: column; gap: 32px">
         <input type="hidden" name="form-name" value="estimate" /><p hidden><label>Leave this empty <input name="bot-field" /></label></p>
 
             <fieldset style="border: 0; margin: 0; padding: 0">

@@ -29,3 +29,7 @@ desktop.ini
 
 # Astro
 .astro/
+
+# Cloudflare
+.wrangler/
+.dev.vars

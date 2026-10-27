@@ -20,7 +20,7 @@ const { brand, products, glass, edges, fulfil, sum } = productQuoteData(Astro.pr
     </div>
 
     <div style="display: flex; flex-wrap: wrap; gap: 32px 48px; align-items: flex-start">
-      <form name="product-quote" method="POST" action="/thank-you/" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" style="flex: 1.6 1 560px; min-width: 0; background: #FFFFFF; border: 1px solid #D6E0E4; padding: clamp(20px, 4cqi, 44px); box-sizing: border-box; display: flex; flex-direction: column; gap: 30px">
+      <form name="product-quote" method="POST" action="/thank-you/" enctype="multipart/form-data" style="flex: 1.6 1 560px; min-width: 0; background: #FFFFFF; border: 1px solid #D6E0E4; padding: clamp(20px, 4cqi, 44px); box-sizing: border-box; display: flex; flex-direction: column; gap: 30px">
         <input type="hidden" name="form-name" value="product-quote" /><p hidden><label>Leave this empty <input name="bot-field" /></label></p>
 
         <fieldset style="border: 0; margin: 0; padding: 0">

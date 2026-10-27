@@ -1,5 +1,5 @@
 # 301 redirects for old WordPress URLs that have no direct equivalent on the new site.
-# (Netlify / Cloudflare Pages format. Every other old URL — pages, services, products, areas,
+# (Cloudflare static-assets format. Every other old URL — pages, services, products, areas,
 # blog posts and /category/* archives — keeps its original path.)
 
 # Area pages that were folded into a neighbouring town
