@@ -13,7 +13,7 @@ npm run build      # static site in dist/
 npm run preview    # serve dist/
 npm run check      # type-check the site and the Worker
 npm run preview:worker   # build, then serve through the Cloudflare Worker locally (wrangler dev)
-npm run deploy     # build, then deploy to Cloudflare (needs CLOUDFLARE_API_TOKEN)
+npm run deploy     # manual deploy to Cloudflare (needs CLOUDFLARE_API_TOKEN); merges to main deploy automatically
 ```
 
 ## How the design was ported
@@ -86,17 +86,37 @@ Per-page titles/descriptions, canonical URLs, Open Graph/Twitter tags, `LocalBus
 - `public/_redirects` (301s for retired URLs) and `public/_headers` (security and cache headers) are applied
   by Cloudflare.
 
-Deploy:
+### Automatic deploys (Workers Builds)
+
+The Worker is connected to this GitHub repo in Cloudflare (Worker → Settings → Build). Every push or merge to
+`main` builds and deploys the site:
+
+| Setting | Value |
+|---|---|
+| Production branch | `main` |
+| Build command | `npm run build` |
+| Deploy command | `npx wrangler deploy` |
+| Root directory | `/` |
+
+A merge is live a minute or two after it lands. Check progress under Worker → Deployments. If a merge doesn't
+produce a new build there, re-check Cloudflare's GitHub app access to the repo (Settings → Build → Manage).
+If a build fails on the Node version, add the build variable `NODE_VERSION` = `22`.
+
+### Manual deploy
+
+Only needed if automatic builds are off:
 
 ```bash
 export CLOUDFLARE_API_TOKEN=...   # token from the "Edit Cloudflare Workers" template
 export CLOUDFLARE_ACCOUNT_ID=...  # only needed if the token can see several accounts
-npm run deploy
+npm run deploy                    # builds, then deploys
 ```
 
-The first deploy publishes to `https://the-glass-house.<your-subdomain>.workers.dev`. To serve
-www.theghglass.com, add it as a Custom Domain on the Worker in the Cloudflare dashboard (the domain's DNS must
-be on Cloudflare).
+Deploy from an up-to-date checkout of `main`. `npx wrangler deploy` on its own uploads whatever is already in
+`dist/` without rebuilding.
+
+The site is served at `https://the-glass-house.<your-subdomain>.workers.dev`. To serve www.theghglass.com, add
+it as a Custom Domain on the Worker in the Cloudflare dashboard (the domain's DNS must be on Cloudflare).
 
 ## Open items before launch
 
