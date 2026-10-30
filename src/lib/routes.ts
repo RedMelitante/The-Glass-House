@@ -61,7 +61,11 @@ export const ROUTES: Record<string, string> = {
   "Area-Provincetown.dc.html": "/glassworks-areas-we-serve/provincetown-glass-repair-service/",
   "Area-Boston.dc.html": "/glassworks-areas-we-serve/boston-glass-installation-services/",
   "Area-Providence.dc.html": "/glassworks-areas-we-serve/providence-glass-repair/",
-  "Area-RhodeIsland.dc.html": "/glassworks-areas-we-serve/rhode-island-mirror-replacement/"
+  "Area-RhodeIsland.dc.html": "/glassworks-areas-we-serve/rhode-island-mirror-replacement/",
+  "Area-Cotuit.dc.html": "/glassworks-areas-we-serve/cotuit-glass-installation/",
+  "Area-Centerville.dc.html": "/glassworks-areas-we-serve/centerville-glass-installation/",
+  "Area-Plymouth.dc.html": "/glassworks-areas-we-serve/plymouth-glass-installation/",
+  "Area-Portsmouth.dc.html": "/glassworks-areas-we-serve/custom-glass-portsmouth-ri/"
 };
 
 /** Resolve a design link ("Estimate.dc.html", "Legal.dc.html#terms") or pass a real URL through. */
@@ -124,4 +128,8 @@ export const AREA_SLUGS: Record<string, string> = {
   boston: 'boston-glass-installation-services',
   providence: 'providence-glass-repair',
   rhodeisland: 'rhode-island-mirror-replacement',
+  cotuit: 'cotuit-glass-installation',
+  centerville: 'centerville-glass-installation',
+  plymouth: 'plymouth-glass-installation',
+  portsmouth: 'custom-glass-portsmouth-ri',
 };

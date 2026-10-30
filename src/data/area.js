@@ -20,6 +20,13 @@ export function areaData(props = {}, state = {}) {
       outer: [['Glass pool fence', 'Railings', 'how-to-design-a-stunning-bathroom-with-a-walk-in-shower.webp', 'Cape Cod'], ['Marble shower with bench & lit niche', 'Showers', 'shower-enclosure.webp', 'Cape Cod'], ['Waterfront glass fire pit', 'Fireplaces', 'chatham-area-hero.webp', 'Cape Cod']],
       beyond: [['Glass office partitions, loft', 'Partitions', 'boston-area-hero.webp', 'Commercial'], ['Rooftop glass railing', 'Railings', 'loft-railing-black-top-rail.webp', 'Commercial'], ['Black grid bypass shower', 'Showers', 'semi-frameless-vs-framed-shower-doors-which-fits-your-cape.webp', 'Portsmouth, RI']]
     };
+    // Projects photographed in a specific town; other towns show their region's projects (PJ).
+    const TP = {
+      cotuit: [['Frameless stand-in shower, brushed nickel', 'Showers', 'cotuit-frameless-shower-1.webp', 'Cotuit, MA'], ['Frameless door & panel, tile walls', 'Showers', 'cotuit-frameless-shower-2.webp', 'Cotuit, MA'], ['Custom shower with linear drain', 'Showers', 'cotuit-frameless-shower-3.webp', 'Cotuit, MA']],
+      centerville: [['Frameless shower on a knee wall', 'Showers', 'centerville-knee-wall-shower-1.webp', 'Centerville, MA'], ['Knee-wall shower, matte black hardware', 'Showers', 'centerville-knee-wall-shower-2.webp', 'Centerville, MA']],
+      plymouth: [['Glass top on kitchen island', 'Countertops', 'plymouth-glass-island-top-1.webp', 'Plymouth, MA'], ['Glass island top, walnut edge', 'Countertops', 'plymouth-glass-island-top-2.webp', 'Plymouth, MA']],
+      portsmouth: [['Black grid bypass shower', 'Showers', 'portsmouth-black-grid-shower-1.webp', 'Portsmouth, RI'], ['Grid bypass door, subway tile', 'Showers', 'portsmouth-black-grid-shower-2.webp', 'Portsmouth, RI'], ['Black grid shower, patterned floor', 'Showers', 'portsmouth-black-grid-shower-3.webp', 'Portsmouth, RI']]
+    };
     const EX = {
       chatham: ['25', 'Chatham homes face the Atlantic and Pleasant Bay, so we recommend tempered glass and marine-grade hardware for decks and railings, and low-iron glass where clarity matters. Inside, many houses are older capes and shingle-style homes, which means walls and floors are rarely square. Our on-site measure captures every angle so shower doors, mirrors and partitions sit tight. We schedule Chatham installs around your plans, whether it’s a summer home that needs to be ready by June or a year-round remodel with a builder.'],
       hyannis: ['0', 'Because our shop is in Hyannis, we can usually visit quickly for measures, repairs and replacement glass. Homeowners, landlords and businesses along Main Street and around the harbor use us for everything from a single mirror to full storefront glass. You’re welcome to stop by 270 Communication Way to see glass types, edge finishes and hardware in person before you decide, then we’ll measure on site and install with our own team.'],
@@ -39,6 +46,10 @@ export function areaData(props = {}, state = {}) {
       provincetown: ['60', 'At the tip of the Cape, Provincetown’s guest houses, galleries, restaurants and homes all need glass that stands up to harbor weather. We install storefront glass, shower enclosures for guest rooms, mirrors and railings, and we plan Provincetown visits ahead so measures and installs are done efficiently, often outside the busiest summer weeks.'],
       boston: ['90', 'We take on select projects in Greater Boston, from glass office partitions and conference rooms to custom showers and mirrors in city homes and condos. For off-Cape work we plan the measure and installation days in advance and coordinate with building managers on access, parking and schedules.'],
       providence: ['80', 'We take on select projects in Providence, from glass office partitions and storefront glass to custom showers and mirrors in homes and condos. For off-Cape work we plan the measure and installation days in advance and coordinate with building managers on access and parking, so the job is done efficiently.'],
+      cotuit: ['15', 'Cotuit homes sit close to Cotuit Bay, so moisture and salt air are part of everyday life for glass and hardware. We choose materials and installation methods that resist fogging, corrosion and wear in bay-side homes. Many houses here are classic capes and historic village homes, and our on-site measure accounts for walls and floors that are rarely square.'],
+      centerville: ['10', 'Just minutes from Craigville Beach, Centerville homes deal with the same humidity and salt exposure as the rest of the Cape’s south shore. We build every shower, mirror and window to hold up to that environment without extra maintenance, and we schedule around busy family households so the work is done quickly and cleanly.'],
+      plymouth: ['45', 'As the gateway to Cape Cod, Plymouth sees the same coastal humidity and shifting seasons as the towns across the canal. From historic Colonial homes downtown to newer neighborhoods along the South Shore, we bring the right glass, hardware and technique to every Plymouth project, and we plan measure and install days so the job is done efficiently.'],
+      portsmouth: ['80', 'Between constant exposure to Narragansett Bay and the town’s well-preserved architecture, Portsmouth homes need glasswork that is both durable and visually right for the house. We match framing details and hardware finishes to each home, and for off-Cape work we plan the measure and installation days in advance and coordinate directly with homeowners and contractors.'],
       rhodeisland: ['90', 'We take on select projects in Rhode Island, including custom showers like our black grid bypass shower in Portsmouth. For off-Cape work we plan the measure and installation days in advance so the job is done efficiently, and we coordinate directly with homeowners and contractors.']
     };
     const mk = (key, name, file, region, hero, map, villages, near, opener) => ({
@@ -68,9 +79,19 @@ export function areaData(props = {}, state = {}) {
       provincetown: mk('provincetown', 'Provincetown', 'Area-Provincetown.dc.html', 'outer', 'provincetown-area-hero.webp', ['72%', '14%'], 'West End, East End', ['truro', 'wellfleet', 'eastham', 'orleans', 'chatham', 'hyannis'], 'At the tip of the Cape, Provincetown’s guest houses, galleries and homes all need glass that stands up to the harbor weather.'),
       boston: mk('boston', 'Boston', 'Area-Boston.dc.html', 'beyond', 'boston-area-hero.webp', ['10%', '16%'], 'Greater Boston (select projects)', ['bourne', 'sandwich', 'falmouth', 'providence', 'rhodeisland', 'hyannis'], 'We take on select projects in Boston, from office glass partitions to custom showers and mirrors in city homes.'),
       providence: mk('providence', 'Providence', 'Area-Providence.dc.html', 'beyond', 'providence-area-hero.webp', ['4%', '62%'], 'Greater Providence (select projects)', ['rhodeisland', 'boston', 'bourne', 'falmouth', 'sandwich', 'hyannis'], 'We take on select projects in Providence, from office glass partitions to custom showers and mirrors in city homes.'),
+      cotuit: mk('cotuit', 'Cotuit', 'Area-Cotuit.dc.html', 'mid', 'cotuit-area-hero.webp', ['22%', '62%'], 'Cotuit Bay, Santuit, Little River', ['barnstable', 'centerville', 'mashpee', 'hyannis', 'falmouth', 'sandwich'], 'Cotuit’s quiet, historic charm, from Cotuit Bay to its classic village homes, deserves glasswork that respects its character, from custom shower doors to mirrors and windows built for coastal conditions.'),
+      centerville: mk('centerville', 'Centerville', 'Area-Centerville.dc.html', 'mid', 'centerville-area-hero.webp', ['30%', '58%'], 'Craigville, Wianno, Long Pond', ['hyannis', 'barnstable', 'cotuit', 'yarmouth', 'mashpee', 'dennis'], 'From Craigville Beach to the neighborhoods around Main Street, Centerville is one of the Cape’s most established family communities, and its homes get a lot of everyday use out of their showers, mirrors and windows.'),
+      plymouth: mk('plymouth', 'Plymouth', 'Area-Plymouth.dc.html', 'beyond', 'plymouth-area-hero.webp', ['8%', '12%'], 'Manomet, Cedarville, Plymouth Center', ['bourne', 'sandwich', 'boston', 'falmouth', 'barnstable', 'hyannis'], 'From downtown Plymouth’s historic storefronts to the growing neighborhoods along the South Shore, we deliver durable custom glass for homes and businesses throughout Plymouth.'),
+      portsmouth: mk('portsmouth', 'Portsmouth', 'Area-Portsmouth.dc.html', 'beyond', 'portsmouth-area-hero.webp', ['4%', '56%'], 'Island Park, Prudence Island, Common Fence Point', ['rhodeisland', 'providence', 'boston', 'falmouth', 'bourne', 'hyannis'], 'Portsmouth’s classic New England homes and waterfront properties call for glasswork that respects the town’s coastal character, like the black grid bypass shower we built here.'),
       rhodeisland: mk('rhodeisland', 'Rhode Island', 'Area-RhodeIsland.dc.html', 'beyond', 'rhodeisland-area-hero.webp', ['6%', '50%'], 'Portsmouth, Newport', ['providence', 'boston', 'bourne', 'falmouth', 'sandwich', 'hyannis'], 'We take on select projects in Rhode Island, including custom showers like our black grid bypass shower in Portsmouth.')
     };
-    const c = TW[this.props.town] || TW.chatham;
+    // Hero crop for photos whose subject isn't near the top third.
+    TW.portsmouth.heroPos = '50% 85%';
+    const key = TW[this.props.town] ? this.props.town : 'chatham';
+    const state = ['providence', 'portsmouth'].includes(key) ? 'RI' : 'MA';
+    const c = TW[key];
+    const own = TP[key] || [];
+    const regional = (PJ[c.region] || PJ.lower).filter((x) => !own.some((o) => o[2] === x[2]));
     return {
       brand: brand,
       m: m,
@@ -89,10 +110,10 @@ export function areaData(props = {}, state = {}) {
         { name: 'Glass Shelves', href: 'Service-Shelves.dc.html', d: 'M3 7h18M3 13h18M3 19h18M5 7v2M19 7v2' },
         { name: 'Fireplace Screens', href: 'Service-Fireplace.dc.html', d: 'M3 4h18v17H3zM6 21V9h12v12M12 18c-1.7 0-3-1.2-3-2.8 0-1.8 3-3 3-5 1 1.4 3 2.9 3 5 0 1.6-1.3 2.8-3 2.8z' }
       ],
-      town: c.name, hero: B + c.hero, lede: c.lede, consult: c.consult, introH: c.introH, intro: c.intro,
+      town: c.name, place: key === 'rhodeisland' ? c.name : c.name + ', ' + state, heroPos: c.heroPos || '50% 30%', hero: B + c.hero, lede: c.lede, consult: c.consult, introH: c.introH, intro: c.intro,
       drive: c.drive, local: c.local, statNum: c.statNum, statLabel: c.statLabel, villages: c.villages, regionName: RG[c.region].name, regionThe: RG[c.region].the,
       mapX: c.map[0], mapY: c.map[1],
-      projects: (PJ[c.region] || PJ.lower).map((x) => ({ title: x[0], cat: x[1], town: x[3], tone: '#A9BCC4', img: B + x[2] })),
+      projects: [...own, ...regional].slice(0, 3).map((x) => ({ title: x[0], cat: x[1], town: x[3], tone: '#A9BCC4', img: B + x[2] })),
       reviews: [
         { quote: 'The Glass House did a very fine job on my stand-in shower project in Cotuit MA…', name: 'Jason', meta: 'Renaissance Restoration' },
         { quote: 'We have used the Glass House on several of our bathroom remodeling projects…', name: 'Constantin Tabla', meta: 'Google review' },

@@ -2,12 +2,6 @@
 # (Cloudflare static-assets format. Every other old URL — pages, services, products, areas,
 # blog posts and /category/* archives — keeps its original path.)
 
-# Area pages that were folded into a neighbouring town
-/glassworks-areas-we-serve/cotuit-glass-installation/        /glassworks-areas-we-serve/barnstable-glass-window-replacement/   301
-/glassworks-areas-we-serve/centerville-glass-installation/   /glassworks-areas-we-serve/barnstable-glass-window-replacement/   301
-/glassworks-areas-we-serve/custom-glass-portsmouth-ri/       /glassworks-areas-we-serve/rhode-island-mirror-replacement/       301
-/glassworks-areas-we-serve/plymouth-glass-installation/      /glassworks-areas-we-serve/                                       301
-
 # Blog
 /category/blogs/                                    /blog/                                                              301
 /category/blogs/*                                   /blog/                                                              301
