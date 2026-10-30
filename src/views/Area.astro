@@ -4,7 +4,7 @@ import Footer from '../components/Footer.astro';
 import { link } from '../lib/routes';
 import { areaData } from '../data/area.js';
 
-const { brand, services, town, hero, lede, consult, introH, intro, drive, local, statNum, statLabel, villages, regionThe, mapX, mapY, projects, reviews, nearby } = areaData(Astro.props);
+const { brand, services, town, place, heroPos, regionName, hero, lede, consult, introH, intro, drive, local, statNum, statLabel, villages, regionThe, mapX, mapY, projects, reviews, nearby } = areaData(Astro.props);
 ---
 <div class="dc-root" style="container-type: inline-size; background: #FFFFFF; color: #0F2433; font-family: 'Instrument Sans', system-ui, sans-serif; font-size: 16px; line-height: 1.6">
 
@@ -13,12 +13,12 @@ const { brand, services, town, hero, lede, consult, introH, intro, drive, local,
   </div>
 
   <!-- ===== LOCAL HERO ===== -->
-  <section style={`position: relative; background-color: #3A5462; background-image: linear-gradient(90deg, rgba(15,36,51,0.82) 0%, rgba(15,36,51,0.45) 60%, rgba(15,36,51,0.15) 100%), url(${hero}); background-size: cover; background-position: 50% 30%; color: #FFFFFF`}>
+  <section style={`position: relative; background-color: #3A5462; background-image: linear-gradient(90deg, rgba(15,36,51,0.82) 0%, rgba(15,36,51,0.45) 60%, rgba(15,36,51,0.15) 100%), url(${hero}); background-size: cover; background-position: ${heroPos}; color: #FFFFFF`}>
     <div style="max-width: 1240px; margin: 0 auto; padding: clamp(24px, 3cqi, 32px) clamp(20px, 4cqi, 48px) clamp(48px, 8cqi, 104px)">
       <nav aria-label="Breadcrumb" style="font-size: 13px; color: #DCE6EA; margin-bottom: clamp(32px, 6cqi, 72px)"><a href="/" style="color: #DCE6EA">Home</a><span style="margin: 0 8px">/</span><a href="/glassworks-areas-we-serve/" style="color: #DCE6EA">Areas we serve</a><span style="margin: 0 8px">/</span><span aria-current="page" style="color: #FFFFFF; font-weight: 500">{town}</span></nav>
       <div style="display: flex; flex-wrap: wrap; gap: 40px 64px; align-items: center">
         <div style="flex: 1 1 520px; min-width: 0">
-          <div style="display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #DCE6EA"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"></path></svg>Serving {town}, MA · Lower Cape</div>
+          <div style="display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #DCE6EA"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"></path></svg>Serving {place} · {regionName}</div>
           <h1 style="margin: 16px 0 20px; font-family: 'Newsreader', Georgia, serif; font-weight: 400; font-size: clamp(40px, 5.6cqi, 76px); line-height: 1.04; letter-spacing: -0.02em">Custom glass &amp; mirrors in <em>{town}</em></h1>
           <p style="margin: 0 0 28px; font-size: clamp(17px, 1.5cqi, 20px); color: #E6EEF1; max-width: 540px">{lede}</p>
           <div style="display: flex; flex-wrap: wrap; gap: 12px">

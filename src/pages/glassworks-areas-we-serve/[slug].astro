@@ -10,10 +10,9 @@ export function getStaticPaths() {
 
 const { town } = Astro.props;
 const a = areaData({ town });
-const place = town === 'rhodeisland' ? a.town : `${a.town}, ${town === 'providence' ? 'RI' : 'MA'}`;
 ---
 <BaseLayout
-  title={`Custom Glass & Mirrors in ${place} | The Glass House`}
+  title={`Custom Glass & Mirrors in ${a.place} | The Glass House`}
   description={a.lede}
   image={a.hero}
 >

@@ -32,7 +32,7 @@ export function estimateData(props = {}, state = {}) {
         style: picked[s] ? onStyle : offStyle,
         pick: () => { const next = Object.assign({}, picked); next[s] = !picked[s]; this.setState({ svc: next }); }
       })),
-      towns: ['Hyannis', 'Barnstable', 'Bourne', 'Brewster', 'Chatham', 'Dennis', 'Eastham', 'Falmouth', 'Harwich', 'Mashpee', 'Orleans', 'Provincetown', 'Sandwich', 'Truro', 'Wellfleet', 'Yarmouth', 'Boston area', 'Providence, RI', 'Rhode Island (other)'],
+      towns: ['Hyannis', 'Barnstable', 'Bourne', 'Brewster', 'Centerville', 'Chatham', 'Cotuit', 'Dennis', 'Eastham', 'Falmouth', 'Harwich', 'Mashpee', 'Orleans', 'Provincetown', 'Sandwich', 'Truro', 'Wellfleet', 'Yarmouth', 'Plymouth', 'Boston area', 'Providence, RI', 'Portsmouth, RI', 'Rhode Island (other)'],
       uploads: [
         { name: 'bathroom-1.jpg', tone: '#B3C6CD', img: '/images/shower-curb-height-ledges-wall-anchoring-what-homeowners.webp' },
         { name: 'shower-opening.heic', tone: '#C2D0D4', img: '/images/neo-angle-corner-shower-enclosures-maximizing-small.webp' }

@@ -7,7 +7,7 @@ export function areasData(props = {}, state = {}) {
     const st = this.state || {};
     const brand = this.props.brand ?? '#1E5873';
     const m = !!this.props.mobile || !!st.narrow;
-    const AH = {'Chatham': 'Area.dc.html', 'Hyannis': 'Area-Hyannis.dc.html', 'Barnstable': 'Area-Barnstable.dc.html', 'Yarmouth': 'Area-Yarmouth.dc.html', 'Dennis': 'Area-Dennis.dc.html', 'Bourne': 'Area-Bourne.dc.html', 'Sandwich': 'Area-Sandwich.dc.html', 'Falmouth': 'Area-Falmouth.dc.html', 'Mashpee': 'Area-Mashpee.dc.html', 'Brewster': 'Area-Brewster.dc.html', 'Harwich': 'Area-Harwich.dc.html', 'Orleans': 'Area-Orleans.dc.html', 'Eastham': 'Area-Eastham.dc.html', 'Wellfleet': 'Area-Wellfleet.dc.html', 'Truro': 'Area-Truro.dc.html', 'Provincetown': 'Area-Provincetown.dc.html', 'Boston': 'Area-Boston.dc.html', 'Rhode Island': 'Area-RhodeIsland.dc.html', 'Providence': 'Area-Providence.dc.html', 'Providence, RI': 'Area-Providence.dc.html'};
+    const AH = {'Chatham': 'Area.dc.html', 'Hyannis': 'Area-Hyannis.dc.html', 'Barnstable': 'Area-Barnstable.dc.html', 'Yarmouth': 'Area-Yarmouth.dc.html', 'Dennis': 'Area-Dennis.dc.html', 'Bourne': 'Area-Bourne.dc.html', 'Sandwich': 'Area-Sandwich.dc.html', 'Falmouth': 'Area-Falmouth.dc.html', 'Mashpee': 'Area-Mashpee.dc.html', 'Brewster': 'Area-Brewster.dc.html', 'Harwich': 'Area-Harwich.dc.html', 'Orleans': 'Area-Orleans.dc.html', 'Eastham': 'Area-Eastham.dc.html', 'Wellfleet': 'Area-Wellfleet.dc.html', 'Truro': 'Area-Truro.dc.html', 'Provincetown': 'Area-Provincetown.dc.html', 'Boston': 'Area-Boston.dc.html', 'Rhode Island': 'Area-RhodeIsland.dc.html', 'Cotuit': 'Area-Cotuit.dc.html', 'Centerville': 'Area-Centerville.dc.html', 'Plymouth': 'Area-Plymouth.dc.html', 'Portsmouth, RI': 'Area-Portsmouth.dc.html', 'Providence': 'Area-Providence.dc.html', 'Providence, RI': 'Area-Providence.dc.html'};
     const t = (names) => names.map((n) => ({ name: n, href: AH[n] || '#' }));
     return {
       brand: brand,
@@ -26,10 +26,10 @@ export function areasData(props = {}, state = {}) {
       ],
       regions: [
         { name: 'Upper Cape', note: 'Closest to the bridges.', towns: t(['Bourne', 'Sandwich', 'Falmouth', 'Mashpee']) },
-        { name: 'Mid Cape', note: 'Our home base in Hyannis.', towns: t(['Hyannis', 'Barnstable', 'Yarmouth', 'Dennis']) },
+        { name: 'Mid Cape', note: 'Our home base in Hyannis.', towns: t(['Hyannis', 'Barnstable', 'Centerville', 'Cotuit', 'Yarmouth', 'Dennis']) },
         { name: 'Lower Cape', note: 'Harbors, beaches and historic homes.', towns: t(['Brewster', 'Harwich', 'Chatham', 'Orleans']) },
         { name: 'Outer Cape', note: 'All the way to the tip.', towns: t(['Eastham', 'Wellfleet', 'Truro', 'Provincetown']) },
-        { name: 'Beyond the Cape', note: 'Select projects off-Cape.', towns: t(['Boston', 'Providence', 'Rhode Island']) }
+        { name: 'Beyond the Cape', note: 'Select projects off-Cape.', towns: t(['Plymouth', 'Boston', 'Providence', 'Portsmouth, RI', 'Rhode Island']) }
       ]
     };
   }.call(self);
