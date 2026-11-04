@@ -95,6 +95,17 @@ Notes:
 - Photos over 15 MB in total aren't attached; the email lists their names instead.
 - To send to a different inbox, change `NOTIFY_EMAIL` at the top of the script and deploy a new version.
 
+**If an email doesn't arrive**, check Cloudflare → Worker → Observability → Logs for the form's line:
+
+| Log line | Meaning / fix |
+|---|---|
+| `Form "contact" emailed.` | Sent: check Spam and the Sent folder. |
+| `FORM_WEBHOOK_URL is not set` | Add the `FORM_WEBHOOK_URL` secret on the Worker. |
+| `FORM_WEBHOOK_SECRET is not set` / `rejected by the Apps Script: unauthorized` | The Worker's `FORM_WEBHOOK_SECRET` must exactly match the script's `SHARED_SECRET`. |
+| `…permission to call MailApp.sendEmail…` | Run `sendTestEmail` in the script editor and approve the mail permission. |
+| `Sign in - Google Accounts` | The deployment's access must be **Anyone**: Deploy → Manage deployments → Edit. |
+| `webhook returned 404` | `FORM_WEBHOOK_URL` isn't the Web app URL ending in `/exec`. |
+
 ### Other form services
 
 If `FORM_WEBHOOK_URL` points anywhere other than Google Apps Script (Formspree, Make, Zapier, a CRM), the

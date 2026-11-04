@@ -61,6 +61,9 @@ async function handleForm(request: Request, env: Env, ctx: ExecutionContext, url
   }
 
   const toAppsScript = new URL(env.FORM_WEBHOOK_URL).hostname === 'script.google.com';
+  if (toAppsScript && !env.FORM_WEBHOOK_SECRET) {
+    console.error(`Form "${form}": FORM_WEBHOOK_SECRET is not set, so the Apps Script will reject this submission.`);
+  }
   ctx.waitUntil(
     (toAppsScript
       ? toJson(data, env.FORM_WEBHOOK_SECRET ?? '').then((body) =>
@@ -68,8 +71,22 @@ async function handleForm(request: Request, env: Env, ctx: ExecutionContext, url
         )
       : fetch(env.FORM_WEBHOOK_URL, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
     )
-      .then((res) => {
-        if (!res.ok) console.error(`Form "${form}" webhook returned ${res.status}`);
+      .then(async (res) => {
+        if (!res.ok) {
+          console.error(`Form "${form}" webhook returned ${res.status}: ${(await res.text()).slice(0, 300)}`);
+          return;
+        }
+        if (!toAppsScript) return;
+        // Apps Script answers 200 even when the script rejects the request or throws (e.g. no mail
+        // permission), so check what it actually said.
+        const text = await res.text();
+        let reply: { ok?: boolean; error?: string } | null = null;
+        try {
+          reply = JSON.parse(text);
+        } catch {}
+        if (reply?.ok) console.log(`Form "${form}" emailed.`);
+        else if (reply) console.error(`Form "${form}" rejected by the Apps Script: ${reply.error ?? text.slice(0, 300)}`);
+        else console.error(`Form "${form}": unexpected Apps Script reply (wrong URL, access not "Anyone", or a script error): ${describeHtml(text)}`);
       })
       .catch((err) => console.error(`Form "${form}" webhook failed`, err)),
   );
@@ -108,4 +125,11 @@ function base64(buffer: ArrayBuffer): string {
   let binary = '';
   for (let i = 0; i < bytes.length; i += 0x8000) binary += String.fromCharCode(...bytes.subarray(i, i + 0x8000));
   return btoa(binary);
+}
+
+/** The useful part of an HTML error page: its title or first error-looking line. */
+function describeHtml(html: string): string {
+  const title = html.match(/<title>([^<]*)<\/title>/i)?.[1]?.trim();
+  const error = html.match(/<div[^>]*>([^<]*(?:Error|Exception|authoriz|permission)[^<]*)<\/div>/i)?.[1]?.trim();
+  return [title, error].filter(Boolean).join(' — ').slice(0, 300) || html.replace(/\s+/g, ' ').slice(0, 300);
 }
