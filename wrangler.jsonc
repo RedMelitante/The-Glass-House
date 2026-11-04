@@ -15,5 +15,6 @@
     // Forms POST here; send it to the Worker before the asset layer (which only answers GET/HEAD).
     "run_worker_first": ["/thank-you", "/thank-you/"]
   }
-  // Optional: set FORM_WEBHOOK_URL (wrangler secret put FORM_WEBHOOK_URL) to receive form submissions.
+  // Secrets (not in this file): FORM_WEBHOOK_URL and FORM_WEBHOOK_SECRET deliver form submissions.
+  // See README.md → Forms.
 }

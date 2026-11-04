@@ -58,17 +58,47 @@ post, drop a new `.md` file with the same frontmatter (`title`, `description`, `
 
 Estimate, quick estimate (home), service-page estimate, contact, product quote and newsletter forms all
 `POST` to `/thank-you/` with a hidden `form-name` field and a `bot-field` honeypot. The Worker
-(`worker/index.ts`) drops honeypot hits, forwards each submission unchanged (multipart, including uploaded
-photos) to the URL in the `FORM_WEBHOOK_URL` secret, and redirects the visitor to `/thank-you/`.
+(`worker/index.ts`) drops honeypot hits, forwards each submission to the URL in the `FORM_WEBHOOK_URL`
+secret, and redirects the visitor to `/thank-you/`.
 
-Point `FORM_WEBHOOK_URL` at anything that accepts a form POST: a Formspree form endpoint, a Make or Zapier
-webhook, or your CRM. Set it with:
+**Until `FORM_WEBHOOK_URL` is set, submissions are only logged in the Worker's logs and not delivered.**
 
-```bash
-npx wrangler secret put FORM_WEBHOOK_URL
-```
+### Form emails from the Glass House Google account (theghglass@gmail.com)
 
-**Until it is set, submissions are logged in the Worker's logs but not delivered anywhere.**
+`google-apps-script/form-email.gs` is a Google Apps Script that emails every submission to
+theghglass@gmail.com, sent from that same account. Uploaded photos are attached, and Reply goes to the
+customer's email. Setup, signed in to Google as **theghglass@gmail.com**:
+
+1. Go to [script.google.com](https://script.google.com) → **New project**. Name it "Website form emails",
+   delete the sample code and paste in `google-apps-script/form-email.gs`. Save.
+2. **Project Settings** (gear icon) → **Script properties** → **Add script property**: name `SHARED_SECRET`,
+   value a long random string (e.g. from a password generator). Save.
+3. Back in the editor, choose `sendTestEmail` in the function menu and click **Run**. Google asks for
+   permission to send email as you: approve it. If it shows "Google hasn't verified this app", click
+   **Advanced** → **Go to Website form emails**; it's your own script. A test email arrives in the inbox.
+4. **Deploy** → **New deployment** → type **Web app**; *Execute as*: **Me**; *Who has access*: **Anyone**.
+   Deploy and copy the **Web app URL** (ends in `/exec`).
+5. Give the Worker the URL and the same secret. Either in Cloudflare (Worker → Settings → Variables and
+   Secrets → add two secrets), or with wrangler:
+
+   ```bash
+   npx wrangler secret put FORM_WEBHOOK_URL      # paste the Web app URL
+   npx wrangler secret put FORM_WEBHOOK_SECRET   # paste the SHARED_SECRET value
+   ```
+
+6. Send a test from the website's contact form and check the inbox.
+
+Notes:
+- To change the script later, edit it, then **Deploy → Manage deployments → Edit → Version: New version**.
+  The URL stays the same.
+- Gmail lets a personal account's scripts send about 100 emails a day, far more than the site needs.
+- Photos over 15 MB in total aren't attached; the email lists their names instead.
+- To send to a different inbox, change `NOTIFY_EMAIL` at the top of the script and deploy a new version.
+
+### Other form services
+
+If `FORM_WEBHOOK_URL` points anywhere other than Google Apps Script (Formspree, Make, Zapier, a CRM), the
+Worker forwards the original multipart form, uploads included, and `FORM_WEBHOOK_SECRET` isn't used.
 
 ## SEO
 
@@ -123,4 +153,4 @@ it as a Custom Domain on the Worker in the Cloudflare dashboard (the domain's DN
 - Areas hub map is the design's stylised placeholder ("Interactive service-area map (Google Maps)") — swap in a
   Google Maps embed if wanted.
 - Known soft photos to replace: Orleans, Truro, Eastham and Rhode Island area heroes.
-- Set `FORM_WEBHOOK_URL` and send a test submission from each form after the first deploy.
+- Finish the form-email setup above and send a test submission from each form.
