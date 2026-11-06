@@ -21,7 +21,7 @@ export const SITE = {
     'https://www.instagram.com/the_glass_house_cape_cod/',
     'https://youtube.com/@TheGlassHouseGlass',
   ],
-  defaultImage: '/images/orleans-area-hero.webp',
+  defaultImage: '/images/sliding-door-glass.webp',
   logo: '/images/the-glass-house.png',
 } as const;
 

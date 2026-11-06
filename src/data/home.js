@@ -15,12 +15,12 @@ export function homeData(props = {}, state = {}) {
       pick: () => this.setState({ cat: label })
     }));
     const allGallery = [
-      { title: 'Frameless glass railing, home office', cat: 'Railings', town: 'Cape Cod', photo: '', tone: '#9FB4BE', img: '/images/rain-glass-bypass-rolling-hardware.webp' },
-      { title: 'Wall-to-wall vanity mirror', cat: 'Mirrors', town: 'Cape Cod', photo: '', tone: '#C2D0D4', img: '/images/glass-railing-home-office.webp' },
-      { title: 'Storefront glass with standoffs', cat: 'Storefronts', town: 'Commercial', photo: '', tone: '#A9BCC4', img: '/images/rhodeisland-area-hero.webp' },
-      { title: 'Frameless corner shower, brass hinges', cat: 'Showers', town: 'Cape Cod', photo: '', tone: '#ACC0C7', img: '/images/why-wall-anchoring-matters-how-much-weight-can-a-wall-stud.webp' },
-      { title: 'Glass wine room & bar top', cat: 'Wine cellars', town: 'Commercial', photo: '', tone: '#B9C9CF', img: '/images/framed-vanity-mirror.webp' },
-      { title: 'Sunroom glass & skylights', cat: 'Windows', town: 'Cape Cod', photo: '', tone: '#B3C6CD', img: '/images/custom-glass-sunroom-with-skylights-overlooking-a-cape-cod.webp' }
+      { title: 'Frameless glass railing, home office', cat: 'Railings', town: 'Cape Cod', photo: '', tone: '#9FB4BE', img: '/images/lofts-stair-walls.webp' },
+      { title: 'Wall-to-wall vanity mirror', cat: 'Mirrors', town: 'Cape Cod', photo: '', tone: '#C2D0D4', img: '/images/vanity-mirrors.webp' },
+      { title: 'Storefront glass with standoffs', cat: 'Storefronts', town: 'Commercial', photo: '', tone: '#A9BCC4', img: '/images/standoff-glass.webp' },
+      { title: 'Frameless corner shower, brass hinges', cat: 'Showers', town: 'Cape Cod', photo: '', tone: '#ACC0C7', img: '/images/corner-shower-brass-hinges.webp' },
+      { title: 'Glass wine room & bar top', cat: 'Wine cellars', town: 'Commercial', photo: '', tone: '#B9C9CF', img: '/images/restaurant-wine-rooms.webp' },
+      { title: 'Sunroom glass & skylights', cat: 'Windows', town: 'Cape Cod', photo: '', tone: '#B3C6CD', img: '/images/skylights-sunroom-roofs.webp' }
     ].map((g) => ({ ...g, hasImg: !!g.img, noImg: !g.img }));
     let gallery = cat === 'All' ? allGallery : allGallery.filter((g) => g.cat === cat);
     if (m && cat === 'All') gallery = gallery.slice(0, 4);
@@ -72,8 +72,8 @@ export function homeData(props = {}, state = {}) {
       ],
       posts: [
         { title: "Wet Room vs. Traditional Shower: Which Fits Your Bathroom?", cat: "Shower Enclosure", date: "Sep 18, 2026", read: "4 min read", photo: "Wet Room vs. Traditional Shower: Which Fits Your Bathroom?", tone: '#D3E0E4', img: '/images/frameless-glass-shower-with-marble-look-tile-and-built-in.webp' },
-        { title: "Linear Drain vs. Point Drain: Which Is Right for Your Wet Room", cat: "Shower Enclosure", date: "Sep 16, 2026", read: "4 min read", photo: "Linear Drain vs. Point Drain: Which Is Right for Your Wet Room", tone: '#D3E0E4', img: '/images/off-cape.webp' },
-        { title: "What Does a Wet Room Add to a Remodel Budget?", cat: "Shower Enclosure", date: "Sep 14, 2026", read: "4 min read", photo: "What Does a Wet Room Add to a Remodel Budget?", tone: '#D3E0E4', img: '/images/what-does-a-wet-room-add-to-a-remodel-budget.webp' }
+        { title: "Linear Drain vs. Point Drain: Which Is Right for Your Wet Room", cat: "Shower Enclosure", date: "Sep 16, 2026", read: "4 min read", photo: "Linear Drain vs. Point Drain: Which Is Right for Your Wet Room", tone: '#D3E0E4', img: '/images/frameless-hinged.webp' },
+        { title: "What Does a Wet Room Add to a Remodel Budget?", cat: "Shower Enclosure", date: "Sep 14, 2026", read: "4 min read", photo: "What Does a Wet Room Add to a Remodel Budget?", tone: '#D3E0E4', img: '/images/sliding-bypass.webp' }
       ]
     };
   }.call(self);

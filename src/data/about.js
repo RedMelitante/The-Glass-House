@@ -12,11 +12,11 @@ export function aboutData(props = {}, state = {}) {
       m: m,
 work: [
         { img: '/images/falmouth-area-hero.webp', cap: 'Glass canopy & walkway', alt: 'Glass canopy and glass walkway at a shingle-style home', pos: '50% 50%' },
-        { img: '/images/waterfront-room-with-sliding-glass-and-a-frameless-glass.webp', cap: 'Waterfront slider & railing', alt: 'Floor-to-ceiling sliding glass and frameless railing overlooking the water', pos: '60% 50%' },
+        { img: '/images/picture-floor-to-ceiling.webp', cap: 'Waterfront slider & railing', alt: 'Floor-to-ceiling sliding glass and frameless railing overlooking the water', pos: '60% 50%' },
         { img: '/images/mashpee-area-hero.webp', cap: 'Mirrored panels & glass cabinets', alt: 'White kitchen with antique mirror panels and glass-front cabinets', pos: '60% 50%' },
         { img: '/images/barnstable-area-hero.webp', cap: 'Glass conservatory', alt: 'Bright conservatory with a glass roof and sliding glass walls', pos: '50% 50%' },
         { img: '/images/glass-stair-partition.webp', cap: 'Glass stair partition', alt: 'Black-framed glass partition doors beside a glass stair railing', pos: '50% 50%' },
-        { img: '/images/custom-glass-sunroom-with-skylights-overlooking-a-cape-cod.webp', cap: 'Sunroom & skylights', alt: 'Sunroom with skylights overlooking a marsh', pos: '50% 50%' }
+        { img: '/images/skylights-sunroom-roofs.webp', cap: 'Sunroom & skylights', alt: 'Sunroom with skylights overlooking a marsh', pos: '50% 50%' }
       ].slice(0, m ? 5 : 6).map((w, i) => ({ ...w, span: i === 0 ? (m ? 'grid-column: span 2' : 'grid-column: span 2; grid-row: span 2') : '' })),
       mosaicCols: m ? 2 : 4,
       mosaicRow: m ? '160px' : '260px',

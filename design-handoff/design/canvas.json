@@ -6,7 +6,7 @@
       "h": 8000,
       "is_interactive": true,
       "page": "about",
-      "title": "About \u2014 Mobile",
+      "title": "About — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -16,26 +16,26 @@
       "h": 5600,
       "is_interactive": true,
       "page": "about",
-      "title": "About \u2014 Desktop",
+      "title": "About — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
     },
     "Area-Mobile.dc.html": {
-      "h": 8000,
+      "h": 9800,
       "is_interactive": true,
       "page": "area",
-      "title": "Chatham \u2014 Mobile",
+      "title": "Chatham — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
     },
     "Area.dc.html": {
       "expand": "fill",
-      "h": 6000,
+      "h": 6800,
       "is_interactive": true,
       "page": "area",
-      "title": "Chatham \u2014 Desktop",
+      "title": "Chatham — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -44,7 +44,7 @@
       "h": 7400,
       "is_interactive": true,
       "page": "areas",
-      "title": "Areas hub \u2014 Mobile",
+      "title": "Areas hub — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -54,7 +54,7 @@
       "h": 4000,
       "is_interactive": true,
       "page": "areas",
-      "title": "Areas hub \u2014 Desktop",
+      "title": "Areas hub — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -63,7 +63,7 @@
       "h": 10700,
       "is_interactive": true,
       "page": "blog",
-      "title": "Blog post \u2014 Mobile",
+      "title": "Blog post — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -73,7 +73,7 @@
       "h": 7900,
       "is_interactive": true,
       "page": "blog",
-      "title": "Blog post \u2014 Desktop",
+      "title": "Blog post — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -82,7 +82,7 @@
       "h": 8000,
       "is_interactive": true,
       "page": "blogindex",
-      "title": "Blog index \u2014 Mobile",
+      "title": "Blog index — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -92,7 +92,7 @@
       "h": 4000,
       "is_interactive": true,
       "page": "blogindex",
-      "title": "Blog index \u2014 Desktop",
+      "title": "Blog index — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -101,7 +101,7 @@
       "h": 6500,
       "is_interactive": true,
       "page": "contact",
-      "title": "Contact \u2014 Mobile",
+      "title": "Contact — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -111,7 +111,7 @@
       "h": 3800,
       "is_interactive": true,
       "page": "contact",
-      "title": "Contact \u2014 Desktop",
+      "title": "Contact — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -120,7 +120,7 @@
       "h": 8500,
       "is_interactive": true,
       "page": "cost",
-      "title": "Cost Guide \u2014 Mobile",
+      "title": "Cost Guide — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -130,7 +130,7 @@
       "h": 5100,
       "is_interactive": true,
       "page": "cost",
-      "title": "Cost Guide \u2014 Desktop",
+      "title": "Cost Guide — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -147,7 +147,7 @@
       "h": 4800,
       "is_interactive": true,
       "page": "estimate",
-      "title": "Get Free Estimate \u2014 Mobile",
+      "title": "Get Free Estimate — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -157,7 +157,7 @@
       "h": 3000,
       "is_interactive": true,
       "page": "estimate",
-      "title": "Get Free Estimate \u2014 Desktop",
+      "title": "Get Free Estimate — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -166,7 +166,7 @@
       "h": 5200,
       "is_interactive": true,
       "page": "faq",
-      "title": "FAQ \u2014 Mobile",
+      "title": "FAQ — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -176,7 +176,7 @@
       "h": 3200,
       "is_interactive": true,
       "page": "faq",
-      "title": "FAQ \u2014 Desktop",
+      "title": "FAQ — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -193,26 +193,26 @@
       "h": 900,
       "is_interactive": true,
       "page": "gallery",
-      "title": "Project Gallery \u2014 Lightbox open",
+      "title": "Project Gallery — Lightbox open",
       "w": 1440,
       "x": 1990,
       "y": 0
     },
     "Gallery-Mobile.dc.html": {
-      "h": 18500,
+      "h": 61400,
       "is_interactive": true,
       "page": "gallery",
-      "title": "Project Gallery \u2014 Mobile",
+      "title": "Project Gallery — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
     },
     "Gallery.dc.html": {
       "expand": "fill",
-      "h": 15800,
+      "h": 43200,
       "is_interactive": true,
       "page": "gallery",
-      "title": "Project Gallery \u2014 Desktop",
+      "title": "Project Gallery — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -230,7 +230,7 @@
       "h": 8000,
       "is_interactive": true,
       "page": "home",
-      "title": "Home \u2014 Mobile",
+      "title": "Home — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -240,7 +240,7 @@
       "h": 8000,
       "is_interactive": true,
       "page": "home",
-      "title": "Home \u2014 Desktop",
+      "title": "Home — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -249,7 +249,7 @@
       "h": 8000,
       "is_interactive": true,
       "page": "legal",
-      "title": "Privacy / Terms \u2014 Mobile",
+      "title": "Privacy / Terms — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -259,7 +259,7 @@
       "h": 4800,
       "is_interactive": true,
       "page": "legal",
-      "title": "Privacy / Terms \u2014 Desktop",
+      "title": "Privacy / Terms — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -277,7 +277,7 @@
       "h": 3000,
       "is_interactive": true,
       "page": "utility",
-      "title": "404 \u2014 Mobile",
+      "title": "404 — Mobile",
       "w": 390,
       "x": 3510,
       "y": 0
@@ -287,26 +287,26 @@
       "h": 1900,
       "is_interactive": true,
       "page": "utility",
-      "title": "404 \u2014 Desktop",
+      "title": "404 — Desktop",
       "w": 1440,
       "x": 1990,
       "y": 0
     },
     "Product-Mobile.dc.html": {
-      "h": 8000,
+      "h": 8800,
       "is_interactive": true,
       "page": "product",
-      "title": "Custom Glass Mirrors \u2014 Mobile",
+      "title": "Custom Glass Mirrors — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
     },
     "Product.dc.html": {
       "expand": "fill",
-      "h": 7000,
+      "h": 7400,
       "is_interactive": true,
       "page": "product",
-      "title": "Custom Glass Mirrors \u2014 Desktop",
+      "title": "Custom Glass Mirrors — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -315,7 +315,7 @@
       "h": 5900,
       "is_interactive": true,
       "page": "quote",
-      "title": "Product Quote \u2014 Mobile",
+      "title": "Product Quote — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -325,7 +325,7 @@
       "h": 3200,
       "is_interactive": true,
       "page": "quote",
-      "title": "Product Quote \u2014 Desktop",
+      "title": "Product Quote — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -334,7 +334,7 @@
       "h": 8000,
       "is_interactive": true,
       "page": "products",
-      "title": "Products hub \u2014 Mobile",
+      "title": "Products hub — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -344,26 +344,26 @@
       "h": 4400,
       "is_interactive": true,
       "page": "products",
-      "title": "Products hub \u2014 Desktop",
+      "title": "Products hub — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
     },
     "Service-Mobile.dc.html": {
-      "h": 8000,
+      "h": 10700,
       "is_interactive": true,
       "page": "service",
-      "title": "Shower Enclosures \u2014 Mobile",
+      "title": "Shower Enclosures — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
     },
     "Service.dc.html": {
       "expand": "fill",
-      "h": 7200,
+      "h": 8800,
       "is_interactive": true,
       "page": "service",
-      "title": "Shower Enclosures \u2014 Desktop",
+      "title": "Shower Enclosures — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -372,7 +372,7 @@
       "h": 8000,
       "is_interactive": true,
       "page": "services",
-      "title": "Services hub \u2014 Mobile",
+      "title": "Services hub — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -382,7 +382,7 @@
       "h": 5000,
       "is_interactive": true,
       "page": "services",
-      "title": "Services hub \u2014 Desktop",
+      "title": "Services hub — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -391,7 +391,7 @@
       "h": 3200,
       "is_interactive": true,
       "page": "utility",
-      "title": "Thank you \u2014 Mobile",
+      "title": "Thank you — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -401,26 +401,26 @@
       "h": 2000,
       "is_interactive": true,
       "page": "utility",
-      "title": "Thank you \u2014 Desktop",
+      "title": "Thank you — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
     },
     "Service-Mirrors.dc.html": {
       "expand": "fill",
-      "h": 7200,
+      "h": 7650,
       "is_interactive": true,
       "page": "svc-mirrors",
-      "title": "Custom Mirrors \u2014 Desktop",
+      "title": "Custom Mirrors — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
     },
     "Service-Mirrors-Mobile.dc.html": {
-      "h": 8000,
+      "h": 8800,
       "is_interactive": true,
       "page": "svc-mirrors",
-      "title": "Custom Mirrors \u2014 Mobile",
+      "title": "Custom Mirrors — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -430,7 +430,7 @@
       "h": 7200,
       "is_interactive": true,
       "page": "svc-railings",
-      "title": "Glass Railings \u2014 Desktop",
+      "title": "Glass Railings — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -439,83 +439,83 @@
       "h": 8000,
       "is_interactive": true,
       "page": "svc-railings",
-      "title": "Glass Railings \u2014 Mobile",
+      "title": "Glass Railings — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
     },
     "Service-Storefronts.dc.html": {
       "expand": "fill",
-      "h": 7200,
+      "h": 8100,
       "is_interactive": true,
       "page": "svc-storefronts",
-      "title": "Glass Storefronts \u2014 Desktop",
+      "title": "Glass Storefronts — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
     },
     "Service-Storefronts-Mobile.dc.html": {
-      "h": 8000,
+      "h": 9600,
       "is_interactive": true,
       "page": "svc-storefronts",
-      "title": "Glass Storefronts \u2014 Mobile",
+      "title": "Glass Storefronts — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
     },
     "Service-Entrances.dc.html": {
       "expand": "fill",
-      "h": 7200,
+      "h": 7650,
       "is_interactive": true,
       "page": "svc-entrances",
-      "title": "Front Entrances \u2014 Desktop",
+      "title": "Front Entrances — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
     },
     "Service-Entrances-Mobile.dc.html": {
-      "h": 8000,
+      "h": 8800,
       "is_interactive": true,
       "page": "svc-entrances",
-      "title": "Front Entrances \u2014 Mobile",
+      "title": "Front Entrances — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
     },
     "Service-Partitions.dc.html": {
       "expand": "fill",
-      "h": 7200,
+      "h": 7650,
       "is_interactive": true,
       "page": "svc-partitions",
-      "title": "Wall Partitions \u2014 Desktop",
+      "title": "Wall Partitions — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
     },
     "Service-Partitions-Mobile.dc.html": {
-      "h": 8000,
+      "h": 8800,
       "is_interactive": true,
       "page": "svc-partitions",
-      "title": "Wall Partitions \u2014 Mobile",
+      "title": "Wall Partitions — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
     },
     "Service-Windows.dc.html": {
       "expand": "fill",
-      "h": 7200,
+      "h": 7650,
       "is_interactive": true,
       "page": "svc-windows",
-      "title": "Glass Windows \u2014 Desktop",
+      "title": "Glass Windows — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
     },
     "Service-Windows-Mobile.dc.html": {
-      "h": 8000,
+      "h": 8800,
       "is_interactive": true,
       "page": "svc-windows",
-      "title": "Glass Windows \u2014 Mobile",
+      "title": "Glass Windows — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -525,7 +525,7 @@
       "h": 7200,
       "is_interactive": true,
       "page": "svc-winecellars",
-      "title": "Wine Cellars \u2014 Desktop",
+      "title": "Wine Cellars — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -534,7 +534,7 @@
       "h": 8000,
       "is_interactive": true,
       "page": "svc-winecellars",
-      "title": "Wine Cellars \u2014 Mobile",
+      "title": "Wine Cellars — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -544,7 +544,7 @@
       "h": 7200,
       "is_interactive": true,
       "page": "svc-countertops",
-      "title": "Glass Countertops \u2014 Desktop",
+      "title": "Glass Countertops — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -553,64 +553,64 @@
       "h": 8000,
       "is_interactive": true,
       "page": "svc-countertops",
-      "title": "Glass Countertops \u2014 Mobile",
+      "title": "Glass Countertops — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
     },
     "Service-Canopies.dc.html": {
       "expand": "fill",
-      "h": 7200,
+      "h": 7700,
       "is_interactive": true,
       "page": "svc-canopies",
-      "title": "Canopies & Skylights \u2014 Desktop",
+      "title": "Canopies & Skylights — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
     },
     "Service-Canopies-Mobile.dc.html": {
-      "h": 8000,
+      "h": 8900,
       "is_interactive": true,
       "page": "svc-canopies",
-      "title": "Canopies & Skylights \u2014 Mobile",
+      "title": "Canopies & Skylights — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
     },
     "Service-Shelves.dc.html": {
       "expand": "fill",
-      "h": 7200,
+      "h": 7650,
       "is_interactive": true,
       "page": "svc-shelves",
-      "title": "Glass Shelves \u2014 Desktop",
+      "title": "Glass Shelves — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
     },
     "Service-Shelves-Mobile.dc.html": {
-      "h": 8000,
+      "h": 8800,
       "is_interactive": true,
       "page": "svc-shelves",
-      "title": "Glass Shelves \u2014 Mobile",
+      "title": "Glass Shelves — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
     },
     "Service-Fireplace.dc.html": {
       "expand": "fill",
-      "h": 7200,
+      "h": 7700,
       "is_interactive": true,
       "page": "svc-fireplace",
-      "title": "Fireplace Screens \u2014 Desktop",
+      "title": "Fireplace Screens — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
     },
     "Service-Fireplace-Mobile.dc.html": {
-      "h": 8000,
+      "h": 8900,
       "is_interactive": true,
       "page": "svc-fireplace",
-      "title": "Fireplace Screens \u2014 Mobile",
+      "title": "Fireplace Screens — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -620,7 +620,7 @@
       "h": 7000,
       "is_interactive": true,
       "page": "prod-shelves",
-      "title": "Custom Glass Shelves \u2014 Desktop",
+      "title": "Custom Glass Shelves — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -629,102 +629,102 @@
       "h": 8000,
       "is_interactive": true,
       "page": "prod-shelves",
-      "title": "Custom Glass Shelves \u2014 Mobile",
+      "title": "Custom Glass Shelves — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
     },
     "Product-Railings.dc.html": {
       "expand": "fill",
-      "h": 7000,
+      "h": 7300,
       "is_interactive": true,
       "page": "prod-railings",
-      "title": "Custom Glass Railings \u2014 Desktop",
+      "title": "Custom Glass Railings — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
     },
     "Product-Railings-Mobile.dc.html": {
-      "h": 8000,
+      "h": 8400,
       "is_interactive": true,
       "page": "prod-railings",
-      "title": "Custom Glass Railings \u2014 Mobile",
+      "title": "Custom Glass Railings — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
     },
     "Product-Windows.dc.html": {
       "expand": "fill",
-      "h": 7000,
+      "h": 7300,
       "is_interactive": true,
       "page": "prod-windows",
-      "title": "Custom Glass Windows \u2014 Desktop",
+      "title": "Custom Glass Windows — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
     },
     "Product-Windows-Mobile.dc.html": {
-      "h": 8000,
+      "h": 8400,
       "is_interactive": true,
       "page": "prod-windows",
-      "title": "Custom Glass Windows \u2014 Mobile",
+      "title": "Custom Glass Windows — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
     },
     "Product-Storefronts.dc.html": {
       "expand": "fill",
-      "h": 7000,
+      "h": 7300,
       "is_interactive": true,
       "page": "prod-storefronts",
-      "title": "Custom Glass Storefronts \u2014 Desktop",
+      "title": "Custom Glass Storefronts — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
     },
     "Product-Storefronts-Mobile.dc.html": {
-      "h": 8000,
+      "h": 8400,
       "is_interactive": true,
       "page": "prod-storefronts",
-      "title": "Custom Glass Storefronts \u2014 Mobile",
+      "title": "Custom Glass Storefronts — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
     },
     "Product-WineCellars.dc.html": {
       "expand": "fill",
-      "h": 7000,
+      "h": 7700,
       "is_interactive": true,
       "page": "prod-winecellars",
-      "title": "Custom Glass Wine Cellars \u2014 Desktop",
+      "title": "Custom Glass Wine Cellars — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
     },
     "Product-WineCellars-Mobile.dc.html": {
-      "h": 8000,
+      "h": 8800,
       "is_interactive": true,
       "page": "prod-winecellars",
-      "title": "Custom Glass Wine Cellars \u2014 Mobile",
+      "title": "Custom Glass Wine Cellars — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
     },
     "Product-Countertops.dc.html": {
       "expand": "fill",
-      "h": 7000,
+      "h": 7300,
       "is_interactive": true,
       "page": "prod-countertops",
-      "title": "Custom Glass Countertops \u2014 Desktop",
+      "title": "Custom Glass Countertops — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
     },
     "Product-Countertops-Mobile.dc.html": {
-      "h": 8000,
+      "h": 8400,
       "is_interactive": true,
       "page": "prod-countertops",
-      "title": "Custom Glass Countertops \u2014 Mobile",
+      "title": "Custom Glass Countertops — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -734,7 +734,7 @@
       "h": 7000,
       "is_interactive": true,
       "page": "prod-fireplace",
-      "title": "Fireplace Screens \u2014 Desktop",
+      "title": "Fireplace Screens — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -743,64 +743,64 @@
       "h": 8000,
       "is_interactive": true,
       "page": "prod-fireplace",
-      "title": "Fireplace Screens \u2014 Mobile",
+      "title": "Fireplace Screens — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
     },
     "Product-Shower.dc.html": {
       "expand": "fill",
-      "h": 7000,
+      "h": 8100,
       "is_interactive": true,
       "page": "prod-shower",
-      "title": "Shower Enclosures \u2014 Desktop",
+      "title": "Shower Enclosures — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
     },
     "Product-Shower-Mobile.dc.html": {
-      "h": 8000,
+      "h": 10000,
       "is_interactive": true,
       "page": "prod-shower",
-      "title": "Shower Enclosures \u2014 Mobile",
+      "title": "Shower Enclosures — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
     },
     "Product-Canopies.dc.html": {
       "expand": "fill",
-      "h": 7000,
+      "h": 7500,
       "is_interactive": true,
       "page": "prod-canopies",
-      "title": "Canopies & Skylights \u2014 Desktop",
+      "title": "Canopies & Skylights — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
     },
     "Product-Canopies-Mobile.dc.html": {
-      "h": 8000,
+      "h": 8900,
       "is_interactive": true,
       "page": "prod-canopies",
-      "title": "Canopies & Skylights \u2014 Mobile",
+      "title": "Canopies & Skylights — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
     },
     "Area-Hyannis.dc.html": {
       "expand": "fill",
-      "h": 6000,
+      "h": 6800,
       "is_interactive": true,
       "page": "area-hyannis",
-      "title": "Hyannis \u2014 Desktop",
+      "title": "Hyannis — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
     },
     "Area-Hyannis-Mobile.dc.html": {
-      "h": 8000,
+      "h": 9800,
       "is_interactive": true,
       "page": "area-hyannis",
-      "title": "Hyannis \u2014 Mobile",
+      "title": "Hyannis — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -810,7 +810,7 @@
       "h": 6000,
       "is_interactive": true,
       "page": "area-barnstable",
-      "title": "Barnstable \u2014 Desktop",
+      "title": "Barnstable — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -819,7 +819,7 @@
       "h": 8000,
       "is_interactive": true,
       "page": "area-barnstable",
-      "title": "Barnstable \u2014 Mobile",
+      "title": "Barnstable — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -829,7 +829,7 @@
       "h": 6000,
       "is_interactive": true,
       "page": "area-yarmouth",
-      "title": "Yarmouth \u2014 Desktop",
+      "title": "Yarmouth — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -838,7 +838,7 @@
       "h": 8000,
       "is_interactive": true,
       "page": "area-yarmouth",
-      "title": "Yarmouth \u2014 Mobile",
+      "title": "Yarmouth — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -848,7 +848,7 @@
       "h": 6000,
       "is_interactive": true,
       "page": "area-dennis",
-      "title": "Dennis \u2014 Desktop",
+      "title": "Dennis — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -857,7 +857,7 @@
       "h": 8000,
       "is_interactive": true,
       "page": "area-dennis",
-      "title": "Dennis \u2014 Mobile",
+      "title": "Dennis — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -867,7 +867,7 @@
       "h": 6000,
       "is_interactive": true,
       "page": "area-bourne",
-      "title": "Bourne \u2014 Desktop",
+      "title": "Bourne — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -876,45 +876,45 @@
       "h": 8000,
       "is_interactive": true,
       "page": "area-bourne",
-      "title": "Bourne \u2014 Mobile",
+      "title": "Bourne — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
     },
     "Area-Sandwich.dc.html": {
       "expand": "fill",
-      "h": 6000,
+      "h": 6400,
       "is_interactive": true,
       "page": "area-sandwich",
-      "title": "Sandwich \u2014 Desktop",
+      "title": "Sandwich — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
     },
     "Area-Sandwich-Mobile.dc.html": {
-      "h": 8000,
+      "h": 8900,
       "is_interactive": true,
       "page": "area-sandwich",
-      "title": "Sandwich \u2014 Mobile",
+      "title": "Sandwich — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
     },
     "Area-Falmouth.dc.html": {
       "expand": "fill",
-      "h": 6000,
+      "h": 6800,
       "is_interactive": true,
       "page": "area-falmouth",
-      "title": "Falmouth \u2014 Desktop",
+      "title": "Falmouth — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
     },
     "Area-Falmouth-Mobile.dc.html": {
-      "h": 8000,
+      "h": 9800,
       "is_interactive": true,
       "page": "area-falmouth",
-      "title": "Falmouth \u2014 Mobile",
+      "title": "Falmouth — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -924,7 +924,7 @@
       "h": 6000,
       "is_interactive": true,
       "page": "area-mashpee",
-      "title": "Mashpee \u2014 Desktop",
+      "title": "Mashpee — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -933,45 +933,45 @@
       "h": 8000,
       "is_interactive": true,
       "page": "area-mashpee",
-      "title": "Mashpee \u2014 Mobile",
+      "title": "Mashpee — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
     },
     "Area-Brewster.dc.html": {
       "expand": "fill",
-      "h": 6000,
+      "h": 6400,
       "is_interactive": true,
       "page": "area-brewster",
-      "title": "Brewster \u2014 Desktop",
+      "title": "Brewster — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
     },
     "Area-Brewster-Mobile.dc.html": {
-      "h": 8000,
+      "h": 8900,
       "is_interactive": true,
       "page": "area-brewster",
-      "title": "Brewster \u2014 Mobile",
+      "title": "Brewster — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
     },
     "Area-Harwich.dc.html": {
       "expand": "fill",
-      "h": 6000,
+      "h": 6400,
       "is_interactive": true,
       "page": "area-harwich",
-      "title": "Harwich \u2014 Desktop",
+      "title": "Harwich — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
     },
     "Area-Harwich-Mobile.dc.html": {
-      "h": 8000,
+      "h": 8900,
       "is_interactive": true,
       "page": "area-harwich",
-      "title": "Harwich \u2014 Mobile",
+      "title": "Harwich — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -981,7 +981,7 @@
       "h": 6000,
       "is_interactive": true,
       "page": "area-orleans",
-      "title": "Orleans \u2014 Desktop",
+      "title": "Orleans — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -990,7 +990,7 @@
       "h": 8000,
       "is_interactive": true,
       "page": "area-orleans",
-      "title": "Orleans \u2014 Mobile",
+      "title": "Orleans — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -1000,7 +1000,7 @@
       "h": 6000,
       "is_interactive": true,
       "page": "area-eastham",
-      "title": "Eastham \u2014 Desktop",
+      "title": "Eastham — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -1009,7 +1009,7 @@
       "h": 8000,
       "is_interactive": true,
       "page": "area-eastham",
-      "title": "Eastham \u2014 Mobile",
+      "title": "Eastham — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -1019,7 +1019,7 @@
       "h": 6000,
       "is_interactive": true,
       "page": "area-wellfleet",
-      "title": "Wellfleet \u2014 Desktop",
+      "title": "Wellfleet — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -1028,7 +1028,7 @@
       "h": 8000,
       "is_interactive": true,
       "page": "area-wellfleet",
-      "title": "Wellfleet \u2014 Mobile",
+      "title": "Wellfleet — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -1038,7 +1038,7 @@
       "h": 6000,
       "is_interactive": true,
       "page": "area-truro",
-      "title": "Truro \u2014 Desktop",
+      "title": "Truro — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -1047,7 +1047,7 @@
       "h": 8000,
       "is_interactive": true,
       "page": "area-truro",
-      "title": "Truro \u2014 Mobile",
+      "title": "Truro — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -1057,7 +1057,7 @@
       "h": 6000,
       "is_interactive": true,
       "page": "area-provincetown",
-      "title": "Provincetown \u2014 Desktop",
+      "title": "Provincetown — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -1066,7 +1066,7 @@
       "h": 8000,
       "is_interactive": true,
       "page": "area-provincetown",
-      "title": "Provincetown \u2014 Mobile",
+      "title": "Provincetown — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -1076,7 +1076,7 @@
       "h": 6000,
       "is_interactive": true,
       "page": "area-boston",
-      "title": "Boston \u2014 Desktop",
+      "title": "Boston — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -1085,7 +1085,7 @@
       "h": 8000,
       "is_interactive": true,
       "page": "area-boston",
-      "title": "Boston \u2014 Mobile",
+      "title": "Boston — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -1095,7 +1095,7 @@
       "h": 6000,
       "is_interactive": true,
       "page": "area-rhodeisland",
-      "title": "Rhode Island \u2014 Desktop",
+      "title": "Rhode Island — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -1104,7 +1104,7 @@
       "h": 8000,
       "is_interactive": true,
       "page": "area-rhodeisland",
-      "title": "Rhode Island \u2014 Mobile",
+      "title": "Rhode Island — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -1114,7 +1114,7 @@
       "h": 6000,
       "is_interactive": true,
       "page": "area-providence",
-      "title": "Providence \u2014 Desktop",
+      "title": "Providence — Desktop",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -1123,7 +1123,7 @@
       "h": 8000,
       "is_interactive": true,
       "page": "area-providence",
-      "title": "Providence \u2014 Mobile",
+      "title": "Providence — Mobile",
       "w": 390,
       "x": 1520,
       "y": 0
@@ -1132,7 +1132,7 @@
       "h": 1800,
       "is_interactive": true,
       "page": "sitemap",
-      "title": "Site map \u2014 all pages",
+      "title": "Site map — all pages",
       "w": 1440,
       "x": 0,
       "y": 0
@@ -1260,7 +1260,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "service",
-      "text": "Service \u00b7 Shower Enclosures",
+      "text": "Service · Shower Enclosures",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1269,7 +1269,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "product",
-      "text": "Product \u00b7 Custom Glass Mirrors",
+      "text": "Product · Custom Glass Mirrors",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1278,7 +1278,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "area",
-      "text": "Area \u00b7 Chatham",
+      "text": "Area · Chatham",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1323,7 +1323,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "svc-mirrors",
-      "text": "Service \u00b7 Custom Mirrors",
+      "text": "Service · Custom Mirrors",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1332,7 +1332,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "svc-railings",
-      "text": "Service \u00b7 Glass Railings",
+      "text": "Service · Glass Railings",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1341,7 +1341,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "svc-storefronts",
-      "text": "Service \u00b7 Glass Storefronts",
+      "text": "Service · Glass Storefronts",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1350,7 +1350,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "svc-entrances",
-      "text": "Service \u00b7 Front Entrances",
+      "text": "Service · Front Entrances",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1359,7 +1359,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "svc-partitions",
-      "text": "Service \u00b7 Wall Partitions",
+      "text": "Service · Wall Partitions",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1368,7 +1368,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "svc-windows",
-      "text": "Service \u00b7 Glass Windows",
+      "text": "Service · Glass Windows",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1377,7 +1377,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "svc-winecellars",
-      "text": "Service \u00b7 Wine Cellars",
+      "text": "Service · Wine Cellars",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1386,7 +1386,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "svc-countertops",
-      "text": "Service \u00b7 Glass Countertops",
+      "text": "Service · Glass Countertops",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1395,7 +1395,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "svc-canopies",
-      "text": "Service \u00b7 Canopies & Skylights",
+      "text": "Service · Canopies & Skylights",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1404,7 +1404,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "svc-shelves",
-      "text": "Service \u00b7 Glass Shelves",
+      "text": "Service · Glass Shelves",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1413,7 +1413,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "svc-fireplace",
-      "text": "Service \u00b7 Fireplace Screens",
+      "text": "Service · Fireplace Screens",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1422,7 +1422,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "prod-shelves",
-      "text": "Product \u00b7 Custom Glass Shelves",
+      "text": "Product · Custom Glass Shelves",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1431,7 +1431,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "prod-railings",
-      "text": "Product \u00b7 Custom Glass Railings",
+      "text": "Product · Custom Glass Railings",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1440,7 +1440,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "prod-windows",
-      "text": "Product \u00b7 Custom Glass Windows",
+      "text": "Product · Custom Glass Windows",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1449,7 +1449,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "prod-storefronts",
-      "text": "Product \u00b7 Custom Glass Storefronts",
+      "text": "Product · Custom Glass Storefronts",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1458,7 +1458,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "prod-winecellars",
-      "text": "Product \u00b7 Custom Glass Wine Cellars",
+      "text": "Product · Custom Glass Wine Cellars",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1467,7 +1467,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "prod-countertops",
-      "text": "Product \u00b7 Custom Glass Countertops",
+      "text": "Product · Custom Glass Countertops",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1476,7 +1476,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "prod-fireplace",
-      "text": "Product \u00b7 Fireplace Screens",
+      "text": "Product · Fireplace Screens",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1485,7 +1485,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "prod-shower",
-      "text": "Product \u00b7 Shower Enclosures",
+      "text": "Product · Shower Enclosures",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1494,7 +1494,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "prod-canopies",
-      "text": "Product \u00b7 Canopies & Skylights",
+      "text": "Product · Canopies & Skylights",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1503,7 +1503,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "area-hyannis",
-      "text": "Area \u00b7 Hyannis",
+      "text": "Area · Hyannis",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1512,7 +1512,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "area-barnstable",
-      "text": "Area \u00b7 Barnstable",
+      "text": "Area · Barnstable",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1521,7 +1521,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "area-yarmouth",
-      "text": "Area \u00b7 Yarmouth",
+      "text": "Area · Yarmouth",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1530,7 +1530,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "area-dennis",
-      "text": "Area \u00b7 Dennis",
+      "text": "Area · Dennis",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1539,7 +1539,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "area-bourne",
-      "text": "Area \u00b7 Bourne",
+      "text": "Area · Bourne",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1548,7 +1548,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "area-sandwich",
-      "text": "Area \u00b7 Sandwich",
+      "text": "Area · Sandwich",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1557,7 +1557,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "area-falmouth",
-      "text": "Area \u00b7 Falmouth",
+      "text": "Area · Falmouth",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1566,7 +1566,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "area-mashpee",
-      "text": "Area \u00b7 Mashpee",
+      "text": "Area · Mashpee",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1575,7 +1575,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "area-brewster",
-      "text": "Area \u00b7 Brewster",
+      "text": "Area · Brewster",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1584,7 +1584,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "area-harwich",
-      "text": "Area \u00b7 Harwich",
+      "text": "Area · Harwich",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1593,7 +1593,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "area-orleans",
-      "text": "Area \u00b7 Orleans",
+      "text": "Area · Orleans",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1602,7 +1602,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "area-eastham",
-      "text": "Area \u00b7 Eastham",
+      "text": "Area · Eastham",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1611,7 +1611,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "area-wellfleet",
-      "text": "Area \u00b7 Wellfleet",
+      "text": "Area · Wellfleet",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1620,7 +1620,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "area-truro",
-      "text": "Area \u00b7 Truro",
+      "text": "Area · Truro",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1629,7 +1629,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "area-provincetown",
-      "text": "Area \u00b7 Provincetown",
+      "text": "Area · Provincetown",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1638,7 +1638,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "area-boston",
-      "text": "Area \u00b7 Boston",
+      "text": "Area · Boston",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1647,7 +1647,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "area-rhodeisland",
-      "text": "Area \u00b7 Rhode Island",
+      "text": "Area · Rhode Island",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1656,7 +1656,7 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "area-providence",
-      "text": "Area \u00b7 Providence",
+      "text": "Area · Providence",
       "w": 240,
       "x": 0,
       "y": -340
@@ -1864,168 +1864,168 @@
     },
     {
       "id": "service",
-      "name": "Service \u00b7 Shower Enclosures"
+      "name": "Service · Shower Enclosures"
     },
     {
       "id": "svc-mirrors",
-      "name": "Service \u00b7 Custom Mirrors"
+      "name": "Service · Custom Mirrors"
     },
     {
       "id": "svc-railings",
-      "name": "Service \u00b7 Glass Railings"
+      "name": "Service · Glass Railings"
     },
     {
       "id": "svc-storefronts",
-      "name": "Service \u00b7 Glass Storefronts"
+      "name": "Service · Glass Storefronts"
     },
     {
       "id": "svc-entrances",
-      "name": "Service \u00b7 Front Entrances"
+      "name": "Service · Front Entrances"
     },
     {
       "id": "svc-partitions",
-      "name": "Service \u00b7 Wall Partitions"
+      "name": "Service · Wall Partitions"
     },
     {
       "id": "svc-windows",
-      "name": "Service \u00b7 Glass Windows"
+      "name": "Service · Glass Windows"
     },
     {
       "id": "svc-winecellars",
-      "name": "Service \u00b7 Wine Cellars"
+      "name": "Service · Wine Cellars"
     },
     {
       "id": "svc-countertops",
-      "name": "Service \u00b7 Glass Countertops"
+      "name": "Service · Glass Countertops"
     },
     {
       "id": "svc-canopies",
-      "name": "Service \u00b7 Canopies & Skylights"
+      "name": "Service · Canopies & Skylights"
     },
     {
       "id": "svc-shelves",
-      "name": "Service \u00b7 Glass Shelves"
+      "name": "Service · Glass Shelves"
     },
     {
       "id": "svc-fireplace",
-      "name": "Service \u00b7 Fireplace Screens"
+      "name": "Service · Fireplace Screens"
     },
     {
       "id": "product",
-      "name": "Product \u00b7 Custom Glass Mirrors"
+      "name": "Product · Custom Glass Mirrors"
     },
     {
       "id": "prod-shelves",
-      "name": "Product \u00b7 Custom Glass Shelves"
+      "name": "Product · Custom Glass Shelves"
     },
     {
       "id": "prod-railings",
-      "name": "Product \u00b7 Custom Glass Railings"
+      "name": "Product · Custom Glass Railings"
     },
     {
       "id": "prod-windows",
-      "name": "Product \u00b7 Custom Glass Windows"
+      "name": "Product · Custom Glass Windows"
     },
     {
       "id": "prod-storefronts",
-      "name": "Product \u00b7 Custom Glass Storefronts"
+      "name": "Product · Custom Glass Storefronts"
     },
     {
       "id": "prod-winecellars",
-      "name": "Product \u00b7 Custom Glass Wine Cellars"
+      "name": "Product · Custom Glass Wine Cellars"
     },
     {
       "id": "prod-countertops",
-      "name": "Product \u00b7 Custom Glass Countertops"
+      "name": "Product · Custom Glass Countertops"
     },
     {
       "id": "prod-fireplace",
-      "name": "Product \u00b7 Fireplace Screens"
+      "name": "Product · Fireplace Screens"
     },
     {
       "id": "prod-shower",
-      "name": "Product \u00b7 Shower Enclosures"
+      "name": "Product · Shower Enclosures"
     },
     {
       "id": "prod-canopies",
-      "name": "Product \u00b7 Canopies & Skylights"
+      "name": "Product · Canopies & Skylights"
     },
     {
       "id": "area",
-      "name": "Area \u00b7 Chatham"
+      "name": "Area · Chatham"
     },
     {
       "id": "area-hyannis",
-      "name": "Area \u00b7 Hyannis"
+      "name": "Area · Hyannis"
     },
     {
       "id": "area-barnstable",
-      "name": "Area \u00b7 Barnstable"
+      "name": "Area · Barnstable"
     },
     {
       "id": "area-yarmouth",
-      "name": "Area \u00b7 Yarmouth"
+      "name": "Area · Yarmouth"
     },
     {
       "id": "area-dennis",
-      "name": "Area \u00b7 Dennis"
+      "name": "Area · Dennis"
     },
     {
       "id": "area-bourne",
-      "name": "Area \u00b7 Bourne"
+      "name": "Area · Bourne"
     },
     {
       "id": "area-sandwich",
-      "name": "Area \u00b7 Sandwich"
+      "name": "Area · Sandwich"
     },
     {
       "id": "area-falmouth",
-      "name": "Area \u00b7 Falmouth"
+      "name": "Area · Falmouth"
     },
     {
       "id": "area-mashpee",
-      "name": "Area \u00b7 Mashpee"
+      "name": "Area · Mashpee"
     },
     {
       "id": "area-brewster",
-      "name": "Area \u00b7 Brewster"
+      "name": "Area · Brewster"
     },
     {
       "id": "area-harwich",
-      "name": "Area \u00b7 Harwich"
+      "name": "Area · Harwich"
     },
     {
       "id": "area-orleans",
-      "name": "Area \u00b7 Orleans"
+      "name": "Area · Orleans"
     },
     {
       "id": "area-eastham",
-      "name": "Area \u00b7 Eastham"
+      "name": "Area · Eastham"
     },
     {
       "id": "area-wellfleet",
-      "name": "Area \u00b7 Wellfleet"
+      "name": "Area · Wellfleet"
     },
     {
       "id": "area-truro",
-      "name": "Area \u00b7 Truro"
+      "name": "Area · Truro"
     },
     {
       "id": "area-provincetown",
-      "name": "Area \u00b7 Provincetown"
+      "name": "Area · Provincetown"
     },
     {
       "id": "area-boston",
-      "name": "Area \u00b7 Boston"
+      "name": "Area · Boston"
     },
     {
       "id": "area-providence",
-      "name": "Area \u00b7 Providence"
+      "name": "Area · Providence"
     },
     {
       "id": "area-rhodeisland",
-      "name": "Area \u00b7 Rhode Island"
+      "name": "Area · Rhode Island"
     }
   ],
-  "title": "The Glass House \u2014 Website"
+  "title": "The Glass House — Website"
 }

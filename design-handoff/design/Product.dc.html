@@ -222,7 +222,7 @@ body{margin:0}
   </sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"product":{"editor":"enum","default":"mirrors","options":["mirrors","shelves","railings","windows","storefronts","winecellars","countertops","fireplace","shower","canopies"]},"mobile":{"editor":"boolean","default":false},"brand":{"editor":"color","default":"#1E5873","options":["#1E5873","#2B6E8F","#123B5C","#2F6B69"]},"$preview":{"width":1440,"height":7000}}'>
+<script type="text/x-dc" data-dc-script data-props='{"product":{"editor":"enum","default":"mirrors","options":["mirrors","shelves","railings","windows","storefronts","winecellars","countertops","fireplace","shower","canopies"]},"mobile":{"editor":"boolean","default":false},"brand":{"editor":"color","default":"#1E5873","options":["#1E5873","#2B6E8F","#123B5C","#2F6B69"]},"$preview":{"width":1440,"height":7400}}'>
 class Component extends DCLogic {
   renderVals() {
     const st = this.state || {};
@@ -285,15 +285,15 @@ class Component extends DCLogic {
     const SS = [{ name: 'Brushed stainless', hex: '#B9BEC1' }, { name: 'Polished stainless', hex: '#CFD4D7' }, { name: 'Matte black', hex: '#232527' }, { name: 'Painted to match', hex: '#E9E6DE' }];
     const ALU = [{ name: 'Clear anodized', hex: '#C4C8CA' }, { name: 'Dark bronze', hex: '#4A3A2E' }, { name: 'Black anodized', hex: '#232527' }, { name: 'Painted to match', hex: '#E9E6DE' }];
     const REL = {
-      mirrors: { name: 'Custom Glass Mirrors', text: 'Vanity, gym and feature-wall mirrors.', img: 'off-cape-2.webp', href: 'Product.dc.html' },
-      shelves: { name: 'Custom Glass Shelves', text: 'Floating shelves for niches, bars and displays.', img: 'why-a-glass-canopy-is-the-perfect-blend-of-style-and.webp', href: 'Product-Shelves.dc.html' },
-      railings: { name: 'Custom Glass Railings', text: 'Stair, deck and pool glass.', img: 'glass-storefront-installation-guide-for-cape-cod-businesses.webp', href: 'Product-Railings.dc.html' },
+      mirrors: { name: 'Custom Glass Mirrors', text: 'Vanity, gym and feature-wall mirrors.', img: 'wall-to-wall-vanity-mirror-2.webp', href: 'Product.dc.html' },
+      shelves: { name: 'Custom Glass Shelves', text: 'Floating shelves for niches, bars and displays.', img: 'home-bars.webp', href: 'Product-Shelves.dc.html' },
+      railings: { name: 'Custom Glass Railings', text: 'Stair, deck and pool glass.', img: 'frameless-glass-stair-railing.webp', href: 'Product-Railings.dc.html' },
       windows: { name: 'Custom Glass Windows', text: 'Insulated, tempered and shaped glass.', img: 'glass-repair-in-providence-ri.webp', href: 'Product-Windows.dc.html' },
       storefronts: { name: 'Custom Glass Storefronts', text: 'Storefront glass, framing and doors.', img: 'providence-area-hero.webp', href: 'Product-Storefronts.dc.html' },
-      winecellars: { name: 'Custom Glass Wine Cellars', text: 'Glass walls and doors for wine rooms.', img: 'custom-glass-shower-doors-enclosures-the-complete-guide.webp', href: 'Product-WineCellars.dc.html' },
-      countertops: { name: 'Custom Glass Countertops', text: 'Tabletops and counter surfaces, cut to fit.', img: 'wine-cellar-glass-enclosure-ideas-and-costs.webp', href: 'Product-Countertops.dc.html' },
+      winecellars: { name: 'Custom Glass Wine Cellars', text: 'Glass walls and doors for wine rooms.', img: 'glass-wine-walls.webp', href: 'Product-WineCellars.dc.html' },
+      countertops: { name: 'Custom Glass Countertops', text: 'Tabletops and counter surfaces, cut to fit.', img: 'glass-tabletop-on-kitchen-island.webp', href: 'Product-Countertops.dc.html' },
       fireplace: { name: 'Fireplace Screens', text: 'Glass screens for fireplaces and fire pits.', img: 'sandwich-area-hero.webp', href: 'Product-Fireplace.dc.html' },
-      shower: { name: 'Shower Enclosures', text: 'Frameless and semi-frameless glass.', img: 'off-cape.webp', href: 'Product-Shower.dc.html' },
+      shower: { name: 'Shower Enclosures', text: 'Frameless and semi-frameless glass.', img: 'frameless-hinged.webp', href: 'Product-Shower.dc.html' },
       canopies: { name: 'Canopies & Skylights', text: 'Overhead glass that brings in daylight.', img: 'falmouth-area-hero.webp', href: 'Product-Canopies.dc.html' }
     };
     const P = {
@@ -301,7 +301,7 @@ class Component extends DCLogic {
         lede: 'Cut to any size or shape, finished with the edge you choose, and mounted by our installers. For vanities, gyms, closets and full feature walls.',
         specs: [['Mirror types', 'Clear, low-iron, antique, tinted, back-lit'], ['Edges', 'Flat polish, pencil, bevel, seamed'], ['Thickness', '1/4″ standard'], ['Lead time', 'about 3–4 weeks']],
         note: 'See mirror and edge samples at our Hyannis shop, 270 Communication Way.',
-        shots: [['Wall-to-wall vanity mirror', 'off-cape-2.webp'], ['Beveled frame mirror, powder room', 'framed-or-frameless-how-to-choose-the-right-glass-windows.webp'], ['Home gym mirror wall', 'glass-shelves-for-cabinets-a-stylish-way-to-display-and.webp'], ['Antique mirror panels, kitchen', 'mashpee-area-hero.webp']],
+        shots: [['Framed vanity mirror, marble bath', 'framed-vanity-mirror-marble-bath.webp'], ['Beveled frame mirror, powder room', 'beveled-frame-mirror-powder-room.webp'], ['Home gym mirror wall', 'gym-studio-walls.webp'], ['Antique mirror panels, kitchen', 'mashpee-area-hero.webp']],
         uses: ['Bathroom vanities', 'Home gyms & studios', 'Closet & wardrobe doors', 'Dining & feature walls', 'Entryways', 'Fitness clubs & salons'],
         typesH: 'Mirror types',
         types: [
@@ -315,7 +315,7 @@ class Component extends DCLogic {
         mounts: [['J-channel & clips', 'Slim bottom channel with top clips. Our most common install.', 'jchannel'], ['Hidden French cleat', 'Floats off the wall with no visible hardware.', 'cleat'], ['Decorative standoffs', 'Polished caps hold the mirror off the wall.', 'standoff'], ['Mastic + safety clips', 'Full-contact adhesive for large gym walls.', 'mastic'], ['Custom frame', 'Wood or metal frame built to your size.', 'frame']],
         finishes: HW, call: ['Rough width × height of the wall or space', 'Outlets, switches or lights in the area', 'A photo or two (you can upload them)'],
         photosH: 'Mirrors we’ve installed', photosLink: 'See all mirror projects',
-        photos: [['Framed double-vanity mirrors', 'Cape Cod', 'black-grid-sliding-shower-door.webp'], ['Floor-to-ceiling mirror wall', 'Cape Cod', 'harwich-area-hero.webp'], ['Frameless mirror over marble vanity', 'Cape Cod', 'glass-railing-home-office.webp'], ['Pivoting chrome-frame mirror', 'Cape Cod', 'black-grid-bypass-shower.webp']],
+        photos: [['Arched brass-framed vanity mirrors', 'Cape Cod', 'arched-brass-framed-vanity-mirrors.webp'], ['Framed beveled mirrors, green marble vanity', 'Residential', 'framed-beveled-mirrors-green-marble-vanity-2.webp'], ['Backlit mirrors, walnut floating vanity', 'Cape Cod', 'backlit-mirrors-walnut-floating-vanity.webp'], ['Frameless double-vanity mirror', 'Cape Cod', 'frameless-double-vanity-mirror.webp'], ['Framed double-vanity mirrors', 'Cape Cod', 'framed-double-vanity-mirrors.webp'], ['Floor-to-ceiling mirror wall', 'Cape Cod', 'harwich-area-hero.webp'], ['Frameless mirror over marble vanity', 'Cape Cod', 'vanity-mirrors.webp'], ['Pivoting chrome-frame mirror', 'Cape Cod', 'pivot-specialty.webp']],
         faqH: 'Mirror questions',
         faqs: [['Can you cut around outlets and light fixtures?', 'Yes. We measure every cutout on site and fabricate the mirror to fit around outlets, switches and sconces.'], ['Are your mirrors safe for a home gym or kids’ room?', 'We anchor every mirror securely for its size and location, and we can talk through safety options for gyms, studios and kids’ rooms.'], ['How long does a custom mirror take?', 'Most mirrors are ready in about 3–4 weeks after the final measure; installation typically takes one to two days.'], ['Can you replace or resize an existing mirror?', 'Yes. We remove old mirrors, including glued-on builder mirrors, and install a new one sized to your updated space.']],
         related: ['shelves', 'shower', 'countertops'], ctaH: 'Have a wall in mind?', ctaP: 'Send a rough size and a photo. We’ll come measure and quote, free.'
@@ -324,7 +324,7 @@ class Component extends DCLogic {
         lede: 'Floating glass shelves cut to your niche or wall, with polished edges and brackets matched to your fixtures.',
         specs: [['Glass types', 'Clear, low-iron, frosted, thick'], ['Edges', 'Flat polish, pencil, bevel'], ['Thickness', '3/8″ · 1/2″'], ['Lead time', 'about 3–4 weeks']],
         note: 'See glass and bracket samples at our Hyannis shop, 270 Communication Way.',
-        shots: [['Lit glass bar shelving', 'bent-glass-screen-marble-fireplace.webp'], ['Floating glass bar shelves', 'why-a-glass-canopy-is-the-perfect-blend-of-style-and.webp'], ['Sea-glass kitchen shelves', 'glass-bar-top-shelves.webp'], ['Glass bar top & shelves', 'lit-glass-bar-shelving.webp']],
+        shots: [['Floating glass bar shelves', 'home-bars.webp'], ['Sea-glass kitchen shelves', 'kitchen-open-shelving.webp'], ['Glass bar top & shelves', 'glass-bar-top-shelves.webp']],
         uses: ['Home bars', 'Kitchen open shelving', 'Bathroom niches', 'Vanities', 'Retail displays', 'Closets'],
         typesH: 'Glass types', types: ['clear', 'lowiron', 'frosted', 'thick'],
         edges: EDGES, mountsH: 'Support options',
@@ -339,14 +339,14 @@ class Component extends DCLogic {
         lede: 'Tempered and laminated glass panels for stairs, decks, balconies and pools, with the mounting system and hardware to suit.',
         specs: [['Glass types', 'Tempered, laminated, low-iron'], ['Mounting', 'Base shoe, standoffs, posts, clamps'], ['Thickness', '1/2″ · 5/8″ · 3/4″'], ['Lead time', '3–4 weeks']],
         note: 'See railing hardware samples at our Hyannis shop, 270 Communication Way.',
-        shots: [['Frameless glass stair railing', 'glass-storefront-installation-guide-for-cape-cod-businesses.webp'], ['Glass pool fence', 'how-to-design-a-stunning-bathroom-with-a-walk-in-shower.webp'], ['Standoff stair & landing railing', 'eastham-area-hero.webp'], ['Glass balcony railings', 'off-cape-3.webp']],
+        shots: [['Beachfront deck glass railing', 'beachfront-deck-glass-railing.webp'], ['Glass balcony railings', 'glass-balcony-railings.webp'], ['Glass pool fence', 'pool-patio.webp'], ['Standoff stair & landing railing', 'standoff-stair-landing-railing.webp']],
         uses: ['Interior stairs', 'Waterfront decks', 'Balconies', 'Lofts', 'Pool fencing', 'Rooftop terraces'],
         typesH: 'Glass types', types: ['tempered', 'laminated', 'lowiron', 'etched'],
         edges: [], mountsH: 'Mounting systems',
         mounts: [['Base shoe', 'Continuous channel for a fully frameless look.', 'shoe'], ['Standoffs', 'Glass held off the edge on stainless pins.', 'standoff'], ['Posts & clamps', 'Glass clamped between posts.', 'post'], ['Top rail', 'Optional wood or metal cap rail.', 'rod']],
         finishes: SS, call: ['Length and height of the run', 'Deck, stair or pool — inside or out', 'A photo of the area'],
         photosH: 'Railings we’ve installed', photosLink: 'See all railing projects',
-        photos: [['Glass deck railing over a pool', 'Cape Cod', 'architectural-glass-railing.webp'], ['Stair railing, black handrail', 'Massachusetts', 'rooftop-glass-railing.webp'], ['Rooftop glass railing', 'Commercial', 'loft-railing-black-top-rail.webp'], ['Loft railing, black top rail', 'Massachusetts', 'frameless-stair-railing.webp']],
+        photos: [['Waterfront glass balcony, standoff posts', 'Cape Cod waterfront', 'waterfront-glass-balcony-standoff-posts-2.webp'], ['Frameless glass pool fence, stainless spigots', 'Cape Cod', 'frameless-glass-pool-fence-stainless-spigots.webp'], ['Ocean-view deck, glass between white posts', 'Cape Cod', 'ocean-view-deck-glass-between-white-posts-2.webp'], ['Lakefront deck, glass with white cap rail', 'Cape Cod', 'lakefront-deck-glass-with-white-cap-rail-2.webp'], ['Glass deck railing over a pool', 'Cape Cod', 'glass-deck-railing-over-a-pool.webp'], ['Stair railing, black handrail', 'Massachusetts', 'stair-railing-black-handrail.webp'], ['Rooftop glass railing', 'Commercial', 'rooftop-glass-railing.webp'], ['Loft railing, black top rail', 'Massachusetts', 'loft-railing-black-top-rail.webp']],
         faqH: 'Glass railing questions',
         faqs: [['Are glass railings safe and up to code?', 'Yes. We use tempered or laminated safety glass and hardware sized for guard loads, installed to meet local building code.'], ['Will salt air damage the hardware?', 'We recommend marine-grade stainless for waterfront homes. A quick rinse a few times a season keeps it looking new.'], ['Can you do glass pool fencing?', 'Yes. Glass pool fencing keeps the area safe without blocking the view.'], ['How long do glass railings take?', 'Typically 3–4 weeks from final measure, since every panel is custom-cut.']],
         related: ['windows', 'canopies', 'shower'], ctaH: 'Ready for a clear view?', ctaP: 'Send the length and a photo. We’ll measure and quote, free.'
@@ -355,14 +355,14 @@ class Component extends DCLogic {
         lede: 'Replacement panes, insulated glass units and custom-shaped glass, made to fit your existing frames.',
         specs: [['Glass types', 'Insulated, Low-E, tempered, laminated'], ['Shapes', 'Rectangles, arches, triangles, custom'], ['Units', 'Single pane or insulated (IGU)'], ['Lead time', '3–4 weeks']],
         note: 'Bring a broken pane or the sash to our Hyannis shop, 270 Communication Way.',
-        shots: [['Waterfront kitchen, floor-to-ceiling glass', 'glass-repair-in-providence-ri.webp'], ['Sunroom windows & skylights', 'custom-glass-sunroom-with-skylights-overlooking-a-cape-cod.webp'], ['Waterfront room, large glass', 'waterfront-room-with-sliding-glass-and-a-frameless-glass.webp'], ['Sliding glass doors', 'orleans-area-hero.webp']],
+        shots: [['Sliding glass doors, waterfront room', 'sliding-door-glass.webp'], ['Waterfront room, large glass', 'picture-floor-to-ceiling.webp'], ['Sunroom windows & skylights', 'skylights-sunroom-roofs.webp']],
         uses: ['Foggy insulated units', 'Broken panes', 'Sunrooms', 'Picture windows', 'Patio doors', 'Storefront windows'],
         typesH: 'Glass types', types: ['igu', 'lowe', 'tempered', 'laminated', 'etched'],
         edges: [], mountsH: 'What we replace',
         mounts: [['Insulated units', 'New sealed units for foggy or failed glass.', 'frameAlu'], ['Single panes', 'Glass for older wood and storm windows.', 'frame'], ['Sliding door glass', 'Replacement panels for patio doors.', 'slide'], ['Custom shapes', 'Arches, triangles and transoms cut to fit.', 'seal']],
         finishes: [], call: ['Width × height of the glass', 'Window type and frame material', 'A photo of the window'],
         photosH: 'Windows we’ve glazed', photosLink: 'See all window projects',
-        photos: [['Retail storefront windows', 'Massachusetts', 'install-mirrors-for-a-touch-of-luxury-in-your-home.webp']],
+        photos: [['Church window glazing, on site', 'Massachusetts', 'church-window-glazing-on-site.webp'], ['Frosted privacy glass, shower window', 'Cape Cod', 'frosted-privacy-glass-shower-window.webp'], ['Interior glass with black grid', 'Chatham, MA', 'interior-glass-with-black-grid.webp'], ['Office window replacement', 'Commercial', 'office-window-replacement.webp']],
         faqH: 'Window glass questions',
         faqs: [['Why is my window foggy between the panes?', 'The seal on the insulated unit has failed. We replace the sealed unit and you keep your existing frame.'], ['Can you replace glass in any window?', 'Most wood, vinyl and aluminum windows, yes. We’ll check on the visit.'], ['What is Low-E glass?', 'Glass with a thin coating that reflects heat, keeping rooms warmer in winter and cooler in summer.'], ['How long does window glass take?', 'Typically 3–4 weeks for insulated units, faster for single panes.']],
         related: ['canopies', 'storefronts', 'railings'], ctaH: 'Foggy or broken glass?', ctaP: 'Send the size and a photo. We’ll measure and quote, free.'
@@ -371,14 +371,14 @@ class Component extends DCLogic {
         lede: 'Storefront glass, aluminum framing and entrance doors for shops, restaurants and offices.',
         specs: [['Glass types', 'Tempered, insulated, Low-E, laminated'], ['Systems', 'Aluminum, point-supported, standoff'], ['Doors', 'Storefront and all-glass entrances'], ['Lead time', '3–4 weeks']],
         note: 'We schedule commercial installs around your business hours.',
-        shots: [['Spider-fitting glass storefront', 'providence-area-hero.webp'], ['Point-supported glass wall & entry', 'brewster-area-hero.webp'], ['Retail storefront windows', 'install-mirrors-for-a-touch-of-luxury-in-your-home.webp'], ['Storefront glass with standoffs', 'rhodeisland-area-hero.webp']],
+        shots: [['Glass-enclosed patio dining room', 'glass-enclosed-patio-dining-room.webp'], ['Retail storefront windows', 'retail-storefront-windows.webp'], ['Point-supported glass wall & entry', 'brewster-area-hero.webp'], ['Storefront glass with standoffs', 'standoff-glass.webp']],
         uses: ['Retail shops', 'Restaurants', 'Offices', 'Fitness clubs', 'Banks', 'Showrooms'],
         typesH: 'Glass types', types: ['tempered', 'igu', 'lowe', 'laminated', 'gray'],
         edges: [], mountsH: 'Storefront systems',
         mounts: [['Aluminum framing', 'Framed glass and doors, the commercial standard.', 'frameAlu'], ['Point-supported', 'Spider fittings for an all-glass look.', 'standoff'], ['Standoff glass', 'Panels mounted on stainless standoffs.', 'clamp'], ['Entrance doors', 'Doors, closers, pivots and pulls.', 'door']],
         finishes: ALU, call: ['Width × height of the openings', 'New install or replacement', 'Photos of the storefront'],
         photosH: 'Storefronts we’ve installed', photosLink: 'See all storefront projects',
-        photos: [['Aluminum entrance doors & transoms', 'Massachusetts', 'glass-storefronts-the-secret-to-modern-inviting-retail.webp'], ['Double entrance doors, retail', 'Massachusetts', 'retail-storefront-windows.webp'], ['Glass entry vestibule, fitness club', 'Commercial', 'glass-wine-room-lounge-bar.webp'], ['Glass entrance canopy', 'Cape Cod', 'wellfleet-area-hero.webp']],
+        photos: [['Frameless glass vestibule partition', 'Commercial', 'frameless-glass-vestibule-partition.webp'], ['Aluminum entrance doors & transoms', 'Massachusetts', 'aluminum-entrance-doors-transoms.webp'], ['Double entrance doors, retail', 'Massachusetts', 'aluminum-storefront-doors.webp'], ['Glass entry vestibule, fitness club', 'Commercial', 'glass-entry-vestibule-fitness-club.webp'], ['Glass entrance canopy', 'Cape Cod', 'wellfleet-area-hero.webp']],
         faqH: 'Storefront questions',
         faqs: [['Can you replace one broken pane?', 'Yes. We measure, board up if needed and replace the pane with matching glass.'], ['Do you work with general contractors?', 'Yes. We work with GCs and property managers on new builds and fit-outs.'], ['Can you match my existing framing?', 'Yes. We match frame profiles and finishes wherever possible.'], ['How long does a storefront take?', 'Typically 3–4 weeks from final measure, depending on the system.']],
         related: ['canopies', 'windows', 'railings'], ctaH: 'Upgrading your storefront?', ctaP: 'Send photos and rough sizes. We’ll visit and quote, free.'
@@ -387,13 +387,13 @@ class Component extends DCLogic {
         lede: 'Glass walls and doors for wine rooms and cellars, with insulated glass, seals and locking hardware.',
         specs: [['Glass types', 'Insulated, low-iron, Low-E, tempered'], ['Doors', 'Hinged or pivot, lockable'], ['Thickness', '1/2″ or insulated'], ['Lead time', '3–4 weeks']],
         note: 'See glass and hardware samples at our Hyannis shop, 270 Communication Way.',
-        shots: [['Glass wine display with pull handles', 'wall-to-wall-vanity-mirror.webp'], ['Glass wine wall, private dining room', 'custom-glass-shower-doors-enclosures-the-complete-guide.webp'], ['Glass wine room & bar top', 'framed-vanity-mirror.webp'], ['Glass wine room & lounge bar', 'are-glass-kitchen-countertops-durable-here-s-what-you-need.webp']],
+        shots: [['Glass wine wall, private dining room', 'glass-wine-walls.webp'], ['Glass wine room & bar top', 'restaurant-wine-rooms.webp'], ['Glass wine closet doors, kitchen', 'glass-wine-closet-doors-kitchen.webp']],
         uses: ['Home wine cellars', 'Dining rooms', 'Under-stair cellars', 'Restaurants', 'Bars', 'Clubs'],
         typesH: 'Glass types', types: ['igu', 'lowiron', 'lowe', 'tempered'],
         edges: [], mountsH: 'Doors & framing',
         mounts: [['Frameless glass walls', 'Clean glass with slim channels.', 'shoe'], ['Hinged glass doors', 'Sealed doors with locking hardware.', 'hinge'], ['Pivot doors', 'Wide doors that swing on a pivot.', 'door'], ['Door seals', 'Sweeps and seals to hold temperature.', 'seal']],
         finishes: HW, call: ['Width × height of the wall or opening', 'Whether the room is cooled', 'A photo of the space'],
-        photosH: '', photosLink: '', photos: [],
+        photosH: 'Wine rooms we’ve built', photosLink: 'See all wine cellar projects', photos: [['Glass wine room, full-height pull handles', 'Commercial', 'glass-wine-room-full-height-pull-handles.webp'], ['Under-stair glass wine cellar', 'Cape Cod', 'under-stair-niche-cellars.webp'], ['Locking glass door, walnut cabinet', 'Hyannis, MA', 'locking-glass-door-walnut-cabinet.webp']],
         faqH: 'Wine cellar questions',
         faqs: [['Will glass keep my wine room cold?', 'Insulated glass and sealed doors help the room hold temperature. We coordinate with your cooling contractor.'], ['Can a wine room door lock?', 'Yes. We offer locking glass door hardware.'], ['Do you do restaurant wine rooms?', 'Yes. We’ve built glass wine rooms for commercial dining spaces.'], ['How long does a wine room take?', 'Typically 3–4 weeks from final measure.']],
         related: ['countertops', 'shelves', 'mirrors'], ctaH: 'Planning a wine room?', ctaP: 'Send the size and a photo. We’ll measure and quote, free.'
@@ -402,14 +402,14 @@ class Component extends DCLogic {
         lede: 'Glass countertops, bar tops and tabletops, templated on site and finished in our shop.',
         specs: [['Glass types', 'Clear, low-iron, back-painted, textured'], ['Edges', 'Flat polish, pencil, bevel'], ['Thickness', '1/4″ – 3/4″+'], ['Lead time', '3–4 weeks']],
         note: 'See glass and edge samples at our Hyannis shop, 270 Communication Way.',
-        shots: [['Glass tabletop on kitchen island', 'wine-cellar-glass-enclosure-ideas-and-costs.webp'], ['Glass tabletop, blue kitchen island', 'frameless-shower-white-subway-tile.webp'], ['Lit glass kitchen island', 'glass-for-stairs-railing-a-sleek-upgrade-for-modern-homes.webp'], ['Art glass kitchen island', 'textured-glass-bar-counter.webp']],
+        shots: [['Lit glass kitchen island top', 'thick-glass-islands.webp'], ['Art glass kitchen island', 'textured-art-glass.webp'], ['Lit glass kitchen island', 'lit-glass-kitchen-island.webp'], ['Glass tabletop, blue kitchen island', 'glass-tabletop-blue-kitchen-island.webp']],
         uses: ['Kitchen islands', 'Bar tops', 'Dining tables', 'Desks', 'Vanities', 'Coffee tables'],
         typesH: 'Glass types', types: ['clear', 'lowiron', 'backpaint', 'textured', 'thick'],
         edges: EDGES, mountsH: 'Install options',
         mounts: [['Table cover', 'Protective glass laid over wood or stone.', 'frame'], ['Full countertop', 'Thick glass as the counter surface.', 'hidden'], ['Raised bar top', 'Glass bar on standoffs or brackets.', 'standoff'], ['Under-lit', 'Glass with lighting below, with your electrician.', 'mastic']],
         finishes: [], call: ['Size and shape (a template or drawing helps)', 'Cutouts for sinks or cooktops', 'A photo of the space'],
         photosH: 'Countertops we’ve installed', photosLink: 'See all countertop projects',
-        photos: [['Curved glass breakfast bar', 'Residential', 'art-glass-island-top.webp'], ['Art glass island top', 'Residential', 'countertops-tabletops.webp'], ['Textured glass bar counter', 'Residential', 'thick-glass-island-top.webp'], ['Glass island with integrated sink', 'Residential', 'lit-glass-kitchen-island.webp']],
+        photos: [['Back-painted aqua glass island', 'Residential', 'back-painted-aqua-glass-island.webp'], ['Back-painted glass desk in a bay window', 'Residential', 'back-painted-glass-desk-in-a-bay-window.webp'], ['Frosted glass reception counter', 'Commercial', 'frosted-glass-reception-counter.webp'], ['Etched wave glass dining table', 'Cape Cod', 'etched-wave-glass-dining-table.webp'], ['Curved glass breakfast bar', 'Residential', 'curved-glass-breakfast-bar.webp'], ['Art glass island top', 'Residential', 'art-glass-island-top.webp'], ['Textured glass bar counter', 'Residential', 'textured-glass-bar-counter.webp'], ['Glass island with integrated sink', 'Residential', 'glass-island-with-integrated-sink.webp']],
         faqH: 'Countertop questions',
         faqs: [['Will a glass counter scratch?', 'Glass is very hard, but grit and ceramics can scratch it. Cutting boards and coasters keep it looking new.'], ['Can you match an odd shape?', 'Yes. We template on site so curves, corners and cutouts fit exactly.'], ['What is back-painted glass?', 'Glass painted on the underside so the color shows through a glossy surface.'], ['How thick should a glass top be?', 'Table covers are usually 1/4″; standalone and bar tops are thicker.']],
         related: ['shelves', 'winecellars', 'mirrors'], ctaH: 'Want a glass top?', ctaP: 'Send a template or photo. We’ll measure and quote, free.'
@@ -418,7 +418,7 @@ class Component extends DCLogic {
         lede: 'Glass screens and guards for fireplaces and fire pits, cut to your opening in heat-rated glass.',
         specs: [['Glass types', 'Tempered, ceramic, low-iron'], ['Styles', 'Freestanding, corner, fixed, fire pit'], ['Thickness', '1/4″ · 3/8″'], ['Lead time', '3–4 weeks']],
         note: 'Bring your fireplace measurements to our Hyannis shop, 270 Communication Way.',
-        shots: [['Glass fireplace surround, stone hearth', 'sandwich-area-hero.webp'], ['Bent-glass screen, marble fireplace', 'truro-area-hero.webp'], ['Corner glass fireplace screen', 'bourne-area-hero.webp'], ['Waterfront glass fire pit', 'chatham-area-hero.webp']],
+        shots: [['Corner glass fireplace screen', 'bourne-area-hero.webp'], ['Bent-glass screen, marble fireplace', 'bent-glass-freestanding.webp'], ['Waterfront glass fire pit', 'chatham-area-hero.webp']],
         uses: ['Wood fireplaces', 'Gas fireplaces', 'Corner fireplaces', 'Outdoor fire pits', 'Living rooms', 'Patios'],
         typesH: 'Glass types', types: ['tempered', 'ceramic', 'lowiron'],
         edges: EDGES, mountsH: 'Screen styles',
@@ -433,14 +433,14 @@ class Component extends DCLogic {
         lede: 'Frameless, semi-frameless and sliding shower glass, cut to your opening and installed by our own team.',
         specs: [['Glass types', 'Clear, low-iron, etched, rain, gray'], ['Styles', 'Hinged, sliding, knee wall, tub'], ['Thickness', '3/8″ · 1/2″'], ['Lead time', '3–4 weeks']],
         note: 'See glass and hardware samples at our Hyannis shop, 270 Communication Way.',
-        shots: [['Marble shower enclosure, full bath', 'frameless-glass-shower-with-marble-look-tile-and-built-in.webp'], ['Frameless shower, white subway tile', 'off-cape.webp'], ['Black grid bypass shower', 'low-iron-glass-hard-water-stains-maintenance-differences.webp'], ['Tub enclosure, satin brass', 'wet-room-waterproofing-membrane-systems-explained.webp']],
+        shots: [['Marble shower, matte black fixtures', 'marble-shower-matte-black-fixtures.webp'], ['Black grid bypass shower', 'black-grid-bypass-shower.webp'], ['Frameless shower, white subway tile', 'frameless-hinged.webp'], ['Tub enclosure, satin brass', 'tub-enclosure.webp']],
         uses: ['Primary baths', 'Guest baths', 'Tub conversions', 'Steam showers', 'Rentals', 'New construction'],
         typesH: 'Glass types', types: ['clear', 'lowiron', 'etched', 'rain', 'gray'],
         edges: [], mountsH: 'Door & panel styles',
         mounts: [['Frameless hinged', 'Heavy glass with minimal hinges.', 'hinge'], ['Sliding / bypass', 'Rolling doors where swing is tight.', 'slide'], ['Fixed panel', 'A single walk-in glass panel.', 'clamp'], ['Tub enclosure', 'Hinged or sliding glass over a tub.', 'frame']],
         finishes: HW, call: ['Width × height of the shower opening', 'Tile finished or still in progress', 'A photo of the space'],
         photosH: 'Showers we’ve installed', photosLink: 'See all shower projects',
-        photos: [['Black grid sliding shower door', 'Portsmouth, RI', 'semi-frameless-vs-framed-shower-doors-which-fits-your-cape.webp'], ['Knee-wall shower, black hardware', 'Centerville, MA', 'glass-wine-room-bar-top.webp'], ['Marble shower with bench & lit niche', 'Cape Cod', 'shower-enclosure.webp'], ['Frameless corner shower, brass hinges', 'Cape Cod', 'why-wall-anchoring-matters-how-much-weight-can-a-wall-stud.webp']],
+        photos: [['Rain glass door & panel', 'Cape Cod', 'rain-glass-door-panel.webp'], ['Glass cut to a sloped ceiling, skylight', 'Cape Cod', 'glass-cut-to-a-sloped-ceiling-skylight.webp'], ['Single door, marble cased opening', 'Cape Cod', 'single-door-marble-cased-opening.webp'], ['Travertine shower, oil-rubbed bronze', 'Cape Cod', 'travertine-shower-oil-rubbed-bronze.webp'], ['Marble door & panel, chrome hinges', 'Cape Cod', 'marble-door-panel-chrome-hinges.webp'], ['Single door, marble & hex floor', 'Cape Cod', 'single-door-marble-hex-floor.webp'], ['Marble door & panel, beadboard bath', 'Cape Cod', 'marble-door-panel-beadboard-bath.webp'], ['Door & panel, matte black hardware', 'Cape Cod', 'door-panel-matte-black-hardware.webp'], ['Frosted door & panel, black hinges', 'Cape Cod', 'frosted-door-panel-black-hinges.webp'], ['Attic door & panel under a skylight', 'Cape Cod', 'attic-door-panel-under-a-skylight.webp'], ['Spray screen on a tiled curb, chrome clamps', 'Cape Cod', 'spray-screen-on-a-tiled-curb-chrome-clamps.webp'], ['Spray screen, pebble floor & sloped ceiling', 'Cape Cod', 'spray-screen-pebble-floor-sloped-ceiling.webp'], ['Black grid sliding shower door', 'Portsmouth, RI', 'black-grid-bypass-shower-2.webp'], ['Knee-wall shower, black hardware', 'Centerville, MA', 'shower-around-a-knee-wall.webp'], ['Marble shower with bench & lit niche', 'Cape Cod', 'marble-shower-lit-niche.webp'], ['Frameless corner shower, brass hinges', 'Cape Cod', 'corner-shower-brass-hinges.webp']],
         faqH: 'Shower glass questions',
         faqs: [['How long does a shower enclosure take?', 'Typically 3–4 weeks from final measure, since every panel is custom-cut.'], ['When should you measure?', 'After tile is finished, so the glass fits the final surfaces.'], ['Frameless or semi-frameless?', 'Frameless uses thicker glass and minimal hardware; semi-frameless adds slim framing and often costs less.'], ['How do I keep the glass clear?', 'Squeegee after each shower. Ask about protective glass coatings.']],
         related: ['mirrors', 'shelves', 'countertops'], ctaH: 'Ready for a new shower?', ctaP: 'Send the size and a photo. We’ll measure and quote, free.'
@@ -449,13 +449,13 @@ class Component extends DCLogic {
         lede: 'Glass canopies, skylights and sunroom roof glass in laminated safety glass, sized for the span and snow load.',
         specs: [['Glass types', 'Laminated, Low-E, frosted, tinted'], ['Supports', 'Rods, brackets, standoffs'], ['Thickness', 'Laminated, per span'], ['Lead time', '3–4 weeks']],
         note: 'We work with your builder on structure and flashing.',
-        shots: [['Glass canopy & walkway', 'falmouth-area-hero.webp'], ['Glass entrance canopy', 'wellfleet-area-hero.webp'], ['Sunroom windows & skylights', 'custom-glass-sunroom-with-skylights-overlooking-a-cape-cod.webp']],
+        shots: [['Glass roof on a timber pergola', 'walkway-canopies.webp'], ['Glass entrance canopy', 'entrance-canopies.webp'], ['Pyramid skylight over a stairwell', 'pyramid-skylight-over-a-stairwell.webp']],
         uses: ['Front entrances', 'Walkways', 'Patios', 'Sunrooms', 'Skylights', 'Commercial entries'],
         typesH: 'Glass types', types: ['laminated', 'lowe', 'frosted', 'gray'],
         edges: [], mountsH: 'Support systems',
         mounts: [['Tension rods', 'Stainless rods hang the glass from the wall.', 'rod'], ['Brackets', 'Wall brackets under the glass.', 'bracket'], ['Standoffs', 'Glass held on stainless point fittings.', 'standoff'], ['Skylight frames', 'Glass set into new or existing frames.', 'frameAlu']],
         finishes: SS, call: ['Width and projection of the canopy', 'Wall material', 'A photo of the entry or roof'],
-        photosH: '', photosLink: '', photos: [],
+        photosH: 'Canopies & skylights we’ve installed', photosLink: 'See all canopy & skylight projects', photos: [['Looking up through a glass pergola roof', 'Residential', 'looking-up-through-a-glass-pergola-roof.webp'], ['Skylight framing the tree canopy', 'Residential', 'skylight-framing-the-tree-canopy.webp'], ['Flat-roof skylight, finished interior', 'Residential', 'flat-roof-skylight-finished-interior.webp'], ['Frosted pyramid skylight', 'Residential', 'frosted-pyramid-skylight.webp']],
         faqH: 'Canopy & skylight questions',
         faqs: [['Is overhead glass safe?', 'We use laminated safety glass overhead, which holds together if it breaks.'], ['Will it hold snow?', 'Glass and supports are sized for the span and expected snow load.'], ['Can you replace skylight glass?', 'Yes, in most cases. We’ll check the frame on the visit.'], ['How long does a canopy take?', 'Typically 3–4 weeks from final measure.']],
         related: ['storefronts', 'windows', 'railings'], ctaH: 'Want shelter and light?', ctaP: 'Send a photo of the entry. We’ll visit and quote, free.'
