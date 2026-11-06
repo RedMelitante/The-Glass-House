@@ -28,9 +28,9 @@ export function blogData(props = {}, state = {}) {
         style: t.id === activeId ? 'color: #0F2433; font-weight: 600; border-left: 2px solid ' + brand : 'color: #4A5C67; border-left: 2px solid transparent'
       })),
       related: [
-        { title: 'Linear Drain vs. Point Drain: Which Is Right for Your Wet Room', cat: 'Shower Enclosure', read: '4 min read', tone: '#DCE7EB', img: '/images/what-does-a-wet-room-add-to-a-remodel-budget.webp' },
-        { title: 'What Does a Wet Room Add to a Remodel Budget?', cat: 'Shower Enclosure', read: '4 min read', tone: '#DCE7EB', img: '/images/wet-room-waterproofing-membrane-systems-explained.webp' },
-        { title: 'Wet Room Waterproofing: Membrane Systems Explained', cat: 'Shower Enclosure', read: '5 min read', tone: '#DCE7EB', img: '/images/shower-enclosure.webp' }
+        { title: 'Linear Drain vs. Point Drain: Which Is Right for Your Wet Room', cat: 'Shower Enclosure', read: '4 min read', tone: '#DCE7EB', img: '/images/sliding-bypass.webp' },
+        { title: 'What Does a Wet Room Add to a Remodel Budget?', cat: 'Shower Enclosure', read: '4 min read', tone: '#DCE7EB', img: '/images/tub-enclosure.webp' },
+        { title: 'Wet Room Waterproofing: Membrane Systems Explained', cat: 'Shower Enclosure', read: '5 min read', tone: '#DCE7EB', img: '/images/marble-shower-lit-niche.webp' }
       ]
     };
   }.call(self);

@@ -132,11 +132,10 @@ pages with `getStaticPaths()` from the data.
 - Home page shows the 3 newest posts.
 
 ## 6. Images
-- `public/images/` — all 102 images used in the design, renamed with descriptive file names.
+- `public/images/` — all 370 images used in the design, renamed with descriptive file names.
 - `image-manifest.csv` — each image, a description (use as alt text), and which pages use it.
 - In the design files, every image path already points to `/images/<file>` so they work as-is in Astro's `public/`.
 - Prefer Astro's `<Image>` component (move to `src/assets/` if you want automatic resizing).
-- Known soft photos to replace later: Orleans, Truro, Eastham and Rhode Island area heroes.
 
 ## 7. Forms
 Estimate, Contact and Product Quote forms → wire to the chosen form handler (Netlify Forms, Formspree, or
@@ -145,9 +144,17 @@ the CRM webhook) and redirect to `/thank-you/`.
 ## 8. Things that are placeholders in the design
 - Blog share buttons and blog pagination are visual only — make them work.
 - Design-system sample buttons in `Main.dc.html` are samples, not real links.
+- Draft cards: a service style card whose 4th value is `'draft'` (e.g. shelves → "Bathroom & shower niches")
+  is hidden. Keep it in the data with a `draft: true` flag and filter it out; switch it on once a photo exists.
 
 ## 9. Launch checklist
 - 301 redirects for any old URL whose slug changes.
 - Titles + meta descriptions per page, Open Graph images, `sitemap.xml`, `robots.txt`.
 - LocalBusiness + FAQPage schema (FAQ page and service-page FAQs).
 - Lighthouse 90+ on mobile; all images lazy-loaded below the fold.
+
+## 10. Open items to confirm with the client before launch
+- Phone number: the site uses (508) 685-2770, but one client graphic shows 508-778-8700 — confirm which is right.
+- Brazilian Grill project is labelled Hyannis — confirm the town.
+- Some project photos are labelled "Cape Cod", "Residential" or "Commercial" — swap in the real town where known.
+- Stainless-frame glass entrance canopy (canopies product hero) — confirm it is The Glass House's own project.
